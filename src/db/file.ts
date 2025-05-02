@@ -1,4 +1,5 @@
 import * as fs from "node:fs";
+import path from "node:path";
 import type * as z from "zod";
 
 export class FileDB<
@@ -19,7 +20,15 @@ export class FileDB<
 		try {
 			await fs.promises.access(this.filePath);
 		} catch {
-			await fs.promises.writeFile(this.filePath, JSON.stringify([]));
+			try {
+				// Ensure the directory exists
+				const dir = path.dirname(this.filePath);
+				fs.mkdirSync(dir, { recursive: true });
+				// Create the file
+				fs.writeFileSync(this.filePath, JSON.stringify([]));
+			} catch (error) {
+				console.error("Error writing file:", error);
+			}
 		}
 	}
 
@@ -39,6 +48,13 @@ export class FileDB<
 	async find(filterFn: (record: RecordType) => boolean): Promise<RecordType[]> {
 		const data = await this.readData();
 		return data.filter(filterFn);
+	}
+
+	async findOne(
+		filterFn: (record: RecordType) => boolean,
+	): Promise<RecordType | null> {
+		const data = await this.readData();
+		return data.filter(filterFn)[0];
 	}
 
 	// Update a single record based on a filter function

@@ -11,14 +11,24 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as AdminRouteImport } from './routes/admin/route'
 import { Route as IndexImport } from './routes/index'
+import { Route as RankingIndexImport } from './routes/ranking/index'
 import { Route as AdminIndexImport } from './routes/admin/index'
 import { Route as DemoTanstackQueryImport } from './routes/demo.tanstack-query'
-import { Route as AdminParticipantsImport } from './routes/admin/participants'
+import { Route as AdminParticipantsRouteImport } from './routes/admin/participants/route'
 import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
 import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
+import { Route as AdminParticipantsNewImport } from './routes/admin/participants/new'
+import { Route as AdminParticipantsIdImport } from './routes/admin/participants/$id'
 
 // Create/Update Routes
+
+const AdminRouteRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -26,10 +36,16 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminIndexRoute = AdminIndexImport.update({
-  id: '/admin/',
-  path: '/admin/',
+const RankingIndexRoute = RankingIndexImport.update({
+  id: '/ranking/',
+  path: '/ranking/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const AdminIndexRoute = AdminIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 
 const DemoTanstackQueryRoute = DemoTanstackQueryImport.update({
@@ -38,10 +54,10 @@ const DemoTanstackQueryRoute = DemoTanstackQueryImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminParticipantsRoute = AdminParticipantsImport.update({
-  id: '/admin/participants',
-  path: '/admin/participants',
-  getParentRoute: () => rootRoute,
+const AdminParticipantsRouteRoute = AdminParticipantsRouteImport.update({
+  id: '/participants',
+  path: '/participants',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 
 const DemoStartServerFuncsRoute = DemoStartServerFuncsImport.update({
@@ -56,6 +72,18 @@ const DemoStartApiRequestRoute = DemoStartApiRequestImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AdminParticipantsNewRoute = AdminParticipantsNewImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => AdminParticipantsRouteRoute,
+} as any)
+
+const AdminParticipantsIdRoute = AdminParticipantsIdImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminParticipantsRouteRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -67,12 +95,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/participants': {
       id: '/admin/participants'
-      path: '/admin/participants'
+      path: '/participants'
       fullPath: '/admin/participants'
-      preLoaderRoute: typeof AdminParticipantsImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AdminParticipantsRouteImport
+      parentRoute: typeof AdminRouteImport
     }
     '/demo/tanstack-query': {
       id: '/demo/tanstack-query'
@@ -83,10 +118,31 @@ declare module '@tanstack/react-router' {
     }
     '/admin/': {
       id: '/admin/'
-      path: '/admin'
-      fullPath: '/admin'
+      path: '/'
+      fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexImport
+      parentRoute: typeof AdminRouteImport
+    }
+    '/ranking/': {
+      id: '/ranking/'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingIndexImport
       parentRoute: typeof rootRoute
+    }
+    '/admin/participants/$id': {
+      id: '/admin/participants/$id'
+      path: '/$id'
+      fullPath: '/admin/participants/$id'
+      preLoaderRoute: typeof AdminParticipantsIdImport
+      parentRoute: typeof AdminParticipantsRouteImport
+    }
+    '/admin/participants/new': {
+      id: '/admin/participants/new'
+      path: '/new'
+      fullPath: '/admin/participants/new'
+      preLoaderRoute: typeof AdminParticipantsNewImport
+      parentRoute: typeof AdminParticipantsRouteImport
     }
     '/demo/start/api-request': {
       id: '/demo/start/api-request'
@@ -107,20 +163,57 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
+interface AdminParticipantsRouteRouteChildren {
+  AdminParticipantsIdRoute: typeof AdminParticipantsIdRoute
+  AdminParticipantsNewRoute: typeof AdminParticipantsNewRoute
+}
+
+const AdminParticipantsRouteRouteChildren: AdminParticipantsRouteRouteChildren =
+  {
+    AdminParticipantsIdRoute: AdminParticipantsIdRoute,
+    AdminParticipantsNewRoute: AdminParticipantsNewRoute,
+  }
+
+const AdminParticipantsRouteRouteWithChildren =
+  AdminParticipantsRouteRoute._addFileChildren(
+    AdminParticipantsRouteRouteChildren,
+  )
+
+interface AdminRouteRouteChildren {
+  AdminParticipantsRouteRoute: typeof AdminParticipantsRouteRouteWithChildren
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminParticipantsRouteRoute: AdminParticipantsRouteRouteWithChildren,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin/participants': typeof AdminParticipantsRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/admin': typeof AdminIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/ranking': typeof RankingIndexRoute
+  '/admin/participants/$id': typeof AdminParticipantsIdRoute
+  '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin/participants': typeof AdminParticipantsRoute
+  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/admin': typeof AdminIndexRoute
+  '/ranking': typeof RankingIndexRoute
+  '/admin/participants/$id': typeof AdminParticipantsIdRoute
+  '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
 }
@@ -128,9 +221,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/admin/participants': typeof AdminParticipantsRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/admin/': typeof AdminIndexRoute
+  '/ranking/': typeof RankingIndexRoute
+  '/admin/participants/$id': typeof AdminParticipantsIdRoute
+  '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
 }
@@ -139,9 +236,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/admin/participants'
     | '/demo/tanstack-query'
-    | '/admin'
+    | '/admin/'
+    | '/ranking'
+    | '/admin/participants/$id'
+    | '/admin/participants/new'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
   fileRoutesByTo: FileRoutesByTo
@@ -150,14 +251,21 @@ export interface FileRouteTypes {
     | '/admin/participants'
     | '/demo/tanstack-query'
     | '/admin'
+    | '/ranking'
+    | '/admin/participants/$id'
+    | '/admin/participants/new'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/admin/participants'
     | '/demo/tanstack-query'
     | '/admin/'
+    | '/ranking/'
+    | '/admin/participants/$id'
+    | '/admin/participants/new'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
   fileRoutesById: FileRoutesById
@@ -165,18 +273,18 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminParticipantsRoute: typeof AdminParticipantsRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
-  AdminIndexRoute: typeof AdminIndexRoute
+  RankingIndexRoute: typeof RankingIndexRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminParticipantsRoute: AdminParticipantsRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
-  AdminIndexRoute: AdminIndexRoute,
+  RankingIndexRoute: RankingIndexRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
 }
@@ -192,9 +300,9 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/admin/participants",
+        "/admin",
         "/demo/tanstack-query",
-        "/admin/",
+        "/ranking/",
         "/demo/start/api-request",
         "/demo/start/server-funcs"
       ]
@@ -202,14 +310,38 @@ export const routeTree = rootRoute
     "/": {
       "filePath": "index.tsx"
     },
+    "/admin": {
+      "filePath": "admin/route.tsx",
+      "children": [
+        "/admin/participants",
+        "/admin/"
+      ]
+    },
     "/admin/participants": {
-      "filePath": "admin/participants.tsx"
+      "filePath": "admin/participants/route.tsx",
+      "parent": "/admin",
+      "children": [
+        "/admin/participants/$id",
+        "/admin/participants/new"
+      ]
     },
     "/demo/tanstack-query": {
       "filePath": "demo.tanstack-query.tsx"
     },
     "/admin/": {
-      "filePath": "admin/index.tsx"
+      "filePath": "admin/index.tsx",
+      "parent": "/admin"
+    },
+    "/ranking/": {
+      "filePath": "ranking/index.tsx"
+    },
+    "/admin/participants/$id": {
+      "filePath": "admin/participants/$id.tsx",
+      "parent": "/admin/participants"
+    },
+    "/admin/participants/new": {
+      "filePath": "admin/participants/new.tsx",
+      "parent": "/admin/participants"
     },
     "/demo/start/api-request": {
       "filePath": "demo.start.api-request.tsx"
