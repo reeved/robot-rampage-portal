@@ -1,0 +1,8 @@
+version: "2.1"
+
+services:
+  mongodb:
+    container_name: robot-rampage
+    image: mongo:7.0.2
+    ports:
+      - "27017:27017"

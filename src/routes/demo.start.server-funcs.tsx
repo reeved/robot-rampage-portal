@@ -1,9 +1,9 @@
 import * as fs from "node:fs";
-import { connect } from "@/db/papr";
 import { env } from "@/env";
 import { dbMiddleware } from "@/middleware";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
 
 const filePath = "count.txt";
 
@@ -19,24 +19,20 @@ const getCount = createServerFn({
 	method: "GET",
 })
 	.middleware([dbMiddleware])
-	.handler(async ({ context }) => {
-		// await connect();
-		await context.db.user.insertOne({
-			age: 12,
-			firstName: `${Date.now()}`,
-			lastName: "New dude",
-		});
-		console.log(await context.db.user.countDocuments({}));
+	.handler(async () => {
 		return readCount();
 	});
 
 const updateCount = createServerFn({ method: "POST" })
-	.validator((d: number) => d)
-	// .middleware([dbMiddleware])
+	.validator(z.number())
+	.middleware([dbMiddleware])
 	.handler(async ({ data, context }) => {
-		// const users = await context.db.user.countDocuments({});
-		// console.log("users", users);
 		const count = await readCount();
+		await context.db.participants.insert({
+			id: `${Date.now()}`,
+			name: "Cool",
+			builders: ["TanStack"],
+		});
 		await fs.promises.writeFile(filePath, `${count + data}`);
 	});
 
