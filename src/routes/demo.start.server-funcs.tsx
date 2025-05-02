@@ -1,5 +1,7 @@
 import * as fs from "node:fs";
+import { connect } from "@/db/papr";
 import { env } from "@/env";
+import { dbMiddleware } from "@/middleware";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
@@ -15,13 +17,25 @@ async function readCount() {
 
 const getCount = createServerFn({
 	method: "GET",
-}).handler(() => {
-	return readCount();
-});
+})
+	.middleware([dbMiddleware])
+	.handler(async ({ context }) => {
+		// await connect();
+		await context.db.user.insertOne({
+			age: 12,
+			firstName: `${Date.now()}`,
+			lastName: "New dude",
+		});
+		console.log(await context.db.user.countDocuments({}));
+		return readCount();
+	});
 
 const updateCount = createServerFn({ method: "POST" })
 	.validator((d: number) => d)
-	.handler(async ({ data }) => {
+	// .middleware([dbMiddleware])
+	.handler(async ({ data, context }) => {
+		// const users = await context.db.user.countDocuments({});
+		// console.log("users", users);
 		const count = await readCount();
 		await fs.promises.writeFile(filePath, `${count + data}`);
 	});
