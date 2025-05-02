@@ -1,25 +1,11 @@
 import * as fs from "node:fs";
-import * as z from "zod";
+import type * as z from "zod";
 
-// Define schemas for different entities
-const ParticipantSchema = z.object({
-	id: z.string(),
-	name: z.string(),
-	builders: z.array(z.string()),
-	weight: z.number().optional(),
-});
-
-type A = z.infer<typeof ParticipantSchema>;
-
-const EventSchema = z.object({
-	id: z.string(),
-	name: z.string(),
-	date: z.string(), // ISO date string
-	location: z.string(),
-});
-
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-class FileDB<Schema extends z.ZodObject<any>, RecordType = z.infer<Schema>> {
+export class FileDB<
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	Schema extends z.ZodObject<any>,
+	RecordType = z.infer<Schema>,
+> {
 	private filePath: string;
 	private schema: Schema;
 
@@ -110,10 +96,3 @@ class FileDB<Schema extends z.ZodObject<any>, RecordType = z.infer<Schema>> {
 		return initialLength - filteredData.length;
 	}
 }
-
-// Example usage
-export const participantDB = new FileDB(
-	"./database/participants.txt",
-	ParticipantSchema,
-);
-export const eventDB = new FileDB("./database/events.txt", EventSchema);
