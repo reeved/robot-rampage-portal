@@ -12,6 +12,9 @@ function RouteComponent() {
 				<Button>
 					<Link to="/admin/participants">Participants</Link>
 				</Button>
+				<Button>
+					<Link to="/admin/schedule">Schedules</Link>
+				</Button>
 			</div>
 			<Outlet />
 		</div>

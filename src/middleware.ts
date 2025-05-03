@@ -1,5 +1,5 @@
 import { createMiddleware } from "@tanstack/react-start";
-import { eventDB, participantDB } from "./db";
+import { eventDB, participantDB, scheduleDB } from "./db";
 
 export const dbMiddleware = createMiddleware().server(async ({ next }) => {
 	// Pass the database context to the handler
@@ -8,6 +8,7 @@ export const dbMiddleware = createMiddleware().server(async ({ next }) => {
 			db: {
 				events: eventDB,
 				participants: participantDB,
+				schedule: scheduleDB,
 			},
 		},
 	});

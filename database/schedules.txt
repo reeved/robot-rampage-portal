@@ -1,0 +1,14 @@
+[
+  {
+    "id": "schedule-io3cgdc",
+    "type": "QUALIFYING",
+    "matches": [],
+    "name": "Qualifying Session 1"
+  },
+  {
+    "id": "schedule-1eix716",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 1"
+  }
+]

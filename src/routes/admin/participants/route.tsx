@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { dbMiddleware } from "@/middleware";
-import { Outlet, createFileRoute, useRouter } from "@tanstack/react-router";
+import {
+	Link,
+	Outlet,
+	createFileRoute,
+	useRouter,
+} from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 const getParticipants = createServerFn({
@@ -23,29 +28,26 @@ function RouteComponent() {
 	const addNew = () => router.navigate({ to: "/admin/participants/new" });
 
 	return (
-		<div className="flex h-full flex-1">
-			<div className="w-2/10 border-r-1 border-foreground flex flex-col items-start">
+		<div className="flex h-full flex-1 ">
+			<div className="w-3/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
 				<div className="flex items-center gap-2 justify-between w-full px-4">
 					<h4 className="text-2xl font-bold">Participants</h4>
-					<Button variant="secondary" onClick={addNew}>
+					<Button variant="default" onClick={addNew}>
 						Add new +
 					</Button>
 				</div>
 
 				{participants.map((p) => (
-					<button
-						type="button"
+					<Button
+						asChild
 						key={p.id}
-						onClick={() =>
-							router.navigate({
-								to: "/admin/participants/$id",
-								params: { id: p.id },
-							})
-						}
-						tabIndex={0}
+						variant="secondary"
+						className="px-4 py-4 rounded-sm  self-stretch mx-4"
 					>
-						{p.name}
-					</button>
+						<Link to="/admin/participants/$id" params={{ id: p.id }}>
+							{p.name}
+						</Link>
+					</Button>
 				))}
 			</div>
 			<div className="flex-1">
