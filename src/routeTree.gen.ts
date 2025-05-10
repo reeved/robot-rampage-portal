@@ -13,18 +13,21 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as AdminRouteImport } from './routes/admin/route'
 import { Route as IndexImport } from './routes/index'
+import { Route as ScheduleIndexImport } from './routes/schedule/index'
 import { Route as RankingIndexImport } from './routes/ranking/index'
 import { Route as BracketIndexImport } from './routes/bracket/index'
 import { Route as AdminIndexImport } from './routes/admin/index'
+import { Route as ScheduleIdImport } from './routes/schedule/$id'
 import { Route as DemoTanstackQueryImport } from './routes/demo.tanstack-query'
 import { Route as AdminCompetitorsImport } from './routes/admin/competitors'
 import { Route as AdminScheduleRouteImport } from './routes/admin/schedule/route'
 import { Route as AdminParticipantsRouteImport } from './routes/admin/participants/route'
 import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
 import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
-import { Route as AdminScheduleIdImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdImport } from './routes/admin/participants/$id'
+import { Route as AdminScheduleIdViewImport } from './routes/admin/schedule/$id.view'
+import { Route as AdminScheduleIdEditImport } from './routes/admin/schedule/$id.edit'
 
 // Create/Update Routes
 
@@ -37,6 +40,12 @@ const AdminRouteRoute = AdminRouteImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ScheduleIndexRoute = ScheduleIndexImport.update({
+  id: '/schedule/',
+  path: '/schedule/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -56,6 +65,12 @@ const AdminIndexRoute = AdminIndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRouteRoute,
+} as any)
+
+const ScheduleIdRoute = ScheduleIdImport.update({
+  id: '/schedule/$id',
+  path: '/schedule/$id',
+  getParentRoute: () => rootRoute,
 } as any)
 
 const DemoTanstackQueryRoute = DemoTanstackQueryImport.update({
@@ -94,12 +109,6 @@ const DemoStartApiRequestRoute = DemoStartApiRequestImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminScheduleIdRoute = AdminScheduleIdImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => AdminScheduleRouteRoute,
-} as any)
-
 const AdminParticipantsNewRoute = AdminParticipantsNewImport.update({
   id: '/new',
   path: '/new',
@@ -110,6 +119,18 @@ const AdminParticipantsIdRoute = AdminParticipantsIdImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => AdminParticipantsRouteRoute,
+} as any)
+
+const AdminScheduleIdViewRoute = AdminScheduleIdViewImport.update({
+  id: '/$id/view',
+  path: '/$id/view',
+  getParentRoute: () => AdminScheduleRouteRoute,
+} as any)
+
+const AdminScheduleIdEditRoute = AdminScheduleIdEditImport.update({
+  id: '/$id/edit',
+  path: '/$id/edit',
+  getParentRoute: () => AdminScheduleRouteRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -158,6 +179,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoTanstackQueryImport
       parentRoute: typeof rootRoute
     }
+    '/schedule/$id': {
+      id: '/schedule/$id'
+      path: '/schedule/$id'
+      fullPath: '/schedule/$id'
+      preLoaderRoute: typeof ScheduleIdImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -179,6 +207,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RankingIndexImport
       parentRoute: typeof rootRoute
     }
+    '/schedule/': {
+      id: '/schedule/'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/participants/$id': {
       id: '/admin/participants/$id'
       path: '/$id'
@@ -193,13 +228,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminParticipantsNewImport
       parentRoute: typeof AdminParticipantsRouteImport
     }
-    '/admin/schedule/$id': {
-      id: '/admin/schedule/$id'
-      path: '/$id'
-      fullPath: '/admin/schedule/$id'
-      preLoaderRoute: typeof AdminScheduleIdImport
-      parentRoute: typeof AdminScheduleRouteImport
-    }
     '/demo/start/api-request': {
       id: '/demo/start/api-request'
       path: '/demo/start/api-request'
@@ -213,6 +241,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/demo/start/server-funcs'
       preLoaderRoute: typeof DemoStartServerFuncsImport
       parentRoute: typeof rootRoute
+    }
+    '/admin/schedule/$id/edit': {
+      id: '/admin/schedule/$id/edit'
+      path: '/$id/edit'
+      fullPath: '/admin/schedule/$id/edit'
+      preLoaderRoute: typeof AdminScheduleIdEditImport
+      parentRoute: typeof AdminScheduleRouteImport
+    }
+    '/admin/schedule/$id/view': {
+      id: '/admin/schedule/$id/view'
+      path: '/$id/view'
+      fullPath: '/admin/schedule/$id/view'
+      preLoaderRoute: typeof AdminScheduleIdViewImport
+      parentRoute: typeof AdminScheduleRouteImport
     }
   }
 }
@@ -236,11 +278,13 @@ const AdminParticipantsRouteRouteWithChildren =
   )
 
 interface AdminScheduleRouteRouteChildren {
-  AdminScheduleIdRoute: typeof AdminScheduleIdRoute
+  AdminScheduleIdEditRoute: typeof AdminScheduleIdEditRoute
+  AdminScheduleIdViewRoute: typeof AdminScheduleIdViewRoute
 }
 
 const AdminScheduleRouteRouteChildren: AdminScheduleRouteRouteChildren = {
-  AdminScheduleIdRoute: AdminScheduleIdRoute,
+  AdminScheduleIdEditRoute: AdminScheduleIdEditRoute,
+  AdminScheduleIdViewRoute: AdminScheduleIdViewRoute,
 }
 
 const AdminScheduleRouteRouteWithChildren =
@@ -271,14 +315,17 @@ export interface FileRoutesByFullPath {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/schedule/$id': typeof ScheduleIdRoute
   '/admin/': typeof AdminIndexRoute
   '/bracket': typeof BracketIndexRoute
   '/ranking': typeof RankingIndexRoute
+  '/schedule': typeof ScheduleIndexRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
-  '/admin/schedule/$id': typeof AdminScheduleIdRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
+  '/admin/schedule/$id/view': typeof AdminScheduleIdViewRoute
 }
 
 export interface FileRoutesByTo {
@@ -287,14 +334,17 @@ export interface FileRoutesByTo {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/schedule/$id': typeof ScheduleIdRoute
   '/admin': typeof AdminIndexRoute
   '/bracket': typeof BracketIndexRoute
   '/ranking': typeof RankingIndexRoute
+  '/schedule': typeof ScheduleIndexRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
-  '/admin/schedule/$id': typeof AdminScheduleIdRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
+  '/admin/schedule/$id/view': typeof AdminScheduleIdViewRoute
 }
 
 export interface FileRoutesById {
@@ -305,14 +355,17 @@ export interface FileRoutesById {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/schedule/$id': typeof ScheduleIdRoute
   '/admin/': typeof AdminIndexRoute
   '/bracket/': typeof BracketIndexRoute
   '/ranking/': typeof RankingIndexRoute
+  '/schedule/': typeof ScheduleIndexRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
-  '/admin/schedule/$id': typeof AdminScheduleIdRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
+  '/admin/schedule/$id/view': typeof AdminScheduleIdViewRoute
 }
 
 export interface FileRouteTypes {
@@ -324,14 +377,17 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
+    | '/schedule/$id'
     | '/admin/'
     | '/bracket'
     | '/ranking'
+    | '/schedule'
     | '/admin/participants/$id'
     | '/admin/participants/new'
-    | '/admin/schedule/$id'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/admin/schedule/$id/edit'
+    | '/admin/schedule/$id/view'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -339,14 +395,17 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
+    | '/schedule/$id'
     | '/admin'
     | '/bracket'
     | '/ranking'
+    | '/schedule'
     | '/admin/participants/$id'
     | '/admin/participants/new'
-    | '/admin/schedule/$id'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/admin/schedule/$id/edit'
+    | '/admin/schedule/$id/view'
   id:
     | '__root__'
     | '/'
@@ -355,14 +414,17 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
+    | '/schedule/$id'
     | '/admin/'
     | '/bracket/'
     | '/ranking/'
+    | '/schedule/'
     | '/admin/participants/$id'
     | '/admin/participants/new'
-    | '/admin/schedule/$id'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/admin/schedule/$id/edit'
+    | '/admin/schedule/$id/view'
   fileRoutesById: FileRoutesById
 }
 
@@ -370,8 +432,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  ScheduleIdRoute: typeof ScheduleIdRoute
   BracketIndexRoute: typeof BracketIndexRoute
   RankingIndexRoute: typeof RankingIndexRoute
+  ScheduleIndexRoute: typeof ScheduleIndexRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
 }
@@ -380,8 +444,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
+  ScheduleIdRoute: ScheduleIdRoute,
   BracketIndexRoute: BracketIndexRoute,
   RankingIndexRoute: RankingIndexRoute,
+  ScheduleIndexRoute: ScheduleIndexRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
 }
@@ -399,8 +465,10 @@ export const routeTree = rootRoute
         "/",
         "/admin",
         "/demo/tanstack-query",
+        "/schedule/$id",
         "/bracket/",
         "/ranking/",
+        "/schedule/",
         "/demo/start/api-request",
         "/demo/start/server-funcs"
       ]
@@ -429,7 +497,8 @@ export const routeTree = rootRoute
       "filePath": "admin/schedule/route.tsx",
       "parent": "/admin",
       "children": [
-        "/admin/schedule/$id"
+        "/admin/schedule/$id/edit",
+        "/admin/schedule/$id/view"
       ]
     },
     "/admin/competitors": {
@@ -438,6 +507,9 @@ export const routeTree = rootRoute
     },
     "/demo/tanstack-query": {
       "filePath": "demo.tanstack-query.tsx"
+    },
+    "/schedule/$id": {
+      "filePath": "schedule/$id.tsx"
     },
     "/admin/": {
       "filePath": "admin/index.tsx",
@@ -449,6 +521,9 @@ export const routeTree = rootRoute
     "/ranking/": {
       "filePath": "ranking/index.tsx"
     },
+    "/schedule/": {
+      "filePath": "schedule/index.tsx"
+    },
     "/admin/participants/$id": {
       "filePath": "admin/participants/$id.tsx",
       "parent": "/admin/participants"
@@ -457,15 +532,19 @@ export const routeTree = rootRoute
       "filePath": "admin/participants/new.tsx",
       "parent": "/admin/participants"
     },
-    "/admin/schedule/$id": {
-      "filePath": "admin/schedule/$id.tsx",
-      "parent": "/admin/schedule"
-    },
     "/demo/start/api-request": {
       "filePath": "demo.start.api-request.tsx"
     },
     "/demo/start/server-funcs": {
       "filePath": "demo.start.server-funcs.tsx"
+    },
+    "/admin/schedule/$id/edit": {
+      "filePath": "admin/schedule/$id.edit.tsx",
+      "parent": "/admin/schedule"
+    },
+    "/admin/schedule/$id/view": {
+      "filePath": "admin/schedule/$id.view.tsx",
+      "parent": "/admin/schedule"
     }
   }
 }

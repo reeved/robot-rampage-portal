@@ -18,6 +18,12 @@ code {
 		monospace;
 }
 
+.fixed-viewport {
+	width: 1920px;
+	height: 1080px;
+	/* transform: scaleX(calc(100vw / 1920)) scaleY(calc(100vh / 1080)); */
+	transform-origin: top left;
+}
 /* :root {
 	--radius: 0.5rem;
 	--background: oklch(1 0 0);

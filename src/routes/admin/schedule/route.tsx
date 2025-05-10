@@ -77,7 +77,7 @@ function RouteComponent() {
 
 	return (
 		<div className="flex h-full flex-1">
-			<div className="w-3/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
+			<div className="w-2/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
 				<div className="flex flex-col items-center gap-2 justify-between w-full px-4">
 					<h4 className="text-2xl font-bold">Schedules</h4>
 					<div className="flex w-full gap-2">
@@ -97,13 +97,13 @@ function RouteComponent() {
 						variant="secondary"
 						className="px-4 py-4 rounded-sm  self-stretch mx-4"
 					>
-						<Link to="/admin/schedule/$id" params={{ id: s.id }}>
+						<Link to="/admin/schedule/$id/view" params={{ id: s.id }}>
 							{s.name}
 						</Link>
 					</Button>
 				))}
 			</div>
-			<div className="flex-1">
+			<div className="flex-1 p-4">
 				<Outlet />
 			</div>
 		</div>

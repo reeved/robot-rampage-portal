@@ -2,7 +2,25 @@
   {
     "id": "schedule-io3cgdc",
     "type": "QUALIFYING",
-    "matches": [],
+    "matches": [
+      {
+        "id": "1746759784044",
+        "name": "Match 1",
+        "participants": [
+          "1746252836296",
+          "1746252844097",
+          "1746200582611"
+        ]
+      },
+      {
+        "id": "1746761097207",
+        "name": "Match 2",
+        "participants": [
+          "1746252836296",
+          "1746252844097"
+        ]
+      }
+    ],
     "name": "Qualifying Session 1"
   },
   {
@@ -10,5 +28,17 @@
     "type": "BRACKET",
     "matches": [],
     "name": "Bracket 1"
+  },
+  {
+    "id": "schedule-3i2rkqd",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 2"
+  },
+  {
+    "id": "schedule-xl49cj8",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 3"
   }
 ]
