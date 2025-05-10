@@ -1,4 +1,5 @@
 import { type Participant, ParticipantSchema } from "@/db";
+import { generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
@@ -11,11 +12,12 @@ const addParticipant = createServerFn({
 	.validator(ParticipantSchema)
 	.handler(async ({ data, context }) => {
 		await context.db.participants.insert({
-			id: Date.now().toString(),
+			id: generateId(),
 			name: data.name,
 			builders: data.builders,
 			weight: data.weight,
-			images: [],
+			videos: data.videos,
+			weapon: data.weapon,
 		});
 		return true;
 	});
@@ -24,7 +26,8 @@ const defaultValues: Participant = {
 	id: "",
 	name: "",
 	builders: "",
-	images: [],
+	videos: "",
+	weapon: "",
 };
 
 export const Route = createFileRoute("/admin/participants/new")({
@@ -32,12 +35,16 @@ export const Route = createFileRoute("/admin/participants/new")({
 });
 
 function RouteComponent() {
+	const navigate = Route.useNavigate();
+
+	const handleSave = (data: Participant) => {
+		addParticipant({ data });
+		return navigate({ to: "/admin/participants" });
+	};
+
 	return (
 		<div key="new">
-			<ParticipantForm
-				defaultValues={defaultValues}
-				onSubmit={(value) => addParticipant({ data: value })}
-			/>
+			<ParticipantForm defaultValues={defaultValues} onSubmit={handleSave} />
 		</div>
 	);
 }

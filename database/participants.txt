@@ -3,21 +3,32 @@
     "id": "1746200582611",
     "name": "sdf",
     "builders": "123",
-    "weight": 34,
-    "images": []
+    "weight": 3,
+    "images": [],
+    "videos": ""
   },
   {
     "id": "1746252836296",
     "name": "Reeve",
     "builders": "sdf",
     "weight": 23,
-    "images": []
+    "images": [],
+    "videos": "",
+    "weapon": "Vertical spinner"
   },
   {
     "id": "1746252844097",
     "name": "Cool guy",
     "builders": "Nice",
     "weight": 12,
+    "images": [],
+    "videos": ""
+  },
+  {
+    "id": "1746875368908",
+    "name": "Reeve2",
+    "builders": "1asdf",
+    "weight": 1,
     "images": []
   }
 ]

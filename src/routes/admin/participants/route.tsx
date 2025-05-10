@@ -30,7 +30,7 @@ function RouteComponent() {
 	return (
 		<div className="flex h-full flex-1 ">
 			<div className="w-3/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
-				<div className="flex items-center gap-2 justify-between w-full px-4">
+				<div className="flex flex-wrap items-center gap-2 justify-between w-full px-4">
 					<h4 className="text-2xl font-bold">Participants</h4>
 					<Button variant="default" onClick={addNew}>
 						Add new +

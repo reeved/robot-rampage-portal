@@ -7,7 +7,8 @@ export const ParticipantSchema = z.object({
 	name: z.string().nonempty("Name is required"),
 	builders: z.string().nonempty("At least one builder name"),
 	weight: z.number().optional(),
-	images: z.array(z.string()),
+	weapon: z.string().optional(),
+	videos: z.string().min(0),
 });
 
 export const EventSchema = z.object({
@@ -15,6 +16,8 @@ export const EventSchema = z.object({
 	name: z.string(),
 	date: z.string(), // ISO date string
 	location: z.string(),
+	upcomingMatchId: z.string().optional(),
+	currentMatchId: z.string().optional(),
 });
 
 export const ScheduleSchema = z.object({

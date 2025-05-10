@@ -1,4 +1,4 @@
-import { ParticipantSchema } from "@/db";
+import { type Participant, ParticipantSchema } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
@@ -15,7 +15,8 @@ const updateParticipant = createServerFn({
 			name: data.data.name,
 			builders: data.data.builders,
 			weight: data.data.weight,
-			images: data.data.images ?? [],
+			weapon: data.data.weapon,
+			videos: data.data.videos.trim() ?? "",
 		});
 		return true;
 	});
@@ -26,7 +27,9 @@ const getParticipant = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.string())
 	.handler(async ({ data: id, context }) => {
-		const participant = await context.db.participants.findOne((p) => p.id === id);
+		const participant = await context.db.participants.findOne(
+			(p) => p.id === id,
+		);
 
 		if (!participant) {
 			throw redirect({ to: "/admin/participants" });
@@ -41,15 +44,16 @@ export const Route = createFileRoute("/admin/participants/$id")({
 
 function RouteComponent() {
 	const data = Route.useLoaderData();
+	const navigate = Route.useNavigate();
+
+	const handleSave = (formData: Participant) => {
+		updateParticipant({ data: { data: formData, id: data.id } });
+		return navigate({ to: "/admin/participants" });
+	};
 
 	return (
 		<div key={data.id}>
-			<ParticipantForm
-				defaultValues={data}
-				onSubmit={(value) =>
-					updateParticipant({ data: { data: value, id: data.id } })
-				}
-			/>
+			<ParticipantForm defaultValues={data} onSubmit={handleSave} />
 		</div>
 	);
 }

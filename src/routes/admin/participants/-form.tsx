@@ -37,7 +37,11 @@ export const ParticipantForm = ({
 						<FormItem>
 							<FormLabel>Name</FormLabel>
 							<FormControl>
-								<Input {...field} placeholder="Enter participant name" />
+								<Input
+									{...field}
+									className="w-[90ch]"
+									placeholder="Enter participant name"
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -53,7 +57,26 @@ export const ParticipantForm = ({
 							<FormControl>
 								<Input
 									{...field}
+									className="w-[90ch]"
 									placeholder="Enter builder names, comma-separated"
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					name="videos"
+					control={form.control}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Videos</FormLabel>
+							<FormControl>
+								<Input
+									{...field}
+									className="w-[90ch]"
+									placeholder="Comma-separated video paths"
 								/>
 							</FormControl>
 							<FormMessage />
@@ -64,6 +87,7 @@ export const ParticipantForm = ({
 				<FormField
 					name="weight"
 					control={form.control}
+					rules={{ required: false }}
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel>Weight</FormLabel>
@@ -79,6 +103,25 @@ export const ParticipantForm = ({
 												: undefined,
 										)
 									}
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					name="weapon"
+					control={form.control}
+					rules={{ required: false }}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Weapon</FormLabel>
+							<FormControl>
+								<Input
+									{...field}
+									className="w-[90ch]"
+									placeholder="Weapon description"
 								/>
 							</FormControl>
 							<FormMessage />
