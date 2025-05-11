@@ -3,7 +3,7 @@
     "id": "part-04xspbq",
     "name": "Bad Blood",
     "builders": "Steve Barker",
-    "videos": "",
+    "videos": "path/to/video1,path/to/video2",
     "weapon": "Vertical Spinner"
   },
   {
@@ -94,7 +94,7 @@
     "id": "part-dx6qvml",
     "name": "Fulcrum",
     "builders": "Jack",
-    "videos": "",
+    "videos": "path/to/video5,path/to/video6",
     "weapon": ""
   }
 ]

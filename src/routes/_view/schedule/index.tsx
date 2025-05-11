@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { dbMiddleware } from "@/middleware";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 const getSchedules = createServerFn({
@@ -11,7 +11,7 @@ const getSchedules = createServerFn({
 		return context.db.schedule.find(() => true);
 	});
 
-export const Route = createFileRoute("/schedule/")({
+export const Route = createFileRoute("/_view/schedule/")({
 	component: RouteComponent,
 	loader: async () => await getSchedules(),
 });
@@ -21,13 +21,11 @@ function RouteComponent() {
 
 	return (
 		<div className="w-full max-w-[1200px] mx-auto p-4">
-			<h1 className="text-3xl font-bold mb-6">Schedules</h1>
-
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 				{schedules.map((schedule) => (
 					<Link
 						key={schedule.id}
-						to={`/schedule/$id`}
+						to={"/schedule/$id"}
 						params={{ id: schedule.id }}
 					>
 						<Card className="hover:bg-muted transition-colors cursor-pointer h-full">
@@ -53,6 +51,7 @@ function RouteComponent() {
 					</p>
 				)}
 			</div>
+			<Outlet />
 		</div>
 	);
 }

@@ -43,8 +43,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 	component: () => (
 		<RootDocument>
-			<Header />
-
 			<Outlet />
 			<TanStackRouterDevtools />
 			<Toaster />

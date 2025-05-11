@@ -18,6 +18,7 @@ export const EventSchema = z.object({
 	// location: z.string(),
 	// upcomingMatchId: z.string().optional(),
 	currentMatchId: z.string().optional(),
+	currentScheduleId: z.string().optional(),
 });
 
 export const MatchSchema = z.object({

@@ -149,8 +149,8 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 					{box.image && (
 						<div
 							className={cn(
-								"bg-white h-30 w-30 rounded-sm absolute",
-								box.id >= 5 ? "-right-34" : "-left-34",
+								"bg-white h-50 w-50 rounded-sm absolute",
+								box.id >= 5 ? "-right-60" : "-left-60",
 							)}
 						/>
 					)}

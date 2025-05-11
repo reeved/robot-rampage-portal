@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Rubik+Mono+One&display=swap");
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -18,12 +19,6 @@ code {
 		monospace;
 }
 
-.fixed-viewport {
-	width: 1920px;
-	height: 1080px;
-	/* transform: scaleX(calc(100vw / 1920)) scaleY(calc(100vh / 1080)); */
-	transform-origin: top left;
-}
 /* :root {
 	--radius: 0.5rem;
 	--background: oklch(1 0 0);
@@ -131,6 +126,9 @@ code {
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+
+	--font-heading: "Dela Gothic One";
+	--font-rubik: "Rubik Mono One";
 }
 
 @layer base {

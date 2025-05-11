@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin")({
@@ -7,6 +8,7 @@ export const Route = createFileRoute("/admin")({
 function RouteComponent() {
 	return (
 		<div className="h-full flex flex-col">
+			<Header />
 			<Outlet />
 		</div>
 	);

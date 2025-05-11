@@ -47,26 +47,15 @@ const boxes: Box[] = [
 	},
 ];
 
-export const Route = createFileRoute("/bracket/")({
+export const Route = createFileRoute("/_view/bracket/")({
 	component: RouteComponent,
 	ssr: false,
 });
 
 function RouteComponent() {
-	const scaleX = window.innerWidth / 1920;
-	const scaleY = window.innerHeight / 1080;
-
 	return (
-		<div
-			className="h-full flex flex-col fixed-viewport"
-			style={{
-				transform: `scale(${scaleX}, ${scaleY})`,
-			}}
-		>
-			<h3>Bracket</h3>
-			<div className="h-full w-full p-20 flex items-center justify-center">
-				<Bracket boxes={boxes} />
-			</div>
+		<div className="h-full w-full flex items-center justify-center">
+			<Bracket boxes={boxes} />
 		</div>
 	);
 }

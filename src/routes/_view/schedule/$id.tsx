@@ -1,10 +1,21 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Participant, Schedule } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { TrophyIcon, UserIcon } from "lucide-react";
 import { z } from "zod";
+import { MatchPreview } from "./-match-preview";
+
+const getParticipantRankings = (
+	schedule: Schedule,
+	participant: Participant[],
+) => {
+	const allMatches = schedule.matches;
+
+	// const participantsWithScores = participant
+};
 
 // Reuse the same server function as admin but without directly importing it
 const getScheduleData = createServerFn({
@@ -15,21 +26,22 @@ const getScheduleData = createServerFn({
 	.handler(async ({ data: id, context }) => {
 		const schedule = await context.db.schedule.findOne((p) => p.id === id);
 		const participants = await context.db.participants.find(() => true);
+		const evt = await context.db.events.findOne((e) => e.id === "may");
 
 		if (!schedule) {
-			throw redirect({ to: "/schedule/" });
+			throw redirect({ to: "/schedule" });
 		}
 
-		return { schedule, participants };
+		return { schedule, participants, currentMatchId: evt?.currentMatchId };
 	});
 
-export const Route = createFileRoute("/schedule/$id")({
+export const Route = createFileRoute("/_view/schedule/$id")({
 	component: RouteComponent,
 	loader: async ({ params }) => getScheduleData({ data: params.id }),
 });
 
 function RouteComponent() {
-	const { schedule, participants } = Route.useLoaderData();
+	const { schedule, participants, currentMatchId } = Route.useLoaderData();
 
 	// Calculate the number of wins for each participant to rank them
 	const participantScores = participants
@@ -47,9 +59,9 @@ function RouteComponent() {
 		.sort((a, b) => b.score - a.score); // Sort by score descending
 
 	return (
-		<div className="w-full max-w-[1200px] mx-auto p-4">
+		<div className="w-8/12 mx-auto p-4 ">
 			<h1 className="text-3xl font-bold mb-6">{schedule.name}</h1>
-			<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<div className="grid grid-cols-1 md:grid-cols-3 gap-20">
 				{/* Left side: Score Tracker */}
 				<div className="md:col-span-1">
 					<Card>
@@ -90,8 +102,16 @@ function RouteComponent() {
 				</div>
 
 				{/* Right side: Schedule */}
-				<div className="md:col-span-2">
-					<Card>
+				<div className="md:col-span-2 gap-y-4 flex flex-col">
+					{schedule.matches.map((match) => (
+						<MatchPreview
+							key={match.id}
+							match={match}
+							participants={participants}
+							currentMatchId={currentMatchId}
+						/>
+					))}
+					{/* <Card>
 						<CardHeader>
 							<CardTitle>Matches</CardTitle>
 						</CardHeader>
@@ -145,7 +165,7 @@ function RouteComponent() {
 								)}
 							</div>
 						</CardContent>
-					</Card>
+					</Card> */}
 				</div>
 			</div>
 		</div>

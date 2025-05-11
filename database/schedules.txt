@@ -10,7 +10,10 @@
           "part-04xspbq",
           "part-dx6qvml"
         ],
-        "winner": {}
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-68vty80",
