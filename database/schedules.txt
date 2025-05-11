@@ -4,44 +4,47 @@
     "type": "QUALIFYING",
     "matches": [
       {
-        "id": "1746759784044",
+        "id": "match-4ww00ht",
         "name": "Match 1",
         "participants": [
-          "1746252836296",
-          "1746252844097"
-        ],
-        "winner": {
-          "id": "1746252836296",
-          "condition": "NS"
-        }
-      },
-      {
-        "id": "1746761097207",
-        "name": "Match 4",
-        "participants": [
-          "1746252844097",
-          "1746875368908"
-        ],
-        "winner": {
-          "id": "1746252836296",
-          "condition": "KO"
-        }
-      },
-      {
-        "id": "",
-        "name": "Match 3",
-        "participants": [
-          "1746252836296",
-          "1746875368908"
+          "part-04xspbq",
+          "part-dx6qvml"
         ],
         "winner": {}
       },
       {
-        "id": "match-pqs0fbq",
+        "id": "match-68vty80",
+        "name": "Match 2",
+        "participants": [
+          "part-aw653qy",
+          "part-fok7byp"
+        ],
+        "winner": {}
+      },
+      {
+        "id": "match-hqiyib6",
+        "name": "Match 3",
+        "participants": [
+          "part-hh5ch23",
+          "part-y3konnp"
+        ],
+        "winner": {}
+      },
+      {
+        "id": "match-2d7m3am",
         "name": "Match 4",
         "participants": [
-          "1746252844097",
-          "1746200582611"
+          "part-fdrxhj5",
+          "part-odwrzot"
+        ],
+        "winner": {}
+      },
+      {
+        "id": "match-fpovir4",
+        "name": "Match 5",
+        "participants": [
+          "part-qpm0bjg",
+          "part-fgfqsq3"
         ],
         "winner": {}
       }

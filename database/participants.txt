@@ -1,97 +1,97 @@
 [
   {
-    "id": "04xspbq",
+    "id": "part-04xspbq",
     "name": "Bad Blood",
     "builders": "Steve Barker",
     "videos": "",
     "weapon": "Vertical Spinner"
   },
   {
-    "id": "aw653qy",
+    "id": "part-aw653qy",
     "name": "Snollygoster",
     "builders": "Mike Barry",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "hh5ch23",
+    "id": "part-hh5ch23",
     "name": "Borris",
     "builders": "-",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "fdrxhj5",
+    "id": "part-fdrxhj5",
     "name": "Inferno Fox",
     "builders": "Tim Sly",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "qpm0bjg",
+    "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "rzeus3u",
+    "id": "part-rzeus3u",
     "name": "Hammertime",
     "builders": "Mitch",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "dllub2q",
+    "id": "part-dllub2q",
     "name": "Mjolnir",
     "builders": "Paul Mumby",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "ul19jgv",
+    "id": "part-ul19jgv",
     "name": "Pretty Scary",
     "builders": "Isaac German",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "uov2lni",
+    "id": "part-uov2lni",
     "name": "Tooth Fairy",
     "builders": "Kerey Watters",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "fgfqsq3",
+    "id": "part-fgfqsq3",
     "name": "Drumroll Pls",
     "builders": "Karan Purohit",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "odwrzot",
+    "id": "part-odwrzot",
     "name": "Chef Woody",
     "builders": "Joseph Connolly",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "y3konnp",
+    "id": "part-y3konnp",
     "name": "OnlyForks",
     "builders": "Ethan Kyle",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "fok7byp",
+    "id": "part-fok7byp",
     "name": "Hodr",
     "builders": "Andrea Mumby",
     "videos": "",
     "weapon": ""
   },
   {
-    "id": "dx6qvml",
+    "id": "part-dx6qvml",
     "name": "Fulcrum",
     "builders": "Jack",
     "videos": "",
