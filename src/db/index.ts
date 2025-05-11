@@ -20,23 +20,23 @@ export const EventSchema = z.object({
 	currentMatchId: z.string().optional(),
 });
 
+export const MatchSchema = z.object({
+	id: z.string(),
+	name: z.string(),
+	participants: z.array(z.string()),
+	winner: z
+		.object({
+			id: z.string(),
+			condition: z.enum(["KO", "JD", "NS"]),
+		})
+		.optional(),
+});
+
 export const ScheduleSchema = z.object({
 	id: z.string(),
 	name: z.string(),
 	type: z.enum(["QUALIFYING", "BRACKET"]),
-	matches: z.array(
-		z.object({
-			id: z.string(),
-			name: z.string(),
-			participants: z.array(z.string()),
-			winner: z
-				.object({
-					id: z.string(),
-					condition: z.enum(["KO", "JD", "NS"]),
-				})
-				.optional(),
-		}),
-	),
+	matches: z.array(MatchSchema),
 });
 
 export type Participant = z.infer<typeof ParticipantSchema>;

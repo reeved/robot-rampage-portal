@@ -23,10 +23,11 @@ import { Route as AdminScheduleRouteImport } from './routes/admin/schedule/route
 import { Route as AdminParticipantsRouteImport } from './routes/admin/participants/route'
 import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
 import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
+import { Route as AdminScheduleIdImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdImport } from './routes/admin/participants/$id'
-import { Route as AdminScheduleIdViewImport } from './routes/admin/schedule/$id.view'
 import { Route as AdminScheduleIdEditImport } from './routes/admin/schedule/$id.edit'
+import { Route as AdminScheduleIdMatchIdImport } from './routes/admin/schedule/$id.$matchId'
 
 // Create/Update Routes
 
@@ -102,6 +103,12 @@ const DemoStartApiRequestRoute = DemoStartApiRequestImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AdminScheduleIdRoute = AdminScheduleIdImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminScheduleRouteRoute,
+} as any)
+
 const AdminParticipantsNewRoute = AdminParticipantsNewImport.update({
   id: '/new',
   path: '/new',
@@ -114,16 +121,16 @@ const AdminParticipantsIdRoute = AdminParticipantsIdImport.update({
   getParentRoute: () => AdminParticipantsRouteRoute,
 } as any)
 
-const AdminScheduleIdViewRoute = AdminScheduleIdViewImport.update({
-  id: '/$id/view',
-  path: '/$id/view',
-  getParentRoute: () => AdminScheduleRouteRoute,
+const AdminScheduleIdEditRoute = AdminScheduleIdEditImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => AdminScheduleIdRoute,
 } as any)
 
-const AdminScheduleIdEditRoute = AdminScheduleIdEditImport.update({
-  id: '/$id/edit',
-  path: '/$id/edit',
-  getParentRoute: () => AdminScheduleRouteRoute,
+const AdminScheduleIdMatchIdRoute = AdminScheduleIdMatchIdImport.update({
+  id: '/$matchId',
+  path: '/$matchId',
+  getParentRoute: () => AdminScheduleIdRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -214,6 +221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminParticipantsNewImport
       parentRoute: typeof AdminParticipantsRouteImport
     }
+    '/admin/schedule/$id': {
+      id: '/admin/schedule/$id'
+      path: '/$id'
+      fullPath: '/admin/schedule/$id'
+      preLoaderRoute: typeof AdminScheduleIdImport
+      parentRoute: typeof AdminScheduleRouteImport
+    }
     '/demo/start/api-request': {
       id: '/demo/start/api-request'
       path: '/demo/start/api-request'
@@ -228,19 +242,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStartServerFuncsImport
       parentRoute: typeof rootRoute
     }
+    '/admin/schedule/$id/$matchId': {
+      id: '/admin/schedule/$id/$matchId'
+      path: '/$matchId'
+      fullPath: '/admin/schedule/$id/$matchId'
+      preLoaderRoute: typeof AdminScheduleIdMatchIdImport
+      parentRoute: typeof AdminScheduleIdImport
+    }
     '/admin/schedule/$id/edit': {
       id: '/admin/schedule/$id/edit'
-      path: '/$id/edit'
+      path: '/edit'
       fullPath: '/admin/schedule/$id/edit'
       preLoaderRoute: typeof AdminScheduleIdEditImport
-      parentRoute: typeof AdminScheduleRouteImport
-    }
-    '/admin/schedule/$id/view': {
-      id: '/admin/schedule/$id/view'
-      path: '/$id/view'
-      fullPath: '/admin/schedule/$id/view'
-      preLoaderRoute: typeof AdminScheduleIdViewImport
-      parentRoute: typeof AdminScheduleRouteImport
+      parentRoute: typeof AdminScheduleIdImport
     }
   }
 }
@@ -263,14 +277,26 @@ const AdminParticipantsRouteRouteWithChildren =
     AdminParticipantsRouteRouteChildren,
   )
 
-interface AdminScheduleRouteRouteChildren {
+interface AdminScheduleIdRouteChildren {
+  AdminScheduleIdMatchIdRoute: typeof AdminScheduleIdMatchIdRoute
   AdminScheduleIdEditRoute: typeof AdminScheduleIdEditRoute
-  AdminScheduleIdViewRoute: typeof AdminScheduleIdViewRoute
+}
+
+const AdminScheduleIdRouteChildren: AdminScheduleIdRouteChildren = {
+  AdminScheduleIdMatchIdRoute: AdminScheduleIdMatchIdRoute,
+  AdminScheduleIdEditRoute: AdminScheduleIdEditRoute,
+}
+
+const AdminScheduleIdRouteWithChildren = AdminScheduleIdRoute._addFileChildren(
+  AdminScheduleIdRouteChildren,
+)
+
+interface AdminScheduleRouteRouteChildren {
+  AdminScheduleIdRoute: typeof AdminScheduleIdRouteWithChildren
 }
 
 const AdminScheduleRouteRouteChildren: AdminScheduleRouteRouteChildren = {
-  AdminScheduleIdEditRoute: AdminScheduleIdEditRoute,
-  AdminScheduleIdViewRoute: AdminScheduleIdViewRoute,
+  AdminScheduleIdRoute: AdminScheduleIdRouteWithChildren,
 }
 
 const AdminScheduleRouteRouteWithChildren =
@@ -305,10 +331,11 @@ export interface FileRoutesByFullPath {
   '/schedule': typeof ScheduleIndexRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
+  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
-  '/admin/schedule/$id/view': typeof AdminScheduleIdViewRoute
 }
 
 export interface FileRoutesByTo {
@@ -324,10 +351,11 @@ export interface FileRoutesByTo {
   '/schedule': typeof ScheduleIndexRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
+  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
-  '/admin/schedule/$id/view': typeof AdminScheduleIdViewRoute
 }
 
 export interface FileRoutesById {
@@ -344,10 +372,11 @@ export interface FileRoutesById {
   '/schedule/': typeof ScheduleIndexRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
+  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
-  '/admin/schedule/$id/view': typeof AdminScheduleIdViewRoute
 }
 
 export interface FileRouteTypes {
@@ -365,10 +394,11 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/admin/participants/$id'
     | '/admin/participants/new'
+    | '/admin/schedule/$id'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/edit'
-    | '/admin/schedule/$id/view'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -383,10 +413,11 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/admin/participants/$id'
     | '/admin/participants/new'
+    | '/admin/schedule/$id'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/edit'
-    | '/admin/schedule/$id/view'
   id:
     | '__root__'
     | '/'
@@ -401,10 +432,11 @@ export interface FileRouteTypes {
     | '/schedule/'
     | '/admin/participants/$id'
     | '/admin/participants/new'
+    | '/admin/schedule/$id'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/edit'
-    | '/admin/schedule/$id/view'
   fileRoutesById: FileRoutesById
 }
 
@@ -476,8 +508,7 @@ export const routeTree = rootRoute
       "filePath": "admin/schedule/route.tsx",
       "parent": "/admin",
       "children": [
-        "/admin/schedule/$id/edit",
-        "/admin/schedule/$id/view"
+        "/admin/schedule/$id"
       ]
     },
     "/admin/competitors": {
@@ -507,19 +538,27 @@ export const routeTree = rootRoute
       "filePath": "admin/participants/new.tsx",
       "parent": "/admin/participants"
     },
+    "/admin/schedule/$id": {
+      "filePath": "admin/schedule/$id.tsx",
+      "parent": "/admin/schedule",
+      "children": [
+        "/admin/schedule/$id/$matchId",
+        "/admin/schedule/$id/edit"
+      ]
+    },
     "/demo/start/api-request": {
       "filePath": "demo.start.api-request.tsx"
     },
     "/demo/start/server-funcs": {
       "filePath": "demo.start.server-funcs.tsx"
     },
+    "/admin/schedule/$id/$matchId": {
+      "filePath": "admin/schedule/$id.$matchId.tsx",
+      "parent": "/admin/schedule/$id"
+    },
     "/admin/schedule/$id/edit": {
       "filePath": "admin/schedule/$id.edit.tsx",
-      "parent": "/admin/schedule"
-    },
-    "/admin/schedule/$id/view": {
-      "filePath": "admin/schedule/$id.view.tsx",
-      "parent": "/admin/schedule"
+      "parent": "/admin/schedule/$id"
     }
   }
 }

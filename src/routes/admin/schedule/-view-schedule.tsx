@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
 import type { Participant, Schedule } from "@/db";
-import { UserIcon } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export const ViewSchedule = ({
 	schedule,
@@ -37,24 +36,30 @@ export const ViewSchedule = ({
 						.filter(Boolean) as Participant[];
 
 					return (
-						<Card key={match.id}>
-							<CardContent className="flex gap-4 pt-4">
-								<p className="text-lg font-bold">{match.name}</p>
-								<div className="flex items-center gap-4">
-									<Badge variant="secondary" className="text-lg">
-										{matchParticipants[0]?.name || "TBD"}
-									</Badge>
-									<p>vs</p>
-									<Badge variant="secondary" className="text-lg">
-										{matchParticipants[1]?.name || "TBD"}
-									</Badge>
-								</div>
-							</CardContent>
-						</Card>
+						<Link
+							key={match.id}
+							to="/admin/schedule/$id/$matchId"
+							params={{ id: schedule.id, matchId: match.id }}
+						>
+							<Card>
+								<CardContent className="flex gap-4 pt-4">
+									<p className="text-lg font-bold">{match.name}</p>
+									<div className="flex items-center gap-4">
+										<Badge variant="secondary" className="text-lg">
+											{matchParticipants[0]?.name || "TBD"}
+										</Badge>
+										<p>vs</p>
+										<Badge variant="secondary" className="text-lg">
+											{matchParticipants[1]?.name || "TBD"}
+										</Badge>
+									</div>
+								</CardContent>
+							</Card>
+						</Link>
 					);
 				})}
 			</div>
-
+			{/*
 			<div className="w-72">
 				<Card>
 					<CardHeader>
@@ -94,7 +99,7 @@ export const ViewSchedule = ({
 						</div>
 					</CardContent>
 				</Card>
-			</div>
+			</div> */}
 		</div>
 	);
 };

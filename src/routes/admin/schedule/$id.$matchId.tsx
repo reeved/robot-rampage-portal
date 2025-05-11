@@ -3,7 +3,7 @@ import { dbMiddleware } from "@/middleware";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getSchedule } from "./$id";
-import { QualifyingForm } from "./-qualifying-form";
+import { QualifyingMatchForm } from "./-qualifying-match-form";
 
 const updateSchedule = createServerFn({
 	method: "POST",
@@ -15,24 +15,37 @@ const updateSchedule = createServerFn({
 		return data;
 	});
 
-export const Route = createFileRoute("/admin/schedule/$id/edit")({
+export const Route = createFileRoute("/admin/schedule/$id/$matchId")({
 	component: RouteComponent,
 	loader: async ({ params }) => getSchedule({ data: params.id }),
 });
 
 function RouteComponent() {
+	const matchId = Route.useParams().matchId;
 	const { schedule, participants } = Route.useLoaderData();
+	const match = schedule.matches.find((match) => match.id === matchId);
 
-	const handleUpdate = (data: Schedule) => {
-		return updateSchedule({ data });
+	const handleUpdate = (data: Schedule["matches"][number]) => {
+		const updatedMatches = schedule.matches.map((match) => {
+			if (match.id === data.id) {
+				return { ...match, ...data };
+			}
+			return match;
+		});
+
+		return updateSchedule({ data: { ...schedule, matches: updatedMatches } });
 	};
 
+	if (!match) {
+		return <div>Match not found</div>;
+	}
+
 	return (
-		<div className="w-full max-w-[1200px] mx-auto">
-			<QualifyingForm
+		<div key={matchId}>
+			<QualifyingMatchForm
 				participants={participants}
 				onSubmit={handleUpdate}
-				defaultValues={schedule}
+				defaultValues={match}
 			/>
 		</div>
 	);

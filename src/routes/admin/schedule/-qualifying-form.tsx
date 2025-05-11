@@ -19,13 +19,7 @@ import {
 } from "@/components/ui/select";
 import { type Participant, type Schedule, ScheduleSchema } from "@/db";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-	CheckCircle2Icon,
-	PlusIcon,
-	Trash2Icon,
-	TrophyIcon,
-	UserIcon,
-} from "lucide-react";
+import { PlusIcon, Trash2Icon, TrophyIcon, UserIcon } from "lucide-react";
 import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 
