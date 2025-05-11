@@ -6,7 +6,7 @@ export const Route = createFileRoute("/overlay")({
 
 function RouteComponent() {
 	return (
-		<div className="h-full w-full bg-red-200">
+		<div className="h-full w-full bg-white">
 			<div className="h-[1080px] w-[1920px] bg-transparent relative box-border">
 				<div className="absolute bottom-10 left-60 right-60 flex">
 					<div className="h-24 flex flex-1 bg-black/70 rounded-l-3xl items-center justify-center font-rubik text-4xl relative">
