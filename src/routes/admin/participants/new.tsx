@@ -1,7 +1,7 @@
 import { type Participant, ParticipantSchema } from "@/db";
 import { generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { ParticipantForm } from "./-form";
 
@@ -36,9 +36,11 @@ export const Route = createFileRoute("/admin/participants/new")({
 
 function RouteComponent() {
 	const navigate = Route.useNavigate();
+	const router = useRouter();
 
 	const handleSave = (data: Participant) => {
 		addParticipant({ data });
+		router.invalidate();
 		return navigate({ to: "/admin/participants" });
 	};
 

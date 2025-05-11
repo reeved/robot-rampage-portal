@@ -5,6 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 import { env } from "./src/env";
 
 const config = defineConfig({
+  // server: {
+  //   watchOptions: {
+  //     ignored: ["database/**"],
+  //   },
+  // },
   tsr: {
     appDirectory: "src",
   },
@@ -15,6 +20,14 @@ const config = defineConfig({
         projects: ["./tsconfig.json"],
       }),
       tailwindcss(),
+      {
+        name: 'ignore-database-updates',
+        handleHotUpdate({ file }) {
+          if (file.includes('database/')) {
+            return []; // prevent reload
+          }
+        },
+      },
     ],
   },
 });

@@ -13,10 +13,10 @@ export const ParticipantSchema = z.object({
 
 export const EventSchema = z.object({
 	id: z.string(),
-	name: z.string(),
-	date: z.string(), // ISO date string
-	location: z.string(),
-	upcomingMatchId: z.string().optional(),
+	// name: z.string(),
+	// date: z.string(), // ISO date string
+	// location: z.string(),
+	// upcomingMatchId: z.string().optional(),
 	currentMatchId: z.string().optional(),
 });
 
@@ -26,8 +26,8 @@ export const MatchSchema = z.object({
 	participants: z.array(z.string()),
 	winner: z
 		.object({
-			id: z.string(),
-			condition: z.enum(["KO", "JD", "NS"]),
+			id: z.string().optional(),
+			condition: z.enum(["KO", "JD", "NS"]).optional(),
 		})
 		.optional(),
 });

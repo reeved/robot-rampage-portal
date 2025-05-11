@@ -8,17 +8,42 @@
         "name": "Match 1",
         "participants": [
           "1746252836296",
-          "1746252844097",
-          "1746200582611"
-        ]
+          "1746252844097"
+        ],
+        "winner": {
+          "id": "1746252836296",
+          "condition": "NS"
+        }
       },
       {
         "id": "1746761097207",
-        "name": "Match 2",
+        "name": "Match 4",
+        "participants": [
+          "1746252844097",
+          "1746875368908"
+        ],
+        "winner": {
+          "id": "1746252836296",
+          "condition": "KO"
+        }
+      },
+      {
+        "id": "",
+        "name": "Match 3",
         "participants": [
           "1746252836296",
-          "1746252844097"
-        ]
+          "1746875368908"
+        ],
+        "winner": {}
+      },
+      {
+        "id": "match-pqs0fbq",
+        "name": "Match 4",
+        "participants": [
+          "1746252844097",
+          "1746200582611"
+        ],
+        "winner": {}
       }
     ],
     "name": "Qualifying Session 1"

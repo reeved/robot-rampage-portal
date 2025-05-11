@@ -1,34 +1,100 @@
 [
   {
-    "id": "1746200582611",
-    "name": "sdf",
-    "builders": "123",
-    "weight": 3,
-    "images": [],
-    "videos": ""
-  },
-  {
-    "id": "1746252836296",
-    "name": "Reeve",
-    "builders": "sdf",
-    "weight": 23,
-    "images": [],
+    "id": "04xspbq",
+    "name": "Bad Blood",
+    "builders": "Steve Barker",
     "videos": "",
-    "weapon": "Vertical spinner"
+    "weapon": "Vertical Spinner"
   },
   {
-    "id": "1746252844097",
-    "name": "Cool guy",
-    "builders": "Nice",
-    "weight": 12,
-    "images": [],
-    "videos": ""
+    "id": "aw653qy",
+    "name": "Snollygoster",
+    "builders": "Mike Barry",
+    "videos": "",
+    "weapon": ""
   },
   {
-    "id": "1746875368908",
-    "name": "Reeve2",
-    "builders": "1asdf",
-    "weight": 1,
-    "images": []
+    "id": "hh5ch23",
+    "name": "Borris",
+    "builders": "-",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "fdrxhj5",
+    "name": "Inferno Fox",
+    "builders": "Tim Sly",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "qpm0bjg",
+    "name": "Black Rose",
+    "builders": "Connor Benton",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "rzeus3u",
+    "name": "Hammertime",
+    "builders": "Mitch",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "dllub2q",
+    "name": "Mjolnir",
+    "builders": "Paul Mumby",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "ul19jgv",
+    "name": "Pretty Scary",
+    "builders": "Isaac German",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "uov2lni",
+    "name": "Tooth Fairy",
+    "builders": "Kerey Watters",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "fgfqsq3",
+    "name": "Drumroll Pls",
+    "builders": "Karan Purohit",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "odwrzot",
+    "name": "Chef Woody",
+    "builders": "Joseph Connolly",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "y3konnp",
+    "name": "OnlyForks",
+    "builders": "Ethan Kyle",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "fok7byp",
+    "name": "Hodr",
+    "builders": "Andrea Mumby",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "dx6qvml",
+    "name": "Fulcrum",
+    "builders": "Jack",
+    "videos": "",
+    "weapon": ""
   }
 ]

@@ -4,8 +4,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getSchedule } from "./$id";
 import { QualifyingMatchForm } from "./-qualifying-match-form";
+import { QueueMatchForm } from "./-queue-match-form";
 
-const updateSchedule = createServerFn({
+export const updateSchedule = createServerFn({
 	method: "POST",
 })
 	.middleware([dbMiddleware])
@@ -21,11 +22,12 @@ export const Route = createFileRoute("/admin/schedule/$id/$matchId")({
 });
 
 function RouteComponent() {
+	const navigate = Route.useNavigate();
 	const matchId = Route.useParams().matchId;
 	const { schedule, participants } = Route.useLoaderData();
 	const match = schedule.matches.find((match) => match.id === matchId);
 
-	const handleUpdate = (data: Schedule["matches"][number]) => {
+	const handleUpdate = async (data: Schedule["matches"][number]) => {
 		const updatedMatches = schedule.matches.map((match) => {
 			if (match.id === data.id) {
 				return { ...match, ...data };
@@ -33,7 +35,8 @@ function RouteComponent() {
 			return match;
 		});
 
-		return updateSchedule({ data: { ...schedule, matches: updatedMatches } });
+		await updateSchedule({ data: { ...schedule, matches: updatedMatches } });
+		return navigate({ to: "/admin/schedule/$id", params: { id: schedule.id } });
 	};
 
 	if (!match) {
@@ -41,12 +44,13 @@ function RouteComponent() {
 	}
 
 	return (
-		<div key={matchId}>
+		<div key={matchId} className="flex flex-col gap-y-6">
 			<QualifyingMatchForm
 				participants={participants}
 				onSubmit={handleUpdate}
 				defaultValues={match}
 			/>
+			<QueueMatchForm match={match} participants={participants} />
 		</div>
 	);
 }

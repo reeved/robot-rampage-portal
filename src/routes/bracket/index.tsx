@@ -49,6 +49,7 @@ const boxes: Box[] = [
 
 export const Route = createFileRoute("/bracket/")({
 	component: RouteComponent,
+	ssr: false,
 });
 
 function RouteComponent() {
