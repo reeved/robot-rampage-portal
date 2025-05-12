@@ -1,23 +1,10 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Participant, Schedule } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { TrophyIcon } from "lucide-react";
 import { z } from "zod";
 import { MatchPreview } from "./-match-preview";
 import { Rankings } from "./-rankings";
-
-const getParticipantRankings = (
-	schedule: Schedule,
-	participant: Participant[],
-) => {
-	const allMatches = schedule.matches;
-
-	// const participantsWithScores = participant
-};
 
 // Reuse the same server function as admin but without directly importing it
 const getScheduleData = createServerFn({

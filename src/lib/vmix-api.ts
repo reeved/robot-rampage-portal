@@ -29,7 +29,7 @@ class VmixApi {
 		}
 	}
 
-	async UpdateListsForMatch(bot1Video: string, bot2Video: string) {
+	async UpdateListsForMatch(bot1Video?: string, bot2Video?: string) {
 		console.log("UPDATING LIST TO", bot1Video, bot2Video);
 		// await this.ListRemoveAll("input1");
 		// await this.ListRemoveAll("input2");

@@ -34,7 +34,10 @@
           "part-hh5ch23",
           "part-y3konnp"
         ],
-        "winner": {}
+        "winner": {
+          "id": "part-y3konnp",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-2d7m3am",

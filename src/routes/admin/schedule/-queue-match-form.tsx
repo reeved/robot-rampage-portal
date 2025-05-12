@@ -14,7 +14,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { type Participant, type Schedule } from "@/db";
+import type { Participant, Schedule } from "@/db";
 import { Vmix } from "@/lib/vmix-api";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,8 +26,8 @@ import { z } from "zod";
 const QueueSchema = z.object({
 	scheduleId: z.string(),
 	matchId: z.string(),
-	bot1Video: z.string(),
-	bot2Video: z.string(),
+	bot1Video: z.string().optional(),
+	bot2Video: z.string().optional(),
 });
 
 type QueueMatchSchema = z.infer<typeof QueueSchema>;
