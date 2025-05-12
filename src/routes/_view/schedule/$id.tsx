@@ -45,13 +45,12 @@ const scheduleQuery = (id: string) =>
 
 export const Route = createFileRoute("/_view/schedule/$id")({
 	component: RouteComponent,
-	loader: async ({ params }) => getScheduleData({ data: params.id }),
+	loader: async ({ params, context }) =>
+		context.queryClient.ensureQueryData(scheduleQuery(params.id)),
 });
 
 function RouteComponent() {
 	const { id } = Route.useParams();
-	// const { schedule, participants, currentMatchId } = Route.useLoaderData();
-
 	const { data } = useQuery(scheduleQuery(id));
 
 	if (!data) {
