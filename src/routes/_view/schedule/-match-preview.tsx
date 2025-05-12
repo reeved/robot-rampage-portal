@@ -44,7 +44,7 @@ export const MatchPreview = ({
 				</div>
 			</div>
 			{currentMatchId && currentMatchId === match.id && (
-				<div className="absolute bg-primary -right-45 h-11 bottom-0.5 z-2 px-5 flex items-center w-[11ch] justify-center rounded-md font-rubik text-xl">
+				<div className="absolute bg-primary -right-43 h-11 bottom-0.5 z-2 flex items-center w-[9ch] justify-center rounded-md font-rubik text-2xl">
 					UP NEXT
 				</div>
 			)}
