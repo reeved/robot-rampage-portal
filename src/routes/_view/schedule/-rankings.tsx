@@ -94,13 +94,13 @@ export const Rankings = ({ schedules, participants }: Props) => {
 					<span className="text-lg font-extrabold w-[2ch] text-right mr-4">
 						{index + 1}
 					</span>
-					<span className="flex-1 text-2xl font-extrabold">
+					<span className="flex-1 text-2xl font-extrabold uppercase">
 						{participant.name}
 					</span>
 					<span className="font-bold flex gap-2 text-2xl">
-						<span className="text-green-500 rounded-md w-[2ch]">{`${participant.wins}W`}</span>
+						<span className="text-green-500 rounded-md w-[3ch] text-right">{`${participant.wins}W`}</span>
 						<span className="w-[2ch] text-center">|</span>
-						<span className="text-red-500 w-[2ch]">{`${participant.losses}L`}</span>
+						<span className="text-red-500 w-[3ch]">{`${participant.losses}L`}</span>
 					</span>
 				</div>
 			))}

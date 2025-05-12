@@ -18,24 +18,24 @@ export const MatchPreview = ({
 
 	return (
 		<div className="flex items-center relative">
-			<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-2xl font-rubik relative z-30">
+			<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-3xl uppercase relative z-30">
 				<div className="flex flex-1 text-right">
 					<span
 						className={cn(
-							"text-right w-full font-rubik",
+							"text-right w-full font-extrabold",
 							match.winner?.id === bot1.id && "text-amber-400",
 						)}
 					>
 						{bot1.name}
 					</span>
 				</div>
-				<div className="w-[10ch] text-center text-sm text-primary font-rubik">
+				<div className="w-[10ch] text-center text-lg text-primary font-rubik">
 					vs
 				</div>
 				<div className="flex flex-1">
 					<span
 						className={cn(
-							"text-left w-full font-rubik",
+							"text-left w-full font-extrabold",
 							match.winner?.id === bot2.id && "text-amber-400",
 						)}
 					>
