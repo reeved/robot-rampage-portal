@@ -2,9 +2,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Participant, Schedule } from "@/db";
 import { dbMiddleware } from "@/middleware";
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { TrophyIcon, UserIcon } from "lucide-react";
+import { TrophyIcon } from "lucide-react";
 import { z } from "zod";
 import { MatchPreview } from "./-match-preview";
 
@@ -35,13 +36,33 @@ const getScheduleData = createServerFn({
 		return { schedule, participants, currentMatchId: evt?.currentMatchId };
 	});
 
+const scheduleQuery = (id: string) =>
+	queryOptions({
+		queryKey: ["schedules"],
+		queryFn: async () => getScheduleData({ data: id }),
+		refetchInterval: 2000,
+	});
+
 export const Route = createFileRoute("/_view/schedule/$id")({
 	component: RouteComponent,
 	loader: async ({ params }) => getScheduleData({ data: params.id }),
 });
 
 function RouteComponent() {
-	const { schedule, participants, currentMatchId } = Route.useLoaderData();
+	const { id } = Route.useParams();
+	// const { schedule, participants, currentMatchId } = Route.useLoaderData();
+
+	const { data } = useQuery(scheduleQuery(id));
+
+	if (!data) {
+		return (
+			<div className="w-full max-w-[1200px] mx-auto p-4">
+				<p className="text-center text-muted-foreground italic">Loading...</p>
+			</div>
+		);
+	}
+
+	const { schedule, participants, currentMatchId } = data;
 
 	// Calculate the number of wins for each participant to rank them
 	const participantScores = participants

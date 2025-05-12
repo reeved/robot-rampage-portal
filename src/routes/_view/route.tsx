@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_view")({
 function RouteComponent() {
 	return (
 		<div className="h-full w-full bg-neutral-200">
-			<div className="h-[1080px] w-[1920px] bg-background overflow-y-auto">
+			<div className="h-[1080px] w-[1920px] bg-background overflow-y-hidden">
 				<img
 					src="/rr-logo.png"
 					alt="Robot rampage logo"
