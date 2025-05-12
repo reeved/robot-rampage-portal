@@ -60,7 +60,13 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 								</div>
 							)}
 						</div>
-						<div className="h-24 w-[25ch] bg-primary/70" />
+						<div className="h-24 w-[25ch] bg-primary/70 relative">
+							<img
+								src="/rr-logo.png"
+								alt="Logo"
+								className="h-8 max-w-none bottom-25 -left-15 absolute"
+							/>
+						</div>
 						<div className="h-24 flex flex-1 bg-black/70 rounded-r-3xl items-center justify-center font-rubik text-4xl relative">
 							{participant2 ? participant2.name : ""}
 							{participant2 && winner?.id === participant2?.id && (
