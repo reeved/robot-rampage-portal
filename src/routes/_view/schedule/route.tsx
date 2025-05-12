@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_view/schedule")({
 function RouteComponent() {
 	return (
 		<div className="w-full h-full">
-			<div className="font-heading mx-auto w-full text-center text-3xl text-primary">
+			<div className="font-heading mx-auto w-full text-center text-4xl text-primary">
 				MATCH SCHEDULE
 			</div>
 

@@ -1,6 +1,6 @@
 import { Schedule, ScheduleSchema } from "@/db";
 import { dbMiddleware } from "@/middleware";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getSchedule } from "./$id";
 import { QualifyingMatchForm } from "./-qualifying-match-form";
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/admin/schedule/$id/$matchId")({
 });
 
 function RouteComponent() {
+	const router = useRouter();
 	const navigate = Route.useNavigate();
 	const matchId = Route.useParams().matchId;
 	const { schedule, participants } = Route.useLoaderData();
@@ -36,6 +37,7 @@ function RouteComponent() {
 		});
 
 		await updateSchedule({ data: { ...schedule, matches: updatedMatches } });
+		router.invalidate();
 		return navigate({ to: "/admin/schedule/$id", params: { id: schedule.id } });
 	};
 

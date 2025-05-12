@@ -10,7 +10,7 @@
     "id": "part-aw653qy",
     "name": "Snollygoster",
     "builders": "Mike Barry",
-    "videos": "",
+    "videos": "path/to/video3,path/to/video9",
     "weapon": ""
   },
   {
@@ -87,7 +87,7 @@
     "id": "part-fok7byp",
     "name": "Hodr",
     "builders": "Andrea Mumby",
-    "videos": "",
+    "videos": "path/to/video,path/to/video2",
     "weapon": ""
   },
   {

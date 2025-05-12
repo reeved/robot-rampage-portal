@@ -46,7 +46,7 @@ export const QualifyingMatchForm = ({
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="p-6 gap-y-6 flex flex-col items-start w-[340px] bg-zinc-900 rounded-xl shadow-lg"
+				className="p-6 gap-y-6 flex flex-col items-start  w-6/12 bg-zinc-900 rounded-xl shadow-lg"
 			>
 				<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
 

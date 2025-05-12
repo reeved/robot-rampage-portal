@@ -22,7 +22,10 @@
           "part-aw653qy",
           "part-fok7byp"
         ],
-        "winner": {}
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-hqiyib6",
