@@ -20,8 +20,8 @@ import { Route as AdminCompetitorsImport } from './routes/admin/competitors'
 import { Route as AdminScheduleRouteImport } from './routes/admin/schedule/route'
 import { Route as AdminParticipantsRouteImport } from './routes/admin/participants/route'
 import { Route as ViewScheduleRouteImport } from './routes/_view/schedule/route'
+import { Route as ViewStatsIndexImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexImport } from './routes/_view/schedule/index'
-import { Route as ViewRankingIndexImport } from './routes/_view/ranking/index'
 import { Route as ViewBracketIndexImport } from './routes/_view/bracket/index'
 import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
 import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
@@ -88,16 +88,16 @@ const ViewScheduleRouteRoute = ViewScheduleRouteImport.update({
   getParentRoute: () => ViewRouteRoute,
 } as any)
 
+const ViewStatsIndexRoute = ViewStatsIndexImport.update({
+  id: '/stats/',
+  path: '/stats/',
+  getParentRoute: () => ViewRouteRoute,
+} as any)
+
 const ViewScheduleIndexRoute = ViewScheduleIndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ViewScheduleRouteRoute,
-} as any)
-
-const ViewRankingIndexRoute = ViewRankingIndexImport.update({
-  id: '/ranking/',
-  path: '/ranking/',
-  getParentRoute: () => ViewRouteRoute,
 } as any)
 
 const ViewBracketIndexRoute = ViewBracketIndexImport.update({
@@ -276,19 +276,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ViewBracketIndexImport
       parentRoute: typeof ViewRouteImport
     }
-    '/_view/ranking/': {
-      id: '/_view/ranking/'
-      path: '/ranking'
-      fullPath: '/ranking'
-      preLoaderRoute: typeof ViewRankingIndexImport
-      parentRoute: typeof ViewRouteImport
-    }
     '/_view/schedule/': {
       id: '/_view/schedule/'
       path: '/'
       fullPath: '/schedule/'
       preLoaderRoute: typeof ViewScheduleIndexImport
       parentRoute: typeof ViewScheduleRouteImport
+    }
+    '/_view/stats/': {
+      id: '/_view/stats/'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof ViewStatsIndexImport
+      parentRoute: typeof ViewRouteImport
     }
     '/admin/schedule/$id/$matchId': {
       id: '/admin/schedule/$id/$matchId'
@@ -332,13 +332,13 @@ const ViewScheduleRouteRouteWithChildren =
 interface ViewRouteRouteChildren {
   ViewScheduleRouteRoute: typeof ViewScheduleRouteRouteWithChildren
   ViewBracketIndexRoute: typeof ViewBracketIndexRoute
-  ViewRankingIndexRoute: typeof ViewRankingIndexRoute
+  ViewStatsIndexRoute: typeof ViewStatsIndexRoute
 }
 
 const ViewRouteRouteChildren: ViewRouteRouteChildren = {
   ViewScheduleRouteRoute: ViewScheduleRouteRouteWithChildren,
   ViewBracketIndexRoute: ViewBracketIndexRoute,
-  ViewRankingIndexRoute: ViewRankingIndexRoute,
+  ViewStatsIndexRoute: ViewStatsIndexRoute,
 }
 
 const ViewRouteRouteWithChildren = ViewRouteRoute._addFileChildren(
@@ -421,8 +421,8 @@ export interface FileRoutesByFullPath {
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/bracket': typeof ViewBracketIndexRoute
-  '/ranking': typeof ViewRankingIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
+  '/stats': typeof ViewStatsIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -444,8 +444,8 @@ export interface FileRoutesByTo {
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/bracket': typeof ViewBracketIndexRoute
-  '/ranking': typeof ViewRankingIndexRoute
   '/schedule': typeof ViewScheduleIndexRoute
+  '/stats': typeof ViewStatsIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -469,8 +469,8 @@ export interface FileRoutesById {
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/_view/bracket/': typeof ViewBracketIndexRoute
-  '/_view/ranking/': typeof ViewRankingIndexRoute
   '/_view/schedule/': typeof ViewScheduleIndexRoute
+  '/_view/stats/': typeof ViewStatsIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -495,8 +495,8 @@ export interface FileRouteTypes {
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/bracket'
-    | '/ranking'
     | '/schedule/'
+    | '/stats'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/edit'
     | '/admin/schedule/$id/new'
@@ -517,8 +517,8 @@ export interface FileRouteTypes {
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/bracket'
-    | '/ranking'
     | '/schedule'
+    | '/stats'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/edit'
     | '/admin/schedule/$id/new'
@@ -540,8 +540,8 @@ export interface FileRouteTypes {
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/_view/bracket/'
-    | '/_view/ranking/'
     | '/_view/schedule/'
+    | '/_view/stats/'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/edit'
     | '/admin/schedule/$id/new'
@@ -595,7 +595,7 @@ export const routeTree = rootRoute
       "children": [
         "/_view/schedule",
         "/_view/bracket/",
-        "/_view/ranking/"
+        "/_view/stats/"
       ]
     },
     "/admin": {
@@ -670,13 +670,13 @@ export const routeTree = rootRoute
       "filePath": "_view/bracket/index.tsx",
       "parent": "/_view"
     },
-    "/_view/ranking/": {
-      "filePath": "_view/ranking/index.tsx",
-      "parent": "/_view"
-    },
     "/_view/schedule/": {
       "filePath": "_view/schedule/index.tsx",
       "parent": "/_view/schedule"
+    },
+    "/_view/stats/": {
+      "filePath": "_view/stats/index.tsx",
+      "parent": "/_view"
     },
     "/admin/schedule/$id/$matchId": {
       "filePath": "admin/schedule/$id.$matchId.tsx",

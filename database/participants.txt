@@ -3,35 +3,35 @@
     "id": "part-04xspbq",
     "name": "Bad Blood",
     "builders": "Steve Barker",
-    "videos": "path/to/video1,path/to/video2",
+    "videos": "C:\\RRMedia\\Bad_Blood_A.mov,C:\\RRMedia\\Bad_Blood_B.mov",
     "weapon": "Vertical Spinner"
   },
   {
     "id": "part-aw653qy",
     "name": "Snollygoster",
     "builders": "Mike Barry",
-    "videos": "path/to/video3,path/to/video9",
+    "videos": "C:\\RRMedia\\Snollygoster_A.mov",
     "weapon": ""
   },
   {
     "id": "part-hh5ch23",
     "name": "Borris",
     "builders": "-",
-    "videos": "",
+    "videos": "C:\\RRMedia\\Borris_A.mov,C:\\RRMedia\\Borris_B.mov",
     "weapon": ""
   },
   {
     "id": "part-fdrxhj5",
     "name": "Inferno Fox",
     "builders": "Tim Sly",
-    "videos": "",
+    "videos": "C:\\RRMedia\\Inferno_Fox_A.mov,C:\\RRMedia\\Inferno_Fox_B.mov",
     "weapon": ""
   },
   {
     "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
-    "videos": "",
+    "videos": "C:\\RRMedia\\Black_Rose_A.mov,C:\\RRMedia\\Black_Rose_B.mov",
     "weapon": ""
   },
   {
@@ -43,9 +43,9 @@
   },
   {
     "id": "part-dllub2q",
-    "name": "Mjolnir",
+    "name": "Mjölnir",
     "builders": "Paul Mumby",
-    "videos": "",
+    "videos": "C:\\RRMedia\\Mjolnir_A.mov,C:\\RRMedia\\Mjolnir_B.mov",
     "weapon": ""
   },
   {
@@ -95,6 +95,20 @@
     "name": "Fulcrum",
     "builders": "Jack",
     "videos": "path/to/video5,path/to/video6",
+    "weapon": ""
+  },
+  {
+    "id": "7penyzy",
+    "name": "TBD",
+    "builders": "TBD",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "uhunewo",
+    "name": "Angry Bird",
+    "builders": "Tim",
+    "videos": "",
     "weapon": ""
   }
 ]

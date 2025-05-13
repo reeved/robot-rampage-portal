@@ -42,7 +42,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 	component: () => (
 		<RootDocument>
 			<Outlet />
-			<TanStackRouterDevtools />
+			{/* <TanStackRouterDevtools /> */}
 			<Toaster />
 
 			{/* <TanstackQueryLayout /> */}

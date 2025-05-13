@@ -53,16 +53,16 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 				<div className="h-[1080px] w-[1920px] relative box-border">
 					<div className="absolute bottom-10 left-60 right-60 flex">
 						<div className="h-24 flex-1 relative font-rubik text-4xl">
-							<div className="h-full w-full flex bg-black/70 rounded-l-3xl items-center justify-center  z-20 relative">
+							<div className="h-full w-full flex bg-black rounded-l-3xl items-center justify-center  z-20 relative">
 								{participant1 ? participant1.name : ""}
 							</div>
 							{participant1 && winner?.id === participant1?.id && (
-								<div className="absolute bottom-24 left-32 bg-amber-400/70 px-8 py-2 rounded-t-xl animate-slide-up z-10">
+								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 rounded-t-xl animate-slide-up z-10">
 									Win by {winner?.condition}
 								</div>
 							)}
 						</div>
-						<div className="h-24 w-[25ch] bg-primary/70 relative">
+						<div className="h-24 w-[25ch] bg-primary relative">
 							<img
 								src="/rr-logo.png"
 								alt="Logo"
@@ -70,11 +70,11 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 							/>
 						</div>
 						<div className="h-24 flex-1 relative font-rubik text-4xl">
-							<div className="bg-black/70 w-full h-full flex items-center justify-center rounded-r-3xl  z-20 relative">
+							<div className="bg-black w-full h-full flex items-center justify-center rounded-r-3xl  z-20 relative">
 								{participant2 ? participant2.name : ""}
 							</div>
 							{participant2 && winner?.id === participant2?.id && (
-								<div className="absolute bottom-24 left-32 bg-amber-400/70 px-8 py-2 rounded-t-xl animate-slide-up z-10">
+								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 rounded-t-xl animate-slide-up z-10">
 									Win by {winner.condition}
 								</div>
 							)}

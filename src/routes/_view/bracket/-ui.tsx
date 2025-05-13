@@ -131,7 +131,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 	return (
-		<div className="relative h-[650px] p-4 w-[1050px]">
+		<div className="relative h-[650px] p-4 w-[1380px]">
 			{boxes.map((box) => (
 				<div
 					key={box.id}
@@ -154,7 +154,7 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 							)}
 						/>
 					)}
-					<div className="flex-1 bg-primary h-20 w-40 border-2 border-primary rounded-sm shadow-md flex items-center justify-center text-2xl font-bold">
+					<div className="flex-1 bg-primary h-20 w-70 border-2 border-primary shadow-md flex items-center justify-center text-2xl font-bold font-rubik text-center">
 						{box.title}
 					</div>
 				</div>

@@ -10,7 +10,6 @@ export const getSchedule = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.string())
 	.handler(async ({ data: id, context }) => {
-		console.log("getSchedule", id);
 		const schedule = await context.db.schedule.findOne((p) => p.id === id);
 		const participants = await context.db.participants.find(() => true);
 

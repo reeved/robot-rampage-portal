@@ -24,6 +24,9 @@ export const MatchPreview = ({
 						className={cn(
 							"text-right w-full font-extrabold",
 							match.winner?.id === bot1.id && "text-amber-400",
+							match.winner?.id &&
+								match.winner?.id !== bot1.id &&
+								"text-neutral-500",
 						)}
 					>
 						{bot1.name}
@@ -37,6 +40,9 @@ export const MatchPreview = ({
 						className={cn(
 							"text-left w-full font-extrabold",
 							match.winner?.id === bot2.id && "text-amber-400",
+							match.winner?.id &&
+								match.winner?.id !== bot2.id &&
+								"text-neutral-500",
 						)}
 					>
 						{bot2.name}

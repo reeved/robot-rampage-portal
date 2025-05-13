@@ -22,9 +22,6 @@ const getScheduleData = createServerFn({
 			throw redirect({ to: "/schedule" });
 		}
 
-		console.log("allSchedules", allSchedules.length);
-		console.log("schedule", schedule.name);
-
 		return {
 			allSchedules,
 			schedule,
@@ -58,7 +55,6 @@ function RouteComponent() {
 		);
 	}
 
-	console.log("data", data);
 	const { allSchedules, schedule, participants, currentMatchId } = data;
 
 	return (

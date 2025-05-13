@@ -9,9 +9,13 @@ const sortParticipantsByRanking = (
 		{ wins: number; ko: number; losses: number }
 	> = {};
 
+	const filteredParticipants = participants.filter(
+		(participant) => participant.name !== "TBD",
+	);
+
 	// Initialize stats for all participants
 	// biome-ignore lint/complexity/noForEach: <explanation>
-	participants.forEach((participant) => {
+	filteredParticipants.forEach((participant) => {
 		statsByParticipant[participant.id] = { wins: 0, ko: 0, losses: 0 };
 	});
 
@@ -43,7 +47,7 @@ const sortParticipantsByRanking = (
 		}
 	});
 
-	const participantsWithScores = participants.map((participant) => ({
+	const participantsWithScores = filteredParticipants.map((participant) => ({
 		...participant,
 		wins: statsByParticipant[participant.id]?.wins || 0,
 		ko: statsByParticipant[participant.id]?.ko || 0,
@@ -74,7 +78,6 @@ type Props = {
 };
 
 export const Rankings = ({ schedules, participants }: Props) => {
-	console.log("Schedules", schedules);
 	const allCompletedMatches = schedules
 		.flatMap((schedule) => schedule.matches)
 		.filter((match) => !!match.winner?.id);
