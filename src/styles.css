@@ -131,11 +131,44 @@ code {
 	--font-rubik: "Rubik Mono One";
 }
 
+@keyframes slideUp {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+}
+
+@layer utilities {
+	.animate-slide-up {
+		animation: slideUp 0.2s ease-out forwards;
+	}
+
+	.animate-slide-up-slow {
+		animation: slideUp 0.5s ease-out forwards;
+	}
+
+	.animation-delay-100 {
+		animation-delay: 100ms;
+	}
+
+	.animation-delay-200 {
+		animation-delay: 200ms;
+	}
+
+	.animation-delay-300 {
+		animation-delay: 300ms;
 	}
 }
