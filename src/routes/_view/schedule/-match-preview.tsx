@@ -18,8 +18,6 @@ export const MatchPreview = ({
 				participants.find((p) => p.id === bot.id),
 			) as Participant[]);
 
-	console.log({ bot1, bot2 });
-
 	return (
 		<div className="flex items-center relative">
 			<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-3xl uppercase relative z-30">
@@ -27,13 +25,14 @@ export const MatchPreview = ({
 					<span
 						className={cn(
 							"text-right w-full font-extrabold",
-							match.winner?.id === bot1.id && "text-amber-400",
-							match.winner?.id &&
+							bot1 && match.winner?.id === bot1.id && "text-amber-400",
+							bot1 &&
+								match.winner?.id &&
 								match.winner?.id !== bot1.id &&
 								"text-neutral-500",
 						)}
 					>
-						{bot1.name}
+						{bot1?.name ?? "TBD"}
 					</span>
 				</div>
 				<div className="w-[10ch] text-center text-lg text-primary font-rubik">
@@ -43,13 +42,14 @@ export const MatchPreview = ({
 					<span
 						className={cn(
 							"text-left w-full font-extrabold",
-							match.winner?.id === bot2.id && "text-amber-400",
-							match.winner?.id &&
+							bot2 && match.winner?.id === bot2.id && "text-amber-400",
+							bot2 &&
+								match.winner?.id &&
 								match.winner?.id !== bot2.id &&
 								"text-neutral-500",
 						)}
 					>
-						{bot2.name}
+						{bot2?.name ?? "TBD"}
 					</span>
 				</div>
 			</div>
