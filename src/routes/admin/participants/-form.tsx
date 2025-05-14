@@ -85,6 +85,24 @@ export const ParticipantForm = ({
 				/>
 
 				<FormField
+					name="photo"
+					control={form.control}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Photo</FormLabel>
+							<FormControl>
+								<Input
+									{...field}
+									className="w-[90ch]"
+									placeholder="Name of photo for app"
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
 					name="weight"
 					control={form.control}
 					rules={{ required: false }}
@@ -122,6 +140,44 @@ export const ParticipantForm = ({
 									{...field}
 									className="w-[90ch]"
 									placeholder="Weapon description"
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					name="funFact"
+					control={form.control}
+					rules={{ required: false }}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Fun fact</FormLabel>
+							<FormControl>
+								<Input
+									{...field}
+									className="w-[90ch]"
+									placeholder="Something fun about the bot"
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					name="previousRank"
+					control={form.control}
+					rules={{ required: false }}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Rank at last event e.g. (1st Place)</FormLabel>
+							<FormControl>
+								<Input
+									{...field}
+									className="w-[90ch]"
+									placeholder="1st place"
 								/>
 							</FormControl>
 							<FormMessage />

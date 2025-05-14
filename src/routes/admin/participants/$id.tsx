@@ -1,6 +1,6 @@
 import { type Participant, ParticipantSchema } from "@/db";
 import { dbMiddleware } from "@/middleware";
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ParticipantForm } from "./-form";
@@ -17,6 +17,9 @@ const updateParticipant = createServerFn({
 			weight: data.data.weight,
 			weapon: data.data.weapon,
 			videos: data.data.videos.trim() ?? "",
+			photo: data.data.photo,
+			funFact: data.data.funFact,
+			previousRank: data.data.previousRank,
 		});
 		return true;
 	});
@@ -43,11 +46,13 @@ export const Route = createFileRoute("/admin/participants/$id")({
 });
 
 function RouteComponent() {
+	const router = useRouter();
 	const data = Route.useLoaderData();
 	const navigate = Route.useNavigate();
 
 	const handleSave = (formData: Participant) => {
 		updateParticipant({ data: { data: formData, id: data.id } });
+		router.invalidate();
 		return navigate({ to: "/admin/participants" });
 	};
 

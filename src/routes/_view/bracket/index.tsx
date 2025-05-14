@@ -19,7 +19,6 @@ const getBrackets = createServerFn({
 export const Route = createFileRoute("/_view/bracket/")({
 	component: RouteComponent,
 	loader: async () => await getBrackets(),
-	ssr: false,
 });
 
 function RouteComponent() {

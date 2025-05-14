@@ -4,7 +4,9 @@
     "name": "Bad Blood",
     "builders": "Steve Barker",
     "videos": "C:\\RRMedia\\Bad_Blood_A.mov,C:\\RRMedia\\Bad_Blood_B.mov",
-    "weapon": "Vertical Spinner"
+    "weapon": "Vertical Spinner",
+    "previousRank": "1st place",
+    "funFact": "Taylor Swift"
   },
   {
     "id": "part-aw653qy",
