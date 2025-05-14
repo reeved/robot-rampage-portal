@@ -14,7 +14,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import type { Participant, Schedule } from "@/db";
+import type { Match, Participant, Schedule } from "@/db";
 import { Vmix } from "@/lib/vmix-api";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -47,22 +47,34 @@ const queueSelectedMatch = createServerFn({
 		return true;
 	});
 
+export const getBotVideos = (
+	participants: Participant[],
+	matchParticipants: Match["participants"],
+) => {
+	const bot1 = participants.find((p) => p.id === matchParticipants[0]?.id);
+	const bot2 = participants.find((p) => p.id === matchParticipants[1]?.id);
+
+	const bot1Videos = bot1?.videos.split(",").filter(Boolean) ?? [];
+	const bot2Videos = bot2?.videos.split(",").filter(Boolean) ?? [];
+
+	return { bot1Videos, bot2Videos, bot1, bot2 };
+};
+
 type Props = {
 	match: Schedule["matches"][number];
 	participants: Participant[];
 };
 
 export const QueueMatchForm = ({ match, participants }: Props) => {
-	const bot1 = participants.find((p) => p.id === match.participants[0]);
-	const bot2 = participants.find((p) => p.id === match.participants[1]);
-
-	const bot1Videos = bot1?.videos.split(",").filter(Boolean) ?? [];
-	const bot2Videos = bot2?.videos.split(",").filter(Boolean) ?? [];
+	const { bot1Videos, bot2Videos, bot1, bot2 } = getBotVideos(
+		participants,
+		match.participants,
+	);
 
 	const form = useForm<QueueMatchSchema>({
 		defaultValues: {
-			bot1Video: bot1Videos[0],
-			bot2Video: bot2Videos[0],
+			bot1Video: match.participants[0].videoName ?? bot1Videos[0],
+			bot2Video: match.participants[1].videoName ?? bot2Videos[0],
 		},
 		resolver: zodResolver(QueueSchema),
 	});

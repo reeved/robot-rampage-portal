@@ -22,7 +22,7 @@ const getStatsData = createServerFn({
 		}
 
 		const participants = await context.db.participants.find((p) =>
-			currentMatch?.participants.includes(p.id),
+			currentMatch?.participants.some((part) => part.id === p.id),
 		);
 
 		return {

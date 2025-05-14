@@ -19,8 +19,10 @@ const getMatchData = createServerFn({
 			(match) => match.id === currentMatchId,
 		);
 		const participants = await context.db.participants.find(
-			(p) => !!currentMatch?.participants.includes(p.id),
+			(p) => !!currentMatch?.participants.some((part) => part.id === p.id),
 		);
+
+		console.log("PARTICIPANTS", participants);
 
 		return {
 			currentMatch,
@@ -58,7 +60,7 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 							</div>
 							{participant1 && winner?.id === participant1?.id && (
 								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 rounded-t-xl animate-slide-up z-10">
-									Win by {winner?.condition}
+									{winner.condition ? `Win by ${winner.condition}` : "Winner"}
 								</div>
 							)}
 						</div>
@@ -75,7 +77,7 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 							</div>
 							{participant2 && winner?.id === participant2?.id && (
 								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 rounded-t-xl animate-slide-up z-10">
-									Win by {winner.condition}
+									{winner.condition ? `Win by ${winner.condition}` : "Winner"}
 								</div>
 							)}
 						</div>
@@ -112,10 +114,10 @@ function RouteComponent() {
 	}
 
 	const participant1 = participants.find(
-		(p) => p.id === currentMatch?.participants[0],
+		(p) => p.id === currentMatch?.participants[0].id,
 	);
 	const participant2 = participants.find(
-		(p) => p.id === currentMatch?.participants[1],
+		(p) => p.id === currentMatch?.participants[1].id,
 	);
 
 	return (

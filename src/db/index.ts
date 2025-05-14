@@ -9,22 +9,34 @@ export const ParticipantSchema = z.object({
 	weight: z.number().optional(),
 	weapon: z.string().optional(),
 	videos: z.string().min(0),
+	photo: z.string().optional(),
+	funFact: z.string().optional(),
+	previousRank: z.string().optional(),
 });
 
 export const EventSchema = z.object({
 	id: z.string(),
-	// name: z.string(),
-	// date: z.string(), // ISO date string
-	// location: z.string(),
-	// upcomingMatchId: z.string().optional(),
 	currentMatchId: z.string().optional(),
 	currentScheduleId: z.string().optional(),
+	bracketNames: z.array(z.string()),
+	// qualifyingResults: z.record(
+	// 	z.string(),
+	// 	z.object({
+	// 		win: z.string().optional(),
+	// 		loss: z.string().optional(),
+	// 		winsByKo: z.number().optional(),
+	// 		winsByJD: z.number().optional(),
+	// 		winsByNS: z.number().optional(),
+	// 	}),
+	// ),
 });
 
-export const MatchSchema = z.object({
+const sharedMatchSchema = z.object({
 	id: z.string(),
 	name: z.string(),
-	participants: z.array(z.string()),
+	participants: z.array(
+		z.object({ id: z.string().optional(), videoName: z.string().optional() }),
+	),
 	names: z.array(z.string()).optional(),
 	winner: z
 		.object({
@@ -33,6 +45,21 @@ export const MatchSchema = z.object({
 		})
 		.optional(),
 });
+
+export const QualifyingMatchSchema = sharedMatchSchema.extend({
+	type: z.literal("QUALIFYING"),
+});
+
+export const BracketMatchSchema = sharedMatchSchema.extend({
+	type: z.literal("BRACKET"),
+	bracket: z.string(),
+	round: z.enum(["SF1", "SF2", "Final"]),
+});
+
+export const MatchSchema = z.discriminatedUnion("type", [
+	QualifyingMatchSchema,
+	BracketMatchSchema,
+]);
 
 export const ScheduleSchema = z.object({
 	id: z.string(),
@@ -44,6 +71,9 @@ export const ScheduleSchema = z.object({
 export type Participant = z.infer<typeof ParticipantSchema>;
 export type Event = z.infer<typeof EventSchema>;
 export type Schedule = z.infer<typeof ScheduleSchema>;
+export type Match = z.infer<typeof MatchSchema>;
+export type QualifyingMatch = z.infer<typeof QualifyingMatchSchema>;
+export type BracketMatch = z.infer<typeof BracketMatchSchema>;
 
 export const participantDB = new FileDB(
 	"./database/participants.txt",

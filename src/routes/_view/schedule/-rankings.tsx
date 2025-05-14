@@ -36,12 +36,14 @@ const sortParticipantsByRanking = (
 		// Process losers (all participants except the winner)
 		if (match.participants && match.winner) {
 			// biome-ignore lint/complexity/noForEach: <explanation>
-			match.participants.forEach((participantId) => {
+			match.participants.forEach((part) => {
 				if (
-					participantId !== match.winner?.id &&
-					statsByParticipant[participantId]
+					part.id !== match.winner?.id &&
+					// biome-ignore lint/style/noNonNullAssertion: <explanation>
+					statsByParticipant[part.id!]
 				) {
-					statsByParticipant[participantId].losses += 1;
+					// biome-ignore lint/style/noNonNullAssertion: <explanation>
+					statsByParticipant[part.id!].losses += 1;
 				}
 			});
 		}

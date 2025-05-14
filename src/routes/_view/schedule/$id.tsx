@@ -65,7 +65,7 @@ function RouteComponent() {
 					<h2 className="text-3xl font-heading mb-4 text-center text-primary">
 						BOT RANKINGS
 					</h2>
-					<Rankings schedules={allSchedules} participants={participants} />
+					{/* <Rankings schedules={allSchedules} participants={participants} /> */}
 				</div>
 
 				{/* Right side: Schedule */}

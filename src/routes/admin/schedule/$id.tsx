@@ -12,11 +12,14 @@ export const getSchedule = createServerFn({
 	.handler(async ({ data: id, context }) => {
 		const schedule = await context.db.schedule.findOne((p) => p.id === id);
 		const participants = await context.db.participants.find(() => true);
+		const event = await context.db.events.findOne((e) => e.id === "may");
 
-		if (!schedule) {
+		if (!schedule || !event) {
 			throw redirect({ to: "/admin/schedule" });
 		}
-		return { schedule, participants };
+
+		const bracketNames = event.bracketNames;
+		return { schedule, participants, bracketNames };
 	});
 
 export const Route = createFileRoute("/admin/schedule/$id")({
