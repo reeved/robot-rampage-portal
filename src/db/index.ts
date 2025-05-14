@@ -25,6 +25,7 @@ export const MatchSchema = z.object({
 	id: z.string(),
 	name: z.string(),
 	participants: z.array(z.string()),
+	names: z.array(z.string()).optional(),
 	winner: z
 		.object({
 			id: z.string().optional(),

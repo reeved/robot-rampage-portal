@@ -41,8 +41,8 @@ export const Route = createFileRoute("/overlay")({
 });
 
 type Props = {
-	participant1?: Participant;
-	participant2?: Participant;
+	participant1?: Pick<Participant, "name" | "id">;
+	participant2?: Pick<Participant, "name" | "id">;
 	winner?: Schedule["matches"][number]["winner"];
 };
 const Overlay = ({ participant1, participant2, winner }: Props) => {
@@ -94,6 +94,22 @@ function RouteComponent() {
 	}
 
 	const { currentMatch, participants } = data;
+
+	if (currentMatch?.names) {
+		return (
+			<Overlay
+				participant1={{
+					id: currentMatch.names[0],
+					name: currentMatch.names[0],
+				}}
+				participant2={{
+					id: currentMatch.names[1],
+					name: currentMatch.names[1],
+				}}
+				// winner={currentMatch?.winner?.id ? currentMatch.winner : undefined}
+			/>
+		);
+	}
 
 	const participant1 = participants.find(
 		(p) => p.id === currentMatch?.participants[0],

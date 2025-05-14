@@ -1,4 +1,4 @@
-import { Participant, Schedule } from "@/db";
+import type { Participant, Schedule } from "@/db";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -12,9 +12,11 @@ export const MatchPreview = ({
 	participants,
 	currentMatchId,
 }: Props) => {
-	const [bot1, bot2] = match.participants.map((id) =>
-		participants.find((p) => p.id === id),
-	) as Participant[];
+	const [bot1, bot2] = match.names
+		? match.names.map((name) => ({ id: name, name }))
+		: (match.participants.map((id) =>
+				participants.find((p) => p.id === id),
+			) as Participant[]);
 
 	return (
 		<div className="flex items-center relative">

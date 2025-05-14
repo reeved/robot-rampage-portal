@@ -167,6 +167,7 @@
           "7penyzy",
           "7penyzy"
         ],
+        "names": ["TBD1", "TBD2"],
         "winner": {}
       },
       {
