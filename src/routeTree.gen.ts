@@ -30,7 +30,8 @@ import { Route as AdminParticipantsNewImport } from './routes/admin/participants
 import { Route as AdminParticipantsIdImport } from './routes/admin/participants/$id'
 import { Route as ViewScheduleIdImport } from './routes/_view/schedule/$id'
 import { Route as AdminScheduleIdNewbracketImport } from './routes/admin/schedule/$id.newbracket'
-import { Route as AdminScheduleIdEditImport } from './routes/admin/schedule/$id.edit'
+import { Route as AdminScheduleIdNewImport } from './routes/admin/schedule/$id.new'
+import { Route as AdminScheduleIdMatchIdImport } from './routes/admin/schedule/$id.$matchId'
 
 // Create/Update Routes
 
@@ -147,9 +148,15 @@ const AdminScheduleIdNewbracketRoute = AdminScheduleIdNewbracketImport.update({
   getParentRoute: () => AdminScheduleIdRoute,
 } as any)
 
-const AdminScheduleIdEditRoute = AdminScheduleIdEditImport.update({
-  id: '/edit',
-  path: '/edit',
+const AdminScheduleIdNewRoute = AdminScheduleIdNewImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => AdminScheduleIdRoute,
+} as any)
+
+const AdminScheduleIdMatchIdRoute = AdminScheduleIdMatchIdImport.update({
+  id: '/$matchId',
+  path: '/$matchId',
   getParentRoute: () => AdminScheduleIdRoute,
 } as any)
 
@@ -283,11 +290,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ViewStatsIndexImport
       parentRoute: typeof ViewRouteImport
     }
-    '/admin/schedule/$id/edit': {
-      id: '/admin/schedule/$id/edit'
-      path: '/edit'
-      fullPath: '/admin/schedule/$id/edit'
-      preLoaderRoute: typeof AdminScheduleIdEditImport
+    '/admin/schedule/$id/$matchId': {
+      id: '/admin/schedule/$id/$matchId'
+      path: '/$matchId'
+      fullPath: '/admin/schedule/$id/$matchId'
+      preLoaderRoute: typeof AdminScheduleIdMatchIdImport
+      parentRoute: typeof AdminScheduleIdImport
+    }
+    '/admin/schedule/$id/new': {
+      id: '/admin/schedule/$id/new'
+      path: '/new'
+      fullPath: '/admin/schedule/$id/new'
+      preLoaderRoute: typeof AdminScheduleIdNewImport
       parentRoute: typeof AdminScheduleIdImport
     }
     '/admin/schedule/$id/newbracket': {
@@ -348,12 +362,14 @@ const AdminParticipantsRouteRouteWithChildren =
   )
 
 interface AdminScheduleIdRouteChildren {
-  AdminScheduleIdEditRoute: typeof AdminScheduleIdEditRoute
+  AdminScheduleIdMatchIdRoute: typeof AdminScheduleIdMatchIdRoute
+  AdminScheduleIdNewRoute: typeof AdminScheduleIdNewRoute
   AdminScheduleIdNewbracketRoute: typeof AdminScheduleIdNewbracketRoute
 }
 
 const AdminScheduleIdRouteChildren: AdminScheduleIdRouteChildren = {
-  AdminScheduleIdEditRoute: AdminScheduleIdEditRoute,
+  AdminScheduleIdMatchIdRoute: AdminScheduleIdMatchIdRoute,
+  AdminScheduleIdNewRoute: AdminScheduleIdNewRoute,
   AdminScheduleIdNewbracketRoute: AdminScheduleIdNewbracketRoute,
 }
 
@@ -407,7 +423,8 @@ export interface FileRoutesByFullPath {
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
-  '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
+  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
 }
 
@@ -429,7 +446,8 @@ export interface FileRoutesByTo {
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
-  '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
+  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
 }
 
@@ -453,7 +471,8 @@ export interface FileRoutesById {
   '/_view/bracket/': typeof ViewBracketIndexRoute
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
-  '/admin/schedule/$id/edit': typeof AdminScheduleIdEditRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
+  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
 }
 
@@ -478,7 +497,8 @@ export interface FileRouteTypes {
     | '/bracket'
     | '/schedule/'
     | '/stats'
-    | '/admin/schedule/$id/edit'
+    | '/admin/schedule/$id/$matchId'
+    | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -499,7 +519,8 @@ export interface FileRouteTypes {
     | '/bracket'
     | '/schedule'
     | '/stats'
-    | '/admin/schedule/$id/edit'
+    | '/admin/schedule/$id/$matchId'
+    | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
   id:
     | '__root__'
@@ -521,7 +542,8 @@ export interface FileRouteTypes {
     | '/_view/bracket/'
     | '/_view/schedule/'
     | '/_view/stats/'
-    | '/admin/schedule/$id/edit'
+    | '/admin/schedule/$id/$matchId'
+    | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
   fileRoutesById: FileRoutesById
 }
@@ -633,7 +655,8 @@ export const routeTree = rootRoute
       "filePath": "admin/schedule/$id.tsx",
       "parent": "/admin/schedule",
       "children": [
-        "/admin/schedule/$id/edit",
+        "/admin/schedule/$id/$matchId",
+        "/admin/schedule/$id/new",
         "/admin/schedule/$id/newbracket"
       ]
     },
@@ -655,8 +678,12 @@ export const routeTree = rootRoute
       "filePath": "_view/stats/index.tsx",
       "parent": "/_view"
     },
-    "/admin/schedule/$id/edit": {
-      "filePath": "admin/schedule/$id.edit.tsx",
+    "/admin/schedule/$id/$matchId": {
+      "filePath": "admin/schedule/$id.$matchId.tsx",
+      "parent": "/admin/schedule/$id"
+    },
+    "/admin/schedule/$id/new": {
+      "filePath": "admin/schedule/$id.new.tsx",
       "parent": "/admin/schedule/$id"
     },
     "/admin/schedule/$id/newbracket": {

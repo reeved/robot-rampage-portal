@@ -3,9 +3,9 @@ import { generateId } from "@/lib/utils";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { getSchedule } from "./$id";
 import { updateSchedule } from "./$id.$matchId";
-import { BracketMatchForm } from "./-bracket-match-form";
+import { QualifyingMatchForm } from "./-qualifying-match-form";
 
-export const Route = createFileRoute("/admin/schedule/$id/newbracket")({
+export const Route = createFileRoute("/admin/schedule/$id/new")({
 	component: RouteComponent,
 	loader: async ({ params }) => getSchedule({ data: params.id }),
 });
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/admin/schedule/$id/newbracket")({
 function RouteComponent() {
 	const router = useRouter();
 	const navigate = Route.useNavigate();
-	const { schedule, participants, bracketNames } = Route.useLoaderData();
+	const { schedule, participants } = Route.useLoaderData();
 
 	const handleUpdate = async (data: Schedule["matches"][number]) => {
 		const updatedMatches = [
@@ -23,23 +23,19 @@ function RouteComponent() {
 
 		await updateSchedule({ data: { ...schedule, matches: updatedMatches } });
 		router.invalidate();
-
 		return navigate({ to: "/admin/schedule/$id", params: { id: schedule.id } });
 	};
 
 	return (
 		<div>
-			<BracketMatchForm
-				bracketNames={bracketNames}
+			<QualifyingMatchForm
 				participants={participants}
 				onSubmit={handleUpdate}
 				defaultValues={{
 					name: `Match ${schedule.matches.length + 1}`,
 					participants: [],
 					id: "",
-					type: "BRACKET",
-					bracket: "",
-					round: "SF1",
+					type: "QUALIFYING",
 				}}
 			/>
 		</div>
