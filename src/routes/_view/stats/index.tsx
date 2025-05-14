@@ -2,6 +2,7 @@ import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { BotInfo } from "./-bot-card";
 
 const getStatsData = createServerFn({
 	method: "GET",
@@ -54,12 +55,24 @@ function RouteComponent() {
 	const { currentMatch, participants } = data;
 
 	return (
-		<div className="h-full w-full flex flex-col justify-start items-center pt-6">
+		<div className="h-full w-full flex flex-col justify-start items-center p-6 pb-14">
 			<h2 className="mx-auto text-3xl font-heading text-center text-primary uppercase">
 				{currentMatch.name}
 			</h2>
-			<div className="flex-1">
-				<div>{JSON.stringify(participants)}</div>
+			<div className="flex-1 flex gap-80 pt-10 relative">
+				<BotInfo
+					participant={participants[0]}
+					rank={1}
+					stats={{ wins: 2, losses: 3 }}
+				/>
+				<div className="absolute font-heading text-4xl text-primary top-40 left-184">
+					vs
+				</div>
+				<BotInfo
+					participant={participants[1]}
+					rank={3}
+					stats={{ wins: 2, losses: 3 }}
+				/>
 			</div>
 		</div>
 	);

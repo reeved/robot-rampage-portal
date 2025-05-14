@@ -2,7 +2,7 @@
   {
     "id": "part-04xspbq",
     "name": "Bad Blood",
-    "builders": "Steve Barker",
+    "builders": "Steve Barker, Christina Yu",
     "videos": "C:\\RRMedia\\Bad_Blood_A.mov,C:\\RRMedia\\Bad_Blood_B.mov",
     "weapon": "Vertical Spinner",
     "previousRank": "1st place",
