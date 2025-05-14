@@ -29,6 +29,7 @@ import { Route as AdminScheduleIdImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdImport } from './routes/admin/participants/$id'
 import { Route as ViewScheduleIdImport } from './routes/_view/schedule/$id'
+import { Route as ViewBracketIdImport } from './routes/_view/bracket/$id'
 import { Route as AdminScheduleIdNewbracketImport } from './routes/admin/schedule/$id.newbracket'
 import { Route as AdminScheduleIdNewImport } from './routes/admin/schedule/$id.new'
 import { Route as AdminScheduleIdMatchIdImport } from './routes/admin/schedule/$id.$matchId'
@@ -142,6 +143,12 @@ const ViewScheduleIdRoute = ViewScheduleIdImport.update({
   getParentRoute: () => ViewScheduleRouteRoute,
 } as any)
 
+const ViewBracketIdRoute = ViewBracketIdImport.update({
+  id: '/bracket/$id',
+  path: '/bracket/$id',
+  getParentRoute: () => ViewRouteRoute,
+} as any)
+
 const AdminScheduleIdNewbracketRoute = AdminScheduleIdNewbracketImport.update({
   id: '/newbracket',
   path: '/newbracket',
@@ -226,6 +233,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/demo/tanstack-query'
       preLoaderRoute: typeof DemoTanstackQueryImport
       parentRoute: typeof rootRoute
+    }
+    '/_view/bracket/$id': {
+      id: '/_view/bracket/$id'
+      path: '/bracket/$id'
+      fullPath: '/bracket/$id'
+      preLoaderRoute: typeof ViewBracketIdImport
+      parentRoute: typeof ViewRouteImport
     }
     '/_view/schedule/$id': {
       id: '/_view/schedule/$id'
@@ -331,12 +345,14 @@ const ViewScheduleRouteRouteWithChildren =
 
 interface ViewRouteRouteChildren {
   ViewScheduleRouteRoute: typeof ViewScheduleRouteRouteWithChildren
+  ViewBracketIdRoute: typeof ViewBracketIdRoute
   ViewBracketIndexRoute: typeof ViewBracketIndexRoute
   ViewStatsIndexRoute: typeof ViewStatsIndexRoute
 }
 
 const ViewRouteRouteChildren: ViewRouteRouteChildren = {
   ViewScheduleRouteRoute: ViewScheduleRouteRouteWithChildren,
+  ViewBracketIdRoute: ViewBracketIdRoute,
   ViewBracketIndexRoute: ViewBracketIndexRoute,
   ViewStatsIndexRoute: ViewStatsIndexRoute,
 }
@@ -414,6 +430,7 @@ export interface FileRoutesByFullPath {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
@@ -437,6 +454,7 @@ export interface FileRoutesByTo {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
@@ -462,6 +480,7 @@ export interface FileRoutesById {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/_view/bracket/$id': typeof ViewBracketIdRoute
   '/_view/schedule/$id': typeof ViewScheduleIdRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
@@ -488,6 +507,7 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
+    | '/bracket/$id'
     | '/schedule/$id'
     | '/admin/participants/$id'
     | '/admin/participants/new'
@@ -510,6 +530,7 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
+    | '/bracket/$id'
     | '/schedule/$id'
     | '/admin/participants/$id'
     | '/admin/participants/new'
@@ -533,6 +554,7 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
+    | '/_view/bracket/$id'
     | '/_view/schedule/$id'
     | '/admin/participants/$id'
     | '/admin/participants/new'
@@ -594,6 +616,7 @@ export const routeTree = rootRoute
       "filePath": "_view/route.tsx",
       "children": [
         "/_view/schedule",
+        "/_view/bracket/$id",
         "/_view/bracket/",
         "/_view/stats/"
       ]
@@ -638,6 +661,10 @@ export const routeTree = rootRoute
     },
     "/demo/tanstack-query": {
       "filePath": "demo.tanstack-query.tsx"
+    },
+    "/_view/bracket/$id": {
+      "filePath": "_view/bracket/$id.tsx",
+      "parent": "/_view"
     },
     "/_view/schedule/$id": {
       "filePath": "_view/schedule/$id.tsx",

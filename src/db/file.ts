@@ -50,11 +50,12 @@ export class FileDB<
 		return data.filter(filterFn);
 	}
 
-	async findOne(
+	async findOne<T = RecordType>(
 		filterFn: (record: RecordType) => boolean,
-	): Promise<RecordType | null> {
+	): Promise<T | null> {
 		const data = await this.readData();
-		return data.filter(filterFn)[0];
+		const result = data.find(filterFn);
+		return result ? (result as T) : null;
 	}
 
 	// Update a single record based on a filter function

@@ -1,64 +1,49 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { type Box, Bracket } from "./-ui";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { dbMiddleware } from "@/middleware";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 
-const boxes: Box[] = [
-	// Left vertical boxes
-	{
-		id: 1,
-		title: "Tooth fairy",
-		image: "imageUrl",
-		x: 50,
-		y: 50,
-		width: 280,
-		height: 120,
-	},
-	{
-		id: 2,
-		title: "Snollygoster",
-		image: "imageUrl",
-		x: 50,
-		y: 400,
-		width: 280,
-		height: 120,
-	},
+const getBrackets = createServerFn({
+	method: "GET",
+})
+	.middleware([dbMiddleware])
+	.handler(async ({ context }) => {
+		const evt = await context.db.events.findOne((e) => e.id === "may");
+		if (!evt) {
+			throw new Error("Event not found");
+		}
 
-	// Middle horizontal boxes
-	{ id: 3, title: "Robot 1", x: 380, y: 240, width: 280, height: 120 },
-	{ id: 4, title: "Robot 4", x: 700, y: 240, width: 280, height: 120 },
-
-	// Right vertical boxes
-	{
-		id: 5,
-		title: "Robot 3",
-		image: "imageUrl",
-		x: 1030,
-		y: 50,
-		width: 280,
-		height: 120,
-	},
-	{
-		id: 6,
-		title: "Robot 4",
-		image: "imageUrl",
-		x: 1030,
-		y: 400,
-		width: 280,
-		height: 120,
-	},
-];
+		return { bracketNames: evt.bracketNames };
+	});
 
 export const Route = createFileRoute("/_view/bracket/")({
 	component: RouteComponent,
+	loader: async () => await getBrackets(),
 	ssr: false,
 });
 
 function RouteComponent() {
+	const { bracketNames } = Route.useLoaderData();
+
 	return (
-		<div className="h-full w-full flex items-center justify-center">
-			<h2 className="absolute top-28 text-3xl font-heading text-center text-primary">
-				CHAMPIONSHIP BRACKET
-			</h2>
-			<Bracket boxes={boxes} />
+		<div className="w-full max-w-[1200px] mx-auto p-4">
+			<div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+				{bracketNames.map((name) => (
+					<Link key={name} to={"/bracket/$id"} params={{ id: name }}>
+						<Card className="hover:bg-muted transition-colors cursor-pointer h-full">
+							<CardHeader>
+								<CardTitle>{name}</CardTitle>
+							</CardHeader>
+						</Card>
+					</Link>
+				))}
+
+				{bracketNames.length === 0 && (
+					<p className="col-span-full text-center text-muted-foreground italic">
+						No brackets available
+					</p>
+				)}
+			</div>
 		</div>
 	);
 }

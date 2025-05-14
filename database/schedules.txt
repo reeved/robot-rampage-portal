@@ -5,7 +5,7 @@
     "matches": [
       {
         "id": "match-jocskcc",
-        "name": "Match 1",
+        "name": "Championship SF1",
         "participants": [
           {
             "id": "part-fdrxhj5",
@@ -26,51 +26,102 @@
       },
       {
         "id": "match-wce2rtb",
-        "name": "Match 2",
+        "name": "Championship SF2",
         "participants": [
-          {},
+          {
+            "id": "part-aw653qy",
+            "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
+          },
           {}
         ],
         "winner": {},
         "type": "BRACKET",
-        "bracket": "",
-        "round": "SF1"
+        "bracket": "Championship",
+        "round": "SF2"
       },
       {
         "id": "match-ymqmggd",
-        "name": "Match 3",
+        "name": "Championship Final",
         "participants": [
           {},
           {}
         ],
         "winner": {},
         "type": "BRACKET",
-        "bracket": "",
-        "round": "SF1"
+        "bracket": "Championship",
+        "round": "Final"
       },
       {
         "id": "match-tascvhe",
-        "name": "Match 4",
+        "name": "5th Place SF1",
         "participants": [
           {},
           {}
         ],
         "winner": {},
         "type": "BRACKET",
-        "bracket": "",
+        "bracket": "5th Place",
         "round": "SF1"
       },
       {
         "id": "match-6v2ohxk",
-        "name": "Match 5",
+        "name": "5th Place SF2",
         "participants": [
           {},
           {}
         ],
         "winner": {},
         "type": "BRACKET",
-        "bracket": "",
+        "bracket": "5th Place",
+        "round": "SF2"
+      },
+      {
+        "id": "match-5dbbxyf",
+        "name": "5th Place Final",
+        "participants": [
+          {},
+          {}
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "5th Place",
+        "round": "Final"
+      },
+      {
+        "id": "match-e6sxbaa",
+        "name": "9th Place SF2",
+        "participants": [
+          {},
+          {}
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "9th Place",
         "round": "SF1"
+      },
+      {
+        "id": "match-l1iznwr",
+        "name": "9th Place SF2",
+        "participants": [
+          {},
+          {}
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "9th Place",
+        "round": "SF2"
+      },
+      {
+        "id": "match-ji0ps96",
+        "name": "9th Place Final",
+        "participants": [
+          {},
+          {}
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "9th Place",
+        "round": "Final"
       }
     ],
     "name": "Bracket 1"
@@ -148,11 +199,5 @@
     "type": "QUALIFYING",
     "matches": [],
     "name": "Qualifying Session 2"
-  },
-  {
-    "id": "schedule-eirqt25",
-    "type": "QUALIFYING",
-    "matches": [],
-    "name": "Qualifying Session 3"
   }
 ]
