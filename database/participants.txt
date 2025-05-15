@@ -8,7 +8,7 @@
     "previousRank": "1st place",
     "funFact": "Taylor Swift",
     "type": "FEATHERWEIGHT",
-    "photo": "bad-blood.jpg"
+    "photo": "black-rose.png"
   },
   {
     "id": "part-aw653qy",
@@ -33,7 +33,7 @@
     "videos": "Inferno_Fox_A.mov,Inferno_Fox_B.mov",
     "weapon": "",
     "type": "FEATHERWEIGHT",
-    "photo": "bad-blood.jpg"
+    "photo": "black-rose.png"
   },
   {
     "id": "part-qpm0bjg",
@@ -42,7 +42,7 @@
     "videos": "Black_Rose_A.mov,Black_Rose_B.mov",
     "weapon": "",
     "type": "FEATHERWEIGHT",
-    "photo": "bad-blood.jpg"
+    "photo": "black-rose.png"
   },
   {
     "id": "part-rzeus3u",
@@ -115,7 +115,7 @@
     "videos": "",
     "weapon": "",
     "type": "FEATHERWEIGHT",
-    "photo": "bad-blood.jpg"
+    "photo": "black-rose.png"
   },
   {
     "id": "uhunewo",

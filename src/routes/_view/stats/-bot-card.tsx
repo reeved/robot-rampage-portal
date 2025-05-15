@@ -1,12 +1,6 @@
 import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
 
-type Props = {
-	participant: Participant;
-	rank: number;
-	stats: { wins: number; losses: number };
-};
-
 const InfoRow = ({
 	heading,
 	value,
@@ -32,7 +26,14 @@ const InfoRow = ({
 	);
 };
 
-export const BotInfo = ({ participant, rank, stats }: Props) => {
+type Props = {
+	participant: Participant;
+	rank: number;
+	stats: { wins: number; losses: number };
+	color: "orange" | "blue";
+};
+
+export const BotInfo = ({ participant, rank, stats, color }: Props) => {
 	if (!participant) {
 		return null;
 	}
@@ -43,9 +44,10 @@ export const BotInfo = ({ participant, rank, stats }: Props) => {
 					src={`/${participant.photo}`}
 					className="h-70 mx-auto rounded-3xl"
 					alt="bot-photo"
+					style={{ filter: `drop-shadow(0 0 15px ${color})` }}
 				/>
 			) : (
-				<div className="h-70 w-70 bg-white mx-auto rounded-3xl" />
+				<div className="h-80 w-80 bg-white mx-auto rounded-3xl" />
 			)}
 			<div className="flex-1 flex flex-col p-4 bg-card rounded-3xl items-center justify-center w-[60ch]">
 				<div className="flex gap-4 text-center items-center">

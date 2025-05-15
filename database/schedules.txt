@@ -159,13 +159,13 @@
             "id": "part-04xspbq"
           },
           {
-            "id": "part-aw653qy",
+            "id": "part-qpm0bjg",
             "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
           }
         ],
         "winner": {
-          "id": "part-aw653qy",
-          "condition": "JD"
+          "id": "part-qpm0bjg",
+          "condition": "KO"
         },
         "type": "QUALIFYING"
       },

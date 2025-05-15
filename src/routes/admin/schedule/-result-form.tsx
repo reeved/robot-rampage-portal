@@ -248,34 +248,48 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 			<form className="p-6 gap-y-6 flex flex-col items-start w-6/12 bg-zinc-900 rounded-xl shadow-lg">
 				<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
 
-				<FormField
-					name="winner.id"
-					control={form.control}
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel className="text-white">Winner</FormLabel>
-							<FormControl>
-								<Select value={field.value} onValueChange={field.onChange}>
-									<SelectTrigger className="bg-zinc-800 text-white font-bold">
-										<SelectValue placeholder="Select winner" />
-									</SelectTrigger>
-									<SelectContent className="bg-zinc-800 text-white">
-										{matchParticipants.map((part) => (
-											<SelectItem
-												key={part.id}
-												value={part.id}
-												className="font-bold"
-											>
-												{part.name}
-											</SelectItem>
-										))}
-									</SelectContent>
-								</Select>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+				<div className="flex gap-4">
+					<FormField
+						name="winner.id"
+						control={form.control}
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel className="text-white">Winner</FormLabel>
+								<FormControl>
+									<Select value={field.value} onValueChange={field.onChange}>
+										<SelectTrigger className="bg-zinc-800 text-white font-bold">
+											<SelectValue placeholder="Select winner" />
+										</SelectTrigger>
+										<SelectContent className="bg-zinc-800 text-white">
+											{matchParticipants.map((part) => (
+												<SelectItem
+													key={part.id}
+													value={part.id}
+													className="font-bold"
+												>
+													{part.name}
+												</SelectItem>
+											))}
+										</SelectContent>
+									</Select>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<Button
+						type="button"
+						onClick={() => {
+							form.setValue("winner.id", "");
+							form.setValue("winner.condition", undefined);
+						}}
+						variant="ghost"
+						className="w-1/4"
+					>
+						CLEAR
+					</Button>
+				</div>
+
 				<FormField
 					name="winner.condition"
 					control={form.control}
@@ -299,6 +313,7 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 						</FormItem>
 					)}
 				/>
+
 				<Button
 					type="button"
 					onClick={onSubmit}

@@ -64,6 +64,7 @@ function RouteComponent() {
 					participant={participants[0]}
 					rank={1}
 					stats={{ wins: 2, losses: 3 }}
+					color="orange"
 				/>
 				<div className="absolute font-heading text-4xl text-primary top-40 left-184">
 					vs
@@ -72,6 +73,7 @@ function RouteComponent() {
 					participant={participants[1]}
 					rank={3}
 					stats={{ wins: 2, losses: 3 }}
+					color="blue"
 				/>
 			</div>
 		</div>

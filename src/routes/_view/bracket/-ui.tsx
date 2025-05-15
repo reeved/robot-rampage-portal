@@ -146,16 +146,29 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 						height: box.height,
 					}}
 				>
-					{box.image && (
-						<img
-							src={`/${box.image}`}
-							alt="bot"
-							className={cn(
-								"bg-white h-55 aspect-auto rounded-sm absolute",
-								box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
-							)}
-						/>
-					)}
+					<div
+						className={cn(
+							"absolute h-80 w-120",
+							box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
+						)}
+					>
+						{box.image && (
+							<img
+								src={`/${box.image}`}
+								alt="bot"
+								className={cn(
+									"mx-auto rounded-sm w-auto object-contain",
+									box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
+								)}
+								style={{
+									// robot rampage red
+									filter: "drop-shadow(0 0 15px oklch(0.62 0.2122 25.43)",
+									maxWidth: "100%", // Ensures image doesn't overflow its container
+									height: "100%",
+								}}
+							/>
+						)}
+					</div>
 					<div
 						className="flex-1 bg-primary border-2 border-primary shadow-md flex items-center justify-center text-2xl font-bold font-rubik text-center"
 						style={{
