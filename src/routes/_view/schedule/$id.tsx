@@ -58,14 +58,14 @@ function RouteComponent() {
 	const { allSchedules, schedule, participants, currentMatchId } = data;
 
 	return (
-		<div className="w-9/12 mx-auto p-4 ">
-			<div className="grid md:grid-cols-5 gap-20">
+		<div className="w-9/12 h-full mx-auto p-4 pb-10">
+			<div className="h-full grid md:grid-cols-5 gap-20 b-10">
 				{/* Left side: Score Tracker */}
-				<div className="md:col-span-2">
-					<h2 className="text-3xl font-heading mb-4 text-center text-primary">
+				<div className="md:col-span-2 flex flex-col gap-4">
+					<h2 className="text-3xl font-heading text-center text-primary">
 						BOT RANKINGS
 					</h2>
-					{/* <Rankings schedules={allSchedules} participants={participants} /> */}
+					<Rankings schedules={allSchedules} participants={participants} />
 				</div>
 
 				{/* Right side: Schedule */}

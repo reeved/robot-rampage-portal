@@ -100,13 +100,6 @@
     "weapon": ""
   },
   {
-    "id": "7penyzy",
-    "name": "TBD",
-    "builders": "TBD",
-    "videos": "",
-    "weapon": ""
-  },
-  {
     "id": "uhunewo",
     "name": "Angry Bird",
     "builders": "Tim",

@@ -11,7 +11,7 @@ function RouteComponent() {
 				<img
 					src="/rr-logo.png"
 					alt="Robot rampage logo"
-					className="h-[60px] mx-auto mt-10 -mb-6"
+					className="h-[100px] mx-auto pt-10 -pb-6"
 				/>
 				<div className="h-full w-full">
 					<Outlet />

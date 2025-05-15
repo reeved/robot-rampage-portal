@@ -8,14 +8,9 @@ const sortParticipantsByRanking = (
 		string,
 		{ wins: number; ko: number; losses: number }
 	> = {};
-
-	const filteredParticipants = participants.filter(
-		(participant) => participant.name !== "TBD",
-	);
-
 	// Initialize stats for all participants
 	// biome-ignore lint/complexity/noForEach: <explanation>
-	filteredParticipants.forEach((participant) => {
+	participants.forEach((participant) => {
 		statsByParticipant[participant.id] = { wins: 0, ko: 0, losses: 0 };
 	});
 
@@ -49,7 +44,7 @@ const sortParticipantsByRanking = (
 		}
 	});
 
-	const participantsWithScores = filteredParticipants.map((participant) => ({
+	const participantsWithScores = participants.map((participant) => ({
 		...participant,
 		wins: statsByParticipant[participant.id]?.wins || 0,
 		ko: statsByParticipant[participant.id]?.ko || 0,
@@ -90,7 +85,7 @@ export const Rankings = ({ schedules, participants }: Props) => {
 	);
 
 	return (
-		<div className="bg-card rounded-md p-4 gap-6 flex flex-col">
+		<div className="bg-card rounded-md p-4 flex flex-col h-full justify-between">
 			{sortedParticipants.map((participant, index) => (
 				<div
 					key={participant.id}
