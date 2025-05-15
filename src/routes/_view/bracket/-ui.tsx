@@ -131,7 +131,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 	return (
-		<div className="relative h-[650px] p-4 w-[1380px]">
+		<div className="relative h-[750px] p-4 w-[1580px]">
 			{boxes.map((box) => (
 				<div
 					key={box.id}
@@ -154,12 +154,24 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 							)}
 						/>
 					)}
-					<div className="flex-1 bg-primary h-20 w-70 border-2 border-primary shadow-md flex items-center justify-center text-2xl font-bold font-rubik text-center">
+					<div
+						className="flex-1 bg-primary border-2 border-primary shadow-md flex items-center justify-center text-2xl font-bold font-rubik text-center"
+						style={{
+							clipPath:
+								box.id <= 3
+									? "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 0% 0%)" // Right boxes with left edge angled
+									: box.id >= 4
+										? "polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%, 10% 0%)"
+										: "",
+							// : "polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%)", // Left boxes with right edge angled
+							height: "90px",
+							width: "100%",
+						}}
+					>
 						{box.title}
 					</div>
 				</div>
 			))}
-
 			<Connectors boxes={boxes} />
 		</div>
 	);

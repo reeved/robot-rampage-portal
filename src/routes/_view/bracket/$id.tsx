@@ -53,8 +53,8 @@ const getBracketMatches = createServerFn({
 				id: 1,
 				title: sf1Bots[0]?.name || "TBD",
 				image: sf1Bots[0]?.photo,
-				x: 50,
-				y: 50,
+				x: 0,
+				y: 0,
 				width: 280,
 				height: 120,
 			},
@@ -62,8 +62,8 @@ const getBracketMatches = createServerFn({
 				id: 2,
 				title: sf1Bots[1]?.name || "TBD",
 				image: sf1Bots[1]?.photo,
-				x: 50,
-				y: 400,
+				x: 0,
+				y: 650,
 				width: 280,
 				height: 120,
 			},
@@ -72,16 +72,16 @@ const getBracketMatches = createServerFn({
 			{
 				id: 3,
 				title: finalBots[0]?.name ?? "SF1 winner",
-				x: 380,
-				y: 240,
+				x: 420,
+				y: 325,
 				width: 280,
 				height: 120,
 			},
 			{
 				id: 4,
 				title: finalBots[1]?.name ?? "SF2 winner",
-				x: 700,
-				y: 240,
+				x: 850,
+				y: 325,
 				width: 280,
 				height: 120,
 			},
@@ -91,8 +91,8 @@ const getBracketMatches = createServerFn({
 				id: 5,
 				title: sf2Bots[0]?.name || "TBD",
 				image: sf2Bots[0]?.photo,
-				x: 1030,
-				y: 50,
+				x: 1280,
+				y: 0,
 				width: 280,
 				height: 120,
 			},
@@ -100,8 +100,8 @@ const getBracketMatches = createServerFn({
 				id: 6,
 				title: sf2Bots[1]?.name || "TBD",
 				image: sf2Bots[1]?.photo,
-				x: 1030,
-				y: 400,
+				x: 1280,
+				y: 650,
 				width: 280,
 				height: 120,
 			},
@@ -136,7 +136,7 @@ function RouteComponent() {
 
 	return (
 		<div className="relative h-full w-full flex items-center justify-center">
-			<h2 className="absolute top-10 text-3xl font-heading text-center text-primary uppercase">
+			<h2 className="absolute top-4 text-3xl font-heading text-center text-primary uppercase">
 				{bracketName} BRACKET
 			</h2>
 			<Bracket boxes={boxes} />
