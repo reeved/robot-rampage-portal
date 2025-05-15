@@ -67,7 +67,7 @@ function RouteComponent() {
 				<SharedStats bot1={participants[0]} bot2={participants[1]} />
 				<BotImage src={participants[1].photo} color="blue" />
 			</div>
-			<div className="flex-1 flex w-full mt-20">
+			<div className="flex-1 flex w-full mt-20 items-center">
 				<BotInfo
 					participant={participants[0]}
 					rank={rankings.find((r) => r.id === participants[0].id)?.position}
@@ -75,7 +75,7 @@ function RouteComponent() {
 					color="blue"
 				/>
 
-				<div className="flex-1 text-center text-primary text-4xl font-heading mt-10">
+				<div className="flex-1 text-center text-primary text-4xl font-heading">
 					vs
 				</div>
 

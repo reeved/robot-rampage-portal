@@ -29,7 +29,7 @@ function RouteComponent() {
 	const addNew = () => router.navigate({ to: "/admin/participants/new" });
 
 	return (
-		<div className="flex h-full flex-1 ">
+		<div className="flex h-full flex-1 overflow-hidden">
 			<div className="w-3/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
 				<div className="flex flex-wrap items-center gap-2 justify-between w-full px-4">
 					<h4 className="text-2xl font-bold">Participants</h4>
@@ -38,18 +38,39 @@ function RouteComponent() {
 					</Button>
 				</div>
 
-				{participants.map((p) => (
-					<Button
-						asChild
-						key={p.id}
-						variant="secondary"
-						className="px-4 py-4 rounded-sm  self-stretch mx-4"
-					>
-						<Link to="/admin/participants/$id" params={{ id: p.id }}>
-							{p.name}
-						</Link>
-					</Button>
-				))}
+				<div className="flex flex-col gap-y-2 w-full px-4 pb-10 overflow-y-auto">
+					<h3 className="text-xl">Featherweights</h3>
+					{participants
+						.filter((p) => p.type === "FEATHERWEIGHT")
+						.map((p) => (
+							<Button
+								asChild
+								key={p.id}
+								variant="secondary"
+								className="px-4 py-4 rounded-sm  self-stretch mx-4"
+							>
+								<Link to="/admin/participants/$id" params={{ id: p.id }}>
+									{p.name}
+								</Link>
+							</Button>
+						))}
+
+					<h3 className="text-xl">Heavyweights</h3>
+					{participants
+						.filter((p) => p.type === "HEAVYWEIGHT")
+						.map((p) => (
+							<Button
+								asChild
+								key={p.id}
+								variant="secondary"
+								className="px-4 py-4 rounded-sm  self-stretch mx-4"
+							>
+								<Link to="/admin/participants/$id" params={{ id: p.id }}>
+									{p.name}
+								</Link>
+							</Button>
+						))}
+				</div>
 			</div>
 			<div className="flex-1">
 				<Outlet />

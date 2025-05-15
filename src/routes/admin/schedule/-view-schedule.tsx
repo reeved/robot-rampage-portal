@@ -12,7 +12,7 @@ export const ViewSchedule = ({
 }: {
 	schedule: Schedule;
 	participants: Participant[];
-	currentMatchId: string;
+	currentMatchId: string | undefined;
 }) => {
 	return (
 		<div className="flex gap-6">

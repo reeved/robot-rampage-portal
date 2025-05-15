@@ -29,7 +29,7 @@ export const BotImage = ({
 type Props = {
 	participant: Participant;
 	rank?: number;
-	stats: { wins: number; losses: number };
+	stats?: { wins: number; losses: number };
 	color: "orange" | "blue";
 };
 
@@ -50,13 +50,15 @@ export const BotInfo = ({ participant, rank, stats, color }: Props) => {
 						{participant.name}
 					</h3>
 				</div>
-				<div className="mt-4 mb-0">
-					<span className="font-bold flex gap-2 text-4xl">
-						<span className="text-green-500 rounded-md w-[3ch] text-right">{`${stats.wins}W`}</span>
-						<span className="w-[2ch] text-center">|</span>
-						<span className="text-red-500 w-[3ch]">{`${stats.losses}L`}</span>
-					</span>
-				</div>
+				{stats && (
+					<div className="mt-4 mb-0">
+						<span className="font-bold flex gap-2 text-4xl">
+							<span className="text-green-500 rounded-md w-[3ch] text-right">{`${stats.wins}W`}</span>
+							<span className="w-[2ch] text-center">|</span>
+							<span className="text-red-500 w-[3ch]">{`${stats.losses}L`}</span>
+						</span>
+					</div>
+				)}
 			</div>
 		</div>
 	);
