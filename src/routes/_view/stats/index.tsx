@@ -75,7 +75,7 @@ function RouteComponent() {
 					color="blue"
 				/>
 
-				<div className="flex-1 text-center text-primary text-4xl font-heading">
+				<div className="flex-1 text-center text-primary text-6xl font-heading">
 					vs
 				</div>
 

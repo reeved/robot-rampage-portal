@@ -19,9 +19,9 @@ const InfoRow = ({
 				<div
 					className={cn(
 						"text-white w-80 bg-orange-500 py-2 font-extrabold text-2xl uppercase text-center rounded-l-4xl",
-						valueBot1?.length <= 15
+						valueBot1?.length <= 20
 							? "text-2xl"
-							: valueBot1.length <= 20
+							: valueBot1.length <= 25
 								? "text-xl"
 								: "text-lg",
 					)}
