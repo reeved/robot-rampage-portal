@@ -163,7 +163,10 @@ const updateMatchResult = createServerFn({
 			matches: updatedMatches,
 		});
 
-		const participants = await context.db.participants.find(() => true);
+		const participants = (
+			await context.db.participants.find(() => true)
+		).filter((participant) => participant.type === "FEATHERWEIGHT");
+
 		const matchParticipants = existingMatch.participants.map((p) =>
 			participants.find((part) => part.id === p.id),
 		);
@@ -218,7 +221,6 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 		.filter(Boolean) as Participant[];
 
 	const onSubmit = async () => {
-		console.log("CALLED SUBMIT");
 		const { winner } = form.getValues();
 
 		if (!winner || !winner?.id || !winner?.condition) {

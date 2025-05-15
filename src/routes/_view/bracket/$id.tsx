@@ -19,15 +19,11 @@ const getBracketMatches = createServerFn({
 			throw new Error("Bracket schedule not found");
 		}
 
-		console.log("Bracket schedule", bracketSchedule);
-
 		const participants = await context.db.participants.find(() => true);
 
 		const bracketMatches = bracketSchedule.matches
 			.filter((match) => match.type === "BRACKET")
 			.filter((match) => match.bracket === bracketName);
-
-		console.log("Bracket matches", bracketName, bracketMatches);
 
 		const sf1 = bracketMatches.find((match) => match.round === "SF1");
 		const sf2 = bracketMatches.find((match) => match.round === "SF2");
@@ -133,6 +129,8 @@ function RouteComponent() {
 	}
 
 	const { boxes, bracketName } = data;
+
+	console.log("boxes", boxes);
 
 	return (
 		<div className="relative h-full w-full flex items-center justify-center">

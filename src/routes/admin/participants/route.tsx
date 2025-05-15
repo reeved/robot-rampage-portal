@@ -13,7 +13,8 @@ const getParticipants = createServerFn({
 })
 	.middleware([dbMiddleware])
 	.handler(async ({ context }) => {
-		return context.db.participants.find(() => true);
+		const participants = await context.db.participants.find(() => true);
+		return participants.sort((a, b) => a.name.localeCompare(b.name));
 	});
 
 export const Route = createFileRoute("/admin/participants")({

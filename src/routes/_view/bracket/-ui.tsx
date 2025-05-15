@@ -147,10 +147,12 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 					}}
 				>
 					{box.image && (
-						<div
+						<img
+							src={`/${box.image}`}
+							alt="bot"
 							className={cn(
-								"bg-white h-50 w-50 rounded-sm absolute",
-								box.id >= 5 ? "-right-60" : "-left-60",
+								"bg-white h-55 aspect-auto rounded-sm absolute",
+								box.id === 1 || box.id === 5 ? "top-30" : "bottom-30",
 							)}
 						/>
 					)}
@@ -163,7 +165,6 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 									: box.id >= 4
 										? "polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%, 10% 0%)"
 										: "",
-							// : "polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%)", // Left boxes with right edge angled
 							height: "90px",
 							width: "100%",
 						}}

@@ -19,7 +19,11 @@ export const getSchedule = createServerFn({
 		}
 
 		const bracketNames = event.bracketNames;
-		return { schedule, participants, bracketNames };
+		return {
+			schedule,
+			participants: participants.sort((a, b) => a.name.localeCompare(b.name)),
+			bracketNames,
+		};
 	});
 
 export const Route = createFileRoute("/admin/schedule/$id")({

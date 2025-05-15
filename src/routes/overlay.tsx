@@ -22,8 +22,6 @@ const getMatchData = createServerFn({
 			(p) => !!currentMatch?.participants.some((part) => part.id === p.id),
 		);
 
-		console.log("PARTICIPANTS", participants);
-
 		return {
 			currentMatch,
 			participants,
@@ -65,14 +63,14 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 							)}
 						</div>
 						<div className="h-24 w-[25ch] bg-primary relative">
-							<img
+							{/* <img
 								src="/rr-logo.png"
 								alt="Logo"
 								className="h-8 max-w-none bottom-25 -left-15 absolute"
-							/>
+							/> */}
 						</div>
 						<div className="h-24 flex-1 relative font-rubik text-4xl">
-							<div className="bg-black w-full h-full flex items-center justify-center rounded-r-3xl  z-20 relative">
+							<div className="bg-black w-full h-full flex items-center justify-center rounded-r-3xl  z-20 relativ">
 								{participant2 ? participant2.name : ""}
 							</div>
 							{participant2 && winner?.id === participant2?.id && (

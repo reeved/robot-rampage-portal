@@ -84,7 +84,7 @@ function RouteComponent() {
 						MATCH SCHEDULE
 					</h2>
 					<div className="gap-y-4 flex flex-col">
-						{schedule.matches.map((match) => (
+						{schedule?.matches.map((match) => (
 							<MatchPreview
 								key={match.id}
 								match={match}

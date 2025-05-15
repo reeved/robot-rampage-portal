@@ -33,9 +33,20 @@ const InfoRow = ({
 };
 
 export const BotInfo = ({ participant, rank, stats }: Props) => {
+	if (!participant) {
+		return null;
+	}
 	return (
 		<div className="flex flex-col gap-10">
-			<div className="h-70 w-70 bg-white mx-auto rounded-3xl" />
+			{participant.photo ? (
+				<img
+					src={`/${participant.photo}`}
+					className="h-70 mx-auto rounded-3xl"
+					alt="bot-photo"
+				/>
+			) : (
+				<div className="h-70 w-70 bg-white mx-auto rounded-3xl" />
+			)}
 			<div className="flex-1 flex flex-col p-4 bg-card rounded-3xl items-center justify-center w-[60ch]">
 				<div className="flex gap-4 text-center items-center">
 					<span className="bg-amber-400 rounded-md p-4 aspect-square w-[2ch] h-[2ch] text-3xl flex items-center justify-center font-extrabold text-black">

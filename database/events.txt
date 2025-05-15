@@ -9,30 +9,29 @@
     ],
     "qualifyingResults": {
       "part-04xspbq": {
-        "wins": 2,
-        "losses": 0,
-        "winsByKO": 2,
+        "wins": 1,
+        "losses": 1,
+        "winsByKO": 1,
         "winsByJD": 0,
+        "winsByNS": 0,
+        "lossesByKO": 0,
+        "lossesByJD": 1,
+        "lossesByNS": 0,
+        "opponentIds": [
+          "part-fdrxhj5",
+          "part-aw653qy"
+        ]
+      },
+      "part-aw653qy": {
+        "wins": 1,
+        "losses": 0,
+        "winsByKO": 0,
+        "winsByJD": 1,
         "winsByNS": 0,
         "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
-          "part-aw653qy",
-          "part-aw653qy"
-        ]
-      },
-      "part-aw653qy": {
-        "wins": 0,
-        "losses": 2,
-        "winsByKO": 0,
-        "winsByJD": 0,
-        "winsByNS": 0,
-        "lossesByKO": 2,
-        "lossesByJD": 0,
-        "lossesByNS": 0,
-        "opponentIds": [
-          "part-04xspbq",
           "part-04xspbq"
         ]
       },
@@ -49,14 +48,16 @@
       },
       "part-fdrxhj5": {
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 0,
+        "lossesByKO": 1,
         "lossesByJD": 0,
         "lossesByNS": 0,
-        "opponentIds": []
+        "opponentIds": [
+          "part-04xspbq"
+        ]
       },
       "part-qpm0bjg": {
         "wins": 0,
@@ -186,11 +187,11 @@
         "position": 1
       },
       {
-        "id": "part-hh5ch23",
+        "id": "part-aw653qy",
         "position": 2
       },
       {
-        "id": "part-fdrxhj5",
+        "id": "part-hh5ch23",
         "position": 3
       },
       {
@@ -238,7 +239,7 @@
         "position": 14
       },
       {
-        "id": "part-aw653qy",
+        "id": "part-fdrxhj5",
         "position": 15
       }
     ]

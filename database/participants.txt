@@ -3,17 +3,18 @@
     "id": "part-04xspbq",
     "name": "Bad Blood",
     "builders": "Steve Barker, Christina Yu",
-    "videos": "C:\\RRMedia\\Bad_Blood_A.mov,C:\\RRMedia\\Bad_Blood_B.mov",
+    "videos": "Bad_Blood_A.mov,Bad_Blood_B.mov",
     "weapon": "Vertical Spinner",
     "previousRank": "1st place",
     "funFact": "Taylor Swift",
-    "type": "FEATHERWEIGHT"
+    "type": "FEATHERWEIGHT",
+    "photo": "bad-blood.jpg"
   },
   {
     "id": "part-aw653qy",
     "name": "Snollygoster",
     "builders": "Mike Barry",
-    "videos": "C:\\RRMedia\\Snollygoster_A.mov",
+    "videos": "Snollygoster_A.mov",
     "weapon": "",
     "type": "FEATHERWEIGHT"
   },
@@ -21,90 +22,138 @@
     "id": "part-hh5ch23",
     "name": "Borris",
     "builders": "-",
-    "videos": "C:\\RRMedia\\Borris_A.mov,C:\\RRMedia\\Borris_B.mov",
-    "weapon": ""
+    "videos": "Borris_A.mov,Borris_B.mov",
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-fdrxhj5",
     "name": "Inferno Fox",
     "builders": "Tim Sly",
-    "videos": "C:\\RRMedia\\Inferno_Fox_A.mov,C:\\RRMedia\\Inferno_Fox_B.mov",
-    "weapon": ""
+    "videos": "Inferno_Fox_A.mov,Inferno_Fox_B.mov",
+    "weapon": "",
+    "type": "FEATHERWEIGHT",
+    "photo": "bad-blood.jpg"
   },
   {
     "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
-    "videos": "C:\\RRMedia\\Black_Rose_A.mov,C:\\RRMedia\\Black_Rose_B.mov",
-    "weapon": ""
+    "videos": "Black_Rose_A.mov,Black_Rose_B.mov",
+    "weapon": "",
+    "type": "FEATHERWEIGHT",
+    "photo": "bad-blood.jpg"
   },
   {
     "id": "part-rzeus3u",
     "name": "Hammertime",
     "builders": "Mitch",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-dllub2q",
     "name": "Mjölnir",
     "builders": "Paul Mumby",
-    "videos": "C:\\RRMedia\\Mjolnir_A.mov,C:\\RRMedia\\Mjolnir_B.mov",
-    "weapon": ""
+    "videos": "Mjolnir_A.mov,Mjolnir_B.mov",
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-ul19jgv",
     "name": "Pretty Scary",
     "builders": "Isaac German",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-uov2lni",
     "name": "Tooth Fairy",
     "builders": "Kerey Watters",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-fgfqsq3",
     "name": "Drumroll Pls",
     "builders": "Karan Purohit",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-odwrzot",
     "name": "Chef Woody",
     "builders": "Joseph Connolly",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-y3konnp",
     "name": "OnlyForks",
     "builders": "Ethan Kyle",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-fok7byp",
     "name": "Hodr",
     "builders": "Andrea Mumby",
-    "videos": "path/to/video,path/to/video2",
-    "weapon": ""
+    "videos": "",
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-dx6qvml",
     "name": "Fulcrum",
     "builders": "Jack",
-    "videos": "path/to/video5,path/to/video6",
-    "weapon": ""
+    "videos": "",
+    "weapon": "",
+    "type": "FEATHERWEIGHT",
+    "photo": "bad-blood.jpg"
   },
   {
     "id": "uhunewo",
     "name": "Angry Bird",
     "builders": "Tim",
+    "videos": "",
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
+  },
+  {
+    "id": "q9h4q1i",
+    "type": "HEAVYWEIGHT",
+    "name": "End game",
+    "builders": "-",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "jjsm1pd",
+    "type": "HEAVYWEIGHT",
+    "name": "Barrel",
+    "builders": "-",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "96j1t3r",
+    "type": "HEAVYWEIGHT",
+    "name": "NoodleBot",
+    "builders": "-",
+    "videos": "",
+    "weapon": ""
+  },
+  {
+    "id": "s9xj92s",
+    "type": "HEAVYWEIGHT",
+    "name": "Krusty Grab",
+    "builders": "-",
     "videos": "",
     "weapon": ""
   }
