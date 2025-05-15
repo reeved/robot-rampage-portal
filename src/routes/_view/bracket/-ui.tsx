@@ -8,6 +8,7 @@ export type Box = {
 	y: number;
 	width: number;
 	height: number;
+	isLoser?: boolean;
 };
 
 export type Connection = {
@@ -119,7 +120,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 							d={path}
 							fill="none"
 							stroke="white"
-							strokeWidth="2"
+							strokeWidth="6"
 							className="transition-all duration-300"
 						/>
 					</g>
@@ -170,7 +171,10 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 						)}
 					</div>
 					<div
-						className="flex-1 bg-primary border-2 border-primary shadow-md flex items-center justify-center text-2xl font-bold font-rubik text-center"
+						className={cn(
+							"flex-1 bg-primary shadow-md flex items-center justify-center text-2xl font-rubik uppercase text-center",
+							box.isLoser && "bg-primary/20 text-white/50",
+						)}
 						style={{
 							clipPath:
 								box.id <= 3

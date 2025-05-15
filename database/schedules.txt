@@ -18,7 +18,7 @@
         ],
         "winner": {
           "id": "part-fdrxhj5",
-          "condition": "JD"
+          "condition": "KO"
         },
         "type": "BRACKET",
         "bracket": "Championship",
@@ -36,7 +36,10 @@
             "id": "part-qpm0bjg"
           }
         ],
-        "winner": {},
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "JD"
+        },
         "type": "BRACKET",
         "bracket": "Championship",
         "round": "SF2"
@@ -45,8 +48,12 @@
         "id": "match-ymqmggd",
         "name": "Championship Final",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-fdrxhj5"
+          },
+          {
+            "id": "part-qpm0bjg"
+          }
         ],
         "winner": {},
         "type": "BRACKET",
@@ -146,8 +153,7 @@
           }
         ],
         "winner": {
-          "id": "part-04xspbq",
-          "condition": "KO"
+          "id": ""
         },
         "type": "QUALIFYING"
       },
@@ -164,8 +170,7 @@
           }
         ],
         "winner": {
-          "id": "part-qpm0bjg",
-          "condition": "KO"
+          "id": ""
         },
         "type": "QUALIFYING"
       },

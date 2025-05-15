@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import type { Schedule } from "@/db";
-import { generateId } from "@/lib/utils";
+import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import {
 	Link,
@@ -15,7 +15,15 @@ const getSchedules = createServerFn({
 })
 	.middleware([dbMiddleware])
 	.handler(async ({ context }) => {
-		return context.db.schedule.find(() => true);
+		const event = await context.db.events.findOne((e) => e.id === "may");
+		if (!event) {
+			throw new Error("Event not found");
+		}
+
+		return {
+			schedules: await context.db.schedule.find(() => true),
+			currentMatchId: event.currentMatchId,
+		};
 	});
 
 const generateNewQualifying = createServerFn({
@@ -63,7 +71,7 @@ export const Route = createFileRoute("/admin/schedule")({
 
 function RouteComponent() {
 	const router = useRouter();
-	const schedules = Route.useLoaderData();
+	const { schedules, currentMatchId } = Route.useLoaderData();
 
 	const addNewQualifying = () => {
 		generateNewQualifying();
@@ -95,7 +103,11 @@ function RouteComponent() {
 						asChild
 						key={s.id}
 						variant="secondary"
-						className="px-4 py-4 rounded-sm  self-stretch mx-4"
+						className={cn(
+							"px-4 py-4 rounded-sm  self-stretch mx-4 font-bold",
+							s.matches.some((m) => m.id === currentMatchId) &&
+								"text-green-500",
+						)}
 					>
 						<Link to="/admin/schedule/$id" params={{ id: s.id }}>
 							{s.name}

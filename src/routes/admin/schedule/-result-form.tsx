@@ -23,6 +23,7 @@ import {
 } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -211,6 +212,7 @@ type Props = {
 };
 
 export const ResultForm = ({ scheduleId, match, participants }: Props) => {
+	const router = useRouter();
 	const form = useForm<MatchResult>({
 		defaultValues: { winner: match.winner },
 		resolver: zodResolver(MatchWinnerSchema),
@@ -223,11 +225,6 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 	const onSubmit = async () => {
 		const { winner } = form.getValues();
 
-		if (!winner || !winner?.id || !winner?.condition) {
-			toast.error("Please winner and win condition");
-			return;
-		}
-
 		await updateMatchResult({
 			data: {
 				scheduleId,
@@ -235,6 +232,7 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 				winner,
 			},
 		});
+		router.invalidate();
 
 		toast.success("Match winner updated");
 	};
@@ -249,39 +247,64 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 				<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
 
 				<div className="flex gap-4">
-					<FormField
-						name="winner.id"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">Winner</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select winner" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{matchParticipants.map((part) => (
-												<SelectItem
-													key={part.id}
-													value={part.id}
-													className="font-bold"
-												>
-													{part.name}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+					<div className="flex flex-col gap-4">
+						<FormField
+							name="winner.id"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className="text-white">Winner</FormLabel>
+									<FormControl>
+										<Select value={field.value} onValueChange={field.onChange}>
+											<SelectTrigger className="bg-zinc-800 text-white font-bold">
+												<SelectValue placeholder="Select winner" />
+											</SelectTrigger>
+											<SelectContent className="bg-zinc-800 text-white">
+												{matchParticipants.map((part) => (
+													<SelectItem
+														key={part.id}
+														value={part.id}
+														className="font-bold"
+													>
+														{part.name}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							name="winner.condition"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem className="flex flex-col items-start">
+									<FormLabel className="text-white">Win condition</FormLabel>
+									<div className="flex gap-2 mt-1">
+										{["KO", "JD", "NS"].map((cond) => (
+											<Button
+												key={cond}
+												variant={field.value === cond ? "secondary" : "outline"}
+												className="px-4 py-1 font-bold"
+												onClick={() => field.onChange(cond)}
+												type="button"
+											>
+												{cond}
+											</Button>
+										))}
+									</div>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+
 					<Button
 						type="button"
 						onClick={() => {
-							form.setValue("winner.id", "");
-							form.setValue("winner.condition", undefined);
+							form.reset({ winner: { id: "", condition: undefined } });
 						}}
 						variant="ghost"
 						className="w-1/4"
@@ -289,30 +312,6 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 						CLEAR
 					</Button>
 				</div>
-
-				<FormField
-					name="winner.condition"
-					control={form.control}
-					render={({ field }) => (
-						<FormItem className="flex flex-col items-start">
-							<FormLabel className="text-white">Win condition</FormLabel>
-							<div className="flex gap-2 mt-1">
-								{["KO", "JD", "NS"].map((cond) => (
-									<Button
-										key={cond}
-										variant={field.value === cond ? "secondary" : "outline"}
-										className="px-4 py-1 font-bold"
-										onClick={() => field.onChange(cond)}
-										type="button"
-									>
-										{cond}
-									</Button>
-								))}
-							</div>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
 
 				<Button
 					type="button"

@@ -18,6 +18,7 @@ import type { Match, Participant, Schedule } from "@/db";
 import { Vmix } from "@/lib/vmix-api";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -66,6 +67,7 @@ type Props = {
 };
 
 export const QueueMatchForm = ({ match, participants }: Props) => {
+	const router = useRouter();
 	const { bot1Videos, bot2Videos, bot1, bot2 } = getBotVideos(
 		participants,
 		match.participants,
@@ -89,6 +91,7 @@ export const QueueMatchForm = ({ match, participants }: Props) => {
 			},
 		});
 
+		router.invalidate();
 		toast.success("Match queued");
 	};
 

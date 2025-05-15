@@ -23,6 +23,7 @@ export const getSchedule = createServerFn({
 			schedule,
 			participants: participants.sort((a, b) => a.name.localeCompare(b.name)),
 			bracketNames,
+			currentMatchId: event.currentMatchId,
 		};
 	});
 
@@ -32,11 +33,15 @@ export const Route = createFileRoute("/admin/schedule/$id")({
 });
 
 function RouteComponent() {
-	const { schedule, participants } = Route.useLoaderData();
+	const { schedule, participants, currentMatchId } = Route.useLoaderData();
 
 	return (
 		<div className="w-full grid grid-cols-2 gap-20">
-			<ViewSchedule schedule={schedule} participants={participants} />
+			<ViewSchedule
+				schedule={schedule}
+				participants={participants}
+				currentMatchId={currentMatchId}
+			/>
 			<Outlet />
 		</div>
 	);
