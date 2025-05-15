@@ -304,7 +304,14 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 					<Button
 						type="button"
 						onClick={() => {
-							form.reset({ winner: { id: "", condition: undefined } });
+							form.reset({
+								winner: {
+									id: "",
+									condition: undefined,
+								},
+							});
+
+							form.trigger();
 						}}
 						variant="ghost"
 						className="w-1/4"

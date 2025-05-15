@@ -249,7 +249,10 @@
         ],
         "type": "BRACKET",
         "bracket": "",
-        "round": "SF1"
+        "round": "SF1",
+        "winner": {
+          "id": ""
+        }
       },
       {
         "id": "match-xqsdy8f",
