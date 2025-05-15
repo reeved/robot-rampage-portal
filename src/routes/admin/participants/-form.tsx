@@ -8,6 +8,13 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
 import { type Participant, ParticipantSchema } from "@/db";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -42,6 +49,31 @@ export const ParticipantForm = ({
 									className="w-[90ch]"
 									placeholder="Enter participant name"
 								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					name="type"
+					control={form.control}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel className="text-white">Weight class</FormLabel>
+							<FormControl>
+								<Select value={field.value} onValueChange={field.onChange}>
+									<SelectTrigger className="bg-zinc-800 text-white font-bold">
+										<SelectValue placeholder="Select weight class" />
+									</SelectTrigger>
+									<SelectContent className="bg-zinc-800 text-white">
+										{["FEATHERWEIGHT", "HEAVYWEIGHT"].map((type) => (
+											<SelectItem key={type} value={type} className="font-bold">
+												{type}
+											</SelectItem>
+										))}
+									</SelectContent>
+								</Select>
 							</FormControl>
 							<FormMessage />
 						</FormItem>

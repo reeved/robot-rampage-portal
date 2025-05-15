@@ -13,6 +13,7 @@ const updateParticipant = createServerFn({
 	.handler(async ({ data, context }) => {
 		await context.db.participants.updateOne((p) => p.id === data.id, {
 			name: data.data.name,
+			type: data.data.type,
 			builders: data.data.builders,
 			weight: data.data.weight,
 			weapon: data.data.weapon,

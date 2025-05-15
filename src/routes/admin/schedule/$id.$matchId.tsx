@@ -6,6 +6,7 @@ import { getSchedule } from "./$id";
 import { BracketMatchForm } from "./-bracket-match-form";
 import { QualifyingMatchForm } from "./-qualifying-match-form";
 import { QueueMatchForm } from "./-queue-match-form";
+import { ResultForm } from "./-result-form";
 
 export const updateSchedule = createServerFn({
 	method: "POST",
@@ -63,7 +64,14 @@ function RouteComponent() {
 				/>
 			) : null}
 
-			<QueueMatchForm match={match} participants={participants} />
+			<div className="flex gap-10">
+				<QueueMatchForm match={match} participants={participants} />
+				<ResultForm
+					scheduleId={schedule.id}
+					match={match}
+					participants={participants}
+				/>
+			</div>
 		</div>
 	);
 }

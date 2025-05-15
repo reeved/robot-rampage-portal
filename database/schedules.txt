@@ -143,7 +143,10 @@
             "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
           }
         ],
-        "winner": {},
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "KO"
+        },
         "type": "QUALIFYING"
       },
       {
@@ -158,7 +161,10 @@
             "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
           }
         ],
-        "winner": {},
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "KO"
+        },
         "type": "QUALIFYING"
       },
       {

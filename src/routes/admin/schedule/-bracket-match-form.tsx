@@ -246,64 +246,6 @@ export const BracketMatchForm = ({
 					/>
 				</div>
 
-				<div className="flex gap-4 w-full">
-					<FormField
-						name="winner.id"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">Winner</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select winner" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{selectedParticipants.map(({ id }) => {
-												const bot = participants.find((p) => p.id === id);
-												return bot ? (
-													<SelectItem
-														key={bot.id}
-														value={bot.id}
-														className="font-bold"
-													>
-														{bot.name}
-													</SelectItem>
-												) : null;
-											})}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					<FormField
-						name="winner.condition"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem className="flex flex-col items-start">
-								<FormLabel className="text-white">By</FormLabel>
-								<div className="flex gap-2 mt-1">
-									{["KO", "JD", "NS"].map((cond) => (
-										<Button
-											key={cond}
-											variant={field.value === cond ? "secondary" : "outline"}
-											className="px-4 py-1 font-bold"
-											onClick={() => field.onChange(cond)}
-											type="button"
-										>
-											{cond}
-										</Button>
-									))}
-								</div>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-				</div>
-
 				<Button
 					type="submit"
 					variant="default"

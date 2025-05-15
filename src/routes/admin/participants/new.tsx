@@ -13,6 +13,7 @@ const addParticipant = createServerFn({
 	.handler(async ({ data, context }) => {
 		await context.db.participants.insert({
 			id: generateId(),
+			type: data.type,
 			name: data.name,
 			builders: data.builders,
 			weight: data.weight,
@@ -24,6 +25,7 @@ const addParticipant = createServerFn({
 
 const defaultValues: Participant = {
 	id: "",
+	type: "FEATHERWEIGHT",
 	name: "",
 	builders: "",
 	videos: "",

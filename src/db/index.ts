@@ -4,6 +4,7 @@ import { FileDB } from "./file";
 // Define schemas for different entities
 export const ParticipantSchema = z.object({
 	id: z.string(),
+	type: z.enum(["FEATHERWEIGHT", "HEAVYWEIGHT"]),
 	name: z.string().nonempty("Name is required"),
 	builders: z.string().nonempty("At least one builder name"),
 	weight: z.number().optional(),
@@ -19,16 +20,21 @@ export const EventSchema = z.object({
 	currentMatchId: z.string().optional(),
 	currentScheduleId: z.string().optional(),
 	bracketNames: z.array(z.string()),
-	// qualifyingResults: z.record(
-	// 	z.string(),
-	// 	z.object({
-	// 		win: z.string().optional(),
-	// 		loss: z.string().optional(),
-	// 		winsByKo: z.number().optional(),
-	// 		winsByJD: z.number().optional(),
-	// 		winsByNS: z.number().optional(),
-	// 	}),
-	// ),
+	qualifyingResults: z.record(
+		z.string(),
+		z.object({
+			wins: z.number(),
+			losses: z.number(),
+			winsByKO: z.number(),
+			winsByJD: z.number(),
+			winsByNS: z.number(),
+			lossesByKO: z.number(),
+			lossesByJD: z.number(),
+			lossesByNS: z.number(),
+			opponentIds: z.array(z.string()),
+		}),
+	),
+	rankings: z.array(z.object({ id: z.string(), position: z.number() })),
 });
 
 const sharedMatchSchema = z.object({

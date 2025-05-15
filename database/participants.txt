@@ -6,14 +6,16 @@
     "videos": "C:\\RRMedia\\Bad_Blood_A.mov,C:\\RRMedia\\Bad_Blood_B.mov",
     "weapon": "Vertical Spinner",
     "previousRank": "1st place",
-    "funFact": "Taylor Swift"
+    "funFact": "Taylor Swift",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-aw653qy",
     "name": "Snollygoster",
     "builders": "Mike Barry",
     "videos": "C:\\RRMedia\\Snollygoster_A.mov",
-    "weapon": ""
+    "weapon": "",
+    "type": "FEATHERWEIGHT"
   },
   {
     "id": "part-hh5ch23",
