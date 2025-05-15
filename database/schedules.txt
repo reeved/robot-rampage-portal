@@ -162,7 +162,7 @@
           }
         ],
         "winner": {
-          "id": "part-aw653qy",
+          "id": "part-04xspbq",
           "condition": "KO"
         },
         "type": "QUALIFYING"

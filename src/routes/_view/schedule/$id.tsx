@@ -13,20 +13,20 @@ const getScheduleData = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.string())
 	.handler(async ({ data: id, context }) => {
-		const allSchedules = await context.db.schedule.find(() => true);
-		const schedule = allSchedules.find((p) => p.id === id);
+		const schedule = await context.db.schedule.findOne((p) => p.id === id);
 		const participants = await context.db.participants.find(() => true);
 		const evt = await context.db.events.findOne((e) => e.id === "may");
 
-		if (!schedule) {
+		if (!schedule || !evt) {
 			throw redirect({ to: "/schedule" });
 		}
 
 		return {
-			allSchedules,
 			schedule,
 			participants,
 			currentMatchId: evt?.currentMatchId,
+			rankings: evt?.rankings,
+			qualifyingResults: evt?.qualifyingResults,
 		};
 	});
 
@@ -55,7 +55,13 @@ function RouteComponent() {
 		);
 	}
 
-	const { allSchedules, schedule, participants, currentMatchId } = data;
+	const {
+		schedule,
+		participants,
+		currentMatchId,
+		rankings,
+		qualifyingResults,
+	} = data;
 
 	return (
 		<div className="w-9/12 h-full mx-auto p-4 pb-10">
@@ -65,7 +71,11 @@ function RouteComponent() {
 					<h2 className="text-3xl font-heading text-center text-primary">
 						BOT RANKINGS
 					</h2>
-					<Rankings schedules={allSchedules} participants={participants} />
+					<Rankings
+						rankings={rankings}
+						qualifyingResults={qualifyingResults}
+						participants={participants}
+					/>
 				</div>
 
 				{/* Right side: Schedule */}

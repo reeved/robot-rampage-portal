@@ -168,6 +168,11 @@ const updateMatchResult = createServerFn({
 			participants.find((part) => part.id === p.id),
 		);
 
+		if (existingMatch.type !== "QUALIFYING") {
+			console.log("Match is not qualifying, skipping ranking update");
+			return;
+		}
+
 		if (matchParticipants.some((p) => p?.type !== "FEATHERWEIGHT")) {
 			console.log("Match is not featherweight, skipping ranking update");
 			return;

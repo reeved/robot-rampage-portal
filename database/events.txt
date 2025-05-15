@@ -9,12 +9,12 @@
     ],
     "qualifyingResults": {
       "part-04xspbq": {
-        "wins": 1,
-        "losses": 1,
-        "winsByKO": 1,
+        "wins": 2,
+        "losses": 0,
+        "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 1,
+        "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
@@ -23,12 +23,12 @@
         ]
       },
       "part-aw653qy": {
-        "wins": 1,
-        "losses": 1,
-        "winsByKO": 1,
+        "wins": 0,
+        "losses": 2,
+        "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 1,
+        "lossesByKO": 2,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
@@ -186,59 +186,59 @@
         "position": 1
       },
       {
-        "id": "part-aw653qy",
+        "id": "part-hh5ch23",
         "position": 2
       },
       {
-        "id": "part-hh5ch23",
+        "id": "part-fdrxhj5",
         "position": 3
       },
       {
-        "id": "part-fdrxhj5",
+        "id": "part-qpm0bjg",
         "position": 4
       },
       {
-        "id": "part-qpm0bjg",
+        "id": "part-rzeus3u",
         "position": 5
       },
       {
-        "id": "part-rzeus3u",
+        "id": "part-dllub2q",
         "position": 6
       },
       {
-        "id": "part-dllub2q",
+        "id": "part-ul19jgv",
         "position": 7
       },
       {
-        "id": "part-ul19jgv",
+        "id": "part-uov2lni",
         "position": 8
       },
       {
-        "id": "part-uov2lni",
+        "id": "part-fgfqsq3",
         "position": 9
       },
       {
-        "id": "part-fgfqsq3",
+        "id": "part-odwrzot",
         "position": 10
       },
       {
-        "id": "part-odwrzot",
+        "id": "part-y3konnp",
         "position": 11
       },
       {
-        "id": "part-y3konnp",
+        "id": "part-fok7byp",
         "position": 12
       },
       {
-        "id": "part-fok7byp",
+        "id": "part-dx6qvml",
         "position": 13
       },
       {
-        "id": "part-dx6qvml",
+        "id": "uhunewo",
         "position": 14
       },
       {
-        "id": "uhunewo",
+        "id": "part-aw653qy",
         "position": 15
       }
     ]
