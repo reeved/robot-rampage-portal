@@ -154,25 +154,30 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 						)}
 					>
 						{box.image && (
-							<img
-								src={`/${box.image}`}
-								alt="bot"
-								className={cn(
-									"mx-auto rounded-sm w-auto object-contain",
-									box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
-								)}
-								style={{
-									// robot rampage red
-									filter: "drop-shadow(0 0 15px oklch(0.62 0.2122 25.43)",
-									maxWidth: "100%", // Ensures image doesn't overflow its container
-									height: "100%",
-								}}
-							/>
+							<div className="text-primary">
+								<img
+									src={`/${box.image}`}
+									alt="bot"
+									className={cn(
+										"mx-auto rounded-sm w-auto object-contain animate-breathing",
+										box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
+									)}
+									style={
+										{
+											// robot rampage red
+											filter: "drop-shadow(0 0 15px currentColor)",
+											"--shadow-color": "currentColor",
+											maxWidth: "100%", // Ensures image doesn't overflow its container
+											height: "100%",
+										} as React.CSSProperties
+									}
+								/>
+							</div>
 						)}
 					</div>
 					<div
 						className={cn(
-							"flex-1 bg-primary shadow-md flex items-center justify-center text-2xl font-rubik uppercase text-center",
+							"flex-1 bg-primary shadow-md flex items-center justify-center text-2xl font-rubik uppercase text-center transition-all duration-700 ease-in-out",
 							box.isLoser && "bg-primary/20 text-white/50",
 						)}
 						style={{

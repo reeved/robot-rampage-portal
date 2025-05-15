@@ -2,7 +2,8 @@ import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { BotInfo } from "./-bot-card";
+import { BotImage, BotInfo } from "./-bot-card";
+import { SharedStats } from "./-shared-stats";
 
 const getStatsData = createServerFn({
 	method: "GET",
@@ -18,7 +19,7 @@ const getStatsData = createServerFn({
 			(match) => match.id === currentMatchId,
 		);
 
-		if (!currentMatch) {
+		if (!currentMatch || !evt) {
 			throw redirect({ to: "/schedule" });
 		}
 
@@ -29,6 +30,8 @@ const getStatsData = createServerFn({
 		return {
 			currentMatch,
 			participants,
+			rankings: evt.rankings,
+			qualifyingResults: evt.qualifyingResults,
 		};
 	});
 
@@ -52,27 +55,34 @@ function RouteComponent() {
 		return null;
 	}
 
-	const { currentMatch, participants } = data;
+	const { currentMatch, participants, rankings, qualifyingResults } = data;
 
 	return (
 		<div className="h-full w-full flex flex-col justify-start items-center p-6 pb-14">
 			<h2 className="mx-auto text-3xl font-heading text-center text-primary uppercase">
 				{currentMatch.name}
 			</h2>
-			<div className="flex-1 flex gap-80 pt-10 relative">
+			<div className="flex-1 flex gap-20 pt-10 relative items-center">
+				<BotImage src={participants[0].photo} color="orange" />
+				<SharedStats bot1={participants[0]} bot2={participants[1]} />
+				<BotImage src={participants[1].photo} color="blue" />
+			</div>
+			<div className="flex-1 flex w-full mt-20">
 				<BotInfo
 					participant={participants[0]}
-					rank={1}
-					stats={{ wins: 2, losses: 3 }}
-					color="orange"
+					rank={rankings.find((r) => r.id === participants[0].id)?.position}
+					stats={qualifyingResults[participants[0].id]}
+					color="blue"
 				/>
-				<div className="absolute font-heading text-4xl text-primary top-40 left-184">
+
+				<div className="flex-1 text-center text-primary text-4xl font-heading mt-10">
 					vs
 				</div>
+
 				<BotInfo
 					participant={participants[1]}
-					rank={3}
-					stats={{ wins: 2, losses: 3 }}
+					rank={rankings.find((r) => r.id === participants[1].id)?.position}
+					stats={qualifyingResults[participants[1].id]}
 					color="blue"
 				/>
 			</div>
