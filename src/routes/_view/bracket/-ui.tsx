@@ -131,7 +131,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 	return (
-		<div className="relative h-[420px] p-4 w-[1580px]">
+		<div className="relative h-[420px] p-4 w-[1550px]">
 			{boxes.map((box) => (
 				<div
 					key={box.id}
