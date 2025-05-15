@@ -131,7 +131,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 	return (
-		<div className="relative h-[750px] p-4 w-[1580px]">
+		<div className="relative h-[420px] p-4 w-[1580px]">
 			{boxes.map((box) => (
 				<div
 					key={box.id}
@@ -152,7 +152,7 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 							alt="bot"
 							className={cn(
 								"bg-white h-55 aspect-auto rounded-sm absolute",
-								box.id === 1 || box.id === 5 ? "top-30" : "bottom-30",
+								box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
 							)}
 						/>
 					)}
