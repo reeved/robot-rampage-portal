@@ -9,7 +9,7 @@ export const BotImage = ({
 	}
 
 	return (
-		<div className={color === "orange" ? "text-orange-500" : "text-blue-700"}>
+		<div className={color === "orange" ? "text-rrorange" : "text-rrblue"}>
 			<img
 				src={src ? `/${src}` : undefined}
 				className="w-11/12 mx-auto rounded-3xl animate-breathing"
@@ -45,8 +45,18 @@ export const BotInfo = ({ details }: Props) => {
 	return (
 		<div className="relative flex items-center gap-25">
 			{/* Left Skewed Box */}
-			<div className="bg-black w-[75ch] border-8 border-orange-500 text-white skew-x-[20deg] shadow-lg py-6 z-0">
-				<div className="skew-x-[-20deg] text-center flex flex-col items-center">
+			<div
+				className="bg-black w-[75ch] border-8 border-rrorange text-white skew-x-[20deg] shadow-lg py-6 z-0"
+				style={{
+					transform: "skewX(20deg)",
+				}}
+			>
+				<div
+					className="skew-x-[-20deg] text-center flex flex-col items-center"
+					style={{
+						transform: "skewX(-20deg)",
+					}}
+				>
 					<div className="text-6xl  uppercase font-rubik">
 						{bot1Info.participant.name}
 					</div>
@@ -72,8 +82,18 @@ export const BotInfo = ({ details }: Props) => {
 			</div>
 
 			{/* Right Skewed Box */}
-			<div className="bg-black border-8 border-blue-700 text-white skew-x-[-20deg] shadow-lg  w-[75ch] py-6 z-0">
-				<div className="skew-x-[20deg] text-center flex flex-col items-center">
+			<div
+				className="bg-black border-8 border-rrblue text-white skew-x-[-20deg] shadow-lg  w-[75ch] py-6 z-0"
+				style={{
+					transform: "skewX(-20deg)",
+				}}
+			>
+				<div
+					className="skew-x-[20deg] text-center flex flex-col items-center"
+					style={{
+						transform: "skewX(20deg)",
+					}}
+				>
 					<div className="text-6xl  uppercase font-rubik">
 						{bot2Info.participant.name}
 					</div>

@@ -18,7 +18,7 @@ const InfoRow = ({
 			<div className="flex">
 				<div
 					className={cn(
-						"text-white w-80 bg-orange-500 py-2 font-extrabold text-2xl uppercase text-center clip-path-left-hex",
+						"text-white w-80 bg-rrorange py-2 font-extrabold text-2xl uppercase text-center clip-path-left-hex",
 						valueBot1?.length <= 20
 							? "text-2xl"
 							: valueBot1.length <= 25
@@ -30,7 +30,7 @@ const InfoRow = ({
 				</div>
 				<div
 					className={cn(
-						"text-white flex items-center justify-center w-80 bg-blue-700 py-2 font-extrabold text-2xl uppercase text-center clip-path-right-hex",
+						"text-white flex items-center justify-center w-80 bg-rrblue py-2 font-extrabold text-2xl uppercase text-center clip-path-right-hex",
 						valueBot2?.length <= 15
 							? "text-2xl"
 							: valueBot2.length <= 20

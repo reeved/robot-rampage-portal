@@ -132,7 +132,10 @@ export const BracketMatchForm = ({
 						control={form.control}
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className="text-white">Bot 1</FormLabel>
+								<FormLabel className="text-white">
+									Bot 1{" "}
+									<span className="text-rrorange font-medium">(ORANGE)</span>
+								</FormLabel>
 								<FormControl>
 									<Select value={field.value} onValueChange={field.onChange}>
 										<SelectTrigger className="bg-zinc-800 text-white font-bold">
@@ -192,7 +195,9 @@ export const BracketMatchForm = ({
 						control={form.control}
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className="text-white">Bot 2</FormLabel>
+								<FormLabel className="text-white">
+									Bot 2 <span className="text-rrblue font-medium">(BLUE)</span>
+								</FormLabel>
 								<FormControl>
 									<Select value={field.value} onValueChange={field.onChange}>
 										<SelectTrigger className="bg-zinc-800 text-white font-bold">
