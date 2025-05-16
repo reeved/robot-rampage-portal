@@ -186,3 +186,11 @@ code {
 .animate-breathing {
 	animation: breathe 5s ease-in-out infinite;
 }
+
+.clip-path-right-hex {
+	clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+}
+
+.clip-path-left-hex {
+	clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%, 0% 50%);
+}

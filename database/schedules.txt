@@ -17,7 +17,7 @@
           }
         ],
         "winner": {
-          "id": "part-dx6qvml",
+          "id": "part-fdrxhj5",
           "condition": "KO"
         },
         "type": "BRACKET",

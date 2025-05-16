@@ -67,7 +67,25 @@ function RouteComponent() {
 				<SharedStats bot1={participants[0]} bot2={participants[1]} />
 				<BotImage src={participants[1].photo} color="blue" />
 			</div>
-			<div className="flex-1 flex w-full mt-20 items-center">
+			<div className="bg-black py-10 px-4 flex justify-center items-center mt-10">
+				<BotInfo
+					details={[
+						{
+							participant: participants[0],
+							rank: rankings.find((r) => r.id === participants[0].id)?.position,
+							stats: qualifyingResults[participants[0].id],
+							color: "orange",
+						},
+						{
+							participant: participants[1],
+							rank: rankings.find((r) => r.id === participants[1].id)?.position,
+							stats: qualifyingResults[participants[1].id],
+							color: "blue",
+						},
+					]}
+				/>
+			</div>
+			{/* <div className="flex-1 flex w-full mt-20 items-center">
 				<BotInfo
 					participant={participants[0]}
 					rank={rankings.find((r) => r.id === participants[0].id)?.position}
@@ -85,7 +103,7 @@ function RouteComponent() {
 					stats={qualifyingResults[participants[1].id]}
 					color="blue"
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 }

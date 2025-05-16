@@ -18,7 +18,7 @@ const InfoRow = ({
 			<div className="flex">
 				<div
 					className={cn(
-						"text-white w-80 bg-orange-500 py-2 font-extrabold text-2xl uppercase text-center rounded-l-4xl",
+						"text-white w-80 bg-orange-500 py-2 font-extrabold text-2xl uppercase text-center clip-path-left-hex",
 						valueBot1?.length <= 20
 							? "text-2xl"
 							: valueBot1.length <= 25
@@ -30,7 +30,7 @@ const InfoRow = ({
 				</div>
 				<div
 					className={cn(
-						"text-white flex items-center justify-center w-80 bg-blue-700 py-2 font-extrabold text-2xl uppercase text-center rounded-r-4xl",
+						"text-white flex items-center justify-center w-80 bg-blue-700 py-2 font-extrabold text-2xl uppercase text-center clip-path-right-hex",
 						valueBot2?.length <= 15
 							? "text-2xl"
 							: valueBot2.length <= 20
@@ -74,11 +74,11 @@ export const SharedStats = ({ bot1, bot2 }: Props) => {
 				valueBot2={bot2.previousRank ?? "N/A"}
 			/>
 
-			<InfoRow
+			{/* <InfoRow
 				heading="Fun fact"
 				valueBot1={bot1.funFact ?? "N/A"}
 				valueBot2={bot2.funFact ?? "N/A"}
-			/>
+			/> */}
 		</div>
 	);
 };
