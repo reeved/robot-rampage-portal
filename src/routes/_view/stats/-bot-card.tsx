@@ -12,11 +12,11 @@ export const BotImage = ({
 		<div className={color === "orange" ? "text-orange-500" : "text-blue-700"}>
 			<img
 				src={src ? `/${src}` : undefined}
-				className="h-70 mx-auto rounded-3xl animate-breathing"
+				className="w-11/12 mx-auto rounded-3xl animate-breathing"
 				alt="bot-photo"
 				style={
 					{
-						filter: "drop-shadow(0 0 15px currentColor)",
+						filter: "drop-shadow(0 0 35px currentColor)",
 						// This custom property will be used by the animation
 						"--shadow-color": "currentColor",
 					} as React.CSSProperties

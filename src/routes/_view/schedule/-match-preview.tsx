@@ -20,7 +20,7 @@ export const MatchPreview = ({
 
 	return (
 		<div className="flex items-center relative">
-			<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-3xl uppercase relative z-30">
+			<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-3xl uppercase relative z-30 ">
 				<div className="flex flex-1 text-right">
 					<span
 						className={cn(

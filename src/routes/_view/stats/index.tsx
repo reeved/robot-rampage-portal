@@ -58,11 +58,11 @@ function RouteComponent() {
 	const { currentMatch, participants, rankings, qualifyingResults } = data;
 
 	return (
-		<div className="h-full w-full flex flex-col justify-start items-center p-6 pb-14">
+		<div className="h-full w-full flex flex-col justify-start items-center p-4 pb-14">
 			<h2 className="mx-auto text-3xl font-heading text-center text-primary uppercase">
 				{currentMatch.name}
 			</h2>
-			<div className="flex-1 flex gap-20 pt-10 relative items-center">
+			<div className="flex-1 flex gap-10 pt-10 relative items-center">
 				<BotImage src={participants[0].photo} color="orange" />
 				<SharedStats bot1={participants[0]} bot2={participants[1]} />
 				<BotImage src={participants[1].photo} color="blue" />

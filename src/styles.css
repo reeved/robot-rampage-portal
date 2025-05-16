@@ -176,10 +176,10 @@ code {
 @keyframes breathe {
 	0%,
 	100% {
-		filter: drop-shadow(0 0 10px var(--shadow-color));
+		filter: drop-shadow(0 0 15px var(--shadow-color));
 	}
 	50% {
-		filter: drop-shadow(0 0 25px var(--shadow-color));
+		filter: drop-shadow(0 0 35px var(--shadow-color));
 	}
 }
 
