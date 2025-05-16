@@ -65,7 +65,9 @@ export const BotInfo = ({ details }: Props) => {
 			{/* Center Rotated Diamond */}
 			<div className="absolute left-1/2 transform -translate-x-1/2 z-10">
 				<div className="w-40 h-40 bg-primary rotate-45 border-8 border-black flex items-center justify-center shadow-md">
-					<div className="-rotate-45 text-white text-5xl font-rubik">VS</div>
+					<div className="w-32 h-32 bg-primary  border-8 border-white flex items-center justify-center shadow-md">
+						<div className="-rotate-45 text-white text-5xl font-rubik">VS</div>
+					</div>
 				</div>
 			</div>
 
