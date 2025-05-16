@@ -30,14 +30,14 @@ class VmixApi {
 	}
 
 	async UpdateListsForMatch(bot1Video?: string, bot2Video?: string) {
-		// await this.ListRemoveAll("BotA");
-		// await this.ListRemoveAll("BotB");
-		// if (bot1Video) {
-		// 	await this.ListAdd("BotA", `${this.BASEPATH}${bot1Video}`);
-		// }
-		// if (bot2Video) {
-		// 	await this.ListAdd("BotB", `${this.BASEPATH}${bot2Video}`);
-		// }
+		await this.ListRemoveAll("BotA");
+		await this.ListRemoveAll("BotB");
+		if (bot1Video) {
+			await this.ListAdd("BotA", `${this.BASEPATH}${bot1Video}`);
+		}
+		if (bot2Video) {
+			await this.ListAdd("BotB", `${this.BASEPATH}${bot2Video}`);
+		}
 	}
 }
 

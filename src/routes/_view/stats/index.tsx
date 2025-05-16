@@ -1,3 +1,4 @@
+import { Participant } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
@@ -29,7 +30,9 @@ const getStatsData = createServerFn({
 
 		return {
 			currentMatch,
-			participants,
+			participants: currentMatch.participants.map((p) =>
+				participants.find((participant) => participant.id === p.id),
+			),
 			rankings: evt.rankings,
 			qualifyingResults: evt.qualifyingResults,
 		};
@@ -63,23 +66,25 @@ function RouteComponent() {
 				{currentMatch.name}
 			</h2>
 			<div className="flex-1 flex gap-10 pt-10 relative items-center">
-				<BotImage src={participants[0].photo} color="orange" />
+				<BotImage src={participants[0]?.photo} color="orange" />
 				<SharedStats bot1={participants[0]} bot2={participants[1]} />
-				<BotImage src={participants[1].photo} color="blue" />
+				<BotImage src={participants[1]?.photo} color="blue" />
 			</div>
 			<div className="bg-black py-10 px-4 flex justify-center items-center mt-10">
 				<BotInfo
 					details={[
 						{
 							participant: participants[0],
-							rank: rankings.find((r) => r.id === participants[0].id)?.position,
-							stats: qualifyingResults[participants[0].id],
+							rank: rankings.find((r) => r.id === participants[0]?.id)
+								?.position,
+							stats: participants[0] && qualifyingResults[participants[0].id],
 							color: "orange",
 						},
 						{
 							participant: participants[1],
-							rank: rankings.find((r) => r.id === participants[1].id)?.position,
-							stats: qualifyingResults[participants[1].id],
+							rank: rankings.find((r) => r.id === participants[1]?.id)
+								?.position,
+							stats: participants[1] && qualifyingResults[participants[1].id],
 							color: "blue",
 						},
 					]}

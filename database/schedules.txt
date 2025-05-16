@@ -8,11 +8,11 @@
         "name": "Championship SF1",
         "participants": [
           {
-            "id": "part-fdrxhj5",
+            "id": "part-ul19jgv",
             "videoName": "C:\\RRMedia\\Inferno_Fox_B.mov"
           },
           {
-            "id": "part-dx6qvml",
+            "id": "part-04xspbq",
             "videoName": "path/to/video5"
           }
         ],
@@ -29,11 +29,11 @@
         "name": "Championship SF2",
         "participants": [
           {
-            "id": "part-04xspbq",
+            "id": "part-aw653qy",
             "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
           },
           {
-            "id": "part-qpm0bjg"
+            "id": "part-ul19jgv"
           }
         ],
         "winner": {
@@ -148,7 +148,7 @@
             "videoName": "Bad_Blood_A.mov"
           },
           {
-            "id": "part-fdrxhj5",
+            "id": "uhunewo",
             "videoName": "Inferno_Fox_A.mov"
           }
         ],
@@ -162,11 +162,12 @@
         "name": "Match 2",
         "participants": [
           {
-            "id": "part-04xspbq"
+            "id": "part-qpm0bjg",
+            "videoName": "Bad_Blood_B.mov"
           },
           {
-            "id": "part-qpm0bjg",
-            "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
+            "id": "part-hh5ch23",
+            "videoName": "Borris_A.mov"
           }
         ],
         "winner": {
@@ -178,8 +179,14 @@
         "id": "match-9xx5096",
         "name": "Match 3",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-odwrzot",
+            "videoName": "Angry_Bird_A.mov"
+          },
+          {
+            "id": "part-fgfqsq3",
+            "videoName": "Mjolnir_A.mov"
+          }
         ],
         "winner": {},
         "type": "QUALIFYING"
@@ -188,8 +195,14 @@
         "id": "match-2j6lhrb",
         "name": "Match 4",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-dx6qvml",
+            "videoName": "Snollygoster_A.mov"
+          },
+          {
+            "id": "part-rzeus3u",
+            "videoName": "Black_Rose_A.mov"
+          }
         ],
         "winner": {},
         "type": "QUALIFYING"
@@ -198,10 +211,57 @@
         "id": "match-qk7duad",
         "name": "Match 5",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-fok7byp"
+          },
+          {
+            "id": "part-fdrxhj5"
+          }
         ],
         "winner": {},
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-ylqui3r",
+        "name": "Match 6",
+        "participants": [
+          {
+            "id": "part-dllub2q"
+          },
+          {
+            "id": "part-y3konnp"
+          }
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-zzpelz4",
+        "name": "Match 7",
+        "participants": [
+          {
+            "id": "part-ul19jgv"
+          },
+          {
+            "id": "part-aw653qy"
+          }
+        ],
+        "type": "QUALIFYING",
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "KO"
+        }
+      },
+      {
+        "id": "match-gz2na7f",
+        "name": "Match 8",
+        "participants": [
+          {
+            "id": "uhunewo"
+          },
+          {
+            "id": "part-uov2lni"
+          }
+        ],
         "type": "QUALIFYING"
       }
     ],
@@ -222,10 +282,10 @@
         "name": "End Game Driving Experience",
         "participants": [
           {
-            "id": "q9h4q1i"
+            "id": "jjsm1pd"
           },
           {
-            "id": "jjsm1pd"
+            "id": "q9h4q1i"
           }
         ],
         "winner": {
@@ -247,12 +307,12 @@
             "id": "q9h4q1i"
           }
         ],
-        "type": "BRACKET",
-        "bracket": "",
-        "round": "SF1",
         "winner": {
           "id": ""
-        }
+        },
+        "type": "BRACKET",
+        "bracket": "",
+        "round": "SF1"
       },
       {
         "id": "match-xqsdy8f",
@@ -279,6 +339,19 @@
           {
             "id": "96j1t3r"
           }
+        ],
+        "type": "BRACKET",
+        "bracket": "",
+        "round": "SF1"
+      },
+      {
+        "id": "match-n9fnnmu",
+        "name": "Match 5",
+        "participants": [
+          {
+            "id": "jjsm1pd"
+          },
+          {}
         ],
         "type": "BRACKET",
         "bracket": "",

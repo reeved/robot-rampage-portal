@@ -52,12 +52,12 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 			<div className="h-full w-full">
 				<div className="h-[1080px] w-[1920px] relative box-border">
 					<div className="absolute bottom-10 left-60 right-60 flex">
-						<div className="h-24 flex-1 relative font-rubik text-4xl clip-path-left-hex">
-							<div className="h-full w-full flex bg-black rounded-l-3xl items-center justify-center  z-20 relative">
+						<div className="h-24 flex-1 relative font-rubik text-4xl ">
+							<div className="h-full w-full flex bg-black rounded-l-3xl items-center justify-center  z-20 relative clip-path-left-hex">
 								{participant1 ? participant1.name : ""}
 							</div>
 							{participant1 && winner?.id === participant1?.id && (
-								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 rounded-t-xl animate-slide-up z-10">
+								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 animate-slide-up z-10">
 									{winner.condition ? `Win by ${winner.condition}` : "Winner"}
 								</div>
 							)}
@@ -69,12 +69,12 @@ const Overlay = ({ participant1, participant2, winner }: Props) => {
 								className="h-8 max-w-none bottom-25 -left-15 absolute"
 							/> */}
 						</div>
-						<div className="h-24 flex-1 relative font-rubik text-4xl clip-path-right-hex">
-							<div className="bg-black w-full h-full flex items-center justify-center rounded-r-3xl  z-20 relative">
+						<div className="h-24 flex-1 relative font-rubik text-4xl">
+							<div className="bg-black w-full h-full flex items-center justify-center rounded-r-3xl  z-20 relative  clip-path-right-hex">
 								{participant2 ? participant2.name : ""}
 							</div>
 							{participant2 && winner?.id === participant2?.id && (
-								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 rounded-t-xl animate-slide-up z-10">
+								<div className="absolute bottom-24 left-32 bg-amber-400 px-8 py-2 animate-slide-up z-10">
 									{winner.condition ? `Win by ${winner.condition}` : "Winner"}
 								</div>
 							)}
@@ -117,6 +117,8 @@ function RouteComponent() {
 	const participant2 = participants.find(
 		(p) => p.id === currentMatch?.participants[1].id,
 	);
+
+	console.log(currentMatch, participant1, participant2);
 
 	return (
 		<Overlay

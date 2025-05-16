@@ -5,11 +5,19 @@ export const BotImage = ({
 	color,
 }: { src?: string; color: "orange" | "blue" }) => {
 	if (!src) {
-		return <div className="h-80 w-80 bg-white mx-auto rounded-3xl" />;
+		return (
+			<div className="flex-1 w-11/12 mx-auto rounded-3xl animate-breathing" />
+		);
 	}
 
 	return (
-		<div className={color === "orange" ? "text-rrorange" : "text-rrblue"}>
+		<div
+			className={
+				color === "orange"
+					? "flex-1 text-rrorange"
+					: "flex-1 text-rrblue transform -scale-x-100"
+			}
+		>
 			<img
 				src={src ? `/${src}` : undefined}
 				className="w-11/12 mx-auto rounded-3xl animate-breathing"
@@ -28,7 +36,7 @@ export const BotImage = ({
 
 type Props = {
 	details: Array<{
-		participant: Participant;
+		participant?: Participant;
 		rank?: number;
 		stats?: { wins: number; losses: number };
 		color: "orange" | "blue";
@@ -58,7 +66,7 @@ export const BotInfo = ({ details }: Props) => {
 					}}
 				>
 					<div className="text-6xl  uppercase font-rubik">
-						{bot1Info.participant.name}
+						{bot1Info.participant?.name ?? "TBD"}
 					</div>
 					{bot1Info.stats && (
 						<div className="mt-4 mb-0">
@@ -95,7 +103,7 @@ export const BotInfo = ({ details }: Props) => {
 					}}
 				>
 					<div className="text-6xl  uppercase font-rubik">
-						{bot2Info.participant.name}
+						{bot2Info.participant?.name ?? "TBD"}
 					</div>
 					{bot2Info.stats && (
 						<div className="mt-4 mb-0">

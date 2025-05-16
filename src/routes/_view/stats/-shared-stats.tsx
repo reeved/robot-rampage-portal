@@ -11,7 +11,7 @@ const InfoRow = ({
 	valueBot2: string;
 }) => {
 	return (
-		<div className="flex flex-col gap-1">
+		<div className="flex flex-col gap-1 flex-1">
 			<span className="text-2xl font-semibold uppercase text-center">
 				{heading}
 			</span>
@@ -46,8 +46,8 @@ const InfoRow = ({
 };
 
 type Props = {
-	bot1: Participant;
-	bot2: Participant;
+	bot1?: Participant;
+	bot2?: Participant;
 };
 
 export const SharedStats = ({ bot1, bot2 }: Props) => {
@@ -55,23 +55,23 @@ export const SharedStats = ({ bot1, bot2 }: Props) => {
 		<div className="flex flex-col gap-10 mt-10">
 			<InfoRow
 				heading="Team members"
-				valueBot1={bot1.builders ?? "N/A"}
-				valueBot2={bot2.builders ?? "N/A"}
+				valueBot1={bot1?.builders ?? "N/A"}
+				valueBot2={bot2?.builders ?? "N/A"}
 			/>
 			<InfoRow
 				heading="Weapon Type"
-				valueBot1={bot1.weapon || "N/A"}
-				valueBot2={bot2.weapon || "N/A"}
+				valueBot1={bot1?.weapon || "N/A"}
+				valueBot2={bot2?.weapon || "N/A"}
 			/>
 			<InfoRow
 				heading="Weight"
-				valueBot1={`${bot1.weight ?? 0} KG`}
-				valueBot2={`${bot2.weight ?? 0} KG`}
+				valueBot1={`${bot1?.weight ?? 0} KG`}
+				valueBot2={`${bot2?.weight ?? 0} KG`}
 			/>
 			<InfoRow
 				heading="Rank at last event"
-				valueBot1={bot1.previousRank ?? "N/A"}
-				valueBot2={bot2.previousRank ?? "N/A"}
+				valueBot1={bot1?.previousRank ?? "N/A"}
+				valueBot2={bot2?.previousRank ?? "N/A"}
 			/>
 
 			{/* <InfoRow

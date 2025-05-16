@@ -196,3 +196,7 @@ code {
 .clip-path-left-hex {
 	clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%, 0% 50%);
 }
+
+.clip-path-top-hex {
+	clip-path: polygon(5% 5%, 95% 5%, 100% 20%, 100% 95%, 0% 100%, 0% 20%);
+}

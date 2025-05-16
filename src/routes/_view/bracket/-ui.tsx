@@ -150,7 +150,7 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 					<div
 						className={cn(
 							"absolute h-80 w-120",
-							box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
+							box.id === 1 || box.id === 5 ? "bottom-50" : "top-10",
 						)}
 					>
 						{box.image && (
@@ -160,7 +160,8 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 									alt="bot"
 									className={cn(
 										"mx-auto rounded-sm w-auto object-contain animate-breathing",
-										box.id === 1 || box.id === 5 ? "bottom-30" : "top-30",
+										box.id === 1 || box.id === 5 ? "bottom-30" : "top-10",
+										box.id >= 5 ? "transform -scale-x-100" : "",
 									)}
 									style={
 										{

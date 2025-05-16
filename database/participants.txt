@@ -8,7 +8,7 @@
     "previousRank": "1st place",
     "funFact": "Taylor Swift",
     "type": "FEATHERWEIGHT",
-    "photo": "black-rose.png"
+    "photo": "bot-photos/bad-blood.png"
   },
   {
     "id": "part-aw653qy",
@@ -16,7 +16,8 @@
     "builders": "Mike Barry",
     "videos": "Snollygoster_A.mov",
     "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/snollygoster.png"
   },
   {
     "id": "part-hh5ch23",
@@ -33,7 +34,7 @@
     "videos": "Inferno_Fox_A.mov,Inferno_Fox_B.mov",
     "weapon": "",
     "type": "FEATHERWEIGHT",
-    "photo": "black-rose.png"
+    "photo": "bot-photos/inferno-fox.png"
   },
   {
     "id": "part-qpm0bjg",
@@ -42,7 +43,7 @@
     "videos": "Black_Rose_A.mov,Black_Rose_B.mov",
     "weapon": "",
     "type": "FEATHERWEIGHT",
-    "photo": "black-rose.png"
+    "photo": "bot-photos/black-rose.png"
   },
   {
     "id": "part-rzeus3u",
@@ -58,7 +59,8 @@
     "builders": "Paul Mumby",
     "videos": "Mjolnir_A.mov,Mjolnir_B.mov",
     "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/mjolnir.png"
   },
   {
     "id": "part-ul19jgv",
@@ -66,7 +68,8 @@
     "builders": "Isaac German",
     "videos": "",
     "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/pretty-scary.png"
   },
   {
     "id": "part-uov2lni",
@@ -121,17 +124,19 @@
     "id": "uhunewo",
     "name": "Angry Bird",
     "builders": "Tim",
-    "videos": "",
+    "videos": "Angry_Bird_A.mov",
     "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/angry-bird.png"
   },
   {
     "id": "q9h4q1i",
     "type": "HEAVYWEIGHT",
-    "name": "End game",
+    "name": "End Game",
     "builders": "-",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "photo": "bot-photos/end-game.png"
   },
   {
     "id": "jjsm1pd",
@@ -139,7 +144,8 @@
     "name": "Barrel",
     "builders": "-",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "photo": "bot-photos/barrel-1.png"
   },
   {
     "id": "96j1t3r",
@@ -147,7 +153,8 @@
     "name": "NoodleBot",
     "builders": "-",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "photo": "bot-photos/noodle-bot.png"
   },
   {
     "id": "s9xj92s",
@@ -155,6 +162,7 @@
     "name": "Krusty Grab",
     "builders": "-",
     "videos": "",
-    "weapon": ""
+    "weapon": "",
+    "photo": "bot-photos/krusty-grab.png"
   }
 ]
