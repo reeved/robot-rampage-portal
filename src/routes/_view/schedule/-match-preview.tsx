@@ -14,9 +14,9 @@ export const MatchPreview = ({
 }: Props) => {
 	const [bot1, bot2] = match.names
 		? match.names.map((name) => ({ id: name, name }))
-		: (match.participants.map((bot) =>
+		: match.participants.map((bot) =>
 				participants.find((p) => p.id === bot?.id),
-			) as Participant[]);
+			);
 
 	return (
 		<div className="flex items-center relative">
