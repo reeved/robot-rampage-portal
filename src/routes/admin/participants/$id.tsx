@@ -60,6 +60,9 @@ function RouteComponent() {
 	return (
 		<div key={data.id}>
 			<ParticipantForm defaultValues={data} onSubmit={handleSave} />
+			{data.photo && (
+				<img alt="bot-image" src={`/${data.photo}`} className="h-200" />
+			)}
 		</div>
 	);
 }

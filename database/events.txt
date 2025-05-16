@@ -1,7 +1,7 @@
 [
   {
     "id": "may",
-    "currentMatchId": "match-zzpelz4",
+    "currentMatchId": "match-akmdyt3",
     "bracketNames": [
       "Championship",
       "5th Place",
@@ -20,17 +20,15 @@
         "opponentIds": []
       },
       "part-aw653qy": {
-        "wins": 1,
+        "wins": 0,
         "losses": 0,
-        "winsByKO": 1,
+        "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
-        "opponentIds": [
-          "part-ul19jgv"
-        ]
+        "opponentIds": []
       },
       "part-hh5ch23": {
         "wins": 0,
@@ -89,16 +87,14 @@
       },
       "part-ul19jgv": {
         "wins": 0,
-        "losses": 1,
+        "losses": 0,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 1,
+        "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
-        "opponentIds": [
-          "part-aw653qy"
-        ]
+        "opponentIds": []
       },
       "part-uov2lni": {
         "wins": 0,
@@ -176,15 +172,26 @@
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": []
+      },
+      "rot076r": {
+        "wins": 0,
+        "losses": 0,
+        "winsByKO": 0,
+        "winsByJD": 0,
+        "winsByNS": 0,
+        "lossesByKO": 0,
+        "lossesByJD": 0,
+        "lossesByNS": 0,
+        "opponentIds": []
       }
     },
     "rankings": [
       {
-        "id": "part-aw653qy",
+        "id": "part-04xspbq",
         "position": 1
       },
       {
-        "id": "part-04xspbq",
+        "id": "part-aw653qy",
         "position": 2
       },
       {
@@ -208,36 +215,40 @@
         "position": 7
       },
       {
-        "id": "part-uov2lni",
+        "id": "part-ul19jgv",
         "position": 8
       },
       {
-        "id": "part-fgfqsq3",
+        "id": "part-uov2lni",
         "position": 9
       },
       {
-        "id": "part-odwrzot",
+        "id": "part-fgfqsq3",
         "position": 10
       },
       {
-        "id": "part-y3konnp",
+        "id": "part-odwrzot",
         "position": 11
       },
       {
-        "id": "part-fok7byp",
+        "id": "part-y3konnp",
         "position": 12
       },
       {
-        "id": "part-dx6qvml",
+        "id": "part-fok7byp",
         "position": 13
       },
       {
-        "id": "uhunewo",
+        "id": "part-dx6qvml",
         "position": 14
       },
       {
-        "id": "part-ul19jgv",
+        "id": "uhunewo",
         "position": 15
+      },
+      {
+        "id": "rot076r",
+        "position": 16
       }
     ]
   }

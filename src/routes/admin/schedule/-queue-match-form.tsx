@@ -97,7 +97,7 @@ export const QueueMatchForm = ({ match, participants }: Props) => {
 
 	return (
 		<Form {...form}>
-			<form className="p-6 gap-y-6 flex flex-col items-start w-6/12 bg-zinc-900 rounded-xl shadow-lg">
+			<form className="p-6 gap-y-6 flex flex-col items-start w-full md:w-6/12 bg-zinc-900 rounded-xl shadow-lg">
 				<h2 className="text-lg font-bold text-white mb-2">QUEUE MATCH</h2>
 
 				<FormField

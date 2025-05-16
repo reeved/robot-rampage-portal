@@ -2,132 +2,162 @@
   {
     "id": "part-04xspbq",
     "name": "Bad Blood",
-    "builders": "Steve Barker, Christina Yu",
+    "builders": "Steve Barker",
     "videos": "Bad_Blood_A.mov,Bad_Blood_B.mov",
     "weapon": "Vertical Spinner",
     "previousRank": "1st place",
     "funFact": "Taylor Swift",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/bad-blood.png"
+    "photo": "bot-photos/bad-blood.png",
+    "weight": 13.2
   },
   {
     "id": "part-aw653qy",
     "name": "Snollygoster",
     "builders": "Mike Barry",
     "videos": "Snollygoster_A.mov",
-    "weapon": "",
+    "weapon": "Pusher",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/snollygoster.png"
+    "photo": "bot-photos/snollygoster.png",
+    "weight": 8.2,
+    "previousRank": "2nd Place"
   },
   {
     "id": "part-hh5ch23",
     "name": "Borris",
-    "builders": "-",
+    "builders": "Gren Anderson",
     "videos": "Borris_A.mov,Borris_B.mov",
-    "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "weapon": "Vertical Spinner",
+    "type": "FEATHERWEIGHT",
+    "weight": 13.6,
+    "previousRank": "3rd Place",
+    "photo": "bot-photos/borris.png"
   },
   {
     "id": "part-fdrxhj5",
     "name": "Inferno Fox",
     "builders": "Tim Sly",
     "videos": "Inferno_Fox_A.mov,Inferno_Fox_B.mov",
-    "weapon": "",
+    "weapon": "Vertical Spinner",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/inferno-fox.png"
+    "photo": "bot-photos/inferno-fox.png",
+    "weight": 13.5,
+    "previousRank": "4th Place"
   },
   {
     "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
     "videos": "Black_Rose_A.mov,Black_Rose_B.mov",
-    "weapon": "",
+    "weapon": "Drum Spinner",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/black-rose.png"
+    "photo": "bot-photos/black-rose.png",
+    "previousRank": "5th Place",
+    "weight": 13.3
   },
   {
     "id": "part-rzeus3u",
     "name": "Hammertime",
-    "builders": "Mitch",
+    "builders": "Mitch Hughes",
     "videos": "",
-    "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "weapon": "Melty brain (Hammer Spinner)",
+    "type": "FEATHERWEIGHT",
+    "weight": 12,
+    "previousRank": "6th Place",
+    "photo": "bot-photos/hammertime.png"
   },
   {
     "id": "part-dllub2q",
     "name": "Mjölnir",
     "builders": "Paul Mumby",
     "videos": "Mjolnir_A.mov,Mjolnir_B.mov",
-    "weapon": "",
+    "weapon": "Horizontal Spinner",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/mjolnir.png"
+    "photo": "bot-photos/mjolnir.png",
+    "weight": 13.3,
+    "previousRank": "7th Place"
   },
   {
     "id": "part-ul19jgv",
     "name": "Pretty Scary",
     "builders": "Isaac German",
     "videos": "",
-    "weapon": "",
+    "weapon": "Chain Spinner",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/pretty-scary.png"
+    "photo": "bot-photos/pretty-scary.png",
+    "previousRank": "7th Place",
+    "weight": 12.1
   },
   {
     "id": "part-uov2lni",
-    "name": "Tooth Fairy",
+    "name": "Chain Damage",
     "builders": "Kerey Watters",
     "videos": "",
-    "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "weapon": "Thwack Bot",
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/chain-damage.png",
+    "weight": 8.9
   },
   {
     "id": "part-fgfqsq3",
-    "name": "Drumroll Pls",
+    "name": "Jonathan",
     "builders": "Karan Purohit",
     "videos": "",
     "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/jonathan.png"
   },
   {
     "id": "part-odwrzot",
     "name": "Chef Woody",
     "builders": "Joseph Connolly",
     "videos": "",
-    "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "weapon": "Pusher",
+    "type": "FEATHERWEIGHT",
+    "weight": 8.7,
+    "previousRank": "9th Place",
+    "photo": "bot-photos/chef-woody.png"
   },
   {
     "id": "part-y3konnp",
     "name": "OnlyForks",
     "builders": "Ethan Kyle",
     "videos": "",
-    "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "weapon": "Lifter",
+    "type": "FEATHERWEIGHT",
+    "weight": 13.5,
+    "photo": "bot-photos/onlyforks.png"
   },
   {
     "id": "part-fok7byp",
     "name": "Hodr",
     "builders": "Andrea Mumby",
     "videos": "",
-    "weapon": "",
-    "type": "FEATHERWEIGHT"
+    "weapon": "Double Beater Bar",
+    "type": "FEATHERWEIGHT",
+    "weight": 13.6,
+    "photo": "bot-photos/hodr.png"
   },
   {
     "id": "part-dx6qvml",
     "name": "Fulcrum",
     "builders": "Jack",
     "videos": "",
-    "weapon": "",
+    "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
-    "photo": "black-rose.png"
+    "photo": "bot-photos/fulcrum.png",
+    "weight": 10.2
   },
   {
     "id": "uhunewo",
     "name": "Angry Bird",
-    "builders": "Tim",
+    "builders": "Connor Benton",
     "videos": "Angry_Bird_A.mov",
-    "weapon": "",
+    "weapon": "Pusher",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/angry-bird.png"
+    "photo": "bot-photos/angry-bird.png",
+    "previousRank": "14th Place",
+    "weight": 13.2
   },
   {
     "id": "q9h4q1i",
@@ -135,17 +165,21 @@
     "name": "End Game",
     "builders": "-",
     "videos": "",
-    "weapon": "",
-    "photo": "bot-photos/end-game.png"
+    "weapon": "Vertical Spinner",
+    "photo": "bot-photos/end-game.png",
+    "weight": 113,
+    "previousRank": "1st Place"
   },
   {
     "id": "jjsm1pd",
     "type": "HEAVYWEIGHT",
     "name": "Barrel",
-    "builders": "-",
+    "builders": "Hopes and Dreams",
     "videos": "",
-    "weapon": "",
-    "photo": "bot-photos/barrel-1.png"
+    "weapon": "Pacifism",
+    "photo": "bot-photos/barrel-1.png",
+    "weight": 16.9,
+    "previousRank": "As bad as it looks"
   },
   {
     "id": "96j1t3r",
@@ -153,8 +187,10 @@
     "name": "NoodleBot",
     "builders": "-",
     "videos": "",
-    "weapon": "",
-    "photo": "bot-photos/noodle-bot.png"
+    "weapon": "Pusher with Noodles",
+    "photo": "bot-photos/noodle-bot.png",
+    "previousRank": "Winner in our hearts",
+    "weight": 60
   },
   {
     "id": "s9xj92s",
@@ -162,7 +198,48 @@
     "name": "Krusty Grab",
     "builders": "-",
     "videos": "",
-    "weapon": "",
-    "photo": "bot-photos/krusty-grab.png"
+    "weapon": "Lifter",
+    "photo": "bot-photos/krusty-grab.png",
+    "weight": 113,
+    "previousRank": "2nd Place"
+  },
+  {
+    "id": "rot076r",
+    "type": "FEATHERWEIGHT",
+    "name": "Haymaker",
+    "builders": "Mike Barry",
+    "weight": 12.4,
+    "videos": "",
+    "weapon": "Horizontal Spinner",
+    "photo": "bot-photos/haymaker.png"
+  },
+  {
+    "id": "u0fr1y9",
+    "type": "HEAVYWEIGHT",
+    "name": "Bubble Bot",
+    "builders": "Mystery",
+    "videos": "",
+    "weapon": "Bubbles",
+    "weight": 1,
+    "photo": "bot-photos/bubblebot.png"
+  },
+  {
+    "id": "luecccm",
+    "type": "FEATHERWEIGHT",
+    "name": "Blue Blur",
+    "builders": "Jamie Wark",
+    "weight": 11.8,
+    "videos": "",
+    "weapon": "Vertical Spinner"
+  },
+  {
+    "id": "l7nvmer",
+    "type": "FEATHERWEIGHT",
+    "name": "Drumroll Pls",
+    "builders": "Nicholas Morea",
+    "weight": 11.6,
+    "videos": "",
+    "weapon": "Drum Spinner",
+    "previousRank": "9th Place"
   }
 ]

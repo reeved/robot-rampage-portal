@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
-const getSchedules = createServerFn({
+export const getSchedules = createServerFn({
 	method: "GET",
 })
 	.middleware([dbMiddleware])

@@ -54,7 +54,7 @@ export const SharedStats = ({ bot1, bot2 }: Props) => {
 	return (
 		<div className="flex flex-col gap-10 mt-10">
 			<InfoRow
-				heading="Team members"
+				heading="Driver"
 				valueBot1={bot1?.builders ?? "N/A"}
 				valueBot2={bot2?.builders ?? "N/A"}
 			/>

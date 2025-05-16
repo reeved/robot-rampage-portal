@@ -50,7 +50,12 @@ function RouteComponent() {
 								className="px-4 py-4 rounded-sm  self-stretch mx-4"
 							>
 								<Link to="/admin/participants/$id" params={{ id: p.id }}>
-									{p.name}
+									<>
+										{(!p.weapon || !p.weight || !p.photo || !p.builders) && (
+											<span>(*)</span>
+										)}
+										{p.name}
+									</>
 								</Link>
 							</Button>
 						))}
@@ -66,7 +71,12 @@ function RouteComponent() {
 								className="px-4 py-4 rounded-sm  self-stretch mx-4"
 							>
 								<Link to="/admin/participants/$id" params={{ id: p.id }}>
-									{p.name}
+									<>
+										{(!p.weapon || !p.weight || !p.photo || !p.builders) && (
+											<span>(*)</span>
+										)}
+										{p.name}
+									</>
 								</Link>
 							</Button>
 						))}

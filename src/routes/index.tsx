@@ -1,5 +1,4 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import logo from "../logo.svg";
 
 export const Route = createFileRoute("/")({
 	component: App,
@@ -7,9 +6,16 @@ export const Route = createFileRoute("/")({
 
 function App() {
 	return (
-		<div className="text-center">
-			<div>Robot Rampage Portal</div>
-			<Link to="/admin">Go to admin</Link>
+		<div className="flex flex-col gap-10 p-10">
+			<div className="text-primary font-heading uppercase text-xl">
+				Robot Rampage Portal
+			</div>
+			<Link to="/admin" className="p-4 bg-card">
+				Go to admin
+			</Link>
+			<Link to="/admin/mobile" className="p-4 bg-card">
+				Go to mobile admin
+			</Link>
 		</div>
 	);
 }

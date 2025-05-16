@@ -17,8 +17,7 @@
           }
         ],
         "winner": {
-          "id": "part-fdrxhj5",
-          "condition": "KO"
+          "id": "part-ul19jgv"
         },
         "type": "BRACKET",
         "bracket": "Championship",
@@ -37,8 +36,7 @@
           }
         ],
         "winner": {
-          "id": "part-qpm0bjg",
-          "condition": "JD"
+          "id": ""
         },
         "type": "BRACKET",
         "bracket": "Championship",
@@ -136,144 +134,6 @@
     "name": "Bracket 1"
   },
   {
-    "id": "schedule-no7wegq",
-    "type": "QUALIFYING",
-    "matches": [
-      {
-        "id": "match-woppk8o",
-        "name": "Match 1",
-        "participants": [
-          {
-            "id": "part-04xspbq",
-            "videoName": "Bad_Blood_A.mov"
-          },
-          {
-            "id": "uhunewo",
-            "videoName": "Inferno_Fox_A.mov"
-          }
-        ],
-        "winner": {
-          "id": ""
-        },
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-76nlawf",
-        "name": "Match 2",
-        "participants": [
-          {
-            "id": "part-qpm0bjg",
-            "videoName": "Bad_Blood_B.mov"
-          },
-          {
-            "id": "part-hh5ch23",
-            "videoName": "Borris_A.mov"
-          }
-        ],
-        "winner": {
-          "id": ""
-        },
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-9xx5096",
-        "name": "Match 3",
-        "participants": [
-          {
-            "id": "part-odwrzot",
-            "videoName": "Angry_Bird_A.mov"
-          },
-          {
-            "id": "part-fgfqsq3",
-            "videoName": "Mjolnir_A.mov"
-          }
-        ],
-        "winner": {},
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-2j6lhrb",
-        "name": "Match 4",
-        "participants": [
-          {
-            "id": "part-dx6qvml",
-            "videoName": "Snollygoster_A.mov"
-          },
-          {
-            "id": "part-rzeus3u",
-            "videoName": "Black_Rose_A.mov"
-          }
-        ],
-        "winner": {},
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-qk7duad",
-        "name": "Match 5",
-        "participants": [
-          {
-            "id": "part-fok7byp"
-          },
-          {
-            "id": "part-fdrxhj5"
-          }
-        ],
-        "winner": {},
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-ylqui3r",
-        "name": "Match 6",
-        "participants": [
-          {
-            "id": "part-dllub2q"
-          },
-          {
-            "id": "part-y3konnp"
-          }
-        ],
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-zzpelz4",
-        "name": "Match 7",
-        "participants": [
-          {
-            "id": "part-ul19jgv"
-          },
-          {
-            "id": "part-aw653qy"
-          }
-        ],
-        "type": "QUALIFYING",
-        "winner": {
-          "id": "part-aw653qy",
-          "condition": "KO"
-        }
-      },
-      {
-        "id": "match-gz2na7f",
-        "name": "Match 8",
-        "participants": [
-          {
-            "id": "uhunewo"
-          },
-          {
-            "id": "part-uov2lni"
-          }
-        ],
-        "type": "QUALIFYING"
-      }
-    ],
-    "name": "Qualifying Session 1"
-  },
-  {
-    "id": "schedule-7dksoma",
-    "type": "QUALIFYING",
-    "matches": [],
-    "name": "Qualifying Session 2"
-  },
-  {
     "id": "schedule-9p6rmlj",
     "type": "BRACKET",
     "matches": [
@@ -359,5 +219,159 @@
       }
     ],
     "name": "Exhibition Matches"
+  },
+  {
+    "id": "schedule-2l3cv3x",
+    "type": "QUALIFYING",
+    "matches": [
+      {
+        "id": "match-twy6836",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "uhunewo"
+          }
+        ],
+        "type": "QUALIFYING",
+        "winner": {
+          "id": ""
+        }
+      },
+      {
+        "id": "match-g1f7dlj",
+        "name": "Match 2",
+        "participants": [
+          {
+            "id": "part-hh5ch23",
+            "videoName": "Borris_A.mov"
+          },
+          {
+            "id": "part-y3konnp"
+          }
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-akmdyt3",
+        "name": "Match 3",
+        "participants": [
+          {
+            "id": "part-aw653qy",
+            "videoName": "Snollygoster_A.mov"
+          },
+          {
+            "id": "part-fok7byp"
+          }
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-84eq17r",
+        "name": "Match 4",
+        "participants": [
+          {
+            "id": "part-fdrxhj5",
+            "videoName": "Inferno_Fox_A.mov"
+          },
+          {
+            "id": "part-odwrzot"
+          }
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-48ldi7f",
+        "name": "Match 5",
+        "participants": [
+          {
+            "id": "part-qpm0bjg",
+            "videoName": "Black_Rose_A.mov"
+          },
+          {
+            "id": "part-dx6qvml"
+          }
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-g8d6lsz",
+        "name": "Match 6",
+        "participants": [
+          {
+            "id": "part-rzeus3u"
+          },
+          {
+            "id": "rot076r"
+          }
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-lru3tzg",
+        "name": "Match 7",
+        "participants": [
+          {
+            "id": "part-dllub2q",
+            "videoName": "Mjolnir_A.mov"
+          },
+          {
+            "id": "part-uov2lni"
+          }
+        ],
+        "type": "QUALIFYING",
+        "winner": {
+          "id": ""
+        }
+      },
+      {
+        "id": "match-172boy0",
+        "name": "Match 8",
+        "participants": [
+          {},
+          {}
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-ea48331",
+        "name": "Match 9",
+        "participants": [
+          {},
+          {}
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-5d7yyzu",
+        "name": "Match 10",
+        "participants": [
+          {},
+          {}
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-yo60hgt",
+        "name": "Match 11",
+        "participants": [
+          {},
+          {}
+        ],
+        "type": "QUALIFYING"
+      },
+      {
+        "id": "match-rtw0jep",
+        "name": "Match 12",
+        "participants": [
+          {},
+          {}
+        ],
+        "type": "QUALIFYING"
+      }
+    ],
+    "name": "Qualifying Session 1"
   }
 ]
