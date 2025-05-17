@@ -39,9 +39,9 @@
         ]
       },
       "part-hh5ch23": {
-        "wins": 1,
+        "wins": 2,
         "losses": 1,
-        "winsByKO": 1,
+        "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 1,
@@ -49,7 +49,8 @@
         "lossesByNS": 0,
         "opponentIds": [
           "part-y3konnp",
-          "part-odwrzot"
+          "part-odwrzot",
+          "part-fok7byp"
         ]
       },
       "part-fdrxhj5": {
@@ -159,16 +160,17 @@
       },
       "part-fok7byp": {
         "wins": 2,
-        "losses": 0,
+        "losses": 1,
         "winsByKO": 0,
         "winsByJD": 2,
         "winsByNS": 0,
-        "lossesByKO": 0,
+        "lossesByKO": 1,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
           "part-qpm0bjg",
-          "rot076r"
+          "rot076r",
+          "part-hh5ch23"
         ]
       },
       "part-dx6qvml": {
@@ -247,19 +249,19 @@
         "position": 4
       },
       {
-        "id": "part-aw653qy",
+        "id": "part-hh5ch23",
         "position": 5
       },
       {
-        "id": "part-rzeus3u",
+        "id": "part-aw653qy",
         "position": 6
       },
       {
-        "id": "part-fok7byp",
+        "id": "part-rzeus3u",
         "position": 7
       },
       {
-        "id": "part-hh5ch23",
+        "id": "part-fok7byp",
         "position": 8
       },
       {

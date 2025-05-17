@@ -159,10 +159,14 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 									src={`/${box.image}`}
 									alt="bot"
 									className={cn(
-										"mx-auto rounded-sm w-auto object-contain",
+										"mx-auto rounded-sm w-auto object-contain transition-all",
+										box.id === 1 || (box.id === 2 && "left-10"),
 										box.id === 1 || box.id === 5 ? "bottom-30" : "top-10",
 										box.id >= 5 ? "transform -scale-x-100" : "",
-										box.isLoser ? "grayscale" : "animate-breathing",
+										box.isLoser
+											? "greyscale-manual"
+											: "grayscale-0 animate-breathing",
+										box.title === "Blue Blur" && "w-10/12",
 									)}
 									style={
 										{

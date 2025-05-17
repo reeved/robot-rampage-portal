@@ -200,3 +200,8 @@ code {
 .clip-path-top-hex {
 	clip-path: polygon(5% 5%, 95% 5%, 100% 20%, 100% 95%, 0% 100%, 0% 20%);
 }
+
+.greyscale-manual {
+	-webkit-filter: grayscale(1);
+	filter: grayscale(1);
+}

@@ -74,6 +74,7 @@ const getBracketMatches = createServerFn({
 				y: 125,
 				width: 280,
 				height: 120,
+				isLoser: !!final.winner?.id && final.winner?.id !== finalBots[0]?.id,
 			},
 			{
 				id: 4,
@@ -82,6 +83,7 @@ const getBracketMatches = createServerFn({
 				y: 125,
 				width: 280,
 				height: 120,
+				isLoser: !!final.winner?.id && final.winner?.id !== finalBots[1]?.id,
 			},
 
 			// Right vertical boxes

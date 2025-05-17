@@ -3,103 +3,16 @@
     "id": "schedule-0sprf3u",
     "type": "BRACKET",
     "matches": [
-      {
-        "id": "match-jocskcc",
-        "name": "Championship SF1",
-        "participants": [
-          {
-            "id": "part-ul19jgv",
-            "videoName": "C:\\RRMedia\\Inferno_Fox_B.mov"
-          },
-          {
-            "id": "part-04xspbq",
-            "videoName": "path/to/video5"
-          }
-        ],
-        "winner": {
-          "id": "part-ul19jgv"
-        },
-        "type": "BRACKET",
-        "bracket": "Championship",
-        "round": "SF1"
-      },
-      {
-        "id": "match-wce2rtb",
-        "name": "Championship SF2",
-        "participants": [
-          {
-            "id": "part-aw653qy",
-            "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
-          },
-          {
-            "id": "part-ul19jgv"
-          }
-        ],
-        "winner": {
-          "id": ""
-        },
-        "type": "BRACKET",
-        "bracket": "Championship",
-        "round": "SF2"
-      },
-      {
-        "id": "match-ymqmggd",
-        "name": "Championship Final",
-        "participants": [
-          {
-            "id": "part-fdrxhj5"
-          },
-          {
-            "id": "part-qpm0bjg"
-          }
-        ],
-        "winner": {},
-        "type": "BRACKET",
-        "bracket": "Championship",
-        "round": "Final"
-      },
-      {
-        "id": "match-tascvhe",
-        "name": "5th Place SF1",
-        "participants": [
-          {},
-          {}
-        ],
-        "winner": {},
-        "type": "BRACKET",
-        "bracket": "5th Place",
-        "round": "SF1"
-      },
-      {
-        "id": "match-6v2ohxk",
-        "name": "5th Place SF2",
-        "participants": [
-          {},
-          {}
-        ],
-        "winner": {},
-        "type": "BRACKET",
-        "bracket": "5th Place",
-        "round": "SF2"
-      },
-      {
-        "id": "match-5dbbxyf",
-        "name": "5th Place Final",
-        "participants": [
-          {},
-          {}
-        ],
-        "winner": {},
-        "type": "BRACKET",
-        "bracket": "5th Place",
-        "round": "Final"
-      },
-      {
+       {
         "id": "match-e6sxbaa",
-        "name": "9th Place SF2",
+        "name": "9th Place SF1",
         "participants": [
-          {},
-          {}
+          {
+            "id": "rot076r"
+          },
+          {
+            "id": "part-04xspbq"
+          }
         ],
         "winner": {},
         "type": "BRACKET",
@@ -110,12 +23,87 @@
         "id": "match-l1iznwr",
         "name": "9th Place SF2",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-odwrzot"
+          },
+          {
+            "id": "luecccm"
+          }
         ],
         "winner": {},
         "type": "BRACKET",
         "bracket": "9th Place",
+        "round": "SF2"
+      },
+      {
+        "id": "match-tascvhe",
+        "name": "5th Place SF1",
+        "participants": [
+          {
+            "id": "part-hh5ch23"
+          },
+          {
+            "id": "part-rzeus3u"
+          }
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "5th Place",
+        "round": "SF1"
+      },
+      {
+        "id": "match-6v2ohxk",
+        "name": "5th Place SF2",
+        "participants": [
+          {
+            "id": "part-aw653qy"
+          },
+          {
+            "id": "part-fok7byp"
+          }
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "5th Place",
+        "round": "SF2"
+      },
+      {
+        "id": "match-jocskcc",
+        "name": "Championship SF1",
+        "participants": [
+          {
+            "id": "part-y3konnp",
+            "videoName": "C:\\RRMedia\\Inferno_Fox_B.mov"
+          },
+          {
+            "id": "part-fdrxhj5",
+            "videoName": "path/to/video5"
+          }
+        ],
+        "winner": {
+          "id": ""
+        },
+        "type": "BRACKET",
+        "bracket": "Championship",
+        "round": "SF1"
+      },
+      {
+        "id": "match-wce2rtb",
+        "name": "Championship SF2",
+        "participants": [
+          {
+            "id": "part-qpm0bjg",
+            "videoName": "C:\\RRMedia\\Snollygoster_A.mov"
+          },
+          {
+            "id": "part-dllub2q"
+          }
+        ],
+        "winner": {
+          "id": ""
+        },
+        "type": "BRACKET",
+        "bracket": "Championship",
         "round": "SF2"
       },
       {
@@ -129,7 +117,32 @@
         "type": "BRACKET",
         "bracket": "9th Place",
         "round": "Final"
+      },
+      {
+        "id": "match-5dbbxyf",
+        "name": "5th Place Final",
+        "participants": [
+          {},
+          {}
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "5th Place",
+        "round": "Final"
+      },
+       {
+        "id": "match-ymqmggd",
+        "name": "Championship Final",
+        "participants": [
+          {},
+          {}
+        ],
+        "winner": {},
+        "type": "BRACKET",
+        "bracket": "Championship",
+        "round": "Final"
       }
+
     ],
     "name": "Bracket 1"
   },
@@ -602,7 +615,11 @@
             "videoName": "Snollygoster_A.mov"
           }
         ],
-        "type": "QUALIFYING"
+        "type": "QUALIFYING",
+        "winner": {
+          "id": "part-hh5ch23",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-7xyc7fs",
