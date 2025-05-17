@@ -159,14 +159,15 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 									src={`/${box.image}`}
 									alt="bot"
 									className={cn(
-										"mx-auto rounded-sm w-auto object-contain animate-breathing",
+										"mx-auto rounded-sm w-auto object-contain",
 										box.id === 1 || box.id === 5 ? "bottom-30" : "top-10",
 										box.id >= 5 ? "transform -scale-x-100" : "",
+										box.isLoser ? "grayscale" : "animate-breathing",
 									)}
 									style={
 										{
 											// robot rampage red
-											filter: "drop-shadow(0 0 15px currentColor)",
+											// filter: "drop-shadow(0 0 15px currentColor)",
 											"--shadow-color": "currentColor",
 											maxWidth: "100%", // Ensures image doesn't overflow its container
 											height: "100%",

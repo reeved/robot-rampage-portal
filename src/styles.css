@@ -186,7 +186,7 @@ code {
 }
 
 .animate-breathing {
-	animation: breathe 5s ease-in-out infinite;
+	animation: breathe 3s ease-in-out infinite;
 }
 
 .clip-path-right-hex {
