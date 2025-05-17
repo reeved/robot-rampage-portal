@@ -143,7 +143,7 @@
     "id": "q9h4q1i",
     "type": "HEAVYWEIGHT",
     "name": "End Game",
-    "builders": "-",
+    "builders": "Zach",
     "videos": "",
     "weapon": "Vertical Spinner",
     "photo": "bot-photos/end-game.png",
@@ -212,15 +212,5 @@
     "videos": "",
     "weapon": "Vertical Spinner",
     "photo": "bot-photos/blue-blur.png"
-  },
-  {
-    "id": "l7nvmer",
-    "type": "FEATHERWEIGHT",
-    "name": "Drumroll Pls",
-    "builders": "Nicholas Morea",
-    "weight": 11.6,
-    "videos": "",
-    "weapon": "Drum Spinner",
-    "previousRank": "9th Place"
   }
 ]
