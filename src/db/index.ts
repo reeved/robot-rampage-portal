@@ -13,6 +13,7 @@ export const ParticipantSchema = z.object({
 	photo: z.string().optional(),
 	funFact: z.string().optional(),
 	previousRank: z.string().optional(),
+	isDead: z.boolean().optional(),
 });
 
 export const EventSchema = z.object({

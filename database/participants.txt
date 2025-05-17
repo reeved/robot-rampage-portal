@@ -85,7 +85,8 @@
     "weapon": "Thwack Bot",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/chain-damage.png",
-    "weight": 8.9
+    "weight": 8.9,
+    "isDead": true
   },
   {
     "id": "part-odwrzot",
@@ -126,7 +127,8 @@
     "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/fulcrum.png",
-    "weight": 10.2
+    "weight": 10.2,
+    "isDead": true
   },
   {
     "id": "uhunewo",
@@ -137,7 +139,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/angry-bird.png",
     "previousRank": "14th Place",
-    "weight": 13.2
+    "weight": 13.2,
+    "isDead": true
   },
   {
     "id": "q9h4q1i",
