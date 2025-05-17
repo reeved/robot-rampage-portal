@@ -78,17 +78,6 @@
     "previousRank": "7th Place"
   },
   {
-    "id": "part-ul19jgv",
-    "name": "Pretty Scary",
-    "builders": "Isaac German",
-    "videos": "",
-    "weapon": "Chain Spinner",
-    "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/pretty-scary.png",
-    "previousRank": "7th Place",
-    "weight": 12.1
-  },
-  {
     "id": "part-uov2lni",
     "name": "Chain Damage",
     "builders": "Kerey Watters",
@@ -97,15 +86,6 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/chain-damage.png",
     "weight": 8.9
-  },
-  {
-    "id": "part-fgfqsq3",
-    "name": "Jonathan",
-    "builders": "Karan Purohit",
-    "videos": "",
-    "weapon": "",
-    "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/jonathan.png"
   },
   {
     "id": "part-odwrzot",
@@ -141,7 +121,7 @@
   {
     "id": "part-dx6qvml",
     "name": "Fulcrum",
-    "builders": "Jack",
+    "builders": "Jolene Bedwell",
     "videos": "",
     "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
@@ -185,7 +165,7 @@
     "id": "96j1t3r",
     "type": "HEAVYWEIGHT",
     "name": "NoodleBot",
-    "builders": "-",
+    "builders": "Jolene Bedwell",
     "videos": "",
     "weapon": "Pusher with Noodles",
     "photo": "bot-photos/noodle-bot.png",
@@ -196,7 +176,7 @@
     "id": "s9xj92s",
     "type": "HEAVYWEIGHT",
     "name": "Krusty Grab",
-    "builders": "-",
+    "builders": "Steve Barker",
     "videos": "",
     "weapon": "Lifter",
     "photo": "bot-photos/krusty-grab.png",
@@ -230,7 +210,8 @@
     "builders": "Jamie Wark",
     "weight": 11.8,
     "videos": "",
-    "weapon": "Vertical Spinner"
+    "weapon": "Vertical Spinner",
+    "photo": "bot-photos/blue-blur.png"
   },
   {
     "id": "l7nvmer",
