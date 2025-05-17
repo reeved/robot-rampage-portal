@@ -45,6 +45,17 @@
     "previousRank": "4th Place"
   },
   {
+    "id": "part-ul19jgv",
+    "name": "Pretty Scary",
+    "builders": "Isaac German",
+    "videos": "",
+    "weapon": "Chain Spinner",
+    "type": "FEATHERWEIGHT",
+    "photo": "bot-photos/pretty-scary.png",
+    "previousRank": "7th Place",
+    "weight": 12.1
+  },
+  {
     "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
