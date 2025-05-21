@@ -205,3 +205,16 @@ code {
 	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
 }
+
+.animated-background {
+	animation: pulse-background 4s infinite;
+}
+
+@keyframes pulse-background {
+	0% {
+		filter: brightness(1);
+	}
+	100% {
+		filter: brightness(0);
+	}
+}

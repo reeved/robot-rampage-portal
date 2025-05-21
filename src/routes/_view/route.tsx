@@ -13,7 +13,7 @@ function RouteComponent() {
 					alt="Robot rampage logo"
 					className="h-[100px] mx-auto pt-10 -pb-6"
 				/>
-				<div className="h-full w-full backdrop-brightness-150">
+				<div className="h-full w-full">
 					<Outlet />
 				</div>
 			</div>
