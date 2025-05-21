@@ -95,6 +95,7 @@ const connections: Connection[] = [
 	{ from: 4, to: 5 },
 	// Connect middle right to right bottom
 	{ from: 4, to: 6 },
+	{ from: 7, to: 3 },
 ];
 
 export const Connectors = ({ boxes }: { boxes: Box[] }) => {

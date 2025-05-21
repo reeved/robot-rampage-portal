@@ -107,6 +107,16 @@ const getBracketMatches = createServerFn({
 				height: 120,
 				isLoser: !!sf2.winner?.id && sf2.winner?.id !== sf2Bots[1]?.id,
 			},
+			{
+				id: 7,
+				title: sf2Bots[1]?.name || "TBD",
+				image: sf2Bots[1]?.photo,
+				x: 0,
+				y: 125,
+				width: 280,
+				height: 120,
+				isLoser: !!sf2.winner?.id && sf2.winner?.id !== sf2Bots[1]?.id,
+			},
 		];
 
 		return { boxes, bracketName };
