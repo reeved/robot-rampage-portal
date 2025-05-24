@@ -3,21 +3,21 @@
   <style>
     /* Define animation keyframes */
     @keyframes pulse1 {
-    0% { filter: brightness(1); }
-    50% { filter: brightness(1.5); }
-    100% { filter: brightness(1); }
+    0% { filter: brightness(0.3); }
+    50% { filter: brightness(1); }
+    100% { filter: brightness(0.3); }
     }
 
     @keyframes pulse2 {
-    0% { filter: brightness(0.8); }
+    0% { filter: brightness(0.2); }
     50% { filter: brightness(1.3); }
-    100% { filter: brightness(0.8); }
+    100% { filter: brightness(0.2); }
     }
 
     @keyframes pulse3 {
-    0% { filter: brightness(0.7); }
-    50% { filter: brightness(1.2); }
-    100% { filter: brightness(0.7); }
+    0% { filter: brightness(0.2); }
+    50% { filter: brightness(1.1); }
+    100% { filter: brightness(0.2); }
     }
 
     /* Make sure all paths are fully opaque */
@@ -27,15 +27,15 @@
 
     /* Define animation classes */
     .animate1 {
-    animation: pulse1 4s infinite ease-in-out;
+    animation: pulse1 3s infinite ease-in-out;
     }
 
     .animate2 {
-    animation: pulse2 6s infinite ease-in-out;
+    animation: pulse2 4s infinite ease-in-out;
     }
 
     .animate3 {
-    animation: pulse3 8s infinite ease-in-out;
+    animation: pulse3 5s infinite ease-in-out;
     }
   </style>
 
