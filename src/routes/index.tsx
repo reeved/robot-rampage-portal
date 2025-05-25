@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import { TimerComponent } from "./-timer";
 
 export const Route = createFileRoute("/")({
 	component: App,
@@ -16,6 +17,7 @@ function App() {
 			<Link to="/admin/mobile" className="p-4 bg-card">
 				Go to mobile admin
 			</Link>
+			<TimerComponent />
 		</div>
 	);
 }
