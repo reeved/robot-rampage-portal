@@ -134,7 +134,6 @@ const updateMatchResult = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(UpdateSchema)
 	.handler(async ({ data, context }) => {
-		console.log("Updating match winner", data);
 		const schedule = await context.db.schedule.findOne(
 			({ id }) => id === data.scheduleId,
 		);
@@ -173,12 +172,10 @@ const updateMatchResult = createServerFn({
 		);
 
 		if (existingMatch.type !== "QUALIFYING") {
-			console.log("Match is not qualifying, skipping ranking update");
 			return;
 		}
 
 		if (matchParticipants.some((p) => p?.type !== "FEATHERWEIGHT")) {
-			console.log("Match is not featherweight, skipping ranking update");
 			return;
 		}
 

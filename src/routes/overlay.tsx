@@ -118,8 +118,6 @@ function RouteComponent() {
 		(p) => p.id === currentMatch?.participants[1].id,
 	);
 
-	console.log(currentMatch, participant1, participant2);
-
 	return (
 		<Overlay
 			participant1={participant1}

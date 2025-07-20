@@ -9,7 +9,8 @@
     "funFact": "Taylor Swift",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/bad-blood.png",
-    "weight": 13.2
+    "weight": 13.2,
+    "isCompeting": true
   },
   {
     "id": "part-aw653qy",
@@ -20,7 +21,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/snollygoster.png",
     "weight": 8.2,
-    "previousRank": "2nd Place"
+    "previousRank": "2nd Place",
+    "isCompeting": true
   },
   {
     "id": "part-hh5ch23",
@@ -31,7 +33,8 @@
     "type": "FEATHERWEIGHT",
     "weight": 13.6,
     "previousRank": "3rd Place",
-    "photo": "bot-photos/borris.png"
+    "photo": "bot-photos/borris.png",
+    "isCompeting": true
   },
   {
     "id": "part-fdrxhj5",
@@ -42,7 +45,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/inferno-fox.png",
     "weight": 13.5,
-    "previousRank": "4th Place"
+    "previousRank": "4th Place",
+    "isCompeting": true
   },
   {
     "id": "part-ul19jgv",
@@ -53,7 +57,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/pretty-scary.png",
     "previousRank": "7th Place",
-    "weight": 12.1
+    "weight": 12.1,
+    "isCompeting": true
   },
   {
     "id": "part-qpm0bjg",
@@ -64,7 +69,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/black-rose.png",
     "previousRank": "5th Place",
-    "weight": 13.3
+    "weight": 13.3,
+    "isCompeting": true
   },
   {
     "id": "part-rzeus3u",
@@ -75,7 +81,8 @@
     "type": "FEATHERWEIGHT",
     "weight": 12,
     "previousRank": "6th Place",
-    "photo": "bot-photos/hammertime.png"
+    "photo": "bot-photos/hammertime.png",
+    "isCompeting": true
   },
   {
     "id": "part-dllub2q",
@@ -86,7 +93,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/mjolnir.png",
     "weight": 13.3,
-    "previousRank": "7th Place"
+    "previousRank": "7th Place",
+    "isCompeting": true
   },
   {
     "id": "part-uov2lni",
@@ -97,7 +105,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/chain-damage.png",
     "weight": 8.9,
-    "isDead": true
+    "isDead": true,
+    "isCompeting": true
   },
   {
     "id": "part-odwrzot",
@@ -108,7 +117,8 @@
     "type": "FEATHERWEIGHT",
     "weight": 8.7,
     "previousRank": "9th Place",
-    "photo": "bot-photos/chef-woody.png"
+    "photo": "bot-photos/chef-woody.png",
+    "isCompeting": true
   },
   {
     "id": "part-y3konnp",
@@ -118,7 +128,8 @@
     "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
     "weight": 13.5,
-    "photo": "bot-photos/onlyforks.png"
+    "photo": "bot-photos/onlyforks.png",
+    "isCompeting": true
   },
   {
     "id": "part-fok7byp",
@@ -128,7 +139,8 @@
     "weapon": "Double Beater Bar",
     "type": "FEATHERWEIGHT",
     "weight": 13.6,
-    "photo": "bot-photos/hodr.png"
+    "photo": "bot-photos/hodr.png",
+    "isCompeting": true
   },
   {
     "id": "part-dx6qvml",
@@ -139,7 +151,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/fulcrum.png",
     "weight": 10.2,
-    "isDead": true
+    "isDead": true,
+    "isCompeting": true
   },
   {
     "id": "uhunewo",
@@ -151,7 +164,8 @@
     "photo": "bot-photos/angry-bird.png",
     "previousRank": "14th Place",
     "weight": 13.2,
-    "isDead": true
+    "isDead": true,
+    "isCompeting": true
   },
   {
     "id": "q9h4q1i",
@@ -162,7 +176,8 @@
     "weapon": "Vertical Spinner",
     "photo": "bot-photos/end-game.png",
     "weight": 113,
-    "previousRank": "1st Place"
+    "previousRank": "1st Place",
+    "isCompeting": true
   },
   {
     "id": "jjsm1pd",
@@ -173,7 +188,8 @@
     "weapon": "Pacifism",
     "photo": "bot-photos/barrel-1.png",
     "weight": 16.9,
-    "previousRank": "As bad as it looks"
+    "previousRank": "As bad as it looks",
+    "isCompeting": true
   },
   {
     "id": "96j1t3r",
@@ -184,7 +200,8 @@
     "weapon": "Pusher with Noodles",
     "photo": "bot-photos/noodle-bot.png",
     "previousRank": "Winner in our hearts",
-    "weight": 60
+    "weight": 60,
+    "isCompeting": true
   },
   {
     "id": "s9xj92s",
@@ -195,7 +212,8 @@
     "weapon": "Lifter",
     "photo": "bot-photos/krusty-grab.png",
     "weight": 113,
-    "previousRank": "2nd Place"
+    "previousRank": "2nd Place",
+    "isCompeting": true
   },
   {
     "id": "rot076r",
@@ -205,7 +223,8 @@
     "weight": 12.4,
     "videos": "",
     "weapon": "Horizontal Spinner",
-    "photo": "bot-photos/haymaker.png"
+    "photo": "bot-photos/haymaker.png",
+    "isCompeting": true
   },
   {
     "id": "u0fr1y9",
@@ -215,7 +234,8 @@
     "videos": "",
     "weapon": "Bubbles",
     "weight": 1,
-    "photo": "bot-photos/bubblebot.png"
+    "photo": "bot-photos/bubblebot.png",
+    "isCompeting": true
   },
   {
     "id": "luecccm",
@@ -225,6 +245,7 @@
     "weight": 11.8,
     "videos": "",
     "weapon": "Vertical Spinner",
-    "photo": "bot-photos/blue-blur.png"
+    "photo": "bot-photos/blue-blur.png",
+    "isCompeting": true
   }
 ]

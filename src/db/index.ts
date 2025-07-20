@@ -14,6 +14,7 @@ export const ParticipantSchema = z.object({
 	funFact: z.string().optional(),
 	previousRank: z.string().optional(),
 	isDead: z.boolean().optional(),
+	isCompeting: z.boolean(),
 });
 
 export const EventSchema = z.object({
@@ -83,11 +84,11 @@ export type QualifyingMatch = z.infer<typeof QualifyingMatchSchema>;
 export type BracketMatch = z.infer<typeof BracketMatchSchema>;
 
 export const participantDB = new FileDB(
-	"./database/participants.txt",
+	"./database/participants.json",
 	ParticipantSchema,
 );
-export const eventDB = new FileDB("./database/events.txt", EventSchema);
+export const eventDB = new FileDB("./database/events.json", EventSchema);
 export const scheduleDB = new FileDB(
-	"./database/schedules.txt",
+	"./database/schedules.json",
 	ScheduleSchema,
 );

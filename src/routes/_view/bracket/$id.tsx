@@ -146,8 +146,6 @@ function RouteComponent() {
 
 	const { boxes, bracketName } = data;
 
-	console.log("boxes", boxes);
-
 	return (
 		<div className="relative h-full w-full flex items-center justify-center">
 			<h2 className="absolute top-4 text-3xl font-heading text-center text-primary uppercase">

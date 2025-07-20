@@ -45,7 +45,6 @@ const startCountdown = () => {
 	TimerStore.timerInterval = setInterval(() => {
 		if (TimerStore.countdownTimer.currentTime > 0) {
 			TimerStore.countdownTimer.currentTime -= TIME_DECREMENT;
-			console.log("Current time:", TimerStore.countdownTimer.currentTime);
 			// Round to one decimal place to avoid floating point issues
 			TimerStore.countdownTimer.currentTime =
 				Math.round(TimerStore.countdownTimer.currentTime * 10) / 10;
@@ -60,9 +59,6 @@ const startCountdown = () => {
 export const getTimerStatus = createServerFn({
 	method: "GET",
 }).handler(async () => {
-	console.log("Fetching timer status:", TimerStore.countdownTimer);
-	// const res = await debugTimer();
-	// console.log(res);
 	return TimerStore.countdownTimer;
 });
 
@@ -100,7 +96,6 @@ export const startTimer = (duration: number) => {
 		startCountdown();
 	}
 
-	console.log("Timer started:", TimerStore.countdownTimer);
 	return TimerStore.countdownTimer;
 };
 

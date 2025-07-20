@@ -21,7 +21,6 @@ function fetchTimer<T>(endpoint: string): Promise<T> {
 			return res.json();
 		})
 		.then((data) => {
-			console.log("Fetched timer data:", data);
 			return data as T;
 		});
 }
