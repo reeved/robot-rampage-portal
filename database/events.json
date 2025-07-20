@@ -293,5 +293,15 @@
         "position": 15
       }
     ]
+  },
+  {
+    "id": "august",
+    "bracketNames": [
+      "Championship",
+      "5th Place",
+      "9th Place"
+    ],
+    "qualifyingResults": {},
+    "rankings": []
   }
 ]
