@@ -65,6 +65,30 @@ export const BracketMatchSchema = sharedMatchSchema.extend({
 
 export const MatchSchema = z.union([QualifyingMatchSchema, BracketMatchSchema]);
 
+const TeamsMatchBot = z.object({
+	id: z.string(),
+	status: z.enum(["TBD", "ACTIVE", "LOST"]),
+});
+
+export const TeamsMatchTeamSchema = z.object({
+	bot1: TeamsMatchBot,
+	bot2: TeamsMatchBot,
+	bot3: TeamsMatchBot,
+	bot4: TeamsMatchBot,
+	bot5: TeamsMatchBot,
+});
+
+export const TeamsMatchSchema = z.object({
+	type: z.literal("TEAMS"),
+	id: z.string(),
+	name: z.string(),
+	team1Name: z.string(),
+	team2Name: z.string(),
+	team1bots: TeamsMatchTeamSchema,
+	team2bots: TeamsMatchTeamSchema,
+	matches: z.array(TeamMatchSchema),
+})
+
 export const ScheduleSchema = z.discriminatedUnion("type", [
 	z.object({
 		type: z.literal("QUALIFYING"),
@@ -84,24 +108,7 @@ export const ScheduleSchema = z.discriminatedUnion("type", [
 		name: z.string(),
 		matches: z.array(ExhibitionMatchSchema),
 	}),
-	z.object({
-		type: z.literal("TEAMS"),
-		id: z.string(),
-		name: z.string(),
-		team1bots: z.array(
-			z.object({
-				id: z.string(),
-				status: z.enum(["TBD", "ACTIVE", "LOST"]),
-			}),
-		),
-		team2bots: z.array(
-			z.object({
-				id: z.string(),
-				status: z.enum(["TBD", "ACTIVE", "LOST"]),
-			}),
-		),
-		matches: z.array(TeamMatchSchema),
-	}),
+	TeamsMatchSchema
 ]);
 
 export type Participant = z.infer<typeof ParticipantSchema>;

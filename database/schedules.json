@@ -19,6 +19,14 @@
         "winner": {
           "id": ""
         }
+      },
+      {
+        "id": "match-kz1nngr",
+        "name": "Match 2",
+        "participants": [
+          {},
+          {}
+        ]
       }
     ],
     "name": "Qualifying Session 1"
