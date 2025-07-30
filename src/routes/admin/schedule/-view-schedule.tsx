@@ -22,7 +22,7 @@ export const ViewSchedule = ({
 					{schedule.type !== "TEAMS" && (
 						<Link
 							to={
-								schedule.type === "QUALIFYING"
+								schedule.type !== "BRACKET"
 									? "/admin/schedule/$id/new"
 									: "/admin/schedule/$id/newbracket"
 							}
