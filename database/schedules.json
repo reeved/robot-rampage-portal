@@ -32,68 +32,31 @@
     "name": "Qualifying Session 1"
   },
   {
-    "id": "schedule-7cqo1xm",
-    "type": "BRACKET",
-    "matches": [],
-    "name": "Bracket 1"
-  },
-  {
-    "id": "schedule-2kykco9",
+    "id": "schedule-umm5f8v",
     "type": "TEAMS",
     "matches": [],
-    "team1bots": [],
-    "team2bots": [],
+    "team1Name": "Team 1",
+    "team2Name": "Team 2",
+    "team1bots": {
+      "bot1": {
+        "id": "uhunewo",
+        "isDead": true
+      },
+      "bot2": {
+        "id": "jjsm1pd",
+        "isDead": true
+      },
+      "bot3": {},
+      "bot4": {},
+      "bot5": {}
+    },
+    "team2bots": {
+      "bot1": {},
+      "bot2": {},
+      "bot3": {},
+      "bot4": {},
+      "bot5": {}
+    },
     "name": "Teams 1"
-  },
-  {
-    "id": "schedule-aot0ff9",
-    "type": "TEAMS",
-    "matches": [],
-    "team1bots": [],
-    "team2bots": [],
-    "name": "Teams 2"
-  },
-  {
-    "id": "schedule-chvecfr",
-    "type": "TEAMS",
-    "matches": [],
-    "team1bots": [],
-    "team2bots": [],
-    "name": "Teams 3"
-  },
-  {
-    "id": "schedule-5j3winz",
-    "type": "EXHIBITION",
-    "matches": [
-      {
-        "id": "match-iooggkq",
-        "name": "Exhibition match",
-        "participants": [
-          {},
-          {}
-        ]
-      }
-    ],
-    "name": "Exhibition 1"
-  },
-  {
-    "id": "schedule-3wdx2aw",
-    "type": "EXHIBITION",
-    "matches": [],
-    "name": "Exhibition 2"
-  },
-  {
-    "id": "schedule-bastc90",
-    "type": "TEAMS",
-    "matches": [],
-    "team1bots": [],
-    "team2bots": [],
-    "name": "Teams 4"
-  },
-  {
-    "id": "schedule-937xnht",
-    "type": "BRACKET",
-    "matches": [],
-    "name": "Bracket 2"
   }
 ]
