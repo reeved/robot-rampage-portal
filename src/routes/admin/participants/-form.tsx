@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -216,6 +217,49 @@ export const ParticipantForm = ({
 						</FormItem>
 					)}
 				/>
+
+				<div className="flex flex-col gap-4 my-4">
+					<FormField
+						name="isCompeting"
+						control={form.control}
+						rules={{ required: false }}
+						render={({ field }) => (
+							<FormItem className="flex flex-row gap-2 items-center">
+								<FormControl>
+									<Checkbox
+										checked={field.value}
+										onCheckedChange={(checked) => {
+											field.onChange(checked);
+										}}
+									/>
+								</FormControl>
+								<FormLabel className="text-sm font-normal">
+									Competing at event
+								</FormLabel>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						name="isDead"
+						control={form.control}
+						rules={{ required: false }}
+						render={({ field }) => (
+							<FormItem className="flex flex-row gap-2 items-center">
+								<FormControl>
+									<Checkbox
+										checked={field.value}
+										onCheckedChange={(checked) => {
+											field.onChange(checked);
+										}}
+									/>
+								</FormControl>
+								<FormLabel className="text-sm font-normal">Is dead</FormLabel>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
 
 				<Button type="submit">Submit</Button>
 			</form>

@@ -164,7 +164,7 @@
     "photo": "bot-photos/angry-bird.png",
     "previousRank": "14th Place",
     "weight": 13.2,
-    "isDead": true,
+    "isDead": false,
     "isCompeting": true
   },
   {

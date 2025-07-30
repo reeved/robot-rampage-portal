@@ -21,6 +21,8 @@ const updateParticipant = createServerFn({
 			photo: data.data.photo,
 			funFact: data.data.funFact,
 			previousRank: data.data.previousRank,
+			isDead: data.data.isDead,
+			isCompeting: data.data.isCompeting,
 		});
 		return true;
 	});
