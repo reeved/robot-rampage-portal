@@ -2,7 +2,25 @@
   {
     "id": "schedule-pwjvvp7",
     "type": "QUALIFYING",
-    "matches": [],
+    "matches": [
+      {
+        "id": "match-i2i70q7",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "part-04xspbq",
+            "videoName": "Bad_Blood_B.mov"
+          },
+          {
+            "id": "uhunewo",
+            "videoName": "Angry_Bird_A.mov"
+          }
+        ],
+        "winner": {
+          "id": ""
+        }
+      }
+    ],
     "name": "Qualifying Session 1"
   },
   {

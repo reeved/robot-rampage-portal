@@ -21,7 +21,11 @@ function RouteComponent() {
 			{ ...data, id: generateId("match") },
 		];
 
-		await updateSchedule({ data: { ...schedule, matches: updatedMatches } });
+		await updateSchedule({
+			...schedule,
+			matches: updatedMatches,
+		} as any);
+
 		router.invalidate();
 
 		return navigate({ to: "/admin/schedule/$id", params: { id: schedule.id } });
@@ -37,7 +41,6 @@ function RouteComponent() {
 					name: `Match ${schedule.matches.length + 1}`,
 					participants: [],
 					id: "",
-					type: "BRACKET",
 					bracket: "",
 					round: "SF1",
 				}}

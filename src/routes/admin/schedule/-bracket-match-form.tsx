@@ -15,7 +15,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { type BracketMatch, BracketMatchSchema, type Participant } from "@/db";
+import {
+	type BracketMatch,
+	BracketMatchSchema,
+	type Participant,
+	type Schedule,
+} from "@/db";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { getBotVideos } from "./-queue-match-form";
@@ -24,7 +29,7 @@ type Props = {
 	bracketNames: string[];
 	participants: Participant[];
 	onSubmit: (data: BracketMatch) => void;
-	defaultValues: BracketMatch;
+	defaultValues: Schedule["matches"][number];
 };
 
 export const BracketMatchForm = ({

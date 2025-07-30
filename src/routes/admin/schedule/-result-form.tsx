@@ -171,7 +171,7 @@ const updateMatchResult = createServerFn({
 			participants.find((part) => part.id === p.id),
 		);
 
-		if (existingMatch.type !== "QUALIFYING") {
+		if (schedule.type !== "QUALIFYING") {
 			return;
 		}
 
@@ -180,14 +180,13 @@ const updateMatchResult = createServerFn({
 		}
 
 		const allSchedules = await context.db.schedule.find(() => true);
-		const allMatches = allSchedules
+		const allMatches: QualifyingMatch[] = allSchedules
+			.filter((schedule) => schedule.type === "QUALIFYING")
 			.flatMap((schedule) => schedule.matches)
-			.filter(
-				(match) => match.type === "QUALIFYING" && match.winner?.id,
-			) as QualifyingMatch[];
+			.filter((match) => !!match.winner?.id);
 
 		const { sortedRankings, participantResults } = getUpdatedRankings(
-			allMatches as QualifyingMatch[],
+			allMatches,
 			participants,
 		);
 

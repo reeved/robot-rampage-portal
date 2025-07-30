@@ -15,15 +15,15 @@ const getBracketMatches = createServerFn({
 			({ type }) => type === "BRACKET",
 		);
 
-		if (!bracketSchedule) {
+		if (!bracketSchedule || bracketSchedule.type !== "BRACKET") {
 			throw new Error("Bracket schedule not found");
 		}
 
 		const participants = await context.db.participants.find(() => true);
 
-		const bracketMatches = bracketSchedule.matches
-			.filter((match) => match.type === "BRACKET")
-			.filter((match) => match.bracket === bracketName);
+		const bracketMatches = bracketSchedule.matches.filter(
+			(match) => match.bracket === bracketName,
+		);
 
 		const sf1 = bracketMatches.find((match) => match.round === "SF1");
 		const sf2 = bracketMatches.find((match) => match.round === "SF2");

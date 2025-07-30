@@ -23,6 +23,9 @@ export default function Header() {
 				<div className="px-2 font-bold text-foreground">
 					<Link to="/stats">Stats</Link>
 				</div>
+				<div className="px-2 font-bold text-foreground">
+					<Link to="/teams-match">Teams Match</Link>
+				</div>
 			</nav>
 		</header>
 	);

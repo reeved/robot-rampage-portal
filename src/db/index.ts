@@ -54,27 +54,29 @@ const sharedMatchSchema = z.object({
 		.optional(),
 });
 
-export const QualifyingMatchSchema = sharedMatchSchema.extend({
-	type: z.literal("QUALIFYING"),
-});
+export const QualifyingMatchSchema = sharedMatchSchema;
 
 export const BracketMatchSchema = sharedMatchSchema.extend({
-	type: z.literal("BRACKET"),
 	bracket: z.string(),
 	round: z.enum(["SF1", "SF2", "Final"]),
 });
 
-export const MatchSchema = z.discriminatedUnion("type", [
-	QualifyingMatchSchema,
-	BracketMatchSchema,
-]);
+export const MatchSchema = z.union([QualifyingMatchSchema, BracketMatchSchema]);
 
-export const ScheduleSchema = z.object({
-	id: z.string(),
-	name: z.string(),
-	type: z.enum(["QUALIFYING", "BRACKET"]),
-	matches: z.array(MatchSchema),
-});
+export const ScheduleSchema = z.discriminatedUnion("type", [
+	z.object({
+		id: z.string(),
+		name: z.string(),
+		type: z.literal("QUALIFYING"),
+		matches: z.array(QualifyingMatchSchema),
+	}),
+	z.object({
+		id: z.string(),
+		name: z.string(),
+		type: z.literal("BRACKET"),
+		matches: z.array(BracketMatchSchema),
+	}),
+]);
 
 export type Participant = z.infer<typeof ParticipantSchema>;
 export type Event = z.infer<typeof EventSchema>;

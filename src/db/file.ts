@@ -4,7 +4,7 @@ import type * as z from "zod";
 
 export class FileDB<
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	Schema extends z.ZodObject<any>,
+	Schema extends z.ZodTypeAny,
 	RecordType = z.infer<Schema>,
 > {
 	private filePath: string;

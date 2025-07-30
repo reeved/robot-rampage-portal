@@ -1,4 +1,9 @@
-import { type Schedule, ScheduleSchema } from "@/db";
+import {
+	type BracketMatch,
+	type QualifyingMatch,
+	type Schedule,
+	ScheduleSchema,
+} from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
@@ -8,7 +13,7 @@ import { QualifyingMatchForm } from "./-qualifying-match-form";
 import { QueueMatchForm } from "./-queue-match-form";
 import { ResultForm } from "./-result-form";
 
-export const updateSchedule = createServerFn({
+export const updateScheduleFn = createServerFn({
 	method: "POST",
 })
 	.middleware([dbMiddleware])
@@ -17,6 +22,12 @@ export const updateSchedule = createServerFn({
 		context.db.schedule.updateOne((s) => s.id === data.id, data);
 		return data;
 	});
+
+export const updateSchedule = async (schedule: Schedule) => {
+	await updateScheduleFn({
+		data: schedule,
+	});
+};
 
 export const Route = createFileRoute("/admin/schedule/$id/$matchId")({
 	component: RouteComponent,
@@ -31,14 +42,20 @@ function RouteComponent() {
 	const match = schedule.matches.find((match) => match.id === matchId);
 
 	const handleUpdate = async (data: Schedule["matches"][number]) => {
-		const updatedMatches = schedule.matches.map((match) => {
-			if (match.id === data.id) {
-				return { ...match, ...data };
-			}
-			return match;
-		});
+		const updatedMatches = schedule.matches.map(
+			(match): Schedule["matches"][number] => {
+				if (match.id === data.id) {
+					return { ...match, ...data };
+				}
+				return match;
+			},
+		);
 
-		await updateSchedule({ data: { ...schedule, matches: updatedMatches } });
+		await updateSchedule({
+			...schedule,
+			matches: updatedMatches,
+		} as any);
+
 		router.invalidate();
 		return navigate({ to: "/admin/schedule/$id", params: { id: schedule.id } });
 	};
@@ -49,13 +66,13 @@ function RouteComponent() {
 
 	return (
 		<div key={matchId} className="flex flex-col gap-y-6">
-			{match.type === "QUALIFYING" ? (
+			{schedule.type === "QUALIFYING" ? (
 				<QualifyingMatchForm
 					participants={participants}
 					onSubmit={handleUpdate}
 					defaultValues={match}
 				/>
-			) : match.type === "BRACKET" ? (
+			) : schedule.type === "BRACKET" ? (
 				<BracketMatchForm
 					bracketNames={bracketNames}
 					participants={participants}

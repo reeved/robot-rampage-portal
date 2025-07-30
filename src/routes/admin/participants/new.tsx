@@ -19,6 +19,8 @@ const addParticipant = createServerFn({
 			weight: data.weight,
 			videos: data.videos,
 			weapon: data.weapon,
+			isCompeting: true,
+			isDead: false,
 		});
 		return true;
 	});
@@ -30,6 +32,8 @@ const defaultValues: Participant = {
 	builders: "",
 	videos: "",
 	weapon: "",
+	isCompeting: true,
+	isDead: false,
 };
 
 export const Route = createFileRoute("/admin/participants/new")({

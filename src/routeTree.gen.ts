@@ -21,6 +21,7 @@ import { Route as AdminScheduleRouteImport } from './routes/admin/schedule/route
 import { Route as AdminParticipantsRouteImport } from './routes/admin/participants/route'
 import { Route as ViewScheduleRouteImport } from './routes/_view/schedule/route'
 import { Route as AdminMobileIndexImport } from './routes/admin_/mobile.index'
+import { Route as ViewTeamsMatchIndexImport } from './routes/_view/teams-match/index'
 import { Route as ViewStatsIndexImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexImport } from './routes/_view/schedule/index'
 import { Route as ViewBracketIndexImport } from './routes/_view/bracket/index'
@@ -96,6 +97,12 @@ const AdminMobileIndexRoute = AdminMobileIndexImport.update({
   id: '/admin_/mobile/',
   path: '/admin/mobile/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexImport.update({
+  id: '/teams-match/',
+  path: '/teams-match/',
+  getParentRoute: () => ViewRouteRoute,
 } as any)
 
 const ViewStatsIndexRoute = ViewStatsIndexImport.update({
@@ -325,6 +332,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ViewStatsIndexImport
       parentRoute: typeof ViewRouteImport
     }
+    '/_view/teams-match/': {
+      id: '/_view/teams-match/'
+      path: '/teams-match'
+      fullPath: '/teams-match'
+      preLoaderRoute: typeof ViewTeamsMatchIndexImport
+      parentRoute: typeof ViewRouteImport
+    }
     '/admin_/mobile/': {
       id: '/admin_/mobile/'
       path: '/admin/mobile'
@@ -390,6 +404,7 @@ interface ViewRouteRouteChildren {
   ViewBracketIdRoute: typeof ViewBracketIdRoute
   ViewBracketIndexRoute: typeof ViewBracketIndexRoute
   ViewStatsIndexRoute: typeof ViewStatsIndexRoute
+  ViewTeamsMatchIndexRoute: typeof ViewTeamsMatchIndexRoute
 }
 
 const ViewRouteRouteChildren: ViewRouteRouteChildren = {
@@ -397,6 +412,7 @@ const ViewRouteRouteChildren: ViewRouteRouteChildren = {
   ViewBracketIdRoute: ViewBracketIdRoute,
   ViewBracketIndexRoute: ViewBracketIndexRoute,
   ViewStatsIndexRoute: ViewStatsIndexRoute,
+  ViewTeamsMatchIndexRoute: ViewTeamsMatchIndexRoute,
 }
 
 const ViewRouteRouteWithChildren = ViewRouteRoute._addFileChildren(
@@ -482,6 +498,7 @@ export interface FileRoutesByFullPath {
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
+  '/teams-match': typeof ViewTeamsMatchIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -509,6 +526,7 @@ export interface FileRoutesByTo {
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
+  '/teams-match': typeof ViewTeamsMatchIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -538,6 +556,7 @@ export interface FileRoutesById {
   '/_view/bracket/': typeof ViewBracketIndexRoute
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
+  '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
   '/admin_/mobile/': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -568,6 +587,7 @@ export interface FileRouteTypes {
     | '/bracket'
     | '/schedule/'
     | '/stats'
+    | '/teams-match'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -594,6 +614,7 @@ export interface FileRouteTypes {
     | '/bracket'
     | '/schedule'
     | '/stats'
+    | '/teams-match'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -621,6 +642,7 @@ export interface FileRouteTypes {
     | '/_view/bracket/'
     | '/_view/schedule/'
     | '/_view/stats/'
+    | '/_view/teams-match/'
     | '/admin_/mobile/'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -687,7 +709,8 @@ export const routeTree = rootRoute
         "/_view/schedule",
         "/_view/bracket/$id",
         "/_view/bracket/",
-        "/_view/stats/"
+        "/_view/stats/",
+        "/_view/teams-match/"
       ]
     },
     "/admin": {
@@ -772,6 +795,10 @@ export const routeTree = rootRoute
     },
     "/_view/stats/": {
       "filePath": "_view/stats/index.tsx",
+      "parent": "/_view"
+    },
+    "/_view/teams-match/": {
+      "filePath": "_view/teams-match/index.tsx",
       "parent": "/_view"
     },
     "/admin_/mobile/": {
