@@ -14,8 +14,15 @@ const getStatsData = createServerFn({
 		const currentMatchId = evt?.currentMatchId;
 
 		const allSchedules = await context.db.schedule.find(() => true);
-		const allMatches = allSchedules.flatMap((schedule) => schedule.matches);
-		const currentMatch = allMatches.find(
+		const schedule = allSchedules.find((s) =>
+			s.matches.some((m) => m.id === currentMatchId),
+		);
+
+		if (!schedule) {
+			throw redirect({ to: "/schedule" });
+		}
+
+		const currentMatch = schedule.matches.find(
 			(match) => match.id === currentMatchId,
 		);
 
@@ -28,6 +35,7 @@ const getStatsData = createServerFn({
 		);
 
 		return {
+			schedule,
 			currentMatch,
 			participants: currentMatch.participants.map((p) =>
 				participants.find((participant) => participant.id === p.id),
@@ -57,11 +65,12 @@ function RouteComponent() {
 		return null;
 	}
 
-	const { currentMatch, participants, rankings, qualifyingResults } = data;
+	const { schedule, currentMatch, participants, rankings, qualifyingResults } =
+		data;
 
 	return (
 		<div className="h-full w-full flex flex-col justify-start items-center p-4 pb-14">
-			{currentMatch.type !== "QUALIFYING" && (
+			{schedule.type !== "QUALIFYING" && (
 				<h2 className="mx-auto text-3xl font-heading text-center text-primary uppercase">
 					{currentMatch.name}
 				</h2>
@@ -91,25 +100,6 @@ function RouteComponent() {
 					]}
 				/>
 			</div>
-			{/* <div className="flex-1 flex w-full mt-20 items-center">
-				<BotInfo
-					participant={participants[0]}
-					rank={rankings.find((r) => r.id === participants[0].id)?.position}
-					stats={qualifyingResults[participants[0].id]}
-					color="blue"
-				/>
-
-				<div className="flex-1 text-center text-primary text-6xl font-heading">
-					vs
-				</div>
-
-				<BotInfo
-					participant={participants[1]}
-					rank={rankings.find((r) => r.id === participants[1].id)?.position}
-					stats={qualifyingResults[participants[1].id]}
-					color="blue"
-				/>
-			</div> */}
 		</div>
 	);
 }

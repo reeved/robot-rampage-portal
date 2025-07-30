@@ -1,62 +1,37 @@
 [
   {
-    "id": "schedule-pwjvvp7",
-    "type": "QUALIFYING",
-    "matches": [
-      {
-        "id": "match-i2i70q7",
-        "name": "Exhibition match",
-        "participants": [
-          {
-            "id": "part-04xspbq",
-            "videoName": "Bad_Blood_B.mov"
-          },
-          {
-            "id": "uhunewo",
-            "videoName": "Angry_Bird_A.mov"
-          }
-        ],
-        "winner": {
-          "id": ""
-        }
-      },
-      {
-        "id": "match-kz1nngr",
-        "name": "Match 2",
-        "participants": [
-          {},
-          {}
-        ]
-      }
-    ],
-    "name": "Qualifying Session 1"
+    "id": "schedule-nxqo9s7",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 1"
   },
   {
-    "id": "schedule-umm5f8v",
+    "id": "schedule-r5ckjw5",
     "type": "TEAMS",
     "matches": [],
     "team1Name": "Team 1",
     "team2Name": "Team 2",
-    "team1bots": {
-      "bot1": {
-        "id": "uhunewo",
-        "isDead": true
-      },
-      "bot2": {
-        "id": "jjsm1pd",
-        "isDead": true
-      },
-      "bot3": {},
-      "bot4": {},
-      "bot5": {}
-    },
-    "team2bots": {
-      "bot1": {},
-      "bot2": {},
-      "bot3": {},
-      "bot4": {},
-      "bot5": {}
-    },
+    "team1bots": {},
+    "team2bots": {},
     "name": "Teams 1"
+  },
+  {
+    "id": "schedule-euox04e",
+    "type": "QUALIFYING",
+    "matches": [
+      {
+        "id": "match-dskyaf9",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "uhunewo"
+          }
+        ]
+      }
+    ],
+    "name": "Qualifying Session 1"
   }
 ]

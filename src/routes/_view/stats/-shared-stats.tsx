@@ -1,4 +1,4 @@
-import { Participant } from "@/db";
+import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
 
 const InfoRow = ({
