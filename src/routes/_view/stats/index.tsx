@@ -1,4 +1,3 @@
-import { Participant } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";

@@ -1,18 +1,16 @@
 {
-  "framework": "react",
-  "typescript": true,
-  "projectName": "robot-rampage-portal",
+  "projectName": "rr-new",
   "mode": "file-router",
+  "typescript": true,
   "tailwind": true,
   "packageManager": "bun",
-  "toolchain": "biome",
-  "variableValues": {},
   "git": true,
   "version": 1,
-  "existingAddOns": [
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "biome",
     "shadcn",
     "start",
-    "t3env",
     "tanstack-query"
   ]
 }

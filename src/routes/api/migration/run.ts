@@ -1,8 +1,8 @@
 import { participantDB } from "@/db";
 import { json } from "@tanstack/react-start";
-import { createAPIFileRoute } from "@tanstack/react-start/api";
+import { createServerFileRoute } from "@tanstack/react-start/server";
 
-export const APIRoute = createAPIFileRoute("/api/migration/run")({
+export const ServerRoute = createServerFileRoute("/api/migration/run").methods({
 	GET: ({ request, params }) => {
 		participantDB.updateMany(() => true, { isCompeting: true });
 		return json({ message: 'Hello "/api/migration/run"!' });

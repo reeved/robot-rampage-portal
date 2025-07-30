@@ -6,7 +6,7 @@ To run this application:
 
 ```bash
 bun install
-bun run start  
+bunx --bun run start  
 ```
 
 # Building For Production
@@ -14,7 +14,7 @@ bun run start
 To build this application for production:
 
 ```bash
-bun run build
+bunx --bun run build
 ```
 
 ## Testing
@@ -22,7 +22,7 @@ bun run build
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
 
 ```bash
-bun run test
+bunx --bun run test
 ```
 
 ## Styling
@@ -36,9 +36,9 @@ This project uses [Biome](https://biomejs.dev/) for linting and formatting. The 
 
 
 ```bash
-bun run lint
-bun run format
-bun run check
+bunx --bun run lint
+bunx --bun run format
+bunx --bun run check
 ```
 
 
@@ -49,24 +49,6 @@ Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
 ```bash
 pnpx shadcn@latest add button
 ```
-
-
-## T3Env
-
-- You can use T3Env to add type safety to your environment variables.
-- Add Environment variables to the `src/env.mjs` file.
-- Use the environment variables in your code.
-
-### Usage
-
-```ts
-import { env } from "@/env";
-
-console.log(env.VITE_APP_TITLE);
-```
-
-
-
 
 
 

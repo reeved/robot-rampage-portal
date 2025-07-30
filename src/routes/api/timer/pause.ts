@@ -1,8 +1,8 @@
 import { json } from "@tanstack/react-start";
-import { createAPIFileRoute } from "@tanstack/react-start/api";
+import { createServerFileRoute } from "@tanstack/react-start/server";
 import { pauseTimer } from "./-timer";
 
-export const APIRoute = createAPIFileRoute("/api/timer/pause")({
+export const ServerRoute = createServerFileRoute("/api/timer/pause").methods({
 	GET: () => {
 		const timer = pauseTimer();
 		return json({ message: "Timer paused", timer });

@@ -10,10 +10,16 @@ export const Route = createFileRoute("/demo/start/api-request")({
 	component: Home,
 });
 
+const funcTest = () => {
+	const a = 1 as string;
+	console.log(a.length());
+};
+
 function Home() {
 	const [names, setNames] = useState<Array<string>>([]);
 	useEffect(() => {
 		getNames().then(setNames);
+		funcTest();
 	}, []);
 
 	return (

@@ -8,383 +8,696 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { createServerRootRoute } from '@tanstack/react-start/server'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as OverlayImport } from './routes/overlay'
-import { Route as AdminRouteImport } from './routes/admin/route'
-import { Route as ViewRouteImport } from './routes/_view/route'
-import { Route as IndexImport } from './routes/index'
-import { Route as DemoTanstackQueryImport } from './routes/demo.tanstack-query'
-import { Route as AdminCompetitorsImport } from './routes/admin/competitors'
-import { Route as AdminScheduleRouteImport } from './routes/admin/schedule/route'
-import { Route as AdminParticipantsRouteImport } from './routes/admin/participants/route'
-import { Route as ViewScheduleRouteImport } from './routes/_view/schedule/route'
-import { Route as AdminMobileIndexImport } from './routes/admin_/mobile.index'
-import { Route as ViewTeamsMatchIndexImport } from './routes/_view/teams-match/index'
-import { Route as ViewStatsIndexImport } from './routes/_view/stats/index'
-import { Route as ViewScheduleIndexImport } from './routes/_view/schedule/index'
-import { Route as ViewBracketIndexImport } from './routes/_view/bracket/index'
-import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
-import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
-import { Route as AdminScheduleIdImport } from './routes/admin/schedule/$id'
-import { Route as AdminParticipantsNewImport } from './routes/admin/participants/new'
-import { Route as AdminParticipantsIdImport } from './routes/admin/participants/$id'
-import { Route as ViewScheduleIdImport } from './routes/_view/schedule/$id'
-import { Route as ViewBracketIdImport } from './routes/_view/bracket/$id'
-import { Route as AdminMobileIdIndexImport } from './routes/admin_/mobile.$id.index'
-import { Route as AdminMobileIdMatchIdImport } from './routes/admin_/mobile.$id.$matchId'
-import { Route as AdminScheduleIdNewbracketImport } from './routes/admin/schedule/$id.newbracket'
-import { Route as AdminScheduleIdNewImport } from './routes/admin/schedule/$id.new'
-import { Route as AdminScheduleIdMatchIdImport } from './routes/admin/schedule/$id.$matchId'
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as OverlayRouteImport } from './routes/overlay'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as ViewRouteRouteImport } from './routes/_view/route'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
+import { Route as AdminCompetitorsRouteImport } from './routes/admin/competitors'
+import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
+import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/participants/route'
+import { Route as ViewScheduleRouteRouteImport } from './routes/_view/schedule/route'
+import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile.index'
+import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
+import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
+import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
+import { Route as ViewBracketIndexRouteImport } from './routes/_view/bracket/index'
+import { Route as DemoStartServerFuncsRouteImport } from './routes/demo.start.server-funcs'
+import { Route as DemoStartApiRequestRouteImport } from './routes/demo.start.api-request'
+import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id'
+import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
+import { Route as AdminParticipantsIdRouteImport } from './routes/admin/participants/$id'
+import { Route as ViewScheduleIdRouteImport } from './routes/_view/schedule/$id'
+import { Route as ViewBracketIdRouteImport } from './routes/_view/bracket/$id'
+import { Route as AdminMobileIdIndexRouteImport } from './routes/admin_/mobile.$id.index'
+import { Route as AdminMobileIdMatchIdRouteImport } from './routes/admin_/mobile.$id.$matchId'
+import { Route as AdminScheduleIdNewbracketRouteImport } from './routes/admin/schedule/$id.newbracket'
+import { Route as AdminScheduleIdNewRouteImport } from './routes/admin/schedule/$id.new'
+import { Route as AdminScheduleIdMatchIdRouteImport } from './routes/admin/schedule/$id.$matchId'
+import { ServerRoute as ApiDemoNamesServerRouteImport } from './routes/api.demo-names'
+import { ServerRoute as ApiTimerIndexServerRouteImport } from './routes/api/timer/index'
+import { ServerRoute as ApiTimerStartServerRouteImport } from './routes/api/timer/start'
+import { ServerRoute as ApiTimerResumeServerRouteImport } from './routes/api/timer/resume'
+import { ServerRoute as ApiTimerRestartServerRouteImport } from './routes/api/timer/restart'
+import { ServerRoute as ApiTimerPauseServerRouteImport } from './routes/api/timer/pause'
+import { ServerRoute as ApiMigrationRunServerRouteImport } from './routes/api/migration/run'
 
-// Create/Update Routes
+const rootServerRouteImport = createServerRootRoute()
 
-const OverlayRoute = OverlayImport.update({
+const OverlayRoute = OverlayRouteImport.update({
   id: '/overlay',
   path: '/overlay',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminRouteRoute = AdminRouteImport.update({
+const AdminRouteRoute = AdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const ViewRouteRoute = ViewRouteImport.update({
+const ViewRouteRoute = ViewRouteRouteImport.update({
   id: '/_view',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const IndexRoute = IndexImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const DemoTanstackQueryRoute = DemoTanstackQueryImport.update({
+const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
   id: '/demo/tanstack-query',
   path: '/demo/tanstack-query',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminCompetitorsRoute = AdminCompetitorsImport.update({
+const AdminCompetitorsRoute = AdminCompetitorsRouteImport.update({
   id: '/competitors',
   path: '/competitors',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-
-const AdminScheduleRouteRoute = AdminScheduleRouteImport.update({
+const AdminScheduleRouteRoute = AdminScheduleRouteRouteImport.update({
   id: '/schedule',
   path: '/schedule',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-
-const AdminParticipantsRouteRoute = AdminParticipantsRouteImport.update({
+const AdminParticipantsRouteRoute = AdminParticipantsRouteRouteImport.update({
   id: '/participants',
   path: '/participants',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-
-const ViewScheduleRouteRoute = ViewScheduleRouteImport.update({
+const ViewScheduleRouteRoute = ViewScheduleRouteRouteImport.update({
   id: '/schedule',
   path: '/schedule',
   getParentRoute: () => ViewRouteRoute,
 } as any)
-
-const AdminMobileIndexRoute = AdminMobileIndexImport.update({
+const AdminMobileIndexRoute = AdminMobileIndexRouteImport.update({
   id: '/admin_/mobile/',
   path: '/admin/mobile/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexImport.update({
+const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexRouteImport.update({
   id: '/teams-match/',
   path: '/teams-match/',
   getParentRoute: () => ViewRouteRoute,
 } as any)
-
-const ViewStatsIndexRoute = ViewStatsIndexImport.update({
+const ViewStatsIndexRoute = ViewStatsIndexRouteImport.update({
   id: '/stats/',
   path: '/stats/',
   getParentRoute: () => ViewRouteRoute,
 } as any)
-
-const ViewScheduleIndexRoute = ViewScheduleIndexImport.update({
+const ViewScheduleIndexRoute = ViewScheduleIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ViewScheduleRouteRoute,
 } as any)
-
-const ViewBracketIndexRoute = ViewBracketIndexImport.update({
+const ViewBracketIndexRoute = ViewBracketIndexRouteImport.update({
   id: '/bracket/',
   path: '/bracket/',
   getParentRoute: () => ViewRouteRoute,
 } as any)
-
-const DemoStartServerFuncsRoute = DemoStartServerFuncsImport.update({
+const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
   id: '/demo/start/server-funcs',
   path: '/demo/start/server-funcs',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const DemoStartApiRequestRoute = DemoStartApiRequestImport.update({
+const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
   id: '/demo/start/api-request',
   path: '/demo/start/api-request',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminScheduleIdRoute = AdminScheduleIdImport.update({
+const AdminScheduleIdRoute = AdminScheduleIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => AdminScheduleRouteRoute,
 } as any)
-
-const AdminParticipantsNewRoute = AdminParticipantsNewImport.update({
+const AdminParticipantsNewRoute = AdminParticipantsNewRouteImport.update({
   id: '/new',
   path: '/new',
   getParentRoute: () => AdminParticipantsRouteRoute,
 } as any)
-
-const AdminParticipantsIdRoute = AdminParticipantsIdImport.update({
+const AdminParticipantsIdRoute = AdminParticipantsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => AdminParticipantsRouteRoute,
 } as any)
-
-const ViewScheduleIdRoute = ViewScheduleIdImport.update({
+const ViewScheduleIdRoute = ViewScheduleIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => ViewScheduleRouteRoute,
 } as any)
-
-const ViewBracketIdRoute = ViewBracketIdImport.update({
+const ViewBracketIdRoute = ViewBracketIdRouteImport.update({
   id: '/bracket/$id',
   path: '/bracket/$id',
   getParentRoute: () => ViewRouteRoute,
 } as any)
-
-const AdminMobileIdIndexRoute = AdminMobileIdIndexImport.update({
+const AdminMobileIdIndexRoute = AdminMobileIdIndexRouteImport.update({
   id: '/admin_/mobile/$id/',
   path: '/admin/mobile/$id/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminMobileIdMatchIdRoute = AdminMobileIdMatchIdImport.update({
+const AdminMobileIdMatchIdRoute = AdminMobileIdMatchIdRouteImport.update({
   id: '/admin_/mobile/$id/$matchId',
   path: '/admin/mobile/$id/$matchId',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminScheduleIdNewbracketRoute = AdminScheduleIdNewbracketImport.update({
-  id: '/newbracket',
-  path: '/newbracket',
-  getParentRoute: () => AdminScheduleIdRoute,
-} as any)
-
-const AdminScheduleIdNewRoute = AdminScheduleIdNewImport.update({
+const AdminScheduleIdNewbracketRoute =
+  AdminScheduleIdNewbracketRouteImport.update({
+    id: '/newbracket',
+    path: '/newbracket',
+    getParentRoute: () => AdminScheduleIdRoute,
+  } as any)
+const AdminScheduleIdNewRoute = AdminScheduleIdNewRouteImport.update({
   id: '/new',
   path: '/new',
   getParentRoute: () => AdminScheduleIdRoute,
 } as any)
-
-const AdminScheduleIdMatchIdRoute = AdminScheduleIdMatchIdImport.update({
+const AdminScheduleIdMatchIdRoute = AdminScheduleIdMatchIdRouteImport.update({
   id: '/$matchId',
   path: '/$matchId',
   getParentRoute: () => AdminScheduleIdRoute,
 } as any)
+const ApiDemoNamesServerRoute = ApiDemoNamesServerRouteImport.update({
+  id: '/api/demo-names',
+  path: '/api/demo-names',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiTimerIndexServerRoute = ApiTimerIndexServerRouteImport.update({
+  id: '/api/timer/',
+  path: '/api/timer/',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiTimerStartServerRoute = ApiTimerStartServerRouteImport.update({
+  id: '/api/timer/start',
+  path: '/api/timer/start',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiTimerResumeServerRoute = ApiTimerResumeServerRouteImport.update({
+  id: '/api/timer/resume',
+  path: '/api/timer/resume',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiTimerRestartServerRoute = ApiTimerRestartServerRouteImport.update({
+  id: '/api/timer/restart',
+  path: '/api/timer/restart',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiTimerPauseServerRoute = ApiTimerPauseServerRouteImport.update({
+  id: '/api/timer/pause',
+  path: '/api/timer/pause',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiMigrationRunServerRoute = ApiMigrationRunServerRouteImport.update({
+  id: '/api/migration/run',
+  path: '/api/migration/run',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/overlay': typeof OverlayRoute
+  '/schedule': typeof ViewScheduleRouteRouteWithChildren
+  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
+  '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/admin/competitors': typeof AdminCompetitorsRoute
+  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/bracket/$id': typeof ViewBracketIdRoute
+  '/schedule/$id': typeof ViewScheduleIdRoute
+  '/admin/participants/$id': typeof AdminParticipantsIdRoute
+  '/admin/participants/new': typeof AdminParticipantsNewRoute
+  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
+  '/demo/start/api-request': typeof DemoStartApiRequestRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/bracket': typeof ViewBracketIndexRoute
+  '/schedule/': typeof ViewScheduleIndexRoute
+  '/stats': typeof ViewStatsIndexRoute
+  '/teams-match': typeof ViewTeamsMatchIndexRoute
+  '/admin/mobile': typeof AdminMobileIndexRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
+  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
+  '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
+  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
+  '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/overlay': typeof OverlayRoute
+  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
+  '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/admin/competitors': typeof AdminCompetitorsRoute
+  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/bracket/$id': typeof ViewBracketIdRoute
+  '/schedule/$id': typeof ViewScheduleIdRoute
+  '/admin/participants/$id': typeof AdminParticipantsIdRoute
+  '/admin/participants/new': typeof AdminParticipantsNewRoute
+  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
+  '/demo/start/api-request': typeof DemoStartApiRequestRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/bracket': typeof ViewBracketIndexRoute
+  '/schedule': typeof ViewScheduleIndexRoute
+  '/stats': typeof ViewStatsIndexRoute
+  '/teams-match': typeof ViewTeamsMatchIndexRoute
+  '/admin/mobile': typeof AdminMobileIndexRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
+  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
+  '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
+  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
+  '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/_view': typeof ViewRouteRouteWithChildren
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/overlay': typeof OverlayRoute
+  '/_view/schedule': typeof ViewScheduleRouteRouteWithChildren
+  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
+  '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/admin/competitors': typeof AdminCompetitorsRoute
+  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/_view/bracket/$id': typeof ViewBracketIdRoute
+  '/_view/schedule/$id': typeof ViewScheduleIdRoute
+  '/admin/participants/$id': typeof AdminParticipantsIdRoute
+  '/admin/participants/new': typeof AdminParticipantsNewRoute
+  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
+  '/demo/start/api-request': typeof DemoStartApiRequestRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/_view/bracket/': typeof ViewBracketIndexRoute
+  '/_view/schedule/': typeof ViewScheduleIndexRoute
+  '/_view/stats/': typeof ViewStatsIndexRoute
+  '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
+  '/admin_/mobile/': typeof AdminMobileIndexRoute
+  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
+  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
+  '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
+  '/admin_/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
+  '/admin_/mobile/$id/': typeof AdminMobileIdIndexRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/overlay'
+    | '/schedule'
+    | '/admin/participants'
+    | '/admin/schedule'
+    | '/admin/competitors'
+    | '/demo/tanstack-query'
+    | '/bracket/$id'
+    | '/schedule/$id'
+    | '/admin/participants/$id'
+    | '/admin/participants/new'
+    | '/admin/schedule/$id'
+    | '/demo/start/api-request'
+    | '/demo/start/server-funcs'
+    | '/bracket'
+    | '/schedule/'
+    | '/stats'
+    | '/teams-match'
+    | '/admin/mobile'
+    | '/admin/schedule/$id/$matchId'
+    | '/admin/schedule/$id/new'
+    | '/admin/schedule/$id/newbracket'
+    | '/admin/mobile/$id/$matchId'
+    | '/admin/mobile/$id'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/admin'
+    | '/overlay'
+    | '/admin/participants'
+    | '/admin/schedule'
+    | '/admin/competitors'
+    | '/demo/tanstack-query'
+    | '/bracket/$id'
+    | '/schedule/$id'
+    | '/admin/participants/$id'
+    | '/admin/participants/new'
+    | '/admin/schedule/$id'
+    | '/demo/start/api-request'
+    | '/demo/start/server-funcs'
+    | '/bracket'
+    | '/schedule'
+    | '/stats'
+    | '/teams-match'
+    | '/admin/mobile'
+    | '/admin/schedule/$id/$matchId'
+    | '/admin/schedule/$id/new'
+    | '/admin/schedule/$id/newbracket'
+    | '/admin/mobile/$id/$matchId'
+    | '/admin/mobile/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/_view'
+    | '/admin'
+    | '/overlay'
+    | '/_view/schedule'
+    | '/admin/participants'
+    | '/admin/schedule'
+    | '/admin/competitors'
+    | '/demo/tanstack-query'
+    | '/_view/bracket/$id'
+    | '/_view/schedule/$id'
+    | '/admin/participants/$id'
+    | '/admin/participants/new'
+    | '/admin/schedule/$id'
+    | '/demo/start/api-request'
+    | '/demo/start/server-funcs'
+    | '/_view/bracket/'
+    | '/_view/schedule/'
+    | '/_view/stats/'
+    | '/_view/teams-match/'
+    | '/admin_/mobile/'
+    | '/admin/schedule/$id/$matchId'
+    | '/admin/schedule/$id/new'
+    | '/admin/schedule/$id/newbracket'
+    | '/admin_/mobile/$id/$matchId'
+    | '/admin_/mobile/$id/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  ViewRouteRoute: typeof ViewRouteRouteWithChildren
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  OverlayRoute: typeof OverlayRoute
+  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
+  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
+  AdminMobileIndexRoute: typeof AdminMobileIndexRoute
+  AdminMobileIdMatchIdRoute: typeof AdminMobileIdMatchIdRoute
+  AdminMobileIdIndexRoute: typeof AdminMobileIdIndexRoute
+}
+export interface FileServerRoutesByFullPath {
+  '/api/demo-names': typeof ApiDemoNamesServerRoute
+  '/api/migration/run': typeof ApiMigrationRunServerRoute
+  '/api/timer/pause': typeof ApiTimerPauseServerRoute
+  '/api/timer/restart': typeof ApiTimerRestartServerRoute
+  '/api/timer/resume': typeof ApiTimerResumeServerRoute
+  '/api/timer/start': typeof ApiTimerStartServerRoute
+  '/api/timer': typeof ApiTimerIndexServerRoute
+}
+export interface FileServerRoutesByTo {
+  '/api/demo-names': typeof ApiDemoNamesServerRoute
+  '/api/migration/run': typeof ApiMigrationRunServerRoute
+  '/api/timer/pause': typeof ApiTimerPauseServerRoute
+  '/api/timer/restart': typeof ApiTimerRestartServerRoute
+  '/api/timer/resume': typeof ApiTimerResumeServerRoute
+  '/api/timer/start': typeof ApiTimerStartServerRoute
+  '/api/timer': typeof ApiTimerIndexServerRoute
+}
+export interface FileServerRoutesById {
+  __root__: typeof rootServerRouteImport
+  '/api/demo-names': typeof ApiDemoNamesServerRoute
+  '/api/migration/run': typeof ApiMigrationRunServerRoute
+  '/api/timer/pause': typeof ApiTimerPauseServerRoute
+  '/api/timer/restart': typeof ApiTimerRestartServerRoute
+  '/api/timer/resume': typeof ApiTimerResumeServerRoute
+  '/api/timer/start': typeof ApiTimerStartServerRoute
+  '/api/timer/': typeof ApiTimerIndexServerRoute
+}
+export interface FileServerRouteTypes {
+  fileServerRoutesByFullPath: FileServerRoutesByFullPath
+  fullPaths:
+    | '/api/demo-names'
+    | '/api/migration/run'
+    | '/api/timer/pause'
+    | '/api/timer/restart'
+    | '/api/timer/resume'
+    | '/api/timer/start'
+    | '/api/timer'
+  fileServerRoutesByTo: FileServerRoutesByTo
+  to:
+    | '/api/demo-names'
+    | '/api/migration/run'
+    | '/api/timer/pause'
+    | '/api/timer/restart'
+    | '/api/timer/resume'
+    | '/api/timer/start'
+    | '/api/timer'
+  id:
+    | '__root__'
+    | '/api/demo-names'
+    | '/api/migration/run'
+    | '/api/timer/pause'
+    | '/api/timer/restart'
+    | '/api/timer/resume'
+    | '/api/timer/start'
+    | '/api/timer/'
+  fileServerRoutesById: FileServerRoutesById
+}
+export interface RootServerRouteChildren {
+  ApiDemoNamesServerRoute: typeof ApiDemoNamesServerRoute
+  ApiMigrationRunServerRoute: typeof ApiMigrationRunServerRoute
+  ApiTimerPauseServerRoute: typeof ApiTimerPauseServerRoute
+  ApiTimerRestartServerRoute: typeof ApiTimerRestartServerRoute
+  ApiTimerResumeServerRoute: typeof ApiTimerResumeServerRoute
+  ApiTimerStartServerRoute: typeof ApiTimerStartServerRoute
+  ApiTimerIndexServerRoute: typeof ApiTimerIndexServerRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/_view': {
-      id: '/_view'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof ViewRouteImport
-      parentRoute: typeof rootRoute
+    '/overlay': {
+      id: '/overlay'
+      path: '/overlay'
+      fullPath: '/overlay'
+      preLoaderRoute: typeof OverlayRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin': {
       id: '/admin'
       path: '/admin'
       fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/overlay': {
-      id: '/overlay'
-      path: '/overlay'
-      fullPath: '/overlay'
-      preLoaderRoute: typeof OverlayImport
-      parentRoute: typeof rootRoute
+    '/_view': {
+      id: '/_view'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ViewRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_view/schedule': {
-      id: '/_view/schedule'
-      path: '/schedule'
-      fullPath: '/schedule'
-      preLoaderRoute: typeof ViewScheduleRouteImport
-      parentRoute: typeof ViewRouteImport
-    }
-    '/admin/participants': {
-      id: '/admin/participants'
-      path: '/participants'
-      fullPath: '/admin/participants'
-      preLoaderRoute: typeof AdminParticipantsRouteImport
-      parentRoute: typeof AdminRouteImport
-    }
-    '/admin/schedule': {
-      id: '/admin/schedule'
-      path: '/schedule'
-      fullPath: '/admin/schedule'
-      preLoaderRoute: typeof AdminScheduleRouteImport
-      parentRoute: typeof AdminRouteImport
-    }
-    '/admin/competitors': {
-      id: '/admin/competitors'
-      path: '/competitors'
-      fullPath: '/admin/competitors'
-      preLoaderRoute: typeof AdminCompetitorsImport
-      parentRoute: typeof AdminRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/demo/tanstack-query': {
       id: '/demo/tanstack-query'
       path: '/demo/tanstack-query'
       fullPath: '/demo/tanstack-query'
-      preLoaderRoute: typeof DemoTanstackQueryImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof DemoTanstackQueryRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_view/bracket/$id': {
-      id: '/_view/bracket/$id'
-      path: '/bracket/$id'
-      fullPath: '/bracket/$id'
-      preLoaderRoute: typeof ViewBracketIdImport
-      parentRoute: typeof ViewRouteImport
+    '/admin/competitors': {
+      id: '/admin/competitors'
+      path: '/competitors'
+      fullPath: '/admin/competitors'
+      preLoaderRoute: typeof AdminCompetitorsRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_view/schedule/$id': {
-      id: '/_view/schedule/$id'
-      path: '/$id'
-      fullPath: '/schedule/$id'
-      preLoaderRoute: typeof ViewScheduleIdImport
-      parentRoute: typeof ViewScheduleRouteImport
+    '/admin/schedule': {
+      id: '/admin/schedule'
+      path: '/schedule'
+      fullPath: '/admin/schedule'
+      preLoaderRoute: typeof AdminScheduleRouteRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/admin/participants/$id': {
-      id: '/admin/participants/$id'
-      path: '/$id'
-      fullPath: '/admin/participants/$id'
-      preLoaderRoute: typeof AdminParticipantsIdImport
-      parentRoute: typeof AdminParticipantsRouteImport
+    '/admin/participants': {
+      id: '/admin/participants'
+      path: '/participants'
+      fullPath: '/admin/participants'
+      preLoaderRoute: typeof AdminParticipantsRouteRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/admin/participants/new': {
-      id: '/admin/participants/new'
-      path: '/new'
-      fullPath: '/admin/participants/new'
-      preLoaderRoute: typeof AdminParticipantsNewImport
-      parentRoute: typeof AdminParticipantsRouteImport
-    }
-    '/admin/schedule/$id': {
-      id: '/admin/schedule/$id'
-      path: '/$id'
-      fullPath: '/admin/schedule/$id'
-      preLoaderRoute: typeof AdminScheduleIdImport
-      parentRoute: typeof AdminScheduleRouteImport
-    }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestImport
-      parentRoute: typeof rootRoute
-    }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsImport
-      parentRoute: typeof rootRoute
-    }
-    '/_view/bracket/': {
-      id: '/_view/bracket/'
-      path: '/bracket'
-      fullPath: '/bracket'
-      preLoaderRoute: typeof ViewBracketIndexImport
-      parentRoute: typeof ViewRouteImport
-    }
-    '/_view/schedule/': {
-      id: '/_view/schedule/'
-      path: '/'
-      fullPath: '/schedule/'
-      preLoaderRoute: typeof ViewScheduleIndexImport
-      parentRoute: typeof ViewScheduleRouteImport
-    }
-    '/_view/stats/': {
-      id: '/_view/stats/'
-      path: '/stats'
-      fullPath: '/stats'
-      preLoaderRoute: typeof ViewStatsIndexImport
-      parentRoute: typeof ViewRouteImport
-    }
-    '/_view/teams-match/': {
-      id: '/_view/teams-match/'
-      path: '/teams-match'
-      fullPath: '/teams-match'
-      preLoaderRoute: typeof ViewTeamsMatchIndexImport
-      parentRoute: typeof ViewRouteImport
+    '/_view/schedule': {
+      id: '/_view/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ViewScheduleRouteRouteImport
+      parentRoute: typeof ViewRouteRoute
     }
     '/admin_/mobile/': {
       id: '/admin_/mobile/'
       path: '/admin/mobile'
       fullPath: '/admin/mobile'
-      preLoaderRoute: typeof AdminMobileIndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AdminMobileIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/schedule/$id/$matchId': {
-      id: '/admin/schedule/$id/$matchId'
-      path: '/$matchId'
-      fullPath: '/admin/schedule/$id/$matchId'
-      preLoaderRoute: typeof AdminScheduleIdMatchIdImport
-      parentRoute: typeof AdminScheduleIdImport
+    '/_view/teams-match/': {
+      id: '/_view/teams-match/'
+      path: '/teams-match'
+      fullPath: '/teams-match'
+      preLoaderRoute: typeof ViewTeamsMatchIndexRouteImport
+      parentRoute: typeof ViewRouteRoute
     }
-    '/admin/schedule/$id/new': {
-      id: '/admin/schedule/$id/new'
+    '/_view/stats/': {
+      id: '/_view/stats/'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof ViewStatsIndexRouteImport
+      parentRoute: typeof ViewRouteRoute
+    }
+    '/_view/schedule/': {
+      id: '/_view/schedule/'
+      path: '/'
+      fullPath: '/schedule/'
+      preLoaderRoute: typeof ViewScheduleIndexRouteImport
+      parentRoute: typeof ViewScheduleRouteRoute
+    }
+    '/_view/bracket/': {
+      id: '/_view/bracket/'
+      path: '/bracket'
+      fullPath: '/bracket'
+      preLoaderRoute: typeof ViewBracketIndexRouteImport
+      parentRoute: typeof ViewRouteRoute
+    }
+    '/demo/start/server-funcs': {
+      id: '/demo/start/server-funcs'
+      path: '/demo/start/server-funcs'
+      fullPath: '/demo/start/server-funcs'
+      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo/start/api-request': {
+      id: '/demo/start/api-request'
+      path: '/demo/start/api-request'
+      fullPath: '/demo/start/api-request'
+      preLoaderRoute: typeof DemoStartApiRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/schedule/$id': {
+      id: '/admin/schedule/$id'
+      path: '/$id'
+      fullPath: '/admin/schedule/$id'
+      preLoaderRoute: typeof AdminScheduleIdRouteImport
+      parentRoute: typeof AdminScheduleRouteRoute
+    }
+    '/admin/participants/new': {
+      id: '/admin/participants/new'
       path: '/new'
-      fullPath: '/admin/schedule/$id/new'
-      preLoaderRoute: typeof AdminScheduleIdNewImport
-      parentRoute: typeof AdminScheduleIdImport
+      fullPath: '/admin/participants/new'
+      preLoaderRoute: typeof AdminParticipantsNewRouteImport
+      parentRoute: typeof AdminParticipantsRouteRoute
     }
-    '/admin/schedule/$id/newbracket': {
-      id: '/admin/schedule/$id/newbracket'
-      path: '/newbracket'
-      fullPath: '/admin/schedule/$id/newbracket'
-      preLoaderRoute: typeof AdminScheduleIdNewbracketImport
-      parentRoute: typeof AdminScheduleIdImport
+    '/admin/participants/$id': {
+      id: '/admin/participants/$id'
+      path: '/$id'
+      fullPath: '/admin/participants/$id'
+      preLoaderRoute: typeof AdminParticipantsIdRouteImport
+      parentRoute: typeof AdminParticipantsRouteRoute
     }
-    '/admin_/mobile/$id/$matchId': {
-      id: '/admin_/mobile/$id/$matchId'
-      path: '/admin/mobile/$id/$matchId'
-      fullPath: '/admin/mobile/$id/$matchId'
-      preLoaderRoute: typeof AdminMobileIdMatchIdImport
-      parentRoute: typeof rootRoute
+    '/_view/schedule/$id': {
+      id: '/_view/schedule/$id'
+      path: '/$id'
+      fullPath: '/schedule/$id'
+      preLoaderRoute: typeof ViewScheduleIdRouteImport
+      parentRoute: typeof ViewScheduleRouteRoute
+    }
+    '/_view/bracket/$id': {
+      id: '/_view/bracket/$id'
+      path: '/bracket/$id'
+      fullPath: '/bracket/$id'
+      preLoaderRoute: typeof ViewBracketIdRouteImport
+      parentRoute: typeof ViewRouteRoute
     }
     '/admin_/mobile/$id/': {
       id: '/admin_/mobile/$id/'
       path: '/admin/mobile/$id'
       fullPath: '/admin/mobile/$id'
-      preLoaderRoute: typeof AdminMobileIdIndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AdminMobileIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin_/mobile/$id/$matchId': {
+      id: '/admin_/mobile/$id/$matchId'
+      path: '/admin/mobile/$id/$matchId'
+      fullPath: '/admin/mobile/$id/$matchId'
+      preLoaderRoute: typeof AdminMobileIdMatchIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/schedule/$id/newbracket': {
+      id: '/admin/schedule/$id/newbracket'
+      path: '/newbracket'
+      fullPath: '/admin/schedule/$id/newbracket'
+      preLoaderRoute: typeof AdminScheduleIdNewbracketRouteImport
+      parentRoute: typeof AdminScheduleIdRoute
+    }
+    '/admin/schedule/$id/new': {
+      id: '/admin/schedule/$id/new'
+      path: '/new'
+      fullPath: '/admin/schedule/$id/new'
+      preLoaderRoute: typeof AdminScheduleIdNewRouteImport
+      parentRoute: typeof AdminScheduleIdRoute
+    }
+    '/admin/schedule/$id/$matchId': {
+      id: '/admin/schedule/$id/$matchId'
+      path: '/$matchId'
+      fullPath: '/admin/schedule/$id/$matchId'
+      preLoaderRoute: typeof AdminScheduleIdMatchIdRouteImport
+      parentRoute: typeof AdminScheduleIdRoute
     }
   }
 }
-
-// Create and export the route tree
+declare module '@tanstack/react-start/server' {
+  interface ServerFileRoutesByPath {
+    '/api/demo-names': {
+      id: '/api/demo-names'
+      path: '/api/demo-names'
+      fullPath: '/api/demo-names'
+      preLoaderRoute: typeof ApiDemoNamesServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/': {
+      id: '/api/timer/'
+      path: '/api/timer'
+      fullPath: '/api/timer'
+      preLoaderRoute: typeof ApiTimerIndexServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/start': {
+      id: '/api/timer/start'
+      path: '/api/timer/start'
+      fullPath: '/api/timer/start'
+      preLoaderRoute: typeof ApiTimerStartServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/resume': {
+      id: '/api/timer/resume'
+      path: '/api/timer/resume'
+      fullPath: '/api/timer/resume'
+      preLoaderRoute: typeof ApiTimerResumeServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/restart': {
+      id: '/api/timer/restart'
+      path: '/api/timer/restart'
+      fullPath: '/api/timer/restart'
+      preLoaderRoute: typeof ApiTimerRestartServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/pause': {
+      id: '/api/timer/pause'
+      path: '/api/timer/pause'
+      fullPath: '/api/timer/pause'
+      preLoaderRoute: typeof ApiTimerPauseServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/migration/run': {
+      id: '/api/migration/run'
+      path: '/api/migration/run'
+      fullPath: '/api/migration/run'
+      preLoaderRoute: typeof ApiMigrationRunServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+  }
+}
 
 interface ViewScheduleRouteRouteChildren {
   ViewScheduleIdRoute: typeof ViewScheduleIdRoute
@@ -478,193 +791,6 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
   AdminRouteRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '': typeof ViewRouteRouteWithChildren
-  '/admin': typeof AdminRouteRouteWithChildren
-  '/overlay': typeof OverlayRoute
-  '/schedule': typeof ViewScheduleRouteRouteWithChildren
-  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
-  '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
-  '/admin/competitors': typeof AdminCompetitorsRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/bracket/$id': typeof ViewBracketIdRoute
-  '/schedule/$id': typeof ViewScheduleIdRoute
-  '/admin/participants/$id': typeof AdminParticipantsIdRoute
-  '/admin/participants/new': typeof AdminParticipantsNewRoute
-  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/bracket': typeof ViewBracketIndexRoute
-  '/schedule/': typeof ViewScheduleIndexRoute
-  '/stats': typeof ViewStatsIndexRoute
-  '/teams-match': typeof ViewTeamsMatchIndexRoute
-  '/admin/mobile': typeof AdminMobileIndexRoute
-  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
-  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
-  '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
-  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
-  '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
-}
-
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '': typeof ViewRouteRouteWithChildren
-  '/admin': typeof AdminRouteRouteWithChildren
-  '/overlay': typeof OverlayRoute
-  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
-  '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
-  '/admin/competitors': typeof AdminCompetitorsRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/bracket/$id': typeof ViewBracketIdRoute
-  '/schedule/$id': typeof ViewScheduleIdRoute
-  '/admin/participants/$id': typeof AdminParticipantsIdRoute
-  '/admin/participants/new': typeof AdminParticipantsNewRoute
-  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/bracket': typeof ViewBracketIndexRoute
-  '/schedule': typeof ViewScheduleIndexRoute
-  '/stats': typeof ViewStatsIndexRoute
-  '/teams-match': typeof ViewTeamsMatchIndexRoute
-  '/admin/mobile': typeof AdminMobileIndexRoute
-  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
-  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
-  '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
-  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
-  '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/_view': typeof ViewRouteRouteWithChildren
-  '/admin': typeof AdminRouteRouteWithChildren
-  '/overlay': typeof OverlayRoute
-  '/_view/schedule': typeof ViewScheduleRouteRouteWithChildren
-  '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
-  '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
-  '/admin/competitors': typeof AdminCompetitorsRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
-  '/_view/bracket/$id': typeof ViewBracketIdRoute
-  '/_view/schedule/$id': typeof ViewScheduleIdRoute
-  '/admin/participants/$id': typeof AdminParticipantsIdRoute
-  '/admin/participants/new': typeof AdminParticipantsNewRoute
-  '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/_view/bracket/': typeof ViewBracketIndexRoute
-  '/_view/schedule/': typeof ViewScheduleIndexRoute
-  '/_view/stats/': typeof ViewStatsIndexRoute
-  '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
-  '/admin_/mobile/': typeof AdminMobileIndexRoute
-  '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
-  '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
-  '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
-  '/admin_/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
-  '/admin_/mobile/$id/': typeof AdminMobileIdIndexRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | ''
-    | '/admin'
-    | '/overlay'
-    | '/schedule'
-    | '/admin/participants'
-    | '/admin/schedule'
-    | '/admin/competitors'
-    | '/demo/tanstack-query'
-    | '/bracket/$id'
-    | '/schedule/$id'
-    | '/admin/participants/$id'
-    | '/admin/participants/new'
-    | '/admin/schedule/$id'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/bracket'
-    | '/schedule/'
-    | '/stats'
-    | '/teams-match'
-    | '/admin/mobile'
-    | '/admin/schedule/$id/$matchId'
-    | '/admin/schedule/$id/new'
-    | '/admin/schedule/$id/newbracket'
-    | '/admin/mobile/$id/$matchId'
-    | '/admin/mobile/$id'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | ''
-    | '/admin'
-    | '/overlay'
-    | '/admin/participants'
-    | '/admin/schedule'
-    | '/admin/competitors'
-    | '/demo/tanstack-query'
-    | '/bracket/$id'
-    | '/schedule/$id'
-    | '/admin/participants/$id'
-    | '/admin/participants/new'
-    | '/admin/schedule/$id'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/bracket'
-    | '/schedule'
-    | '/stats'
-    | '/teams-match'
-    | '/admin/mobile'
-    | '/admin/schedule/$id/$matchId'
-    | '/admin/schedule/$id/new'
-    | '/admin/schedule/$id/newbracket'
-    | '/admin/mobile/$id/$matchId'
-    | '/admin/mobile/$id'
-  id:
-    | '__root__'
-    | '/'
-    | '/_view'
-    | '/admin'
-    | '/overlay'
-    | '/_view/schedule'
-    | '/admin/participants'
-    | '/admin/schedule'
-    | '/admin/competitors'
-    | '/demo/tanstack-query'
-    | '/_view/bracket/$id'
-    | '/_view/schedule/$id'
-    | '/admin/participants/$id'
-    | '/admin/participants/new'
-    | '/admin/schedule/$id'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/_view/bracket/'
-    | '/_view/schedule/'
-    | '/_view/stats/'
-    | '/_view/teams-match/'
-    | '/admin_/mobile/'
-    | '/admin/schedule/$id/$matchId'
-    | '/admin/schedule/$id/new'
-    | '/admin/schedule/$id/newbracket'
-    | '/admin_/mobile/$id/$matchId'
-    | '/admin_/mobile/$id/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ViewRouteRoute: typeof ViewRouteRouteWithChildren
-  AdminRouteRoute: typeof AdminRouteRouteWithChildren
-  OverlayRoute: typeof OverlayRoute
-  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
-  AdminMobileIndexRoute: typeof AdminMobileIndexRoute
-  AdminMobileIdMatchIdRoute: typeof AdminMobileIdMatchIdRoute
-  AdminMobileIdIndexRoute: typeof AdminMobileIdIndexRoute
-}
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ViewRouteRoute: ViewRouteRouteWithChildren,
@@ -677,151 +803,18 @@ const rootRouteChildren: RootRouteChildren = {
   AdminMobileIdMatchIdRoute: AdminMobileIdMatchIdRoute,
   AdminMobileIdIndexRoute: AdminMobileIdIndexRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/",
-        "/_view",
-        "/admin",
-        "/overlay",
-        "/demo/tanstack-query",
-        "/demo/start/api-request",
-        "/demo/start/server-funcs",
-        "/admin_/mobile/",
-        "/admin_/mobile/$id/$matchId",
-        "/admin_/mobile/$id/"
-      ]
-    },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/_view": {
-      "filePath": "_view/route.tsx",
-      "children": [
-        "/_view/schedule",
-        "/_view/bracket/$id",
-        "/_view/bracket/",
-        "/_view/stats/",
-        "/_view/teams-match/"
-      ]
-    },
-    "/admin": {
-      "filePath": "admin/route.tsx",
-      "children": [
-        "/admin/participants",
-        "/admin/schedule",
-        "/admin/competitors"
-      ]
-    },
-    "/overlay": {
-      "filePath": "overlay.tsx"
-    },
-    "/_view/schedule": {
-      "filePath": "_view/schedule/route.tsx",
-      "parent": "/_view",
-      "children": [
-        "/_view/schedule/$id",
-        "/_view/schedule/"
-      ]
-    },
-    "/admin/participants": {
-      "filePath": "admin/participants/route.tsx",
-      "parent": "/admin",
-      "children": [
-        "/admin/participants/$id",
-        "/admin/participants/new"
-      ]
-    },
-    "/admin/schedule": {
-      "filePath": "admin/schedule/route.tsx",
-      "parent": "/admin",
-      "children": [
-        "/admin/schedule/$id"
-      ]
-    },
-    "/admin/competitors": {
-      "filePath": "admin/competitors.tsx",
-      "parent": "/admin"
-    },
-    "/demo/tanstack-query": {
-      "filePath": "demo.tanstack-query.tsx"
-    },
-    "/_view/bracket/$id": {
-      "filePath": "_view/bracket/$id.tsx",
-      "parent": "/_view"
-    },
-    "/_view/schedule/$id": {
-      "filePath": "_view/schedule/$id.tsx",
-      "parent": "/_view/schedule"
-    },
-    "/admin/participants/$id": {
-      "filePath": "admin/participants/$id.tsx",
-      "parent": "/admin/participants"
-    },
-    "/admin/participants/new": {
-      "filePath": "admin/participants/new.tsx",
-      "parent": "/admin/participants"
-    },
-    "/admin/schedule/$id": {
-      "filePath": "admin/schedule/$id.tsx",
-      "parent": "/admin/schedule",
-      "children": [
-        "/admin/schedule/$id/$matchId",
-        "/admin/schedule/$id/new",
-        "/admin/schedule/$id/newbracket"
-      ]
-    },
-    "/demo/start/api-request": {
-      "filePath": "demo.start.api-request.tsx"
-    },
-    "/demo/start/server-funcs": {
-      "filePath": "demo.start.server-funcs.tsx"
-    },
-    "/_view/bracket/": {
-      "filePath": "_view/bracket/index.tsx",
-      "parent": "/_view"
-    },
-    "/_view/schedule/": {
-      "filePath": "_view/schedule/index.tsx",
-      "parent": "/_view/schedule"
-    },
-    "/_view/stats/": {
-      "filePath": "_view/stats/index.tsx",
-      "parent": "/_view"
-    },
-    "/_view/teams-match/": {
-      "filePath": "_view/teams-match/index.tsx",
-      "parent": "/_view"
-    },
-    "/admin_/mobile/": {
-      "filePath": "admin_/mobile.index.tsx"
-    },
-    "/admin/schedule/$id/$matchId": {
-      "filePath": "admin/schedule/$id.$matchId.tsx",
-      "parent": "/admin/schedule/$id"
-    },
-    "/admin/schedule/$id/new": {
-      "filePath": "admin/schedule/$id.new.tsx",
-      "parent": "/admin/schedule/$id"
-    },
-    "/admin/schedule/$id/newbracket": {
-      "filePath": "admin/schedule/$id.newbracket.tsx",
-      "parent": "/admin/schedule/$id"
-    },
-    "/admin_/mobile/$id/$matchId": {
-      "filePath": "admin_/mobile.$id.$matchId.tsx"
-    },
-    "/admin_/mobile/$id/": {
-      "filePath": "admin_/mobile.$id.index.tsx"
-    }
-  }
+const rootServerRouteChildren: RootServerRouteChildren = {
+  ApiDemoNamesServerRoute: ApiDemoNamesServerRoute,
+  ApiMigrationRunServerRoute: ApiMigrationRunServerRoute,
+  ApiTimerPauseServerRoute: ApiTimerPauseServerRoute,
+  ApiTimerRestartServerRoute: ApiTimerRestartServerRoute,
+  ApiTimerResumeServerRoute: ApiTimerResumeServerRoute,
+  ApiTimerStartServerRoute: ApiTimerStartServerRoute,
+  ApiTimerIndexServerRoute: ApiTimerIndexServerRoute,
 }
-ROUTE_MANIFEST_END */
+export const serverRouteTree = rootServerRouteImport
+  ._addFileChildren(rootServerRouteChildren)
+  ._addFileTypes<FileServerRouteTypes>()
