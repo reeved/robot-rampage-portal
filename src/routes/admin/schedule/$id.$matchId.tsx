@@ -54,6 +54,7 @@ function RouteComponent() {
 		await updateSchedule({
 			...schedule,
 			matches: updatedMatches,
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		} as any);
 
 		router.invalidate();
@@ -66,7 +67,7 @@ function RouteComponent() {
 
 	return (
 		<div key={matchId} className="flex flex-col gap-y-6">
-			{schedule.type === "QUALIFYING" ? (
+			{schedule.type === "QUALIFYING" || schedule.type === "EXHIBITION" ? (
 				<QualifyingMatchForm
 					participants={participants}
 					onSubmit={handleUpdate}

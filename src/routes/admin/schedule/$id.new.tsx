@@ -24,6 +24,7 @@ function RouteComponent() {
 		await updateSchedule({
 			...schedule,
 			matches: updatedMatches,
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		} as any);
 
 		router.invalidate();

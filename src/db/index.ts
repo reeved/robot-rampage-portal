@@ -55,6 +55,8 @@ const sharedMatchSchema = z.object({
 });
 
 export const QualifyingMatchSchema = sharedMatchSchema;
+export const TeamMatchSchema = sharedMatchSchema;
+export const ExhibitionMatchSchema = sharedMatchSchema;
 
 export const BracketMatchSchema = sharedMatchSchema.extend({
 	bracket: z.string(),
@@ -65,16 +67,40 @@ export const MatchSchema = z.union([QualifyingMatchSchema, BracketMatchSchema]);
 
 export const ScheduleSchema = z.discriminatedUnion("type", [
 	z.object({
+		type: z.literal("QUALIFYING"),
 		id: z.string(),
 		name: z.string(),
-		type: z.literal("QUALIFYING"),
 		matches: z.array(QualifyingMatchSchema),
 	}),
 	z.object({
+		type: z.literal("BRACKET"),
 		id: z.string(),
 		name: z.string(),
-		type: z.literal("BRACKET"),
 		matches: z.array(BracketMatchSchema),
+	}),
+	z.object({
+		type: z.literal("EXHIBITION"),
+		id: z.string(),
+		name: z.string(),
+		matches: z.array(ExhibitionMatchSchema),
+	}),
+	z.object({
+		type: z.literal("TEAMS"),
+		id: z.string(),
+		name: z.string(),
+		team1bots: z.array(
+			z.object({
+				id: z.string(),
+				status: z.enum(["TBD", "ACTIVE", "LOST"]),
+			}),
+		),
+		team2bots: z.array(
+			z.object({
+				id: z.string(),
+				status: z.enum(["TBD", "ACTIVE", "LOST"]),
+			}),
+		),
+		matches: z.array(TeamMatchSchema),
 	}),
 ]);
 

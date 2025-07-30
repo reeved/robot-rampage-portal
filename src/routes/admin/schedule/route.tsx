@@ -64,6 +64,45 @@ const generateNewBracket = createServerFn({
 		return newBracket;
 	});
 
+const generateNewExhibition = createServerFn({
+	method: "POST",
+})
+	.middleware([dbMiddleware])
+	.handler(async ({ context }) => {
+		const existingExhibitions = await context.db.schedule.find(
+			(s) => s.type === "EXHIBITION",
+		);
+
+		const newExhibition: Schedule = {
+			id: generateId("schedule"),
+			type: "EXHIBITION",
+			matches: [],
+			name: `Exhibition ${existingExhibitions.length + 1}`,
+		};
+		context.db.schedule.insert(newExhibition);
+		return newExhibition;
+	});
+
+const generateNewTeams = createServerFn({
+	method: "POST",
+})
+	.middleware([dbMiddleware])
+	.handler(async ({ context }) => {
+		const existingTeams = await context.db.schedule.find(
+			(s) => s.type === "TEAMS",
+		);
+
+		const newTeams: Schedule = {
+			id: generateId("schedule"),
+			type: "TEAMS",
+			matches: [],
+			team1bots: [],
+			team2bots: [],
+			name: `Teams ${existingTeams.length + 1}`,
+		};
+		context.db.schedule.insert(newTeams);
+	});
+
 export const Route = createFileRoute("/admin/schedule")({
 	component: RouteComponent,
 	loader: async () => await getSchedules(),
@@ -83,6 +122,16 @@ function RouteComponent() {
 		router.invalidate();
 	};
 
+	const addNewTeams = () => {
+		generateNewTeams();
+		router.invalidate();
+	};
+
+	const addNewExhibition = () => {
+		generateNewExhibition();
+		router.invalidate();
+	};
+
 	return (
 		<div className="flex h-full flex-1">
 			<div className="w-2/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
@@ -94,6 +143,12 @@ function RouteComponent() {
 						</Button>
 						<Button variant="default" onClick={addNewBracket}>
 							Add new Bracket +
+						</Button>
+						<Button variant="default" onClick={addNewTeams}>
+							Add new Teams +
+						</Button>
+						<Button variant="default" onClick={addNewExhibition}>
+							Add new Exhibition +
 						</Button>
 					</div>
 				</div>

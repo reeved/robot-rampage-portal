@@ -5,7 +5,7 @@
     "matches": [
       {
         "id": "match-i2i70q7",
-        "name": "Match 1",
+        "name": "Exhibition match",
         "participants": [
           {
             "id": "part-04xspbq",
@@ -28,5 +28,64 @@
     "type": "BRACKET",
     "matches": [],
     "name": "Bracket 1"
+  },
+  {
+    "id": "schedule-2kykco9",
+    "type": "TEAMS",
+    "matches": [],
+    "team1bots": [],
+    "team2bots": [],
+    "name": "Teams 1"
+  },
+  {
+    "id": "schedule-aot0ff9",
+    "type": "TEAMS",
+    "matches": [],
+    "team1bots": [],
+    "team2bots": [],
+    "name": "Teams 2"
+  },
+  {
+    "id": "schedule-chvecfr",
+    "type": "TEAMS",
+    "matches": [],
+    "team1bots": [],
+    "team2bots": [],
+    "name": "Teams 3"
+  },
+  {
+    "id": "schedule-5j3winz",
+    "type": "EXHIBITION",
+    "matches": [
+      {
+        "id": "match-iooggkq",
+        "name": "Exhibition match",
+        "participants": [
+          {},
+          {}
+        ]
+      }
+    ],
+    "name": "Exhibition 1"
+  },
+  {
+    "id": "schedule-3wdx2aw",
+    "type": "EXHIBITION",
+    "matches": [],
+    "name": "Exhibition 2"
+  },
+  {
+    "id": "schedule-bastc90",
+    "type": "TEAMS",
+    "matches": [],
+    "team1bots": [],
+    "team2bots": [],
+    "name": "Teams 4"
+  },
+  {
+    "id": "schedule-937xnht",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 2"
   }
 ]
