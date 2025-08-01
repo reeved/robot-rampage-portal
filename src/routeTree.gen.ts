@@ -19,6 +19,7 @@ import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-qu
 import { Route as AdminCompetitorsRouteImport } from './routes/admin/competitors'
 import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
 import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/participants/route'
+import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
 import { Route as ViewScheduleRouteRouteImport } from './routes/_view/schedule/route'
 import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile.index'
 import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
@@ -30,6 +31,7 @@ import { Route as DemoStartApiRequestRouteImport } from './routes/demo.start.api
 import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdRouteImport } from './routes/admin/participants/$id'
+import { Route as ViewTeamsMatchIdRouteImport } from './routes/_view/teams-match/$id'
 import { Route as ViewScheduleIdRouteImport } from './routes/_view/schedule/$id'
 import { Route as ViewBracketIdRouteImport } from './routes/_view/bracket/$id'
 import { Route as AdminMobileIdIndexRouteImport } from './routes/admin_/mobile.$id.index'
@@ -86,6 +88,11 @@ const AdminParticipantsRouteRoute = AdminParticipantsRouteRouteImport.update({
   path: '/participants',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const ViewTeamsMatchRouteRoute = ViewTeamsMatchRouteRouteImport.update({
+  id: '/teams-match',
+  path: '/teams-match',
+  getParentRoute: () => ViewRouteRoute,
+} as any)
 const ViewScheduleRouteRoute = ViewScheduleRouteRouteImport.update({
   id: '/schedule',
   path: '/schedule',
@@ -97,9 +104,9 @@ const AdminMobileIndexRoute = AdminMobileIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexRouteImport.update({
-  id: '/teams-match/',
-  path: '/teams-match/',
-  getParentRoute: () => ViewRouteRoute,
+  id: '/',
+  path: '/',
+  getParentRoute: () => ViewTeamsMatchRouteRoute,
 } as any)
 const ViewStatsIndexRoute = ViewStatsIndexRouteImport.update({
   id: '/stats/',
@@ -140,6 +147,11 @@ const AdminParticipantsIdRoute = AdminParticipantsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => AdminParticipantsRouteRoute,
+} as any)
+const ViewTeamsMatchIdRoute = ViewTeamsMatchIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ViewTeamsMatchRouteRoute,
 } as any)
 const ViewScheduleIdRoute = ViewScheduleIdRouteImport.update({
   id: '/$id',
@@ -218,12 +230,14 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteRouteWithChildren
   '/overlay': typeof OverlayRoute
   '/schedule': typeof ViewScheduleRouteRouteWithChildren
+  '/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
+  '/teams-match/$id': typeof ViewTeamsMatchIdRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
@@ -232,7 +246,7 @@ export interface FileRoutesByFullPath {
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
-  '/teams-match': typeof ViewTeamsMatchIndexRoute
+  '/teams-match/': typeof ViewTeamsMatchIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -250,6 +264,7 @@ export interface FileRoutesByTo {
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
+  '/teams-match/$id': typeof ViewTeamsMatchIdRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
@@ -273,12 +288,14 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteRouteWithChildren
   '/overlay': typeof OverlayRoute
   '/_view/schedule': typeof ViewScheduleRouteRouteWithChildren
+  '/_view/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/_view/bracket/$id': typeof ViewBracketIdRoute
   '/_view/schedule/$id': typeof ViewScheduleIdRoute
+  '/_view/teams-match/$id': typeof ViewTeamsMatchIdRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
@@ -302,12 +319,14 @@ export interface FileRouteTypes {
     | '/admin'
     | '/overlay'
     | '/schedule'
+    | '/teams-match'
     | '/admin/participants'
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
     | '/bracket/$id'
     | '/schedule/$id'
+    | '/teams-match/$id'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
@@ -316,7 +335,7 @@ export interface FileRouteTypes {
     | '/bracket'
     | '/schedule/'
     | '/stats'
-    | '/teams-match'
+    | '/teams-match/'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -334,6 +353,7 @@ export interface FileRouteTypes {
     | '/demo/tanstack-query'
     | '/bracket/$id'
     | '/schedule/$id'
+    | '/teams-match/$id'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
@@ -356,12 +376,14 @@ export interface FileRouteTypes {
     | '/admin'
     | '/overlay'
     | '/_view/schedule'
+    | '/_view/teams-match'
     | '/admin/participants'
     | '/admin/schedule'
     | '/admin/competitors'
     | '/demo/tanstack-query'
     | '/_view/bracket/$id'
     | '/_view/schedule/$id'
+    | '/_view/teams-match/$id'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
@@ -517,6 +539,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminParticipantsRouteRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/_view/teams-match': {
+      id: '/_view/teams-match'
+      path: '/teams-match'
+      fullPath: '/teams-match'
+      preLoaderRoute: typeof ViewTeamsMatchRouteRouteImport
+      parentRoute: typeof ViewRouteRoute
+    }
     '/_view/schedule': {
       id: '/_view/schedule'
       path: '/schedule'
@@ -533,10 +562,10 @@ declare module '@tanstack/react-router' {
     }
     '/_view/teams-match/': {
       id: '/_view/teams-match/'
-      path: '/teams-match'
-      fullPath: '/teams-match'
+      path: '/'
+      fullPath: '/teams-match/'
       preLoaderRoute: typeof ViewTeamsMatchIndexRouteImport
-      parentRoute: typeof ViewRouteRoute
+      parentRoute: typeof ViewTeamsMatchRouteRoute
     }
     '/_view/stats/': {
       id: '/_view/stats/'
@@ -593,6 +622,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/participants/$id'
       preLoaderRoute: typeof AdminParticipantsIdRouteImport
       parentRoute: typeof AdminParticipantsRouteRoute
+    }
+    '/_view/teams-match/$id': {
+      id: '/_view/teams-match/$id'
+      path: '/$id'
+      fullPath: '/teams-match/$id'
+      preLoaderRoute: typeof ViewTeamsMatchIdRouteImport
+      parentRoute: typeof ViewTeamsMatchRouteRoute
     }
     '/_view/schedule/$id': {
       id: '/_view/schedule/$id'
@@ -712,20 +748,33 @@ const ViewScheduleRouteRouteChildren: ViewScheduleRouteRouteChildren = {
 const ViewScheduleRouteRouteWithChildren =
   ViewScheduleRouteRoute._addFileChildren(ViewScheduleRouteRouteChildren)
 
+interface ViewTeamsMatchRouteRouteChildren {
+  ViewTeamsMatchIdRoute: typeof ViewTeamsMatchIdRoute
+  ViewTeamsMatchIndexRoute: typeof ViewTeamsMatchIndexRoute
+}
+
+const ViewTeamsMatchRouteRouteChildren: ViewTeamsMatchRouteRouteChildren = {
+  ViewTeamsMatchIdRoute: ViewTeamsMatchIdRoute,
+  ViewTeamsMatchIndexRoute: ViewTeamsMatchIndexRoute,
+}
+
+const ViewTeamsMatchRouteRouteWithChildren =
+  ViewTeamsMatchRouteRoute._addFileChildren(ViewTeamsMatchRouteRouteChildren)
+
 interface ViewRouteRouteChildren {
   ViewScheduleRouteRoute: typeof ViewScheduleRouteRouteWithChildren
+  ViewTeamsMatchRouteRoute: typeof ViewTeamsMatchRouteRouteWithChildren
   ViewBracketIdRoute: typeof ViewBracketIdRoute
   ViewBracketIndexRoute: typeof ViewBracketIndexRoute
   ViewStatsIndexRoute: typeof ViewStatsIndexRoute
-  ViewTeamsMatchIndexRoute: typeof ViewTeamsMatchIndexRoute
 }
 
 const ViewRouteRouteChildren: ViewRouteRouteChildren = {
   ViewScheduleRouteRoute: ViewScheduleRouteRouteWithChildren,
+  ViewTeamsMatchRouteRoute: ViewTeamsMatchRouteRouteWithChildren,
   ViewBracketIdRoute: ViewBracketIdRoute,
   ViewBracketIndexRoute: ViewBracketIndexRoute,
   ViewStatsIndexRoute: ViewStatsIndexRoute,
-  ViewTeamsMatchIndexRoute: ViewTeamsMatchIndexRoute,
 }
 
 const ViewRouteRouteWithChildren = ViewRouteRoute._addFileChildren(

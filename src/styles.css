@@ -96,6 +96,7 @@ code {
 	--color-card-foreground: var(--card-foreground);
 	--color-rrorange: var(--color-orange-500);
 	--color-rrblue: var(--color-blue-700);
+	--color-rrgreen: var(--color-green-600);
 	--color-popover: var(--popover);
 	--color-popover-foreground: var(--popover-foreground);
 	--color-primary: var(--primary);
@@ -217,4 +218,15 @@ code {
 	100% {
 		filter: brightness(0);
 	}
+}
+
+/* Custom text shadow for red glow effect */
+.text-shadow-red {
+	text-shadow:
+		-0px 2px 4px rgba(0, 0, 0, 0.5),
+		-0px 4px 8px rgba(239, 68, 68, 0.8),
+		-0px 6px 12px rgba(239, 68, 68, 0.6),
+		-0px 8px 16px rgba(239, 68, 68, 0.4),
+		0 0 20px rgba(239, 68, 68, 0.3),
+		0 0 30px rgba(239, 68, 68, 0.2);
 }

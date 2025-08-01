@@ -9,10 +9,40 @@
     "id": "schedule-r5ckjw5",
     "type": "TEAMS",
     "matches": [],
-    "team1Name": "Team 1",
-    "team2Name": "Team 2",
-    "team1bots": {},
-    "team2bots": {},
+    "team1Name": "Team AUS",
+    "team2Name": "Team NZ",
+    "team1bots": {
+      "bot1": {
+        "id": "part-dx6qvml",
+        "isDead": true
+      },
+      "bot2": {
+        "id": "uhunewo",
+        "isDead": true
+      },
+      "bot3": {
+        "id": "part-04xspbq",
+        "isDead": false
+      },
+      "bot4": {},
+      "bot5": {}
+    },
+    "team2bots": {
+      "bot1": {
+        "id": "part-qpm0bjg",
+        "isDead": true
+      },
+      "bot2": {
+        "id": "part-hh5ch23",
+        "isDead": true
+      },
+      "bot3": {
+        "id": "uhunewo",
+        "isDead": false
+      },
+      "bot4": {},
+      "bot5": {}
+    },
     "name": "Teams 1"
   },
   {

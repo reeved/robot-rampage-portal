@@ -17,7 +17,12 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { type Participant, type Schedule, TeamsMatchSchema } from "@/db";
+import {
+	type Participant,
+	type Schedule,
+	TeamsMatchSchema,
+	type TeamsSchedule,
+} from "@/db";
 import { cn } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -105,8 +110,10 @@ const TeamList = ({
 								<FormItem className="flex flex-row gap-2 items-center">
 									<FormControl>
 										<Checkbox
-											checked={field.value}
-											onCheckedChange={field.onChange}
+											checked={field.value ?? false}
+											onCheckedChange={(checked) => {
+												field.onChange(checked === true);
+											}}
 										/>
 									</FormControl>
 									<FormLabel className="text-sm font-normal">Is dead</FormLabel>
@@ -145,6 +152,19 @@ const TeamName = ({
 	);
 };
 
+const processBots = (bots: TeamsSchedule["team1bots"]) => {
+	return ["bot1", "bot2", "bot3", "bot4", "bot5"].reduce(
+		(acc, bot) => {
+			const botData = bots[bot as keyof typeof bots];
+			acc[bot as keyof typeof bots] = botData?.id
+				? { ...botData, isDead: botData.isDead ?? false }
+				: {};
+			return acc;
+		},
+		{} as typeof bots,
+	);
+};
+
 const updateTeamsMatch = createServerFn({
 	method: "POST",
 })
@@ -161,8 +181,8 @@ const updateTeamsMatch = createServerFn({
 		await context.db.schedule.updateOne((s) => s.id === scheduleId, {
 			team1Name,
 			team2Name,
-			team1bots,
-			team2bots,
+			team1bots: processBots(team1bots),
+			team2bots: processBots(team2bots),
 		});
 	});
 
@@ -180,8 +200,8 @@ export const TeamsMatchList = ({
 		defaultValues: {
 			team1Name: schedule.team1Name,
 			team2Name: schedule.team2Name,
-			team1bots: schedule.team1bots,
-			team2bots: schedule.team2bots,
+			team1bots: processBots(schedule.team1bots),
+			team2bots: processBots(schedule.team2bots),
 		},
 		resolver: zodResolver(teamsSchema),
 	});
