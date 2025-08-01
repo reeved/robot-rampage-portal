@@ -15,6 +15,14 @@ const config = defineConfig({
       customViteReactPlugin: true,
     }),
     viteReact(),
+    {
+      name: 'ignore-database-updates',
+      handleHotUpdate({ file }) {
+        if (file.includes('database/')) {
+          return []; // prevent reload
+        }
+      },
+    },
   ],
 })
 
