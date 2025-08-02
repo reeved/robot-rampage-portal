@@ -1,5 +1,6 @@
 import type { Participant, Schedule } from "@/db";
 import { cn } from "@/lib/utils";
+import type React from "react";
 
 const BotInfo = ({
 	participant,
@@ -14,7 +15,7 @@ const BotInfo = ({
 		<div className="h-24 flex-1 relative font-rubik text-4xl ">
 			<div
 				className={cn(
-					"h-full w-full flex bg-black items-center justify-center  z-20 relative",
+					"h-full w-full flex bg-black items-center justify-center  z-20 relative border-4",
 					position === "left" ? "clip-path-left-hex" : "clip-path-right-hex",
 				)}
 			>
@@ -32,9 +33,14 @@ const BotInfo = ({
 type Props = {
 	participants: Participant[];
 	currentMatch?: Schedule["matches"][number];
+	middleContent?: React.ReactNode;
 };
 
-export const BotBar = ({ currentMatch, participants }: Props) => {
+export const BotBar = ({
+	currentMatch,
+	participants,
+	middleContent,
+}: Props) => {
 	if (!currentMatch) {
 		return (
 			<div className="absolute bottom-10 left-60 right-60 flex">
@@ -57,12 +63,13 @@ export const BotBar = ({ currentMatch, participants }: Props) => {
 	return (
 		<div className="absolute bottom-10 left-60 right-60 flex">
 			<BotInfo participant={participant1} winner={winner} position="left" />
-			<div className="h-24 w-[25ch] bg-primary relative">
+			<div className="h-24 w-[6ch] bg-primary relative grid place-items-center text-6xl font-black">
 				{/* <img
 								src="/rr-logo.png"
 								alt="Logo"
 								className="h-8 max-w-none bottom-25 -left-15 absolute"
 							/> */}
+				{middleContent}
 			</div>
 			<BotInfo participant={participant2} winner={winner} position="right" />
 		</div>

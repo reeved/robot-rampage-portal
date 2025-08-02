@@ -5,6 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import type { PropsWithChildren } from "react";
 import { BotBar } from "./-bot-bar";
+import { useTimer } from "./-timer";
 
 const getMatchData = createServerFn({
 	method: "GET",
@@ -41,7 +42,7 @@ const Overlay = ({ children }: PropsWithChildren) => {
 		<>
 			<style>{"html, body { background: transparent !important; }"}</style>
 			<div className="h-full w-full">
-				<div className="h-[1080px] w-[1920px] relative box-border bg-yellow-200">
+				<div className="h-[1080px] w-[1920px] relative box-border ">
 					{children}
 				</div>
 			</div>
@@ -55,8 +56,21 @@ export const Route = createFileRoute("/_view_/overlay")({
 		context.queryClient.ensureQueryData(scheduleQuery),
 });
 
+const TimeText = ({
+	currentTime,
+}: { currentTime: { minutes: string; seconds: string } }) => {
+	return (
+		<div className="text-6xl font-light font-rubik text-center flex">
+			<div className="w-[1ch]">{currentTime.minutes}</div>
+			<div className="w-[1ch]">:</div>
+			<div className="w-[2ch]">{currentTime.seconds}</div>
+		</div>
+	);
+};
+
 function RouteComponent() {
 	const { data } = useQuery(scheduleQuery);
+	const { currentTime, isRunning } = useTimer();
 
 	if (!data) {
 		return <Overlay />;
@@ -66,7 +80,11 @@ function RouteComponent() {
 
 	return (
 		<Overlay>
-			<BotBar currentMatch={currentMatch} participants={participants} />
+			<BotBar
+				currentMatch={currentMatch}
+				participants={participants}
+				middleContent={<TimeText currentTime={currentTime} />}
+			/>
 		</Overlay>
 	);
 }

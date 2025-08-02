@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { TimerComponent } from "./-timer";
+import { TimerComponent } from "./_view_/-timer";
 
 export const Route = createFileRoute("/")({
 	component: App,
