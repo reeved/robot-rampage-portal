@@ -64,9 +64,25 @@
           }
         ],
         "winner": {
-          "id": "",
-          "condition": "KO"
+          "id": "part-04xspbq",
+          "condition": "JD"
         }
+      },
+      {
+        "id": "match-iomeww1",
+        "name": "Match 2",
+        "participants": [
+          {},
+          {}
+        ]
+      },
+      {
+        "id": "match-rundoy6",
+        "name": "Match 3",
+        "participants": [
+          {},
+          {}
+        ]
       }
     ],
     "name": "Qualifying Session 1"
@@ -76,5 +92,36 @@
     "type": "BRACKET",
     "matches": [],
     "name": "Bracket 2"
+  },
+  {
+    "id": "schedule-rggaw3f",
+    "type": "EXHIBITION",
+    "matches": [
+      {
+        "id": "match-rhnz1yz",
+        "name": "Match 1 ",
+        "participants": [
+          {
+            "id": "jjsm1pd"
+          },
+          {
+            "id": "q9h4q1i"
+          }
+        ]
+      },
+      {
+        "id": "match-5qqlbd3",
+        "name": "Match 2",
+        "participants": [
+          {
+            "id": "u0fr1y9"
+          },
+          {
+            "id": "q9h4q1i"
+          }
+        ]
+      }
+    ],
+    "name": "Exhibition 1"
   }
 ]
