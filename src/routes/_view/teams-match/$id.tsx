@@ -71,6 +71,7 @@ const BotInfo = ({
 					bot?.isDead ? "grayscale greyscale-manual" : "animate-breathing",
 				)}
 				alt="bot-photo"
+				height={160}
 				style={
 					bot?.isDead
 						? {}
@@ -92,9 +93,11 @@ const BotInfo = ({
 const BotPreview = ({
 	bot,
 	participants,
+	teamColor,
 }: {
 	bot: TeamsSchedule["team1bots"]["bot1"];
 	participants: Participant[];
+	teamColor: "green" | "blue";
 }) => {
 	const botDetails = participants.find((p) => p.id === bot?.id);
 
@@ -115,7 +118,11 @@ const BotPreview = ({
 	return (
 		<img
 			src={botDetails.photo ? `/${botDetails.photo}` : undefined}
-			className={cn("h-40 text-primary", bot?.isDead && "greyscale-manual")}
+			className={cn(
+				"h-40 text-primary",
+				bot?.isDead && "greyscale-manual",
+				teamColor === "blue" && "transform -scale-x-100",
+			)}
 			style={
 				bot?.isDead
 					? {}
@@ -169,6 +176,7 @@ const TeamInfo = ({
 						key={`${teamName}-${bot}`}
 						bot={bots[bot]}
 						participants={participants}
+						teamColor={teamColor}
 					/>
 				))}
 			</div>
@@ -185,9 +193,17 @@ function RouteComponent() {
 	}
 
 	const { schedule, participants } = data;
+	const numberOfBotsWithIds = [
+		...Object.values(schedule.team1bots),
+		...Object.values(schedule.team2bots),
+	].filter((b) => b?.id).length;
 
 	return (
-		<div className="flex flex-row h-full gap-x-40">
+		<div className="flex flex-row h-full gap-x-40 relative">
+			<div className="absolute left-1/2 transform -translate-x-1/2 text-center text-primary font-heading mt-4 ">
+				<h3 className="text-[40px]">FIGHT {numberOfBotsWithIds - 1}</h3>
+				<h3 className="text-[50px] mt-100">VS</h3>
+			</div>
 			<div className="flex-1 items-center justify-center text-center">
 				<TeamInfo
 					teamName={schedule.team1Name}

@@ -82,5 +82,11 @@
       }
     ],
     "name": "Exhibition 1"
+  },
+  {
+    "id": "schedule-7iwhp7j",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 2"
   }
 ]
