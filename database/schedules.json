@@ -72,8 +72,12 @@
         "id": "match-iomeww1",
         "name": "Match 2",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "part-fdrxhj5"
+          }
         ]
       },
       {
