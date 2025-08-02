@@ -22,9 +22,12 @@
       },
       "bot3": {
         "id": "part-04xspbq",
+        "isDead": true
+      },
+      "bot4": {
+        "id": "part-rzeus3u",
         "isDead": false
       },
-      "bot4": {},
       "bot5": {}
     },
     "team2bots": {

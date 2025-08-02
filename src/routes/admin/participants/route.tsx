@@ -1,4 +1,6 @@
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { dbMiddleware } from "@/middleware";
 import {
 	Link,
@@ -47,14 +49,25 @@ function RouteComponent() {
 								asChild
 								key={p.id}
 								variant="secondary"
-								className="px-4 py-4 rounded-sm  self-stretch mx-4"
+								className="px-4 py-4 rounded-sm  self-stretch mx-4 flex items-center gap-x-2"
 							>
 								<Link to="/admin/participants/$id" params={{ id: p.id }}>
 									<>
-										{(!p.weapon || !p.weight || !p.photo || !p.builders) && (
-											<span>(*)</span>
-										)}
-										{p.name}
+										<span className="flex-1">
+											{(!p.weapon || !p.weight || !p.photo || !p.builders) && (
+												<Badge variant="destructive">MISSING INFO</Badge>
+											)}
+										</span>
+
+										<span className="flex-1 text-center">{p.name}</span>
+
+										<span className="flex-1 flex justify-end items-end gap-4">
+											{p.isDead && <Badge variant="destructive">Dead</Badge>}
+
+											{!p.isCompeting && (
+												<Badge variant="destructive">Not competing</Badge>
+											)}
+										</span>
 									</>
 								</Link>
 							</Button>

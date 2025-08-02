@@ -58,7 +58,7 @@
     "photo": "bot-photos/pretty-scary.png",
     "previousRank": "7th Place",
     "weight": 12.1,
-    "isCompeting": true
+    "isCompeting": false
   },
   {
     "id": "part-qpm0bjg",
@@ -140,7 +140,8 @@
     "type": "FEATHERWEIGHT",
     "weight": 13.6,
     "photo": "bot-photos/hodr.png",
-    "isCompeting": true
+    "isCompeting": false,
+    "isDead": true
   },
   {
     "id": "part-dx6qvml",
@@ -224,7 +225,8 @@
     "videos": "",
     "weapon": "Horizontal Spinner",
     "photo": "bot-photos/haymaker.png",
-    "isCompeting": true
+    "isCompeting": true,
+    "isDead": true
   },
   {
     "id": "u0fr1y9",
