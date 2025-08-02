@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { DeleteConfirmation } from "@/components/ui/delete-confirmation";
 import {
 	Form,
 	FormControl,
@@ -16,9 +17,33 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { MatchSchema, type Participant, type Schedule } from "@/db";
+import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 import { getBotVideos } from "./-queue-match-form";
+
+export const deleteMatch = createServerFn({
+	method: "POST",
+})
+	.middleware([dbMiddleware])
+	.validator(z.object({ id: z.string() }))
+	.handler(async ({ data, context }) => {
+		const schedule = await context.db.schedule.findOne((s) =>
+			s.matches.some((m) => m.id === data.id),
+		);
+
+		if (!schedule) {
+			throw new Error("Schedule not found");
+		}
+
+		schedule.matches = schedule.matches.filter((m) => m.id !== data.id);
+		await context.db.schedule.updateOne((s) => s.id === schedule.id, schedule);
+		return data;
+	});
 
 type Props = {
 	participants: Participant[];
@@ -31,6 +56,7 @@ export const QualifyingMatchForm = ({
 	onSubmit,
 	defaultValues,
 }: Props) => {
+	const router = useRouter();
 	const form = useForm<Schedule["matches"][number]>({
 		defaultValues,
 		resolver: zodResolver(MatchSchema),
@@ -42,6 +68,13 @@ export const QualifyingMatchForm = ({
 		selectedParticipants,
 	);
 
+	const handleDelete = async () => {
+		await deleteMatch({ data: { id: defaultValues.id } });
+		toast.success("Match deleted!");
+		router.invalidate();
+		router.navigate({ to: ".." });
+	};
+
 	return (
 		<>
 			<Form {...form}>
@@ -49,7 +82,17 @@ export const QualifyingMatchForm = ({
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="p-6 gap-y-6 flex flex-col items-start  bg-zinc-900 rounded-xl shadow-lg"
 				>
-					<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
+					<div className="flex justify-between w-full">
+						<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
+						{defaultValues.id && (
+							<DeleteConfirmation
+								onDelete={handleDelete}
+								buttonText="Delete Match"
+								title="Delete Match"
+								description="Are you sure you want to delete this match? This action cannot be undone."
+							/>
+						)}
+					</div>
 
 					<FormField
 						name="name"

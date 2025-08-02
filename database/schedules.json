@@ -72,25 +72,6 @@
     "name": "Qualifying Session 1"
   },
   {
-    "id": "schedule-c6c170f",
-    "type": "EXHIBITION",
-    "matches": [
-      {
-        "id": "match-8fq7kso",
-        "name": "Exhibition match",
-        "participants": [
-          {
-            "id": "jjsm1pd"
-          },
-          {
-            "id": "q9h4q1i"
-          }
-        ]
-      }
-    ],
-    "name": "Exhibition 1"
-  },
-  {
     "id": "schedule-7iwhp7j",
     "type": "BRACKET",
     "matches": [],
