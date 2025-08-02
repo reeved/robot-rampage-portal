@@ -11,12 +11,12 @@
 import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OverlayRouteImport } from './routes/overlay'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as ViewRouteRouteImport } from './routes/_view/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
 import { Route as AdminCompetitorsRouteImport } from './routes/admin/competitors'
+import { Route as ViewOverlayRouteImport } from './routes/_view_/overlay'
 import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
 import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/participants/route'
 import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
@@ -49,11 +49,6 @@ import { ServerRoute as ApiMigrationRunServerRouteImport } from './routes/api/mi
 
 const rootServerRouteImport = createServerRootRoute()
 
-const OverlayRoute = OverlayRouteImport.update({
-  id: '/overlay',
-  path: '/overlay',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminRouteRoute = AdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -77,6 +72,11 @@ const AdminCompetitorsRoute = AdminCompetitorsRouteImport.update({
   id: '/competitors',
   path: '/competitors',
   getParentRoute: () => AdminRouteRoute,
+} as any)
+const ViewOverlayRoute = ViewOverlayRouteImport.update({
+  id: '/_view_/overlay',
+  path: '/overlay',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminScheduleRouteRoute = AdminScheduleRouteRouteImport.update({
   id: '/schedule',
@@ -228,11 +228,11 @@ const ApiMigrationRunServerRoute = ApiMigrationRunServerRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
-  '/overlay': typeof OverlayRoute
   '/schedule': typeof ViewScheduleRouteRouteWithChildren
   '/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/bracket/$id': typeof ViewBracketIdRoute
@@ -257,9 +257,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
-  '/overlay': typeof OverlayRoute
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/bracket/$id': typeof ViewBracketIdRoute
@@ -286,11 +286,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_view': typeof ViewRouteRouteWithChildren
   '/admin': typeof AdminRouteRouteWithChildren
-  '/overlay': typeof OverlayRoute
   '/_view/schedule': typeof ViewScheduleRouteRouteWithChildren
   '/_view/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/_view_/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/_view/bracket/$id': typeof ViewBracketIdRoute
@@ -317,11 +317,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/admin'
-    | '/overlay'
     | '/schedule'
     | '/teams-match'
     | '/admin/participants'
     | '/admin/schedule'
+    | '/overlay'
     | '/admin/competitors'
     | '/demo/tanstack-query'
     | '/bracket/$id'
@@ -346,9 +346,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/admin'
-    | '/overlay'
     | '/admin/participants'
     | '/admin/schedule'
+    | '/overlay'
     | '/admin/competitors'
     | '/demo/tanstack-query'
     | '/bracket/$id'
@@ -374,11 +374,11 @@ export interface FileRouteTypes {
     | '/'
     | '/_view'
     | '/admin'
-    | '/overlay'
     | '/_view/schedule'
     | '/_view/teams-match'
     | '/admin/participants'
     | '/admin/schedule'
+    | '/_view_/overlay'
     | '/admin/competitors'
     | '/demo/tanstack-query'
     | '/_view/bracket/$id'
@@ -405,7 +405,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ViewRouteRoute: typeof ViewRouteRouteWithChildren
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
-  OverlayRoute: typeof OverlayRoute
+  ViewOverlayRoute: typeof ViewOverlayRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
@@ -483,13 +483,6 @@ export interface RootServerRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/overlay': {
-      id: '/overlay'
-      path: '/overlay'
-      fullPath: '/overlay'
-      preLoaderRoute: typeof OverlayRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -524,6 +517,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/competitors'
       preLoaderRoute: typeof AdminCompetitorsRouteImport
       parentRoute: typeof AdminRouteRoute
+    }
+    '/_view_/overlay': {
+      id: '/_view_/overlay'
+      path: '/overlay'
+      fullPath: '/overlay'
+      preLoaderRoute: typeof ViewOverlayRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin/schedule': {
       id: '/admin/schedule'
@@ -844,7 +844,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ViewRouteRoute: ViewRouteRouteWithChildren,
   AdminRouteRoute: AdminRouteRouteWithChildren,
-  OverlayRoute: OverlayRoute,
+  ViewOverlayRoute: ViewOverlayRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,

@@ -1,7 +1,7 @@
 [
   {
     "id": "may",
-    "currentMatchId": "match-8fq7kso",
+    "currentMatchId": "match-dskyaf9",
     "bracketNames": [
       "Championship",
       "5th Place",
@@ -10,14 +10,16 @@
     "qualifyingResults": {
       "part-04xspbq": {
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
-        "lossesByJD": 0,
+        "lossesByJD": 1,
         "lossesByNS": 0,
-        "opponentIds": []
+        "opponentIds": [
+          "uhunewo"
+        ]
       },
       "part-aw653qy": {
         "wins": 0,
@@ -152,15 +154,17 @@
         "opponentIds": []
       },
       "uhunewo": {
-        "wins": 0,
+        "wins": 1,
         "losses": 0,
         "winsByKO": 0,
-        "winsByJD": 0,
+        "winsByJD": 1,
         "winsByNS": 0,
         "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
-        "opponentIds": []
+        "opponentIds": [
+          "part-04xspbq"
+        ]
       },
       "rot076r": {
         "wins": 0,
@@ -187,7 +191,7 @@
     },
     "rankings": [
       {
-        "id": "part-04xspbq",
+        "id": "uhunewo",
         "position": 1
       },
       {
@@ -239,15 +243,15 @@
         "position": 13
       },
       {
-        "id": "uhunewo",
+        "id": "rot076r",
         "position": 14
       },
       {
-        "id": "rot076r",
+        "id": "luecccm",
         "position": 15
       },
       {
-        "id": "luecccm",
+        "id": "part-04xspbq",
         "position": 16
       }
     ]

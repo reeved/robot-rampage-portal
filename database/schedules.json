@@ -62,7 +62,11 @@
           {
             "id": "uhunewo"
           }
-        ]
+        ],
+        "winner": {
+          "id": "uhunewo",
+          "condition": "JD"
+        }
       }
     ],
     "name": "Qualifying Session 1"
