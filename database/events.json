@@ -10,16 +10,14 @@
     "qualifyingResults": {
       "part-04xspbq": {
         "wins": 0,
-        "losses": 1,
+        "losses": 0,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
-        "lossesByJD": 1,
+        "lossesByJD": 0,
         "lossesByNS": 0,
-        "opponentIds": [
-          "uhunewo"
-        ]
+        "opponentIds": []
       },
       "part-aw653qy": {
         "wins": 0,
@@ -154,17 +152,15 @@
         "opponentIds": []
       },
       "uhunewo": {
-        "wins": 1,
+        "wins": 0,
         "losses": 0,
         "winsByKO": 0,
-        "winsByJD": 1,
+        "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
-        "opponentIds": [
-          "part-04xspbq"
-        ]
+        "opponentIds": []
       },
       "rot076r": {
         "wins": 0,
@@ -191,7 +187,7 @@
     },
     "rankings": [
       {
-        "id": "uhunewo",
+        "id": "part-04xspbq",
         "position": 1
       },
       {
@@ -243,15 +239,15 @@
         "position": 13
       },
       {
-        "id": "rot076r",
+        "id": "uhunewo",
         "position": 14
       },
       {
-        "id": "luecccm",
+        "id": "rot076r",
         "position": 15
       },
       {
-        "id": "part-04xspbq",
+        "id": "luecccm",
         "position": 16
       }
     ]

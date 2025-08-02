@@ -5,7 +5,7 @@ import { queryOptions, useQuery, useQueryClient } from "@tanstack/react-query";
 const API_ENDPOINTS = {
 	get: "/api/timer",
 	start: "/api/timer/start?duration=30",
-	startFrom5: "/api/timer/start?duration=5",
+	startFrom5: "/api/timer/start?duration=15",
 	startFrom130: "/api/timer/start?duration=90",
 	pause: "/api/timer/pause",
 	reset: "/api/timer/restart",
@@ -52,17 +52,35 @@ const timerQuery = () =>
 export const useTimer = (): {
 	currentTime: { minutes: string; seconds: string };
 	isRunning: boolean;
+	timeLeft: number;
 } => {
 	const { data } = useQuery(timerQuery());
 
 	if (!data) {
-		return { currentTime: { minutes: "0", seconds: "00" }, isRunning: false };
+		return {
+			currentTime: { minutes: "0", seconds: "00" },
+			isRunning: false,
+			timeLeft: 0,
+		};
 	}
 
 	return {
 		currentTime: formatTimeAsMinutes(data.currentTime),
 		isRunning: data.isRunning,
+		timeLeft: data.currentTime,
 	};
+};
+
+export const TimeText = ({
+	currentTime,
+}: { currentTime: { minutes: string; seconds: string } }) => {
+	return (
+		<div className="font-light font-rubik text-center flex">
+			<div className="w-[1ch]">{currentTime.minutes}</div>
+			<div className="w-[1ch]">:</div>
+			<div className="w-[2ch]">{currentTime.seconds}</div>
+		</div>
+	);
 };
 
 export const TimerComponent = () => {

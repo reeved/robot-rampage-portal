@@ -28,6 +28,7 @@ import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/i
 import { Route as ViewBracketIndexRouteImport } from './routes/_view/bracket/index'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo.start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo.start.api-request'
+import { Route as ApiTimerSetTimeRouteImport } from './routes/api/timer/set-time'
 import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdRouteImport } from './routes/admin/participants/$id'
@@ -131,6 +132,11 @@ const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
 const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
   id: '/demo/start/api-request',
   path: '/demo/start/api-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTimerSetTimeRoute = ApiTimerSetTimeRouteImport.update({
+  id: '/api/timer/set-time',
+  path: '/api/timer/set-time',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminScheduleIdRoute = AdminScheduleIdRouteImport.update({
@@ -241,6 +247,7 @@ export interface FileRoutesByFullPath {
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
+  '/api/timer/set-time': typeof ApiTimerSetTimeRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/bracket': typeof ViewBracketIndexRoute
@@ -268,6 +275,7 @@ export interface FileRoutesByTo {
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
+  '/api/timer/set-time': typeof ApiTimerSetTimeRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/bracket': typeof ViewBracketIndexRoute
@@ -299,6 +307,7 @@ export interface FileRoutesById {
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
+  '/api/timer/set-time': typeof ApiTimerSetTimeRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/_view/bracket/': typeof ViewBracketIndexRoute
@@ -330,6 +339,7 @@ export interface FileRouteTypes {
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
+    | '/api/timer/set-time'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/bracket'
@@ -357,6 +367,7 @@ export interface FileRouteTypes {
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
+    | '/api/timer/set-time'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/bracket'
@@ -387,6 +398,7 @@ export interface FileRouteTypes {
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
+    | '/api/timer/set-time'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/_view/bracket/'
@@ -407,6 +419,7 @@ export interface RootRouteChildren {
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   ViewOverlayRoute: typeof ViewOverlayRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  ApiTimerSetTimeRoute: typeof ApiTimerSetTimeRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
   AdminMobileIndexRoute: typeof AdminMobileIndexRoute
@@ -600,6 +613,13 @@ declare module '@tanstack/react-router' {
       path: '/demo/start/api-request'
       fullPath: '/demo/start/api-request'
       preLoaderRoute: typeof DemoStartApiRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/timer/set-time': {
+      id: '/api/timer/set-time'
+      path: '/api/timer/set-time'
+      fullPath: '/api/timer/set-time'
+      preLoaderRoute: typeof ApiTimerSetTimeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/schedule/$id': {
@@ -846,6 +866,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRouteRoute: AdminRouteRouteWithChildren,
   ViewOverlayRoute: ViewOverlayRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
+  ApiTimerSetTimeRoute: ApiTimerSetTimeRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
   AdminMobileIndexRoute: AdminMobileIndexRoute,
