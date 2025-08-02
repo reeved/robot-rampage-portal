@@ -14,7 +14,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as ViewRouteRouteImport } from './routes/_view/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
 import { Route as AdminCompetitorsRouteImport } from './routes/admin/competitors'
 import { Route as ViewOverlayRouteImport } from './routes/_view_/overlay'
 import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
@@ -26,8 +25,6 @@ import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-ma
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
 import { Route as ViewBracketIndexRouteImport } from './routes/_view/bracket/index'
-import { Route as DemoStartServerFuncsRouteImport } from './routes/demo.start.server-funcs'
-import { Route as DemoStartApiRequestRouteImport } from './routes/demo.start.api-request'
 import { Route as ApiTimerSetTimeRouteImport } from './routes/api/timer/set-time'
 import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
@@ -40,7 +37,6 @@ import { Route as AdminMobileIdMatchIdRouteImport } from './routes/admin_/mobile
 import { Route as AdminScheduleIdNewbracketRouteImport } from './routes/admin/schedule/$id.newbracket'
 import { Route as AdminScheduleIdNewRouteImport } from './routes/admin/schedule/$id.new'
 import { Route as AdminScheduleIdMatchIdRouteImport } from './routes/admin/schedule/$id.$matchId'
-import { ServerRoute as ApiDemoNamesServerRouteImport } from './routes/api.demo-names'
 import { ServerRoute as ApiTimerIndexServerRouteImport } from './routes/api/timer/index'
 import { ServerRoute as ApiTimerStartServerRouteImport } from './routes/api/timer/start'
 import { ServerRoute as ApiTimerResumeServerRouteImport } from './routes/api/timer/resume'
@@ -62,11 +58,6 @@ const ViewRouteRoute = ViewRouteRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
-  id: '/demo/tanstack-query',
-  path: '/demo/tanstack-query',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminCompetitorsRoute = AdminCompetitorsRouteImport.update({
@@ -123,16 +114,6 @@ const ViewBracketIndexRoute = ViewBracketIndexRouteImport.update({
   id: '/bracket/',
   path: '/bracket/',
   getParentRoute: () => ViewRouteRoute,
-} as any)
-const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
-  id: '/demo/start/server-funcs',
-  path: '/demo/start/server-funcs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
-  id: '/demo/start/api-request',
-  path: '/demo/start/api-request',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiTimerSetTimeRoute = ApiTimerSetTimeRouteImport.update({
   id: '/api/timer/set-time',
@@ -195,11 +176,6 @@ const AdminScheduleIdMatchIdRoute = AdminScheduleIdMatchIdRouteImport.update({
   path: '/$matchId',
   getParentRoute: () => AdminScheduleIdRoute,
 } as any)
-const ApiDemoNamesServerRoute = ApiDemoNamesServerRouteImport.update({
-  id: '/api/demo-names',
-  path: '/api/demo-names',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
 const ApiTimerIndexServerRoute = ApiTimerIndexServerRouteImport.update({
   id: '/api/timer/',
   path: '/api/timer/',
@@ -240,7 +216,6 @@ export interface FileRoutesByFullPath {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
   '/teams-match/$id': typeof ViewTeamsMatchIdRoute
@@ -248,8 +223,6 @@ export interface FileRoutesByFullPath {
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/api/timer/set-time': typeof ApiTimerSetTimeRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
@@ -268,7 +241,6 @@ export interface FileRoutesByTo {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
   '/teams-match/$id': typeof ViewTeamsMatchIdRoute
@@ -276,8 +248,6 @@ export interface FileRoutesByTo {
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/api/timer/set-time': typeof ApiTimerSetTimeRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
@@ -300,7 +270,6 @@ export interface FileRoutesById {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/_view_/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/_view/bracket/$id': typeof ViewBracketIdRoute
   '/_view/schedule/$id': typeof ViewScheduleIdRoute
   '/_view/teams-match/$id': typeof ViewTeamsMatchIdRoute
@@ -308,8 +277,6 @@ export interface FileRoutesById {
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/api/timer/set-time': typeof ApiTimerSetTimeRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/_view/bracket/': typeof ViewBracketIndexRoute
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
@@ -332,7 +299,6 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/overlay'
     | '/admin/competitors'
-    | '/demo/tanstack-query'
     | '/bracket/$id'
     | '/schedule/$id'
     | '/teams-match/$id'
@@ -340,8 +306,6 @@ export interface FileRouteTypes {
     | '/admin/participants/new'
     | '/admin/schedule/$id'
     | '/api/timer/set-time'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
     | '/bracket'
     | '/schedule/'
     | '/stats'
@@ -360,7 +324,6 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/overlay'
     | '/admin/competitors'
-    | '/demo/tanstack-query'
     | '/bracket/$id'
     | '/schedule/$id'
     | '/teams-match/$id'
@@ -368,8 +331,6 @@ export interface FileRouteTypes {
     | '/admin/participants/new'
     | '/admin/schedule/$id'
     | '/api/timer/set-time'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
     | '/bracket'
     | '/schedule'
     | '/stats'
@@ -391,7 +352,6 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/_view_/overlay'
     | '/admin/competitors'
-    | '/demo/tanstack-query'
     | '/_view/bracket/$id'
     | '/_view/schedule/$id'
     | '/_view/teams-match/$id'
@@ -399,8 +359,6 @@ export interface FileRouteTypes {
     | '/admin/participants/new'
     | '/admin/schedule/$id'
     | '/api/timer/set-time'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
     | '/_view/bracket/'
     | '/_view/schedule/'
     | '/_view/stats/'
@@ -418,16 +376,12 @@ export interface RootRouteChildren {
   ViewRouteRoute: typeof ViewRouteRouteWithChildren
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   ViewOverlayRoute: typeof ViewOverlayRoute
-  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   ApiTimerSetTimeRoute: typeof ApiTimerSetTimeRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
   AdminMobileIndexRoute: typeof AdminMobileIndexRoute
   AdminMobileIdMatchIdRoute: typeof AdminMobileIdMatchIdRoute
   AdminMobileIdIndexRoute: typeof AdminMobileIdIndexRoute
 }
 export interface FileServerRoutesByFullPath {
-  '/api/demo-names': typeof ApiDemoNamesServerRoute
   '/api/migration/run': typeof ApiMigrationRunServerRoute
   '/api/timer/pause': typeof ApiTimerPauseServerRoute
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
@@ -436,7 +390,6 @@ export interface FileServerRoutesByFullPath {
   '/api/timer': typeof ApiTimerIndexServerRoute
 }
 export interface FileServerRoutesByTo {
-  '/api/demo-names': typeof ApiDemoNamesServerRoute
   '/api/migration/run': typeof ApiMigrationRunServerRoute
   '/api/timer/pause': typeof ApiTimerPauseServerRoute
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
@@ -446,7 +399,6 @@ export interface FileServerRoutesByTo {
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
-  '/api/demo-names': typeof ApiDemoNamesServerRoute
   '/api/migration/run': typeof ApiMigrationRunServerRoute
   '/api/timer/pause': typeof ApiTimerPauseServerRoute
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
@@ -457,7 +409,6 @@ export interface FileServerRoutesById {
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
   fullPaths:
-    | '/api/demo-names'
     | '/api/migration/run'
     | '/api/timer/pause'
     | '/api/timer/restart'
@@ -466,7 +417,6 @@ export interface FileServerRouteTypes {
     | '/api/timer'
   fileServerRoutesByTo: FileServerRoutesByTo
   to:
-    | '/api/demo-names'
     | '/api/migration/run'
     | '/api/timer/pause'
     | '/api/timer/restart'
@@ -475,7 +425,6 @@ export interface FileServerRouteTypes {
     | '/api/timer'
   id:
     | '__root__'
-    | '/api/demo-names'
     | '/api/migration/run'
     | '/api/timer/pause'
     | '/api/timer/restart'
@@ -485,7 +434,6 @@ export interface FileServerRouteTypes {
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
-  ApiDemoNamesServerRoute: typeof ApiDemoNamesServerRoute
   ApiMigrationRunServerRoute: typeof ApiMigrationRunServerRoute
   ApiTimerPauseServerRoute: typeof ApiTimerPauseServerRoute
   ApiTimerRestartServerRoute: typeof ApiTimerRestartServerRoute
@@ -515,13 +463,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/tanstack-query': {
-      id: '/demo/tanstack-query'
-      path: '/demo/tanstack-query'
-      fullPath: '/demo/tanstack-query'
-      preLoaderRoute: typeof DemoTanstackQueryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/competitors': {
@@ -600,20 +541,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/bracket'
       preLoaderRoute: typeof ViewBracketIndexRouteImport
       parentRoute: typeof ViewRouteRoute
-    }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/api/timer/set-time': {
       id: '/api/timer/set-time'
@@ -703,13 +630,6 @@ declare module '@tanstack/react-router' {
 }
 declare module '@tanstack/react-start/server' {
   interface ServerFileRoutesByPath {
-    '/api/demo-names': {
-      id: '/api/demo-names'
-      path: '/api/demo-names'
-      fullPath: '/api/demo-names'
-      preLoaderRoute: typeof ApiDemoNamesServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
     '/api/timer/': {
       id: '/api/timer/'
       path: '/api/timer'
@@ -865,10 +785,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViewRouteRoute: ViewRouteRouteWithChildren,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   ViewOverlayRoute: ViewOverlayRoute,
-  DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   ApiTimerSetTimeRoute: ApiTimerSetTimeRoute,
-  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
-  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
   AdminMobileIndexRoute: AdminMobileIndexRoute,
   AdminMobileIdMatchIdRoute: AdminMobileIdMatchIdRoute,
   AdminMobileIdIndexRoute: AdminMobileIdIndexRoute,
@@ -877,7 +794,6 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiDemoNamesServerRoute: ApiDemoNamesServerRoute,
   ApiMigrationRunServerRoute: ApiMigrationRunServerRoute,
   ApiTimerPauseServerRoute: ApiTimerPauseServerRoute,
   ApiTimerRestartServerRoute: ApiTimerRestartServerRoute,
