@@ -163,6 +163,12 @@ const updateMatchResult = createServerFn({
 			matches: updatedMatches,
 		});
 
+		if (schedule.type !== "QUALIFYING") {
+			return;
+		}
+
+		// Update rankings after a qualifying match result
+
 		const participants = (
 			await context.db.participants.find(() => true)
 		).filter((participant) => participant.type === "FEATHERWEIGHT");
@@ -170,10 +176,6 @@ const updateMatchResult = createServerFn({
 		const matchParticipants = existingMatch.participants.map((p) =>
 			participants.find((part) => part.id === p.id),
 		);
-
-		if (schedule.type !== "QUALIFYING") {
-			return;
-		}
 
 		if (matchParticipants.some((p) => p?.type !== "FEATHERWEIGHT")) {
 			return;
@@ -239,7 +241,7 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 
 	return (
 		<Form {...form}>
-			<form className="p-6 gap-y-6 flex flex-col items-start w-full md:w-6/12 bg-zinc-900 rounded-xl shadow-lg">
+			<form className="p-6 gap-y-6 flex flex-col items-start w-full bg-zinc-900 rounded-xl shadow-lg">
 				<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
 
 				<div className="flex gap-4">

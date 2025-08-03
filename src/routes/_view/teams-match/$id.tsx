@@ -43,7 +43,7 @@ export const Route = createFileRoute("/_view/teams-match/$id")({
 });
 
 const getActiveBotForTeam = (bots: TeamsSchedule["team1bots"]) =>
-	Object.values(bots).find((b) => b?.id && !b.isDead) || bots.bot5;
+	Object.values(bots).find((b) => b?.id && b.isActive) || bots.bot5;
 
 const BotInfo = ({
 	bot,

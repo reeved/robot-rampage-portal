@@ -23,13 +23,16 @@ import {
 	TeamsMatchSchema,
 	type TeamsSchedule,
 } from "@/db";
-import { cn } from "@/lib/utils";
+import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { type UseFormReturn, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
+import { getBotVideos } from "./-queue-match-form";
+import { ResultForm } from "./-result-form";
 
 const teamsSchema = TeamsMatchSchema.pick({
 	team1bots: true,
@@ -50,7 +53,7 @@ const TeamList = ({
 	form: UseFormReturn<TeamsSchema>;
 }) => {
 	return (
-		<div className="flex gap-10">
+		<div className="flex flex-col gap-10">
 			{(["bot1", "bot2", "bot3", "bot4", "bot5"] as const).map((bot) => (
 				<div key={`${team}-${bot}`} className="flex flex-col gap-2">
 					<FormField
@@ -101,7 +104,48 @@ const TeamList = ({
 							</FormItem>
 						)}
 					/>
-					<div>
+
+					<FormField
+						name={`${team}bots.${bot}.videoName`}
+						control={form.control}
+						render={({ field }) => {
+							const selectedBot = form.watch(`${team}bots.${bot}`);
+
+							const { bot1Videos } = getBotVideos(participants, [
+								{ id: selectedBot?.id },
+							]);
+
+							if (
+								!bot1Videos.length ||
+								!selectedBot?.id ||
+								!selectedBot.isActive
+							) {
+								return <></>;
+							}
+
+							return (
+								<FormItem>
+									<FormLabel className="text-white">Bot video</FormLabel>
+									<FormControl>
+										<Select value={field.value} onValueChange={field.onChange}>
+											<SelectTrigger className="bg-zinc-800 text-white font-bold">
+												<SelectValue placeholder="Select bot 1 video" />
+											</SelectTrigger>
+											<SelectContent className="bg-zinc-800 text-white">
+												{bot1Videos.map((v) => (
+													<SelectItem key={v} value={v} className="font-bold">
+														{v}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							);
+						}}
+					/>
+					<div className="flex flex-row gap-6 mt-2 items-center">
 						<FormField
 							name={`${team}bots.${bot}.isDead`}
 							control={form.control}
@@ -117,6 +161,27 @@ const TeamList = ({
 										/>
 									</FormControl>
 									<FormLabel className="text-sm font-normal">Is dead</FormLabel>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							name={`${team}bots.${bot}.isActive`}
+							control={form.control}
+							rules={{ required: false }}
+							render={({ field }) => (
+								<FormItem className="flex flex-row gap-2 items-center">
+									<FormControl>
+										<Checkbox
+											checked={field.value ?? false}
+											onCheckedChange={(checked) => {
+												field.onChange(checked === true);
+											}}
+										/>
+									</FormControl>
+									<FormLabel className="text-sm font-normal">
+										Is active
+									</FormLabel>
 									<FormMessage />
 								</FormItem>
 							)}
@@ -178,11 +243,30 @@ const updateTeamsMatch = createServerFn({
 			throw new Error("Schedule not found");
 		}
 
+		const matchId = generateId("teams-match");
+
+		const team1ActiveBot = Object.values(team1bots).find((b) => b?.isActive);
+		const team2ActiveBot = Object.values(team2bots).find((b) => b?.isActive);
+
 		await context.db.schedule.updateOne((s) => s.id === scheduleId, {
 			team1Name,
 			team2Name,
 			team1bots: processBots(team1bots),
 			team2bots: processBots(team2bots),
+			matches: [
+				{
+					id: matchId,
+					name: "Teams match",
+					participants: [
+						{ id: team1ActiveBot?.id, videoName: team1ActiveBot?.videoName },
+						{ id: team2ActiveBot?.id, videoName: team2ActiveBot?.videoName },
+					],
+				},
+			],
+		});
+
+		await context.db.events.updateOne((e) => e.id === "may", {
+			currentMatchId: matchId,
 		});
 	});
 
@@ -217,28 +301,48 @@ export const TeamsMatchList = ({
 			},
 		});
 
+		toast.success("Teams match updated successfully");
 		router.invalidate();
 	};
 
 	return (
-		<div>
+		<div className="flex gap-10">
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className="p-6 gap-y-6 flex flex-col items-start bg-zinc-900 rounded-xl shadow-lg"
+					// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
 				>
-					<TeamName fieldName="team1Name" form={form} />
-					<TeamList team="team1" participants={participants} form={form} />
+					<div className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg">
+						<div className="flex flex-col gap-10">
+							<TeamName fieldName="team1Name" form={form} />
+							<TeamList team="team1" participants={participants} form={form} />
+						</div>
 
-					<Separator className="w-full my-10" />
-					<TeamName fieldName="team2Name" form={form} />
-					<TeamList team="team2" participants={participants} form={form} />
+						<Separator
+							orientation="vertical"
+							className="h-auto! my-10 mx-10 w-2"
+						/>
+						<div className="flex flex-col gap-10">
+							<TeamName fieldName="team2Name" form={form} />
+							<TeamList team="team2" participants={participants} form={form} />
+						</div>
+					</div>
 
 					<Button type="submit" className="mt-10 w-30">
 						Save
 					</Button>
 				</form>
 			</Form>
+
+			{schedule.matches[0] && (
+				<div>
+					<ResultForm
+						scheduleId={schedule.id}
+						match={schedule.matches[0]}
+						participants={participants}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

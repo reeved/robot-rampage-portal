@@ -8,21 +8,37 @@
   {
     "id": "schedule-r5ckjw5",
     "type": "TEAMS",
-    "matches": [],
+    "matches": [
+      {
+        "id": "teams-match-a79xj9p",
+        "name": "Teams match",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "uhunewo"
+          }
+        ],
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "KO"
+        }
+      }
+    ],
     "team1Name": "Team AUS",
     "team2Name": "Team NZ",
     "team1bots": {
       "bot1": {
         "id": "part-dx6qvml",
-        "isDead": true
+        "isDead": true,
+        "isActive": false
       },
-      "bot2": {
-        "id": "uhunewo",
-        "isDead": true
-      },
+      "bot2": {},
       "bot3": {
         "id": "part-04xspbq",
-        "isDead": true
+        "isDead": false,
+        "isActive": true
       },
       "bot4": {
         "id": "part-rzeus3u",
@@ -41,7 +57,8 @@
       },
       "bot3": {
         "id": "uhunewo",
-        "isDead": false
+        "isDead": false,
+        "isActive": true
       },
       "bot4": {},
       "bot5": {}
@@ -69,8 +86,16 @@
         }
       },
       {
-        "id": "match-iomeww1",
+        "id": "match-x4xxsfe",
         "name": "Match 2",
+        "participants": [
+          {},
+          {}
+        ]
+      },
+      {
+        "id": "match-iomeww1",
+        "name": "Match 3",
         "participants": [
           {
             "id": "part-04xspbq"
@@ -81,8 +106,8 @@
         ]
       },
       {
-        "id": "match-rundoy6",
-        "name": "Match 3",
+        "id": "match-hohdrpo",
+        "name": "Match 4",
         "participants": [
           {},
           {}
