@@ -58,7 +58,7 @@ export const ExhibitionMatchSchema = sharedMatchSchema;
 
 export const BracketMatchSchema = sharedMatchSchema.extend({
 	bracket: z.string(),
-	round: z.enum(["SF1", "SF2", "Final"]),
+	round: z.enum(["QF1", "QF2", "QF3", "QF4", "SF1", "SF2", "Final"]),
 });
 
 export const MatchSchema = z.union([QualifyingMatchSchema, BracketMatchSchema]);

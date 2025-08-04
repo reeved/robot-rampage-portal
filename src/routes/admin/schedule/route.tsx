@@ -38,6 +38,23 @@ const generateNewQualifying = createServerFn({
 		return newQualifying;
 	});
 
+const getRoundForMatch = (matchIndex: number, bracketSize: 4 | 8) => {
+	if (bracketSize === 8) {
+		if (matchIndex < 4) {
+			return `QF${matchIndex + 1}`;
+		}
+		if (matchIndex < 6) {
+			return `SF${matchIndex - 3}`;
+		}
+		return "Final";
+	}
+
+	if (matchIndex < 2) {
+		return `SF${matchIndex + 1}`;
+	}
+	return "Final";
+};
+
 const generateNewBracket = createServerFn({
 	method: "POST",
 })
@@ -49,7 +66,17 @@ const generateNewBracket = createServerFn({
 		const newBracket: Schedule = {
 			id: generateId("schedule"),
 			type: "BRACKET",
-			matches: [],
+			// generate placeholder matches based on bracket size
+			matches: Array.from({ length: data.bracketSize === 8 ? 7 : 3 }, (_, i) => ({
+				id: generateId("match"),
+				bracket: "Championship",
+				round: getRoundForMatch(i, data.bracketSize) as any,
+				name: `Match ${i + 1}`,
+				participants: [
+					{ id: undefined, videoName: undefined },
+					{ id: undefined, videoName: undefined },
+				],
+			})),
 			name: `Bracket ${existingBrackets.length + 1}`,
 			bracketSize: data.bracketSize,
 		};

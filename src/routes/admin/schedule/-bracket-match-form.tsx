@@ -1,26 +1,8 @@
 import { Button } from "@/components/ui/button";
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
-import {
-	type BracketMatch,
-	BracketMatchSchema,
-	type Participant,
-	type Schedule,
-} from "@/db";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { type BracketMatch, BracketMatchSchema, type Participant, type Schedule } from "@/db";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { getBotVideos } from "./-queue-match-form";
@@ -32,22 +14,14 @@ type Props = {
 	defaultValues: Schedule["matches"][number];
 };
 
-export const BracketMatchForm = ({
-	bracketNames,
-	participants,
-	onSubmit,
-	defaultValues,
-}: Props) => {
+export const BracketMatchForm = ({ bracketNames, participants, onSubmit, defaultValues }: Props) => {
 	const form = useForm<BracketMatch>({
 		defaultValues,
 		resolver: zodResolver(BracketMatchSchema),
 	});
 
 	const selectedParticipants = form.watch("participants");
-	const { bot1Videos, bot2Videos } = getBotVideos(
-		participants,
-		selectedParticipants,
-	);
+	const { bot1Videos, bot2Videos } = getBotVideos(participants, selectedParticipants);
 
 	return (
 		<Form {...form}>
@@ -85,11 +59,7 @@ export const BracketMatchForm = ({
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
 											{bracketNames.map((name) => (
-												<SelectItem
-													key={name}
-													value={name}
-													className="font-bold"
-												>
+												<SelectItem key={name} value={name} className="font-bold">
 													{name}
 												</SelectItem>
 											))}
@@ -113,12 +83,8 @@ export const BracketMatchForm = ({
 											<SelectValue placeholder="Select round" />
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
-											{["SF1", "SF2", "Final"].map((name) => (
-												<SelectItem
-													key={name}
-													value={name}
-													className="font-bold"
-												>
+											{["QF1", "QF2", "QF3", "QF4", "SF1", "SF2", "Final"].map((name) => (
+												<SelectItem key={name} value={name} className="font-bold">
 													{name}
 												</SelectItem>
 											))}
@@ -138,8 +104,7 @@ export const BracketMatchForm = ({
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel className="text-white">
-									Bot 1{" "}
-									<span className="text-rrorange font-medium">(ORANGE)</span>
+									Bot 1 <span className="text-rrorange font-medium">(ORANGE)</span>
 								</FormLabel>
 								<FormControl>
 									<Select value={field.value} onValueChange={field.onChange}>
@@ -148,11 +113,7 @@ export const BracketMatchForm = ({
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
 											{participants.map((p) => (
-												<SelectItem
-													key={p.id}
-													value={p.id}
-													className="font-bold"
-												>
+												<SelectItem key={p.id} value={p.id} className="font-bold">
 													{p.name}
 												</SelectItem>
 											))}
@@ -177,11 +138,7 @@ export const BracketMatchForm = ({
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
 											{bot1Videos.map((video) => (
-												<SelectItem
-													key={video}
-													value={video}
-													className="font-bold"
-												>
+												<SelectItem key={video} value={video} className="font-bold">
 													{video}
 												</SelectItem>
 											))}
@@ -210,11 +167,7 @@ export const BracketMatchForm = ({
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
 											{participants.map((p) => (
-												<SelectItem
-													key={p.id}
-													value={p.id}
-													className="font-bold"
-												>
+												<SelectItem key={p.id} value={p.id} className="font-bold">
 													{p.name}
 												</SelectItem>
 											))}
@@ -239,11 +192,7 @@ export const BracketMatchForm = ({
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
 											{bot2Videos.map((video) => (
-												<SelectItem
-													key={video}
-													value={video}
-													className="font-bold"
-												>
+												<SelectItem key={video} value={video} className="font-bold">
 													{video}
 												</SelectItem>
 											))}
@@ -256,11 +205,7 @@ export const BracketMatchForm = ({
 					/>
 				</div>
 
-				<Button
-					type="submit"
-					variant="default"
-					className="w-full mt-6 py-3 text-lg font-bold"
-				>
+				<Button type="submit" variant="default" className="w-full mt-6 py-3 text-lg font-bold">
 					SAVE
 				</Button>
 			</form>

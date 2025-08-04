@@ -121,6 +121,8 @@ const getBracketMatches = createServerFn({
 
 		const bracketMatches = bracketSchedule.matches.filter((match) => match.bracket === bracketName);
 
+		console.log("BRACKET NAME", bracketName, bracketMatches);
+
 		const boxes = getBracketBoxes(bracketSchedule.bracketSize, bracketMatches, participants);
 
 		return { boxes, bracketName };
