@@ -31,8 +31,7 @@ const generatePath = (fromBox: Box, toBox: Box): string => {
 	let toY: number;
 
 	// Determine if connection is primarily horizontal or vertical
-	const isHorizontal: boolean =
-		Math.abs(toCenterX - fromCenterX) > Math.abs(toCenterY - fromCenterY);
+	const isHorizontal: boolean = Math.abs(toCenterX - fromCenterX) > Math.abs(toCenterY - fromCenterY);
 
 	if (isHorizontal) {
 		// For horizontal connections
@@ -84,21 +83,58 @@ const generatePath = (fromBox: Box, toBox: Box): string => {
 };
 
 // Define connections between boxes
-const connections: Connection[] = [
-	// Connect left top to middle left
-	{ from: 1, to: 3 },
-	// Connect left bottom to middle left
-	{ from: 2, to: 3 },
-	// Connect middle left to middle right
-	{ from: 3, to: 4 },
-	// Connect middle right to right top
-	{ from: 4, to: 5 },
-	// Connect middle right to right bottom
-	{ from: 4, to: 6 },
-	{ from: 7, to: 3 },
-];
+const getConnections = (boxes: Box[]): Connection[] => {
+	const boxCount = boxes.length;
+
+	if (boxCount <= 7) {
+		// 4 bot bracket connections
+		return [
+			// Connect left top to middle left
+			{ from: 1, to: 3 },
+			// Connect left bottom to middle left
+			{ from: 2, to: 3 },
+			// Connect middle left to middle right
+			{ from: 3, to: 4 },
+			// Connect middle right to right top
+			{ from: 4, to: 5 },
+			// Connect middle right to right bottom
+			{ from: 4, to: 6 },
+			// Additional connection for SF1 winner
+			{ from: 7, to: 3 },
+		];
+	}
+
+	// 8 bot bracket connections
+	return [
+		// Quarter Finals to Semi Finals - Left side
+		{ from: 1, to: 9 }, // QF1 winner to SF1
+		{ from: 2, to: 9 }, // QF1 winner to SF1
+		{ from: 3, to: 10 }, // QF2 winner to SF1
+		{ from: 4, to: 10 }, // QF2 winner to SF1
+
+		// Quarter Finals to Semi Finals - Right side
+		{ from: 5, to: 11 }, // QF3 winner to SF2
+		{ from: 6, to: 11 }, // QF3 winner to SF2
+		{ from: 7, to: 12 }, // QF4 winner to SF2
+		{ from: 8, to: 12 }, // QF4 winner to SF2
+
+		// Semi Finals to Final
+		{ from: 9, to: 13 }, // SF1 winner to Final
+		{ from: 10, to: 13 }, // SF1 winner to Final
+		{ from: 11, to: 14 }, // SF2 winner to Final
+		{ from: 12, to: 14 }, // SF2 winner to Final
+
+		// Additional connections for duplicates
+		{ from: 15, to: 9 }, // QF1 duplicate to SF1
+		{ from: 16, to: 10 }, // QF2 duplicate to SF1
+		{ from: 17, to: 11 }, // QF3 duplicate to SF2
+		{ from: 18, to: 12 }, // QF4 duplicate to SF2
+	];
+};
 
 export const Connectors = ({ boxes }: { boxes: Box[] }) => {
+	const connections = getConnections(boxes);
+
 	return (
 		<svg className="absolute top-0 left-0 w-full h-full">
 			<title>Chart</title>
@@ -117,13 +153,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 							index
 						}`}
 					>
-						<path
-							d={path}
-							fill="none"
-							stroke="white"
-							strokeWidth="6"
-							className="transition-all duration-300"
-						/>
+						<path d={path} fill="none" stroke="white" strokeWidth="6" className="transition-all duration-300" />
 					</g>
 				);
 			})}
@@ -132,15 +162,15 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 };
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
+	const isEightBot = boxes.length > 7;
+	const containerClass = isEightBot ? "relative h-[500px] p-4 w-[1800px]" : "relative h-[420px] p-4 w-[1550px]";
+
 	return (
-		<div className="relative h-[420px] p-4 w-[1550px]">
+		<div className={containerClass}>
 			{boxes.map((box) => (
 				<div
 					key={box.id}
-					className={cn(
-						"absolute flex items-center gap-x-2",
-						box.id >= 5 ? "flex-row-reverse" : "",
-					)}
+					className={cn("absolute flex items-center gap-x-2", box.id >= 5 ? "flex-row-reverse" : "")}
 					style={{
 						left: box.x,
 						top: box.y,
@@ -150,7 +180,8 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 				>
 					<div
 						className={cn(
-							"absolute h-80 w-120",
+							"absolute",
+							isEightBot ? "h-60 w-80" : "h-80 w-120",
 							box.id === 1 || box.id === 5 ? "bottom-50" : "top-10",
 						)}
 					>
@@ -164,9 +195,7 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 										box.id === 1 || (box.id === 2 && "left-10"),
 										box.id === 1 || box.id === 5 ? "bottom-30" : "top-10",
 										box.id >= 5 ? "transform -scale-x-100" : "",
-										box.isLoser
-											? "greyscale-manual"
-											: "grayscale-0 animate-breathing",
+										box.isLoser ? "greyscale-manual" : "grayscale-0 animate-breathing",
 										box.title === "Blue Blur" && "w-10/12",
 									)}
 									style={
@@ -184,7 +213,8 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 					</div>
 					<div
 						className={cn(
-							"flex-1 bg-primary shadow-md flex items-center justify-center text-2xl font-rubik uppercase text-center transition-all duration-700 ease-in-out",
+							"flex-1 bg-primary shadow-md flex items-center justify-center font-rubik uppercase text-center transition-all duration-700 ease-in-out",
+							isEightBot ? "text-lg" : "text-2xl",
 							box.isLoser && "bg-primary/20 text-white/50",
 						)}
 						style={{
@@ -194,7 +224,7 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 									: box.id >= 4
 										? "polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%, 10% 0%)"
 										: "",
-							height: "90px",
+							height: isEightBot ? "60px" : "90px",
 							width: "100%",
 						}}
 					>

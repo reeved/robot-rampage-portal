@@ -1,13 +1,8 @@
 import { Button } from "@/components/ui/button";
-import type { Schedule } from "@/db";
+import { BracketScheduleSchema, type Schedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import {
-	Link,
-	Outlet,
-	createFileRoute,
-	useRouter,
-} from "@tanstack/react-router";
+import { Link, Outlet, createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 export const getSchedules = createServerFn({
@@ -31,9 +26,7 @@ const generateNewQualifying = createServerFn({
 })
 	.middleware([dbMiddleware])
 	.handler(async ({ context }) => {
-		const existingQualifying = await context.db.schedule.find(
-			(s) => s.type === "QUALIFYING",
-		);
+		const existingQualifying = await context.db.schedule.find((s) => s.type === "QUALIFYING");
 
 		const newQualifying: Schedule = {
 			id: generateId("schedule"),
@@ -49,16 +42,16 @@ const generateNewBracket = createServerFn({
 	method: "POST",
 })
 	.middleware([dbMiddleware])
-	.handler(async ({ context }) => {
-		const existingBrackets = await context.db.schedule.find(
-			(s) => s.type === "BRACKET",
-		);
+	.validator(BracketScheduleSchema.pick({ bracketSize: true }))
+	.handler(async ({ context, data }) => {
+		const existingBrackets = await context.db.schedule.find((s) => s.type === "BRACKET");
 
 		const newBracket: Schedule = {
 			id: generateId("schedule"),
 			type: "BRACKET",
 			matches: [],
 			name: `Bracket ${existingBrackets.length + 1}`,
+			bracketSize: data.bracketSize,
 		};
 		context.db.schedule.insert(newBracket);
 		return newBracket;
@@ -69,9 +62,7 @@ const generateNewExhibition = createServerFn({
 })
 	.middleware([dbMiddleware])
 	.handler(async ({ context }) => {
-		const existingExhibitions = await context.db.schedule.find(
-			(s) => s.type === "EXHIBITION",
-		);
+		const existingExhibitions = await context.db.schedule.find((s) => s.type === "EXHIBITION");
 
 		const newExhibition: Schedule = {
 			id: generateId("schedule"),
@@ -88,9 +79,7 @@ const generateNewTeams = createServerFn({
 })
 	.middleware([dbMiddleware])
 	.handler(async ({ context }) => {
-		const existingTeams = await context.db.schedule.find(
-			(s) => s.type === "TEAMS",
-		);
+		const existingTeams = await context.db.schedule.find((s) => s.type === "TEAMS");
 
 		const newTeams: Schedule = {
 			id: generateId("schedule"),
@@ -119,8 +108,8 @@ function RouteComponent() {
 		router.invalidate();
 	};
 
-	const addNewBracket = () => {
-		generateNewBracket();
+	const addNewBracket = (bracketSize: 4 | 8) => {
+		generateNewBracket({ data: { bracketSize } });
 		router.invalidate();
 	};
 
@@ -143,14 +132,17 @@ function RouteComponent() {
 						<Button variant="default" onClick={addNewQualifying}>
 							Add new Quali +
 						</Button>
-						<Button variant="default" onClick={addNewBracket}>
-							Add new Bracket +
-						</Button>
 						<Button variant="default" onClick={addNewTeams}>
 							Add new Teams +
 						</Button>
 						<Button variant="default" onClick={addNewExhibition}>
 							Add new Exhibition +
+						</Button>
+						<Button variant="default" onClick={() => addNewBracket(8)}>
+							Add new 8 bot Bracket +
+						</Button>
+						<Button variant="default" onClick={() => addNewBracket(4)}>
+							Add new 4 bot Bracket +
 						</Button>
 					</div>
 				</div>
@@ -162,8 +154,7 @@ function RouteComponent() {
 						variant="secondary"
 						className={cn(
 							"px-4 py-4 rounded-sm  self-stretch mx-4 font-bold",
-							s.matches.some((m) => m.id === currentMatchId) &&
-								"text-green-500",
+							s.matches.some((m) => m.id === currentMatchId) && "text-green-500",
 						)}
 					>
 						<Link to="/admin/schedule/$id" params={{ id: s.id }}>

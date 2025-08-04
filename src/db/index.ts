@@ -42,9 +42,7 @@ export const EventSchema = z.object({
 const sharedMatchSchema = z.object({
 	id: z.string(),
 	name: z.string(),
-	participants: z.array(
-		z.object({ id: z.string().optional(), videoName: z.string().optional() }),
-	),
+	participants: z.array(z.object({ id: z.string().optional(), videoName: z.string().optional() })),
 	names: z.array(z.string()).optional(),
 	winner: z
 		.object({
@@ -93,6 +91,14 @@ export const TeamsMatchSchema = z.object({
 	matches: z.array(TeamMatchSchema),
 });
 
+export const BracketScheduleSchema = z.object({
+	type: z.literal("BRACKET"),
+	id: z.string(),
+	name: z.string(),
+	matches: z.array(BracketMatchSchema),
+	bracketSize: z.union([z.literal(4), z.literal(8)]),
+});
+
 export const ScheduleSchema = z.discriminatedUnion("type", [
 	z.object({
 		type: z.literal("QUALIFYING"),
@@ -100,12 +106,7 @@ export const ScheduleSchema = z.discriminatedUnion("type", [
 		name: z.string(),
 		matches: z.array(QualifyingMatchSchema),
 	}),
-	z.object({
-		type: z.literal("BRACKET"),
-		id: z.string(),
-		name: z.string(),
-		matches: z.array(BracketMatchSchema),
-	}),
+	BracketScheduleSchema,
 	z.object({
 		type: z.literal("EXHIBITION"),
 		id: z.string(),
@@ -119,19 +120,13 @@ export type Participant = z.infer<typeof ParticipantSchema>;
 export type Event = z.infer<typeof EventSchema>;
 export type Schedule = z.infer<typeof ScheduleSchema>;
 export type TeamsSchedule = z.infer<typeof TeamsMatchSchema>;
-export type BracketSchedule = z.infer<typeof BracketMatchSchema>;
+export type BracketSchedule = z.infer<typeof BracketScheduleSchema>;
 export type ExhibitionSchedule = z.infer<typeof ExhibitionMatchSchema>;
 export type QualifyingSchedule = z.infer<typeof QualifyingMatchSchema>;
 export type Match = z.infer<typeof MatchSchema>;
 export type QualifyingMatch = z.infer<typeof QualifyingMatchSchema>;
 export type BracketMatch = z.infer<typeof BracketMatchSchema>;
 
-export const participantDB = new FileDB(
-	"./database/participants.json",
-	ParticipantSchema,
-);
+export const participantDB = new FileDB("./database/participants.json", ParticipantSchema);
 export const eventDB = new FileDB("./database/events.json", EventSchema);
-export const scheduleDB = new FileDB(
-	"./database/schedules.json",
-	ScheduleSchema,
-);
+export const scheduleDB = new FileDB("./database/schedules.json", ScheduleSchema);
