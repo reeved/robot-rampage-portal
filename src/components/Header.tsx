@@ -10,6 +10,9 @@ export default function Header() {
 				<div className="px-2 font-bold text-foreground">
 					<Link to="/admin/schedule">Schedule</Link>
 				</div>
+				<div className="px-2 font-bold text-foreground">
+					<Link to="/admin/rankings">Rankings</Link>
+				</div>
 				<span className="text-foreground mx-4">|</span>
 				<div className="px-2 font-bold text-foreground">
 					<Link to="/bracket">Bracket</Link>

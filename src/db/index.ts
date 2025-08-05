@@ -34,6 +34,8 @@ export const EventSchema = z.object({
 			lossesByJD: z.number(),
 			lossesByNS: z.number(),
 			opponentIds: z.array(z.string()),
+			opponentWins: z.number(),
+			score: z.number(),
 		}),
 	),
 	rankings: z.array(z.object({ id: z.string(), position: z.number() })),

@@ -21,6 +21,7 @@ import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/parti
 import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
 import { Route as ViewScheduleRouteRouteImport } from './routes/_view/schedule/route'
 import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile.index'
+import { Route as AdminRankingsIndexRouteImport } from './routes/admin/rankings/index'
 import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
@@ -94,6 +95,11 @@ const AdminMobileIndexRoute = AdminMobileIndexRouteImport.update({
   id: '/admin_/mobile/',
   path: '/admin/mobile/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRankingsIndexRoute = AdminRankingsIndexRouteImport.update({
+  id: '/rankings/',
+  path: '/rankings/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexRouteImport.update({
   id: '/',
@@ -227,6 +233,7 @@ export interface FileRoutesByFullPath {
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match/': typeof ViewTeamsMatchIndexRoute
+  '/admin/rankings': typeof AdminRankingsIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -252,6 +259,7 @@ export interface FileRoutesByTo {
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match': typeof ViewTeamsMatchIndexRoute
+  '/admin/rankings': typeof AdminRankingsIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -281,6 +289,7 @@ export interface FileRoutesById {
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
   '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
+  '/admin/rankings/': typeof AdminRankingsIndexRoute
   '/admin_/mobile/': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -310,6 +319,7 @@ export interface FileRouteTypes {
     | '/schedule/'
     | '/stats'
     | '/teams-match/'
+    | '/admin/rankings'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -335,6 +345,7 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/stats'
     | '/teams-match'
+    | '/admin/rankings'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -363,6 +374,7 @@ export interface FileRouteTypes {
     | '/_view/schedule/'
     | '/_view/stats/'
     | '/_view/teams-match/'
+    | '/admin/rankings/'
     | '/admin_/mobile/'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -513,6 +525,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/mobile'
       preLoaderRoute: typeof AdminMobileIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/rankings/': {
+      id: '/admin/rankings/'
+      path: '/rankings'
+      fullPath: '/admin/rankings'
+      preLoaderRoute: typeof AdminRankingsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/_view/teams-match/': {
       id: '/_view/teams-match/'
@@ -768,12 +787,14 @@ interface AdminRouteRouteChildren {
   AdminParticipantsRouteRoute: typeof AdminParticipantsRouteRouteWithChildren
   AdminScheduleRouteRoute: typeof AdminScheduleRouteRouteWithChildren
   AdminCompetitorsRoute: typeof AdminCompetitorsRoute
+  AdminRankingsIndexRoute: typeof AdminRankingsIndexRoute
 }
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminParticipantsRouteRoute: AdminParticipantsRouteRouteWithChildren,
   AdminScheduleRouteRoute: AdminScheduleRouteRouteWithChildren,
   AdminCompetitorsRoute: AdminCompetitorsRoute,
+  AdminRankingsIndexRoute: AdminRankingsIndexRoute,
 }
 
 const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(

@@ -59,6 +59,8 @@ const getUpdatedRankings = (
 			lossesByJD: 0,
 			lossesByNS: 0,
 			opponentIds: [],
+			opponentWins: 0,
+			score: 0,
 		};
 	}
 
@@ -76,12 +78,14 @@ const getUpdatedRankings = (
 
 			if (winner !== participantId) {
 				participantResults[participantId].losses += 1;
+				participantResults[participantId].opponentWins += 1;
 
 				if (condition) {
 					participantResults[participantId][`lossesBy${condition}`] += 1;
 				}
 			} else {
 				participantResults[participantId].wins += 1;
+				participantResults[participantId].opponentWins += 1;
 				if (condition) {
 					participantResults[participantId][`winsBy${condition}`] += 1;
 				}
@@ -89,41 +93,68 @@ const getUpdatedRankings = (
 		}
 	}
 
+	for (const participant of participants) {
+		const results = participantResults[participant.id];
+		const opponentWins = sumArr(
+			results.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
+		);
+
+		participantResults[participant.id].opponentWins = opponentWins;
+
+		// sort by wins
+		// then wins by ko
+		// then losses by NS (lower is better)
+		// then losses by KO (lower is better)
+		// then losses by JD (lower is better)
+		// then sum of opponent wins
+
+		const score =
+			(results.wins * 1000000 +
+				results.winsByKO * 100000 +
+				-results.lossesByNS * 10000 + // Negative so lower = better
+				-results.lossesByKO * 1000 + // Negative so lower = better
+				-results.lossesByJD * 100 + // Negative so lower = better
+				opponentWins * 10) /
+			1000000;
+
+		participantResults[participant.id] = {
+			...results,
+			score,
+		};
+	}
+
 	const sortedRankings = Object.entries(participantResults).sort(
 		([, a], [, b]) => {
-			// sort by wins
-			// then wins by ko
-			// then losses by NS (lower is better)
-			// then losses by KO (lower is better)
-			// then losses by JD (lower is better)
-			// then sum of opponent wins
-
-			if (a.wins !== b.wins) {
-				return b.wins - a.wins;
-			}
-			if (a.winsByKO !== b.winsByKO) {
-				return b.winsByKO - a.winsByKO;
-			}
-			if (a.lossesByNS !== b.lossesByNS) {
-				return a.lossesByNS - b.lossesByNS;
-			}
-			if (a.lossesByKO !== b.lossesByKO) {
-				return a.lossesByKO - b.lossesByKO;
-			}
-			if (a.lossesByJD !== b.lossesByJD) {
-				return a.lossesByJD - b.lossesByJD;
-			}
-
-			const aOpponentWins = sumArr(
-				a.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-			);
-			const bOpponentWins = sumArr(
-				b.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-			);
-
-			return aOpponentWins - bOpponentWins;
+			return b.score - a.score;
+			// if (a.wins !== b.wins) {
+			// 	return b.wins - a.wins;
+			// }
+			// if (a.winsByKO !== b.winsByKO) {
+			// 	return b.winsByKO - a.winsByKO;
+			// }
+			// if (a.lossesByNS !== b.lossesByNS) {
+			// 	return a.lossesByNS - b.lossesByNS;
+			// }
+			// if (a.lossesByKO !== b.lossesByKO) {
+			// 	return a.lossesByKO - b.lossesByKO;
+			// }
+			// if (a.lossesByJD !== b.lossesByJD) {
+			// 	return a.lossesByJD - b.lossesByJD;
+			// }
+			// const aOpponentWins = sumArr(
+			// 	a.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
+			// );
+			// const bOpponentWins = sumArr(
+			// 	b.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
+			// );
+			// return aOpponentWins - bOpponentWins;
 		},
 	);
+
+	console.log(sortedRankings);
+	sortedRankings.forEach(([id, { score }], index) => {
+		console.log(participants.find((p) => p.id === id)?.name, score, index);
+	});
 
 	return { participantResults, sortedRankings };
 };

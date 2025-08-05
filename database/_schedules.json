@@ -1,0 +1,152 @@
+[
+  {
+    "id": "schedule-nxqo9s7",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 1"
+  },
+  {
+    "id": "schedule-r5ckjw5",
+    "type": "TEAMS",
+    "matches": [
+      {
+        "id": "teams-match-98bw08q",
+        "name": "Teams match",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "rot076r"
+          }
+        ]
+      }
+    ],
+    "team1Name": "Team AUS",
+    "team2Name": "Team NZ",
+    "team1bots": {
+      "bot1": {
+        "id": "part-dx6qvml",
+        "isDead": true,
+        "isActive": false
+      },
+      "bot2": {},
+      "bot3": {
+        "id": "part-04xspbq",
+        "isDead": false,
+        "isActive": true
+      },
+      "bot4": {
+        "id": "part-rzeus3u",
+        "isDead": false
+      },
+      "bot5": {}
+    },
+    "team2bots": {
+      "bot1": {
+        "id": "part-qpm0bjg",
+        "isDead": true
+      },
+      "bot2": {
+        "id": "part-hh5ch23",
+        "isDead": true
+      },
+      "bot3": {
+        "id": "rot076r",
+        "isActive": true,
+        "isDead": false
+      },
+      "bot4": {},
+      "bot5": {}
+    },
+    "name": "Teams 1"
+  },
+  {
+    "id": "schedule-euox04e",
+    "type": "QUALIFYING",
+    "matches": [
+      {
+        "id": "match-dskyaf9",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "uhunewo"
+          }
+        ],
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "JD"
+        }
+      },
+      {
+        "id": "match-x4xxsfe",
+        "name": "Match 2",
+        "participants": [
+          {},
+          {}
+        ]
+      },
+      {
+        "id": "match-iomeww1",
+        "name": "Match 3",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "part-fdrxhj5"
+          }
+        ]
+      },
+      {
+        "id": "match-hohdrpo",
+        "name": "Match 4",
+        "participants": [
+          {},
+          {}
+        ]
+      }
+    ],
+    "name": "Qualifying Session 1"
+  },
+  {
+    "id": "schedule-7iwhp7j",
+    "type": "BRACKET",
+    "matches": [],
+    "name": "Bracket 2"
+  },
+  {
+    "id": "schedule-rggaw3f",
+    "type": "EXHIBITION",
+    "matches": [
+      {
+        "id": "match-rhnz1yz",
+        "name": "Match 1 ",
+        "participants": [
+          {
+            "id": "jjsm1pd"
+          },
+          {
+            "id": "q9h4q1i"
+          }
+        ]
+      },
+      {
+        "id": "match-5qqlbd3",
+        "name": "Match 2",
+        "participants": [
+          {
+            "id": "u0fr1y9"
+          },
+          {
+            "id": "q9h4q1i"
+          }
+        ]
+      }
+    ],
+    "name": "Exhibition 1"
+  }
+]
