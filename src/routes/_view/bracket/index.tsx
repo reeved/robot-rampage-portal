@@ -25,7 +25,7 @@ function RouteComponent() {
 	const { brackets } = Route.useLoaderData();
 
 	return (
-		<div className="w-full max-w-[1200px] mx-auto p-4">
+		<div className="flex-1 h-full w-full max-w-[1200px] mx-auto p-4">
 			<div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 				{brackets.map((bracket) => (
 					<Link key={bracket.name} to={"/bracket/$id"} params={{ id: bracket.name }}>

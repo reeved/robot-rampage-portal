@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 
 export type Box = {
 	id: number;
+	orientation: "left" | "right";
 	title: string;
 	image?: string;
 	x: number;
@@ -99,8 +100,6 @@ const getConnections = (boxes: Box[]): Connection[] => {
 			{ from: 4, to: 5 },
 			// Connect middle right to right bottom
 			{ from: 4, to: 6 },
-			// Additional connection for SF1 winner
-			{ from: 7, to: 3 },
 		];
 	}
 
@@ -124,11 +123,7 @@ const getConnections = (boxes: Box[]): Connection[] => {
 		{ from: 11, to: 14 }, // SF2 winner to Final
 		{ from: 12, to: 14 }, // SF2 winner to Final
 
-		// Additional connections for duplicates
-		{ from: 15, to: 9 }, // QF1 duplicate to SF1
-		{ from: 16, to: 10 }, // QF2 duplicate to SF1
-		{ from: 17, to: 11 }, // QF3 duplicate to SF2
-		{ from: 18, to: 12 }, // QF4 duplicate to SF2
+		{ from: 13, to: 14 }, // Final to Final
 	];
 };
 
@@ -163,10 +158,10 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 	const isEightBot = boxes.length > 7;
-	const containerClass = isEightBot ? "relative h-[500px] p-4 w-[1800px]" : "relative h-[420px] p-4 w-[1550px]";
+	// const containerClass = isEightBot ? "relative h-[700px] p-4 w-[1800px]" : "relative h-[420px] p-4 w-[1550px]";
 
 	return (
-		<div className={containerClass}>
+		<div className="h-7/12 w-full">
 			{boxes.map((box) => (
 				<div
 					key={box.id}
@@ -176,8 +171,11 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 						top: box.y,
 						width: box.width,
 						height: box.height,
+						// background: "yellow",
+						// border: "1px solid red",
 					}}
 				>
+					{/* Image containers */}
 					<div
 						className={cn(
 							"absolute",
@@ -211,20 +209,21 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 							</div>
 						)}
 					</div>
+					{/* Red box */}
 					<div
 						className={cn(
 							"flex-1 bg-primary shadow-md flex items-center justify-center font-rubik uppercase text-center transition-all duration-700 ease-in-out",
-							isEightBot ? "text-lg" : "text-2xl",
+							isEightBot ? "text-2xl" : "text-2xl",
 							box.isLoser && "bg-primary/20 text-white/50",
 						)}
 						style={{
 							clipPath:
-								box.id <= 3
-									? "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 0% 0%)" // Right boxes with left edge angled
-									: box.id >= 4
-										? "polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%, 10% 0%)"
+								box.orientation === "right"
+									? "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 0% 0%)" // Left boxes with right edge angled
+									: box.orientation === "left"
+										? "polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%, 10% 0%)" // Right boxes with left edge angled
 										: "",
-							height: isEightBot ? "60px" : "90px",
+							height: isEightBot ? "100px" : "90px",
 							width: "100%",
 						}}
 					>

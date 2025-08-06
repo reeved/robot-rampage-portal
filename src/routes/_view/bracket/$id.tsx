@@ -23,6 +23,7 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 	const createBox = (
 		id: number,
 		participant: Participant | undefined,
+		orientation: "left" | "right",
 		x: number,
 		y: number,
 		width: number,
@@ -31,6 +32,7 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 		showImage: boolean,
 	) => ({
 		id,
+		orientation,
 		title: participant?.name || "TBD",
 		image: showImage ? participant?.photo : undefined,
 		x,
@@ -48,18 +50,21 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 
 		const [sf1Bots, sf2Bots, finalBots] = [sf1, sf2, final].map(getParticipantsForMatch);
 
+		const columns = [70, 600, 1050, 1550] as const;
+		const rows = [200, 350, 500] as const;
+
 		const boxes: Box[] = [
 			// Left side - SF1 participants
-			createBox(1, sf1Bots[0], 0, 0, 280, 120, isLoser(sf1, sf1Bots[0]), true),
-			createBox(2, sf1Bots[1], 0, 250, 280, 120, isLoser(sf1, sf1Bots[1]), true),
+			createBox(1, sf1Bots[0], "right", columns[0], rows[0], 280, 120, isLoser(sf1, sf1Bots[0]), true),
+			createBox(2, sf1Bots[1], "right", columns[0], rows[2], 280, 120, isLoser(sf1, sf1Bots[1]), true),
 
 			// Middle - Final participants
-			createBox(3, finalBots[0], 420, 125, 280, 120, isLoser(final, finalBots[0]), false),
-			createBox(4, finalBots[1], 850, 125, 280, 120, isLoser(final, finalBots[1]), false),
+			createBox(3, finalBots[0], "right", columns[1], rows[1], 280, 120, isLoser(final, finalBots[0]), false),
+			createBox(4, finalBots[1], "left", columns[2], rows[1], 280, 120, isLoser(final, finalBots[1]), false),
 
 			// Right side - SF2 participants
-			createBox(5, sf2Bots[0], 1280, 0, 280, 120, isLoser(sf2, sf2Bots[0]), true),
-			createBox(6, sf2Bots[1], 1280, 250, 280, 120, isLoser(sf2, sf2Bots[1]), true),
+			createBox(5, sf2Bots[0], "left", columns[3], rows[0], 280, 120, isLoser(sf2, sf2Bots[0]), true),
+			createBox(6, sf2Bots[1], "left", columns[3], rows[2], 280, 120, isLoser(sf2, sf2Bots[1]), true),
 		];
 
 		return boxes;
@@ -73,30 +78,33 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 		const [qf1, qf2, qf3, qf4, sf1, sf2, final] = matches;
 		const [qf1Bots, qf2Bots, qf3Bots, qf4Bots, sf1Bots, sf2Bots, finalBots] = matches.map(getParticipantsForMatch);
 
+		const columns = [70, 390, 700, 980, 1300, 1600] as const;
+		const rows = [60, 150, 250, 420, 600, 700, 800] as const;
+
 		const boxes: Box[] = [
 			// Quarter Finals - Left side
-			createBox(1, qf1Bots[0], 0, 0, 200, 80, isLoser(qf1, qf1Bots[0]), false),
-			createBox(2, qf1Bots[1], 0, 100, 200, 80, isLoser(qf1, qf1Bots[1]), false),
-			createBox(3, qf2Bots[0], 0, 250, 200, 80, isLoser(qf2, qf2Bots[0]), false),
-			createBox(4, qf2Bots[1], 0, 350, 200, 80, isLoser(qf2, qf2Bots[1]), false),
+			createBox(1, qf1Bots[0], "right", columns[0], rows[0], 240, 120, isLoser(qf1, qf1Bots[0]), false),
+			createBox(2, qf1Bots[1], "right", columns[0], rows[2], 240, 120, isLoser(qf1, qf1Bots[1]), false),
+			createBox(3, qf2Bots[0], "right", columns[0], rows[4], 240, 120, isLoser(qf2, qf2Bots[0]), false),
+			createBox(4, qf2Bots[1], "right", columns[0], rows[6], 240, 120, isLoser(qf2, qf2Bots[1]), false),
 
 			// Quarter Finals - Right side
-			createBox(5, qf3Bots[0], 1400, 0, 200, 80, isLoser(qf3, qf3Bots[0]), false),
-			createBox(6, qf3Bots[1], 1400, 100, 200, 80, isLoser(qf3, qf3Bots[1]), false),
-			createBox(7, qf4Bots[0], 1400, 250, 200, 80, isLoser(qf4, qf4Bots[0]), false),
-			createBox(8, qf4Bots[1], 1400, 350, 200, 80, isLoser(qf4, qf4Bots[1]), false),
+			createBox(5, qf3Bots[0], "left", columns[5], rows[0], 240, 120, isLoser(qf3, qf3Bots[0]), false),
+			createBox(6, qf3Bots[1], "left", columns[5], rows[2], 240, 120, isLoser(qf3, qf3Bots[1]), false),
+			createBox(7, qf4Bots[0], "left", columns[5], rows[4], 240, 120, isLoser(qf4, qf4Bots[0]), false),
+			createBox(8, qf4Bots[1], "left", columns[5], rows[6], 240, 120, isLoser(qf4, qf4Bots[1]), false),
 
 			// Semi Finals - Left side
-			createBox(9, sf1Bots[0], 300, 50, 200, 80, isLoser(sf1, sf1Bots[0]), false),
-			createBox(10, sf1Bots[1], 300, 150, 200, 80, isLoser(sf1, sf1Bots[1]), false),
+			createBox(9, sf1Bots[0], "right", columns[1], rows[1], 240, 120, isLoser(sf1, sf1Bots[0]), false),
+			createBox(10, sf1Bots[1], "right", columns[1], rows[5], 240, 120, isLoser(sf1, sf1Bots[1]), false),
 
 			// Semi Finals - Right side
-			createBox(11, sf2Bots[0], 1100, 50, 200, 80, isLoser(sf2, sf2Bots[0]), false),
-			createBox(12, sf2Bots[1], 1100, 150, 200, 80, isLoser(sf2, sf2Bots[1]), false),
+			createBox(11, sf2Bots[0], "left", columns[4], rows[1], 240, 120, isLoser(sf2, sf2Bots[0]), false),
+			createBox(12, sf2Bots[1], "left", columns[4], rows[5], 240, 120, isLoser(sf2, sf2Bots[1]), false),
 
 			// Final
-			createBox(13, finalBots[0], 700, 115, 200, 80, isLoser(final, finalBots[0]), false),
-			createBox(14, finalBots[1], 700, 215, 200, 80, isLoser(final, finalBots[1]), false),
+			createBox(13, finalBots[0], "right", columns[2], rows[3], 240, 120, isLoser(final, finalBots[0]), false),
+			createBox(14, finalBots[1], "left", columns[3], rows[3], 240, 120, isLoser(final, finalBots[1]), false),
 		];
 
 		return boxes;
@@ -160,8 +168,8 @@ function RouteComponent() {
 	const { boxes, bracketName } = data;
 
 	return (
-		<div className="relative h-full w-full flex items-center justify-center">
-			<h2 className="absolute top-4 text-3xl font-heading text-center text-primary uppercase">{bracketName} BRACKET</h2>
+		<div className="relative h-full w-full flex flex-col items-center justify-start">
+			<h2 className="text-3xl font-heading text-center text-primary uppercase">{bracketName} BRACKET</h2>
 			<Bracket boxes={boxes} />
 		</div>
 	);
