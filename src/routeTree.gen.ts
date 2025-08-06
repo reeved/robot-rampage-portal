@@ -16,6 +16,7 @@ import { Route as ViewRouteRouteImport } from './routes/_view/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminCompetitorsRouteImport } from './routes/admin/competitors'
 import { Route as ViewOverlayRouteImport } from './routes/_view_/overlay'
+import { Route as ViewTimerRouteImport } from './routes/_view/timer'
 import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
 import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/participants/route'
 import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
@@ -69,6 +70,11 @@ const ViewOverlayRoute = ViewOverlayRouteImport.update({
   id: '/_view_/overlay',
   path: '/overlay',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ViewTimerRoute = ViewTimerRouteImport.update({
+  id: '/timer',
+  path: '/timer',
+  getParentRoute: () => ViewRouteRoute,
 } as any)
 const AdminScheduleRouteRoute = AdminScheduleRouteRouteImport.update({
   id: '/schedule',
@@ -214,6 +220,7 @@ export interface FileRoutesByFullPath {
   '/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/timer': typeof ViewTimerRoute
   '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/bracket/$id': typeof ViewBracketIdRoute
@@ -239,6 +246,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/timer': typeof ViewTimerRoute
   '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/bracket/$id': typeof ViewBracketIdRoute
@@ -268,6 +276,7 @@ export interface FileRoutesById {
   '/_view/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
+  '/_view/timer': typeof ViewTimerRoute
   '/_view_/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
   '/_view/bracket/$id': typeof ViewBracketIdRoute
@@ -297,6 +306,7 @@ export interface FileRouteTypes {
     | '/teams-match'
     | '/admin/participants'
     | '/admin/schedule'
+    | '/timer'
     | '/overlay'
     | '/admin/competitors'
     | '/bracket/$id'
@@ -322,6 +332,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin/participants'
     | '/admin/schedule'
+    | '/timer'
     | '/overlay'
     | '/admin/competitors'
     | '/bracket/$id'
@@ -350,6 +361,7 @@ export interface FileRouteTypes {
     | '/_view/teams-match'
     | '/admin/participants'
     | '/admin/schedule'
+    | '/_view/timer'
     | '/_view_/overlay'
     | '/admin/competitors'
     | '/_view/bracket/$id'
@@ -477,6 +489,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/overlay'
       preLoaderRoute: typeof ViewOverlayRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_view/timer': {
+      id: '/_view/timer'
+      path: '/timer'
+      fullPath: '/timer'
+      preLoaderRoute: typeof ViewTimerRouteImport
+      parentRoute: typeof ViewRouteRoute
     }
     '/admin/schedule': {
       id: '/admin/schedule'
@@ -703,6 +722,7 @@ const ViewTeamsMatchRouteRouteWithChildren =
 interface ViewRouteRouteChildren {
   ViewScheduleRouteRoute: typeof ViewScheduleRouteRouteWithChildren
   ViewTeamsMatchRouteRoute: typeof ViewTeamsMatchRouteRouteWithChildren
+  ViewTimerRoute: typeof ViewTimerRoute
   ViewBracketIdRoute: typeof ViewBracketIdRoute
   ViewBracketIndexRoute: typeof ViewBracketIndexRoute
   ViewStatsIndexRoute: typeof ViewStatsIndexRoute
@@ -711,6 +731,7 @@ interface ViewRouteRouteChildren {
 const ViewRouteRouteChildren: ViewRouteRouteChildren = {
   ViewScheduleRouteRoute: ViewScheduleRouteRouteWithChildren,
   ViewTeamsMatchRouteRoute: ViewTeamsMatchRouteRouteWithChildren,
+  ViewTimerRoute: ViewTimerRoute,
   ViewBracketIdRoute: ViewBracketIdRoute,
   ViewBracketIndexRoute: ViewBracketIndexRoute,
   ViewStatsIndexRoute: ViewStatsIndexRoute,

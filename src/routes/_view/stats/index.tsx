@@ -13,17 +13,21 @@ const getStatsData = createServerFn({
 		const evt = await context.db.events.findOne((e) => e.id === "may");
 		const currentMatchId = evt?.currentMatchId;
 
+		if (!currentMatchId) {
+			return null;
+		}
+
 		const allSchedules = await context.db.schedule.find(() => true);
 		const schedule = allSchedules.find((s) => s.matches.some((m) => m.id === currentMatchId));
 
 		if (!schedule) {
-			throw redirect({ to: "/schedule" });
+			return null;
 		}
 
 		const currentMatch = schedule.matches.find((match) => match.id === currentMatchId);
 
 		if (!currentMatch || !evt) {
-			throw redirect({ to: "/schedule" });
+			return null;
 		}
 
 		const participants = await context.db.participants.find((p) =>

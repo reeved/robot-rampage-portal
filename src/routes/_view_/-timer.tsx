@@ -5,8 +5,8 @@ import { queryOptions, useQuery, useQueryClient } from "@tanstack/react-query";
 const API_ENDPOINTS = {
 	get: "/api/timer",
 	start: "/api/timer/start?duration=30",
-	startFrom5: "/api/timer/start?duration=15",
-	startFrom130: "/api/timer/start?duration=90",
+	startFrom5: "/api/timer/start?duration=16",
+	startFrom130: "/api/timer/start?duration=91",
 	pause: "/api/timer/pause",
 	reset: "/api/timer/restart",
 	resume: "/api/timer/resume",

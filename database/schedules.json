@@ -5,7 +5,7 @@
     "matches": [
       {
         "id": "match-e6sxbaa",
-        "name": "9th Place SF1",
+        "name": "QF1",
         "participants": [
           {
             "id": "rot076r"
@@ -19,13 +19,12 @@
           "id": "part-04xspbq",
           "condition": "KO"
         },
-        "type": "BRACKET",
-        "bracket": "9th Place",
-        "round": "SF1"
+        "bracket": "Championship",
+        "round": "QF1"
       },
       {
         "id": "match-l1iznwr",
-        "name": "9th Place SF2",
+        "name": "QF2",
         "participants": [
           {
             "id": "part-odwrzot"
@@ -38,13 +37,12 @@
           "id": "luecccm",
           "condition": "KO"
         },
-        "type": "BRACKET",
-        "bracket": "9th Place",
-        "round": "SF2"
+        "bracket": "Championship",
+        "round": "QF2"
       },
       {
         "id": "match-tascvhe",
-        "name": "5th Place SF1",
+        "name": "QF3",
         "participants": [
           {
             "id": "part-hh5ch23",
@@ -58,13 +56,12 @@
           "id": "part-hh5ch23",
           "condition": "KO"
         },
-        "type": "BRACKET",
-        "bracket": "5th Place",
-        "round": "SF1"
+        "bracket": "Championship",
+        "round": "QF3"
       },
       {
         "id": "match-6v2ohxk",
-        "name": "5th Place SF2",
+        "name": "QF4",
         "participants": [
           {
             "id": "part-aw653qy",
@@ -78,28 +75,26 @@
           "id": "part-aw653qy",
           "condition": "JD"
         },
-        "type": "BRACKET",
-        "bracket": "5th Place",
-        "round": "SF2"
+        "bracket": "Championship",
+        "round": "QF4"
       },
       {
         "id": "match-jocskcc",
         "name": "Championship SF1",
         "participants": [
           {
-            "id": "part-y3konnp",
+            "id": "part-04xspbq",
             "videoName": "C:\\RRMedia\\Inferno_Fox_B.mov"
           },
           {
-            "id": "part-fdrxhj5",
+            "id": "luecccm",
             "videoName": "Inferno_Fox_B.mov"
           }
         ],
         "winner": {
-          "id": "part-fdrxhj5",
+          "id": "part-04xspbq",
           "condition": "KO"
         },
-        "type": "BRACKET",
         "bracket": "Championship",
         "round": "SF1"
       },
@@ -108,19 +103,18 @@
         "name": "Championship SF2",
         "participants": [
           {
-            "id": "part-qpm0bjg",
+            "id": "part-hh5ch23",
             "videoName": "Black_Rose_B.mov"
           },
           {
-            "id": "part-dllub2q",
+            "id": "part-aw653qy",
             "videoName": "Mjolnir_B.mov"
           }
         ],
         "winner": {
-          "id": "part-qpm0bjg",
+          "id": "part-hh5ch23",
           "condition": "JD"
         },
-        "type": "BRACKET",
         "bracket": "Championship",
         "round": "SF2"
       },
@@ -140,7 +134,6 @@
           "id": "part-04xspbq",
           "condition": "KO"
         },
-        "type": "BRACKET",
         "bracket": "9th Place",
         "round": "Final"
       },
@@ -160,7 +153,6 @@
           "id": "part-hh5ch23",
           "condition": "JD"
         },
-        "type": "BRACKET",
         "bracket": "5th Place",
         "round": "Final"
       },
@@ -169,19 +161,18 @@
         "name": "Championship Final",
         "participants": [
           {
-            "id": "part-fdrxhj5",
+            "id": "part-04xspbq",
             "videoName": "Inferno_Fox_A.mov"
           },
           {
-            "id": "part-qpm0bjg",
+            "id": "part-hh5ch23",
             "videoName": "Black_Rose_A.mov"
           }
         ],
         "winner": {
-          "id": "part-qpm0bjg",
+          "id": "part-04xspbq",
           "condition": "KO"
         },
-        "type": "BRACKET",
         "bracket": "Championship",
         "round": "Final"
       },
@@ -200,7 +191,6 @@
           "id": "part-fok7byp",
           "condition": "JD"
         },
-        "type": "BRACKET",
         "bracket": "",
         "round": "SF1"
       },
@@ -216,13 +206,12 @@
             "videoName": "Mjolnir_A.mov"
           }
         ],
-        "type": "BRACKET",
-        "bracket": "",
-        "round": "SF1",
         "winner": {
           "id": "part-y3konnp",
           "condition": "KO"
-        }
+        },
+        "bracket": "",
+        "round": "SF1"
       }
     ],
     "name": "Bracket 1"
