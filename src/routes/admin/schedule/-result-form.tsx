@@ -1,26 +1,7 @@
 import { Button } from "@/components/ui/button";
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
-import {
-	type Event,
-	type Match,
-	type Participant,
-	type QualifyingMatch,
-	QualifyingMatchSchema,
-} from "@/db";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { type Event, type Match, type Participant, type QualifyingMatch, QualifyingMatchSchema } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "@tanstack/react-router";
@@ -42,10 +23,7 @@ const UpdateSchema = z.object({
 	winner: MatchWinnerSchema.shape.winner,
 });
 
-const getUpdatedRankings = (
-	matches: QualifyingMatch[],
-	participants: Participant[],
-) => {
+const getUpdatedRankings = (matches: QualifyingMatch[], participants: Participant[]) => {
 	const participantResults: Event["qualifyingResults"] = {};
 
 	for (const participant of participants) {
@@ -95,9 +73,7 @@ const getUpdatedRankings = (
 
 	for (const participant of participants) {
 		const results = participantResults[participant.id];
-		const opponentWins = sumArr(
-			results.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-		);
+		const opponentWins = sumArr(results.opponentIds.map((id) => participantResults[id]?.wins ?? 0));
 
 		participantResults[participant.id].opponentWins = opponentWins;
 
@@ -123,33 +99,31 @@ const getUpdatedRankings = (
 		};
 	}
 
-	const sortedRankings = Object.entries(participantResults).sort(
-		([, a], [, b]) => {
-			return b.score - a.score;
-			// if (a.wins !== b.wins) {
-			// 	return b.wins - a.wins;
-			// }
-			// if (a.winsByKO !== b.winsByKO) {
-			// 	return b.winsByKO - a.winsByKO;
-			// }
-			// if (a.lossesByNS !== b.lossesByNS) {
-			// 	return a.lossesByNS - b.lossesByNS;
-			// }
-			// if (a.lossesByKO !== b.lossesByKO) {
-			// 	return a.lossesByKO - b.lossesByKO;
-			// }
-			// if (a.lossesByJD !== b.lossesByJD) {
-			// 	return a.lossesByJD - b.lossesByJD;
-			// }
-			// const aOpponentWins = sumArr(
-			// 	a.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-			// );
-			// const bOpponentWins = sumArr(
-			// 	b.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-			// );
-			// return aOpponentWins - bOpponentWins;
-		},
-	);
+	const sortedRankings = Object.entries(participantResults).sort(([, a], [, b]) => {
+		return b.score - a.score;
+		// if (a.wins !== b.wins) {
+		// 	return b.wins - a.wins;
+		// }
+		// if (a.winsByKO !== b.winsByKO) {
+		// 	return b.winsByKO - a.winsByKO;
+		// }
+		// if (a.lossesByNS !== b.lossesByNS) {
+		// 	return a.lossesByNS - b.lossesByNS;
+		// }
+		// if (a.lossesByKO !== b.lossesByKO) {
+		// 	return a.lossesByKO - b.lossesByKO;
+		// }
+		// if (a.lossesByJD !== b.lossesByJD) {
+		// 	return a.lossesByJD - b.lossesByJD;
+		// }
+		// const aOpponentWins = sumArr(
+		// 	a.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
+		// );
+		// const bOpponentWins = sumArr(
+		// 	b.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
+		// );
+		// return aOpponentWins - bOpponentWins;
+	});
 
 	console.log(sortedRankings);
 	sortedRankings.forEach(([id, { score }], index) => {
@@ -165,16 +139,12 @@ const updateMatchResult = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(UpdateSchema)
 	.handler(async ({ data, context }) => {
-		const schedule = await context.db.schedule.findOne(
-			({ id }) => id === data.scheduleId,
-		);
+		const schedule = await context.db.schedule.findOne(({ id }) => id === data.scheduleId);
 		if (!schedule) {
 			throw new Error("Schedule not found");
 		}
 
-		const existingMatch = schedule.matches.find(
-			(match) => match.id === data.matchId,
-		);
+		const existingMatch = schedule.matches.find((match) => match.id === data.matchId);
 
 		if (!existingMatch) {
 			throw new Error("Match not found");
@@ -200,13 +170,11 @@ const updateMatchResult = createServerFn({
 
 		// Update rankings after a qualifying match result
 
-		const participants = (
-			await context.db.participants.find(() => true)
-		).filter((participant) => participant.type === "FEATHERWEIGHT");
-
-		const matchParticipants = existingMatch.participants.map((p) =>
-			participants.find((part) => part.id === p.id),
+		const participants = (await context.db.participants.find(() => true)).filter(
+			(participant) => participant.type === "FEATHERWEIGHT",
 		);
+
+		const matchParticipants = existingMatch.participants.map((p) => participants.find((part) => part.id === p.id));
 
 		if (matchParticipants.some((p) => p?.type !== "FEATHERWEIGHT")) {
 			return;
@@ -218,10 +186,7 @@ const updateMatchResult = createServerFn({
 			.flatMap((schedule) => schedule.matches)
 			.filter((match) => !!match.winner?.id);
 
-		const { sortedRankings, participantResults } = getUpdatedRankings(
-			allMatches,
-			participants,
-		);
+		const { sortedRankings, participantResults } = getUpdatedRankings(allMatches, participants);
 
 		await context.db.events.updateOne((e) => e.id === "may", {
 			qualifyingResults: participantResults,
@@ -290,11 +255,7 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 											</SelectTrigger>
 											<SelectContent className="bg-zinc-800 text-white">
 												{matchParticipants.map((part) => (
-													<SelectItem
-														key={part.id}
-														value={part.id}
-														className="font-bold"
-													>
+													<SelectItem key={part.id} value={part.id} className="font-bold">
 														{part.name}
 													</SelectItem>
 												))}
@@ -349,12 +310,7 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 					</Button>
 				</div>
 
-				<Button
-					type="button"
-					onClick={onSubmit}
-					variant="default"
-					className="w-full mt-6 py-3 text-lg font-bold"
-				>
+				<Button type="button" onClick={onSubmit} variant="default" className="w-full mt-6 py-3 text-lg font-bold">
 					SAVE
 				</Button>
 			</form>

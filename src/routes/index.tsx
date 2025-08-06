@@ -8,9 +8,7 @@ export const Route = createFileRoute("/")({
 function App() {
 	return (
 		<div className="flex flex-col gap-10 p-10">
-			<div className="text-primary font-heading uppercase text-xl">
-				Robot Rampage Portal
-			</div>
+			<div className="text-primary font-heading uppercase text-xl">Robot Rampage Portal</div>
 			<Link to="/admin" className="p-4 bg-card">
 				Go to admin
 			</Link>

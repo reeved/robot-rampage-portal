@@ -33,9 +33,7 @@ const getParticipant = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.string())
 	.handler(async ({ data: id, context }) => {
-		const participant = await context.db.participants.findOne(
-			(p) => p.id === id,
-		);
+		const participant = await context.db.participants.findOne((p) => p.id === id);
 
 		if (!participant) {
 			throw redirect({ to: "/admin/participants" });
@@ -62,9 +60,7 @@ function RouteComponent() {
 	return (
 		<div key={data.id}>
 			<ParticipantForm defaultValues={data} onSubmit={handleSave} />
-			{data.photo && (
-				<img alt="bot-image" src={`/${data.photo}`} className="h-200" />
-			)}
+			{data.photo && <img alt="bot-image" src={`/${data.photo}`} className="h-200" />}
 		</div>
 	);
 }

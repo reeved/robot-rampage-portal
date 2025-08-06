@@ -1,28 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import {
-	type Participant,
-	type Schedule,
-	TeamsMatchSchema,
-	type TeamsSchedule,
-} from "@/db";
+import { type Participant, type Schedule, TeamsMatchSchema, type TeamsSchedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -72,28 +54,17 @@ const TeamList = ({
 										<SelectTrigger
 											className={cn(
 												"bg-zinc-800 text-white w-[30ch]",
-												field.value === "none" || field.value === undefined
-													? "text-gray-400"
-													: "",
+												field.value === "none" || field.value === undefined ? "text-gray-400" : "",
 											)}
 										>
-											<SelectValue
-												placeholder={`Select bot${bot.charAt(-1)}`}
-											/>
+											<SelectValue placeholder={`Select bot${bot.charAt(-1)}`} />
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
-											<SelectItem
-												value="none"
-												className="font-bold text-gray-400"
-											>
+											<SelectItem value="none" className="font-bold text-gray-400">
 												-- No bot selected --
 											</SelectItem>
 											{participants.map((p) => (
-												<SelectItem
-													key={p.id}
-													value={p.id}
-													className="font-bold"
-												>
+												<SelectItem key={p.id} value={p.id} className="font-bold">
 													{p.name}
 												</SelectItem>
 											))}
@@ -111,15 +82,9 @@ const TeamList = ({
 						render={({ field }) => {
 							const selectedBot = form.watch(`${team}bots.${bot}`);
 
-							const { bot1Videos } = getBotVideos(participants, [
-								{ id: selectedBot?.id },
-							]);
+							const { bot1Videos } = getBotVideos(participants, [{ id: selectedBot?.id }]);
 
-							if (
-								!bot1Videos.length ||
-								!selectedBot?.id ||
-								!selectedBot.isActive
-							) {
+							if (!bot1Videos.length || !selectedBot?.id || !selectedBot.isActive) {
 								return <></>;
 							}
 
@@ -179,9 +144,7 @@ const TeamList = ({
 											}}
 										/>
 									</FormControl>
-									<FormLabel className="text-sm font-normal">
-										Is active
-									</FormLabel>
+									<FormLabel className="text-sm font-normal">Is active</FormLabel>
 									<FormMessage />
 								</FormItem>
 							)}
@@ -221,9 +184,7 @@ const processBots = (bots: TeamsSchedule["team1bots"]) => {
 	return ["bot1", "bot2", "bot3", "bot4", "bot5"].reduce(
 		(acc, bot) => {
 			const botData = bots[bot as keyof typeof bots];
-			acc[bot as keyof typeof bots] = botData?.id
-				? { ...botData, isDead: botData.isDead ?? false }
-				: {};
+			acc[bot as keyof typeof bots] = botData?.id ? { ...botData, isDead: botData.isDead ?? false } : {};
 			return acc;
 		},
 		{} as typeof bots,
@@ -270,10 +231,7 @@ const updateTeamsMatch = createServerFn({
 		});
 	});
 
-export const TeamsMatchList = ({
-	schedule,
-	participants,
-}: { schedule: Schedule; participants: Participant[] }) => {
+export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule; participants: Participant[] }) => {
 	const router = useRouter();
 
 	if (schedule.type !== "TEAMS") {
@@ -318,10 +276,7 @@ export const TeamsMatchList = ({
 							<TeamList team="team1" participants={participants} form={form} />
 						</div>
 
-						<Separator
-							orientation="vertical"
-							className="h-auto! my-10 mx-10 w-2"
-						/>
+						<Separator orientation="vertical" className="h-auto! my-10 mx-10 w-2" />
 						<div className="flex flex-col gap-10">
 							<TeamName fieldName="team2Name" form={form} />
 							<TeamList team="team2" participants={participants} form={form} />
@@ -336,11 +291,7 @@ export const TeamsMatchList = ({
 
 			{schedule.matches[0] && (
 				<div>
-					<ResultForm
-						scheduleId={schedule.id}
-						match={schedule.matches[0]}
-						participants={participants}
-					/>
+					<ResultForm scheduleId={schedule.id} match={schedule.matches[0]} participants={participants} />
 				</div>
 			)}
 		</div>

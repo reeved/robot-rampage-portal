@@ -37,11 +37,7 @@ function RouteComponent() {
 
 	return (
 		<div className="w-full grid grid-cols-2 gap-20">
-			<ViewSchedule
-				schedule={schedule}
-				participants={participants}
-				currentMatchId={currentMatchId}
-			/>
+			<ViewSchedule schedule={schedule} participants={participants} currentMatchId={currentMatchId} />
 			<Outlet />
 		</div>
 	);

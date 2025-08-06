@@ -12,9 +12,7 @@ const getTeamsSchedule = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.string())
 	.handler(async ({ context, data: scheduleId }) => {
-		const teamsSchedule = await context.db.schedule.findOne(
-			(s) => s.id === scheduleId && s.type === "TEAMS",
-		);
+		const teamsSchedule = await context.db.schedule.findOne((s) => s.id === scheduleId && s.type === "TEAMS");
 
 		if (!teamsSchedule || teamsSchedule.type !== "TEAMS") {
 			throw redirect({ to: "/teams-match" });
@@ -37,8 +35,7 @@ const scheduleQuery = (id: string) =>
 
 export const Route = createFileRoute("/_view/teams-match/$id")({
 	component: RouteComponent,
-	loader: async ({ params, context }) =>
-		context.queryClient.ensureQueryData(scheduleQuery(params.id)),
+	loader: async ({ params, context }) => context.queryClient.ensureQueryData(scheduleQuery(params.id)),
 	ssr: false,
 });
 
@@ -57,12 +54,7 @@ const BotInfo = ({
 	const botDetails = participants.find((p) => p.id === bot?.id);
 
 	return (
-		<div
-			className={cn(
-				"flex flex-col flex-1 gap-y-4",
-				teamColor === "green" ? "text-rrgreen" : "text-rrblue",
-			)}
-		>
+		<div className={cn("flex flex-col flex-1 gap-y-4", teamColor === "green" ? "text-rrgreen" : "text-rrblue")}>
 			<img
 				src={botDetails?.photo ? `/${botDetails.photo}` : undefined}
 				className={cn(
@@ -83,9 +75,7 @@ const BotInfo = ({
 				}
 			/>
 			<div className="text-6xl font-rubik -mt-20 z-20">{botDetails?.name}</div>
-			<div className="text-2xl font-heading uppercase text-white mt-4">
-				{botDetails?.weapon}
-			</div>
+			<div className="text-2xl font-heading uppercase text-white mt-4">{botDetails?.weapon}</div>
 		</div>
 	);
 };
@@ -106,8 +96,7 @@ const BotPreview = ({
 			<div
 				className="h-30 w-30 flex items-center justify-center bg-neutral-800 font-heading text-5xl text-center text-primary relative"
 				style={{
-					clipPath:
-						"polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%)",
+					clipPath: "polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%)",
 				}}
 			>
 				?
@@ -157,27 +146,15 @@ const TeamInfo = ({
 
 	return (
 		<div className="flex flex-col">
-			<BotInfo
-				bot={activeBot}
-				participants={participants}
-				teamColor={teamColor}
-			/>
+			<BotInfo bot={activeBot} participants={participants} teamColor={teamColor} />
 			<div
-				className={cn(
-					"text-4xl font-rubik text-white mt-15",
-					teamColor === "green" ? "text-rrgreen" : "text-rrblue",
-				)}
+				className={cn("text-4xl font-rubik text-white mt-15", teamColor === "green" ? "text-rrgreen" : "text-rrblue")}
 			>
 				{teamName}
 			</div>
 			<div className="mx-10 flex flex-row justify-between items-center">
 				{botNames.map((bot) => (
-					<BotPreview
-						key={`${teamName}-${bot}`}
-						bot={bots[bot]}
-						participants={participants}
-						teamColor={teamColor}
-					/>
+					<BotPreview key={`${teamName}-${bot}`} bot={bots[bot]} participants={participants} teamColor={teamColor} />
 				))}
 			</div>
 		</div>
@@ -193,10 +170,9 @@ function RouteComponent() {
 	}
 
 	const { schedule, participants } = data;
-	const numberOfBotsWithIds = [
-		...Object.values(schedule.team1bots),
-		...Object.values(schedule.team2bots),
-	].filter((b) => b?.id).length;
+	const numberOfBotsWithIds = [...Object.values(schedule.team1bots), ...Object.values(schedule.team2bots)].filter(
+		(b) => b?.id,
+	).length;
 
 	return (
 		<div className="flex flex-row h-full gap-x-40 relative">

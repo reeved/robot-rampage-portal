@@ -28,24 +28,12 @@ function RouteComponent() {
 
 	return (
 		<div className="flex flex-col gap-5 p-4">
-			<Link
-				to=".."
-				className="flex items-center gap-2 text-sm text-primary font-heading uppercase"
-			>
+			<Link to=".." className="flex items-center gap-2 text-sm text-primary font-heading uppercase">
 				<ArrowLeft /> Go back
 			</Link>
-			<MatchCard
-				match={match}
-				currentMatchId={currentMatchId}
-				bot1={bot1}
-				bot2={bot2}
-			/>
+			<MatchCard match={match} currentMatchId={currentMatchId} bot1={bot1} bot2={bot2} />
 			<QueueMatchForm match={match} participants={participants} />
-			<ResultForm
-				scheduleId={schedule.id}
-				match={match}
-				participants={participants}
-			/>
+			<ResultForm scheduleId={schedule.id} match={match} participants={participants} />
 		</div>
 	);
 }

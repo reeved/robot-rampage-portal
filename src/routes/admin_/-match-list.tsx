@@ -18,31 +18,18 @@ export const MatchCard = ({
 	return (
 		<Card className={cn("p-2")}>
 			<CardContent className="flex flex-col gap-4 items-center">
-				<p
-					className={cn(
-						"text-sm font-bold",
-						match.id === currentMatchId && "text-green-500",
-					)}
-				>
-					{match.name}
-				</p>
+				<p className={cn("text-sm font-bold", match.id === currentMatchId && "text-green-500")}>{match.name}</p>
 				<div className="flex items-center gap-4">
 					<Badge
 						variant="secondary"
-						className={cn(
-							"text-sm",
-							bot1 && match.winner?.id === bot1.id && "text-amber-400",
-						)}
+						className={cn("text-sm", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
 					>
 						{bot1?.name || "TBD"}
 					</Badge>
 					<p>vs</p>
 					<Badge
 						variant="secondary"
-						className={cn(
-							"text-sm",
-							bot2 && match.winner?.id === bot2.id && "text-amber-400",
-						)}
+						className={cn("text-sm", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
 					>
 						{bot2?.name || "TBD"}
 					</Badge>
@@ -58,11 +45,7 @@ type Props = {
 	currentMatchId: string | undefined;
 };
 
-export const MatchList = ({
-	schedule,
-	participants,
-	currentMatchId,
-}: Props) => {
+export const MatchList = ({ schedule, participants, currentMatchId }: Props) => {
 	return (
 		<>
 			{schedule.matches.map((match) => {
@@ -73,17 +56,8 @@ export const MatchList = ({
 					.filter(Boolean);
 
 				return (
-					<Link
-						to="/admin/mobile/$id/$matchId"
-						params={{ id: schedule.id, matchId: match.id }}
-						key={match.id}
-					>
-						<MatchCard
-							match={match}
-							currentMatchId={currentMatchId}
-							bot1={bot1}
-							bot2={bot2}
-						/>
+					<Link to="/admin/mobile/$id/$matchId" params={{ id: schedule.id, matchId: match.id }} key={match.id}>
+						<MatchCard match={match} currentMatchId={currentMatchId} bot1={bot1} bot2={bot2} />
 					</Link>
 				);
 			})}

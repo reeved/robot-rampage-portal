@@ -1,13 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
@@ -57,8 +50,7 @@ const rankingsQuery = queryOptions({
 
 export const Route = createFileRoute("/admin/rankings/")({
 	component: RouteComponent,
-	loader: async ({ context }) =>
-		context.queryClient.ensureQueryData(rankingsQuery),
+	loader: async ({ context }) => context.queryClient.ensureQueryData(rankingsQuery),
 });
 
 function RouteComponent() {
@@ -71,23 +63,15 @@ function RouteComponent() {
 	const { rankings } = data;
 
 	const getPositionBadge = (position: number) => {
-		if (position === 1)
-			return (
-				<Badge className="bg-yellow-500 text-black font-bold">🥇 1st</Badge>
-			);
-		if (position === 2)
-			return <Badge className="bg-gray-400 text-black font-bold">🥈 2nd</Badge>;
-		if (position === 3)
-			return (
-				<Badge className="bg-amber-600 text-white font-bold">🥉 3rd</Badge>
-			);
+		if (position === 1) return <Badge className="bg-yellow-500 text-black font-bold">🥇 1st</Badge>;
+		if (position === 2) return <Badge className="bg-gray-400 text-black font-bold">🥈 2nd</Badge>;
+		if (position === 3) return <Badge className="bg-amber-600 text-white font-bold">🥉 3rd</Badge>;
 		return <Badge variant="secondary">{position}</Badge>;
 	};
 
 	const getStatusBadge = (participant: Participant) => {
 		if (participant.isDead) return <Badge variant="destructive">DEAD</Badge>;
-		if (!participant.isCompeting)
-			return <Badge variant="outline">NOT COMPETING</Badge>;
+		if (!participant.isCompeting) return <Badge variant="outline">NOT COMPETING</Badge>;
 		return <Badge variant="default">ACTIVE</Badge>;
 	};
 
@@ -95,9 +79,7 @@ function RouteComponent() {
 		<div className="container mx-auto p-6">
 			<div className="mb-6">
 				<h1 className="text-3xl font-bold mb-2">Robot Rampage Rankings</h1>
-				<p className="text-muted-foreground">
-					Current standings based on qualifying round performance
-				</p>
+				<p className="text-muted-foreground">Current standings based on qualifying round performance</p>
 			</div>
 
 			<Card>
@@ -129,14 +111,9 @@ function RouteComponent() {
 								return (
 									<TableRow
 										key={participant.id}
-										className={cn(
-											participant.isDead && "opacity-50",
-											!participant.isCompeting && "opacity-75",
-										)}
+										className={cn(participant.isDead && "opacity-50", !participant.isCompeting && "opacity-75")}
 									>
-										<TableCell className="font-bold">
-											{getPositionBadge(position)}
-										</TableCell>
+										<TableCell className="font-bold">{getPositionBadge(position)}</TableCell>
 										<TableCell className="font-semibold">
 											<div className="flex items-center gap-3">
 												{participant.photo && (
@@ -154,13 +131,9 @@ function RouteComponent() {
 											<span className="font-mono">
 												{qualifyingResults ? (
 													<>
-														<span className="text-green-600 font-bold">
-															{qualifyingResults.wins}W
-														</span>
+														<span className="text-green-600 font-bold">{qualifyingResults.wins}W</span>
 														{" - "}
-														<span className="text-red-600 font-bold">
-															{qualifyingResults.losses}L
-														</span>
+														<span className="text-red-600 font-bold">{qualifyingResults.losses}L</span>
 													</>
 												) : (
 													"0W - 0L"
@@ -170,27 +143,13 @@ function RouteComponent() {
 										<TableCell className="text-center font-mono">
 											{qualifyingResults?.score?.toFixed(5) || "0.00000"}
 										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.winsByKO || 0}
-										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.winsByJD || 0}
-										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.winsByNS || 0}
-										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.lossesByKO || 0}
-										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.lossesByJD || 0}
-										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.lossesByNS || 0}
-										</TableCell>
-										<TableCell className="text-center">
-											{qualifyingResults?.opponentWins || 0}
-										</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.winsByKO || 0}</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.winsByJD || 0}</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.winsByNS || 0}</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.lossesByKO || 0}</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.lossesByJD || 0}</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.lossesByNS || 0}</TableCell>
+										<TableCell className="text-center">{qualifyingResults?.opponentWins || 0}</TableCell>
 										<TableCell>{getStatusBadge(participant)}</TableCell>
 									</TableRow>
 								);
@@ -207,11 +166,7 @@ function RouteComponent() {
 					</CardHeader>
 					<CardContent>
 						<div className="text-2xl font-bold text-green-600">
-							{
-								rankings.filter(
-									(r) => r.participant?.isCompeting && !r.participant?.isDead,
-								).length
-							}
+							{rankings.filter((r) => r.participant?.isCompeting && !r.participant?.isDead).length}
 						</div>
 					</CardContent>
 				</Card>

@@ -1,21 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { DeleteConfirmation } from "@/components/ui/delete-confirmation";
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MatchSchema, type Participant, type Schedule } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -32,9 +19,7 @@ export const deleteMatch = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.object({ id: z.string() }))
 	.handler(async ({ data, context }) => {
-		const schedule = await context.db.schedule.findOne((s) =>
-			s.matches.some((m) => m.id === data.id),
-		);
+		const schedule = await context.db.schedule.findOne((s) => s.matches.some((m) => m.id === data.id));
 
 		if (!schedule) {
 			throw new Error("Schedule not found");
@@ -51,11 +36,7 @@ type Props = {
 	defaultValues: Schedule["matches"][number];
 };
 
-export const QualifyingMatchForm = ({
-	participants,
-	onSubmit,
-	defaultValues,
-}: Props) => {
+export const QualifyingMatchForm = ({ participants, onSubmit, defaultValues }: Props) => {
 	const router = useRouter();
 	const form = useForm<Schedule["matches"][number]>({
 		defaultValues,
@@ -63,10 +44,7 @@ export const QualifyingMatchForm = ({
 	});
 
 	const selectedParticipants = form.watch("participants");
-	const { bot1Videos, bot2Videos } = getBotVideos(
-		participants,
-		selectedParticipants,
-	);
+	const { bot1Videos, bot2Videos } = getBotVideos(participants, selectedParticipants);
 
 	const handleDelete = async () => {
 		await deleteMatch({ data: { id: defaultValues.id } });
@@ -115,8 +93,7 @@ export const QualifyingMatchForm = ({
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel className="text-white">
-										Bot 1{" "}
-										<span className="text-rrorange font-medium">(ORANGE)</span>
+										Bot 1 <span className="text-rrorange font-medium">(ORANGE)</span>
 									</FormLabel>{" "}
 									<FormControl>
 										<Select value={field.value} onValueChange={field.onChange}>
@@ -125,11 +102,7 @@ export const QualifyingMatchForm = ({
 											</SelectTrigger>
 											<SelectContent className="bg-zinc-800 text-white">
 												{participants.map((p) => (
-													<SelectItem
-														key={p.id}
-														value={p.id}
-														className="font-bold"
-													>
+													<SelectItem key={p.id} value={p.id} className="font-bold">
 														{p.name}
 													</SelectItem>
 												))}
@@ -154,11 +127,7 @@ export const QualifyingMatchForm = ({
 											</SelectTrigger>
 											<SelectContent className="bg-zinc-800 text-white">
 												{bot1Videos.map((video) => (
-													<SelectItem
-														key={video}
-														value={video}
-														className="font-bold"
-													>
+													<SelectItem key={video} value={video} className="font-bold">
 														{video}
 													</SelectItem>
 												))}
@@ -178,8 +147,7 @@ export const QualifyingMatchForm = ({
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel className="text-white">
-										Bot 2{" "}
-										<span className="text-rrblue font-medium">(BLUE)</span>
+										Bot 2 <span className="text-rrblue font-medium">(BLUE)</span>
 									</FormLabel>{" "}
 									<FormControl>
 										<Select value={field.value} onValueChange={field.onChange}>
@@ -188,11 +156,7 @@ export const QualifyingMatchForm = ({
 											</SelectTrigger>
 											<SelectContent className="bg-zinc-800 text-white">
 												{participants.map((p) => (
-													<SelectItem
-														key={p.id}
-														value={p.id}
-														className="font-bold"
-													>
+													<SelectItem key={p.id} value={p.id} className="font-bold">
 														{p.name}
 													</SelectItem>
 												))}
@@ -217,11 +181,7 @@ export const QualifyingMatchForm = ({
 											</SelectTrigger>
 											<SelectContent className="bg-zinc-800 text-white">
 												{bot2Videos.map((video) => (
-													<SelectItem
-														key={video}
-														value={video}
-														className="font-bold"
-													>
+													<SelectItem key={video} value={video} className="font-bold">
 														{video}
 													</SelectItem>
 												))}
@@ -234,11 +194,7 @@ export const QualifyingMatchForm = ({
 						/>
 					</div>
 
-					<Button
-						type="submit"
-						variant="default"
-						className="w-full mt-6 py-3 text-lg font-bold"
-					>
+					<Button type="submit" variant="default" className="w-full mt-6 py-3 text-lg font-bold">
 						SAVE
 					</Button>
 				</form>

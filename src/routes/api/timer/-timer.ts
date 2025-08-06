@@ -46,8 +46,7 @@ const startCountdown = () => {
 		if (TimerStore.countdownTimer.currentTime > 0) {
 			TimerStore.countdownTimer.currentTime -= TIME_DECREMENT;
 			// Round to one decimal place to avoid floating point issues
-			TimerStore.countdownTimer.currentTime =
-				Math.round(TimerStore.countdownTimer.currentTime * 10) / 10;
+			TimerStore.countdownTimer.currentTime = Math.round(TimerStore.countdownTimer.currentTime * 10) / 10;
 		} else {
 			// Stop when reaching zero
 			TimerStore.countdownTimer.currentTime = 0;
@@ -88,10 +87,7 @@ export const startTimer = (duration: number) => {
 	}
 
 	// Only start if not already running and has time left
-	if (
-		!TimerStore.countdownTimer.isRunning &&
-		TimerStore.countdownTimer.currentTime > 0
-	) {
+	if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
 		TimerStore.countdownTimer.isRunning = true;
 		startCountdown();
 	}
@@ -121,10 +117,7 @@ export const resetTimer = () => {
 
 export const resumeTimer = () => {
 	// Only resume if not already running and has time left
-	if (
-		!TimerStore.countdownTimer.isRunning &&
-		TimerStore.countdownTimer.currentTime > 0
-	) {
+	if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
 		TimerStore.countdownTimer.isRunning = true;
 		startCountdown();
 	}

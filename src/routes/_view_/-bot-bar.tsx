@@ -36,11 +36,7 @@ type Props = {
 	middleContent?: React.ReactNode;
 };
 
-export const BotBar = ({
-	currentMatch,
-	participants,
-	middleContent,
-}: Props) => {
+export const BotBar = ({ currentMatch, participants, middleContent }: Props) => {
 	if (!currentMatch) {
 		return (
 			<div className="absolute bottom-10 left-60 right-60 flex">

@@ -42,10 +42,7 @@ function fetchTimer<T>(endpoint: string): Promise<T> {
 const timerQuery = () =>
 	queryOptions({
 		queryKey: ["timer"],
-		queryFn: () =>
-			fetchTimer<{ currentTime: number; isRunning: boolean }>(
-				API_ENDPOINTS.get,
-			),
+		queryFn: () => fetchTimer<{ currentTime: number; isRunning: boolean }>(API_ENDPOINTS.get),
 		refetchInterval: 50,
 	});
 
@@ -71,9 +68,7 @@ export const useTimer = (): {
 	};
 };
 
-export const TimeText = ({
-	currentTime,
-}: { currentTime: { minutes: string; seconds: string } }) => {
+export const TimeText = ({ currentTime }: { currentTime: { minutes: string; seconds: string } }) => {
 	return (
 		<div className="font-light font-rubik text-center flex">
 			<div className="w-[1ch]">{currentTime.minutes}</div>
@@ -109,39 +104,19 @@ export const TimerComponent = () => {
 				{displayTime.minutes}:{displayTime.seconds}
 			</div>
 			<div className="flex gap-4">
-				<Button
-					variant="default"
-					onClick={() => handleTimerAction("start")}
-					disabled={data.isRunning}
-				>
+				<Button variant="default" onClick={() => handleTimerAction("start")} disabled={data.isRunning}>
 					Start
 				</Button>
-				<Button
-					variant="default"
-					onClick={() => handleTimerAction("startFrom5")}
-					disabled={data.isRunning}
-				>
+				<Button variant="default" onClick={() => handleTimerAction("startFrom5")} disabled={data.isRunning}>
 					Start From 5
 				</Button>
-				<Button
-					variant="default"
-					onClick={() => handleTimerAction("startFrom130")}
-					disabled={data.isRunning}
-				>
+				<Button variant="default" onClick={() => handleTimerAction("startFrom130")} disabled={data.isRunning}>
 					Start From 1:30
 				</Button>
-				<Button
-					variant="default"
-					onClick={() => handleTimerAction("pause")}
-					disabled={!data.isRunning}
-				>
+				<Button variant="default" onClick={() => handleTimerAction("pause")} disabled={!data.isRunning}>
 					Pause
 				</Button>
-				<Button
-					variant="default"
-					onClick={() => handleTimerAction("resume")}
-					disabled={!canResume}
-				>
+				<Button variant="default" onClick={() => handleTimerAction("resume")} disabled={!canResume}>
 					Resume
 				</Button>
 				<Button variant="default" onClick={() => handleTimerAction("reset")}>

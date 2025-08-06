@@ -1,9 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { Trash2 } from "lucide-react";
 import * as React from "react";
@@ -16,13 +12,7 @@ interface DeleteConfirmationProps {
 	cancelText?: string;
 	variant?: "button" | "icon";
 	buttonText?: string;
-	buttonVariant?:
-		| "default"
-		| "destructive"
-		| "outline"
-		| "secondary"
-		| "ghost"
-		| "link";
+	buttonVariant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
 	buttonSize?: "default" | "sm" | "lg" | "icon";
 	className?: string;
 	disabled?: boolean;
@@ -90,22 +80,10 @@ export function DeleteConfirmation({
 						<p className="text-sm text-muted-foreground">{description}</p>
 					</div>
 					<div className="flex gap-2">
-						<Button
-							variant="outline"
-							size="sm"
-							onClick={handleCancel}
-							disabled={isDeleting}
-							className="flex-1"
-						>
+						<Button variant="outline" size="sm" onClick={handleCancel} disabled={isDeleting} className="flex-1">
 							{cancelText}
 						</Button>
-						<Button
-							variant="destructive"
-							size="sm"
-							onClick={handleDelete}
-							disabled={isDeleting}
-							className="flex-1"
-						>
+						<Button variant="destructive" size="sm" onClick={handleDelete} disabled={isDeleting} className="flex-1">
 							{isDeleting ? (
 								<>
 									<div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />

@@ -1,23 +1,12 @@
 import type { Participant } from "@/db";
 
-export const BotImage = ({
-	src,
-	color,
-}: { src?: string; color: "orange" | "blue" }) => {
+export const BotImage = ({ src, color }: { src?: string; color: "orange" | "blue" }) => {
 	if (!src) {
-		return (
-			<div className="flex-1 w-11/12 mx-auto rounded-3xl animate-breathing" />
-		);
+		return <div className="flex-1 w-11/12 mx-auto rounded-3xl animate-breathing" />;
 	}
 
 	return (
-		<div
-			className={
-				color === "orange"
-					? "flex-1 text-rrorange"
-					: "flex-1 text-rrblue transform -scale-x-100"
-			}
-		>
+		<div className={color === "orange" ? "flex-1 text-rrorange" : "flex-1 text-rrblue transform -scale-x-100"}>
 			<img
 				src={src ? `/${src}` : undefined}
 				className="w-11/12 mx-auto rounded-3xl animate-breathing"
@@ -65,9 +54,7 @@ export const BotInfo = ({ details }: Props) => {
 						transform: "skewX(-20deg)",
 					}}
 				>
-					<div className="text-6xl  uppercase font-rubik">
-						{bot1Info.participant?.name ?? "TBD"}
-					</div>
+					<div className="text-6xl  uppercase font-rubik">{bot1Info.participant?.name ?? "TBD"}</div>
 					{bot1Info.stats && (
 						<div className="mt-4 mb-0">
 							<span className="font-bold flex gap-2 text-4xl">
@@ -102,9 +89,7 @@ export const BotInfo = ({ details }: Props) => {
 						transform: "skewX(20deg)",
 					}}
 				>
-					<div className="text-6xl  uppercase font-rubik">
-						{bot2Info.participant?.name ?? "TBD"}
-					</div>
+					<div className="text-6xl  uppercase font-rubik">{bot2Info.participant?.name ?? "TBD"}</div>
 					{bot2Info.stats && (
 						<div className="mt-4 mb-0">
 							<span className="font-bold flex gap-2 text-4xl">

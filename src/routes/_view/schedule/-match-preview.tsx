@@ -7,16 +7,10 @@ type Props = {
 	currentMatchId: string | undefined;
 };
 
-export const MatchPreview = ({
-	match,
-	participants,
-	currentMatchId,
-}: Props) => {
+export const MatchPreview = ({ match, participants, currentMatchId }: Props) => {
 	const [bot1, bot2] = match.names
 		? match.names.map((name) => ({ id: name, name }))
-		: match.participants.map((bot) =>
-				participants.find((p) => p.id === bot?.id),
-			);
+		: match.participants.map((bot) => participants.find((p) => p.id === bot?.id));
 
 	return (
 		<div className="flex items-center relative">
@@ -26,27 +20,19 @@ export const MatchPreview = ({
 						className={cn(
 							"text-right w-full font-extrabold",
 							bot1 && match.winner?.id === bot1.id && "text-amber-400",
-							bot1 &&
-								match.winner?.id &&
-								match.winner?.id !== bot1.id &&
-								"text-neutral-500",
+							bot1 && match.winner?.id && match.winner?.id !== bot1.id && "text-neutral-500",
 						)}
 					>
 						{bot1?.name ?? "TBD"}
 					</span>
 				</div>
-				<div className="w-[10ch] text-center text-lg text-primary font-rubik">
-					vs
-				</div>
+				<div className="w-[10ch] text-center text-lg text-primary font-rubik">vs</div>
 				<div className="flex flex-1">
 					<span
 						className={cn(
 							"text-left w-full font-extrabold",
 							bot2 && match.winner?.id === bot2.id && "text-amber-400",
-							bot2 &&
-								match.winner?.id &&
-								match.winner?.id !== bot2.id &&
-								"text-neutral-500",
+							bot2 && match.winner?.id && match.winner?.id !== bot2.id && "text-neutral-500",
 						)}
 					>
 						{bot2?.name ?? "TBD"}

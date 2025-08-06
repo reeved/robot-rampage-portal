@@ -1,19 +1,6 @@
 import { Button } from "@/components/ui/button";
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Match, Participant, Schedule } from "@/db";
 import { Vmix } from "@/lib/vmix-api";
 import { dbMiddleware } from "@/middleware";
@@ -48,10 +35,7 @@ const queueSelectedMatch = createServerFn({
 		return true;
 	});
 
-export const getBotVideos = (
-	participants: Participant[],
-	matchParticipants: Match["participants"],
-) => {
+export const getBotVideos = (participants: Participant[], matchParticipants: Match["participants"]) => {
 	const bot1 = participants.find((p) => p.id === matchParticipants[0]?.id);
 	const bot2 = participants.find((p) => p.id === matchParticipants[1]?.id);
 
@@ -68,10 +52,7 @@ type Props = {
 
 export const QueueMatchForm = ({ match, participants }: Props) => {
 	const router = useRouter();
-	const { bot1Videos, bot2Videos, bot1, bot2 } = getBotVideos(
-		participants,
-		match.participants,
-	);
+	const { bot1Videos, bot2Videos, bot1, bot2 } = getBotVideos(participants, match.participants);
 
 	const form = useForm<QueueMatchSchema>({
 		defaultValues: {
@@ -149,12 +130,7 @@ export const QueueMatchForm = ({ match, participants }: Props) => {
 					)}
 				/>
 
-				<Button
-					type="button"
-					onClick={onSubmit}
-					variant="default"
-					className="w-full mt-6 py-3 text-lg font-bold"
-				>
+				<Button type="button" onClick={onSubmit} variant="default" className="w-full mt-6 py-3 text-lg font-bold">
 					QUEUE MATCH
 				</Button>
 			</form>

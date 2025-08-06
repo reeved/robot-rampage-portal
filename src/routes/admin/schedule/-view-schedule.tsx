@@ -51,11 +51,7 @@ export const ViewSchedule = ({
 
 					{schedule.type !== "TEAMS" && (
 						<Link
-							to={
-								schedule.type !== "BRACKET"
-									? "/admin/schedule/$id/new"
-									: "/admin/schedule/$id/newbracket"
-							}
+							to={schedule.type !== "BRACKET" ? "/admin/schedule/$id/new" : "/admin/schedule/$id/newbracket"}
 							params={{ id: schedule.id }}
 						>
 							<Button type="button" variant="default">
@@ -74,11 +70,7 @@ export const ViewSchedule = ({
 				{schedule.type === "TEAMS" ? (
 					<TeamsMatchList schedule={schedule} participants={participants} />
 				) : (
-					<MatchList
-						schedule={schedule}
-						participants={participants}
-						currentMatchId={currentMatchId}
-					/>
+					<MatchList schedule={schedule} participants={participants} currentMatchId={currentMatchId} />
 				)}
 			</div>
 		</div>

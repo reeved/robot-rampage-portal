@@ -14,17 +14,13 @@ const getStatsData = createServerFn({
 		const currentMatchId = evt?.currentMatchId;
 
 		const allSchedules = await context.db.schedule.find(() => true);
-		const schedule = allSchedules.find((s) =>
-			s.matches.some((m) => m.id === currentMatchId),
-		);
+		const schedule = allSchedules.find((s) => s.matches.some((m) => m.id === currentMatchId));
 
 		if (!schedule) {
 			throw redirect({ to: "/schedule" });
 		}
 
-		const currentMatch = schedule.matches.find(
-			(match) => match.id === currentMatchId,
-		);
+		const currentMatch = schedule.matches.find((match) => match.id === currentMatchId);
 
 		if (!currentMatch || !evt) {
 			throw redirect({ to: "/schedule" });
@@ -37,9 +33,7 @@ const getStatsData = createServerFn({
 		return {
 			schedule,
 			currentMatch,
-			participants: currentMatch.participants.map((p) =>
-				participants.find((participant) => participant.id === p.id),
-			),
+			participants: currentMatch.participants.map((p) => participants.find((participant) => participant.id === p.id)),
 			rankings: evt.rankings,
 			qualifyingResults: evt.qualifyingResults,
 		};
@@ -53,8 +47,7 @@ const statsQuery = queryOptions({
 
 export const Route = createFileRoute("/_view/stats/")({
 	component: RouteComponent,
-	loader: async ({ context }) =>
-		context.queryClient.ensureQueryData(statsQuery),
+	loader: async ({ context }) => context.queryClient.ensureQueryData(statsQuery),
 	ssr: false,
 });
 
@@ -65,15 +58,12 @@ function RouteComponent() {
 		return null;
 	}
 
-	const { schedule, currentMatch, participants, rankings, qualifyingResults } =
-		data;
+	const { schedule, currentMatch, participants, rankings, qualifyingResults } = data;
 
 	return (
 		<div className="h-full w-full flex flex-col justify-start items-center p-4 pb-14">
 			{schedule.type !== "QUALIFYING" && (
-				<h2 className="mx-auto text-3xl font-heading text-center text-primary uppercase">
-					{currentMatch.name}
-				</h2>
+				<h2 className="mx-auto text-3xl font-heading text-center text-primary uppercase">{currentMatch.name}</h2>
 			)}
 			<div className="flex-1 flex gap-10 pt-10 relative items-center">
 				<BotImage src={participants[0]?.photo} color="orange" />
@@ -85,15 +75,13 @@ function RouteComponent() {
 					details={[
 						{
 							participant: participants[0],
-							rank: rankings.find((r) => r.id === participants[0]?.id)
-								?.position,
+							rank: rankings.find((r) => r.id === participants[0]?.id)?.position,
 							stats: participants[0] && qualifyingResults[participants[0].id],
 							color: "orange",
 						},
 						{
 							participant: participants[1],
-							rank: rankings.find((r) => r.id === participants[1]?.id)
-								?.position,
+							rank: rankings.find((r) => r.id === participants[1]?.id)?.position,
 							stats: participants[1] && qualifyingResults[participants[1].id],
 							color: "blue",
 						},

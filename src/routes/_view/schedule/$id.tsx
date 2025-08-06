@@ -39,8 +39,7 @@ const scheduleQuery = (id: string) =>
 
 export const Route = createFileRoute("/_view/schedule/$id")({
 	component: RouteComponent,
-	loader: async ({ params, context }) =>
-		context.queryClient.ensureQueryData(scheduleQuery(params.id)),
+	loader: async ({ params, context }) => context.queryClient.ensureQueryData(scheduleQuery(params.id)),
 });
 
 function RouteComponent() {
@@ -55,42 +54,23 @@ function RouteComponent() {
 		);
 	}
 
-	const {
-		schedule,
-		participants,
-		currentMatchId,
-		rankings,
-		qualifyingResults,
-	} = data;
+	const { schedule, participants, currentMatchId, rankings, qualifyingResults } = data;
 
 	return (
 		<div className="w-9/12 h-full mx-auto p-4 pb-10">
 			<div className="h-full grid md:grid-cols-5 gap-20 b-10">
 				{/* Left side: Score Tracker */}
 				<div className="md:col-span-2 flex flex-col gap-4">
-					<h2 className="text-3xl font-heading text-center text-primary">
-						BOT RANKINGS
-					</h2>
-					<Rankings
-						rankings={rankings}
-						qualifyingResults={qualifyingResults}
-						participants={participants}
-					/>
+					<h2 className="text-3xl font-heading text-center text-primary">BOT RANKINGS</h2>
+					<Rankings rankings={rankings} qualifyingResults={qualifyingResults} participants={participants} />
 				</div>
 
 				{/* Right side: Schedule */}
 				<div className="md:col-span-3 gap-y-4 flex flex-col">
-					<h2 className="text-3xl font-heading text-center text-primary">
-						MATCH SCHEDULE
-					</h2>
+					<h2 className="text-3xl font-heading text-center text-primary">MATCH SCHEDULE</h2>
 					<div className="gap-y-4 flex flex-col">
 						{schedule?.matches.map((match) => (
-							<MatchPreview
-								key={match.id}
-								match={match}
-								participants={participants}
-								currentMatchId={currentMatchId}
-							/>
+							<MatchPreview key={match.id} match={match} participants={participants} currentMatchId={currentMatchId} />
 						))}
 					</div>
 				</div>

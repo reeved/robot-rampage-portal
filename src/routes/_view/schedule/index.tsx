@@ -23,11 +23,7 @@ function RouteComponent() {
 		<div className="w-full max-w-[1200px] mx-auto p-4">
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 				{schedules.map((schedule) => (
-					<Link
-						key={schedule.id}
-						to={"/schedule/$id"}
-						params={{ id: schedule.id }}
-					>
+					<Link key={schedule.id} to={"/schedule/$id"} params={{ id: schedule.id }}>
 						<Card className="hover:bg-muted transition-colors cursor-pointer h-full">
 							<CardHeader>
 								<CardTitle>{schedule.name}</CardTitle>
@@ -37,8 +33,7 @@ function RouteComponent() {
 									Type: <span className="font-medium">{schedule.type}</span>
 								</div>
 								<div className="text-sm text-muted-foreground">
-									{schedule.matches.length}{" "}
-									{schedule.matches.length === 1 ? "match" : "matches"}
+									{schedule.matches.length} {schedule.matches.length === 1 ? "match" : "matches"}
 								</div>
 							</CardContent>
 						</Card>
@@ -46,9 +41,7 @@ function RouteComponent() {
 				))}
 
 				{schedules.length === 0 && (
-					<p className="col-span-full text-center text-muted-foreground italic">
-						No schedules available
-					</p>
+					<p className="col-span-full text-center text-muted-foreground italic">No schedules available</p>
 				)}
 			</div>
 			<Outlet />

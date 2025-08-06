@@ -12,9 +12,7 @@ function RouteComponent() {
 
 	return (
 		<div className="flex flex-col p-4 gap-4">
-			<h1 className="text-primary font-heading text-xl text-center">
-				ROBOT RAMPAGE PORTAL
-			</h1>
+			<h1 className="text-primary font-heading text-xl text-center">ROBOT RAMPAGE PORTAL</h1>
 			{schedules.map((s) => (
 				<Link
 					to="/admin/mobile/$id"

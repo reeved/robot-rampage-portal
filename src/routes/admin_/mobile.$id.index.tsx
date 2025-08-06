@@ -13,17 +13,10 @@ function RouteComponent() {
 
 	return (
 		<div className="w-full flex flex-col gap-4 p-4">
-			<Link
-				to=".."
-				className="flex items-center gap-2 text-sm text-primary font-heading uppercase"
-			>
+			<Link to=".." className="flex items-center gap-2 text-sm text-primary font-heading uppercase">
 				<ArrowLeft /> Go back
 			</Link>
-			<MatchList
-				schedule={schedule}
-				participants={participants}
-				currentMatchId={currentMatchId}
-			/>
+			<MatchList schedule={schedule} participants={participants} currentMatchId={currentMatchId} />
 		</div>
 	);
 }

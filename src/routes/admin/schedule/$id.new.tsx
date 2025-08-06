@@ -16,10 +16,7 @@ function RouteComponent() {
 	const { schedule, participants } = Route.useLoaderData();
 
 	const handleUpdate = async (data: Schedule["matches"][number]) => {
-		const updatedMatches = [
-			...schedule.matches,
-			{ ...data, id: generateId("match") },
-		];
+		const updatedMatches = [...schedule.matches, { ...data, id: generateId("match") }];
 
 		await updateSchedule({
 			...schedule,

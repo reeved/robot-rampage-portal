@@ -38,9 +38,7 @@ function RouteComponent() {
 				))}
 
 				{bracketNames.length === 0 && (
-					<p className="col-span-full text-center text-muted-foreground italic">
-						No brackets available
-					</p>
+					<p className="col-span-full text-center text-muted-foreground italic">No brackets available</p>
 				)}
 			</div>
 		</div>
