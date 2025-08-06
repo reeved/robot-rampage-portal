@@ -2,11 +2,7 @@ import * as fs from "node:fs";
 import path from "node:path";
 import type * as z from "zod";
 
-export class FileDB<
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	Schema extends z.ZodTypeAny,
-	RecordType = z.infer<Schema>,
-> {
+export class FileDB<Schema extends z.ZodTypeAny, RecordType = z.infer<Schema>> {
 	private filePath: string;
 	private schema: Schema;
 
@@ -50,19 +46,14 @@ export class FileDB<
 		return data.filter(filterFn);
 	}
 
-	async findOne<T = RecordType>(
-		filterFn: (record: RecordType) => boolean,
-	): Promise<T | null> {
+	async findOne<T = RecordType>(filterFn: (record: RecordType) => boolean): Promise<T | null> {
 		const data = await this.readData();
 		const result = data.find(filterFn);
 		return result ? (result as T) : null;
 	}
 
 	// Update a single record based on a filter function
-	async updateOne(
-		filterFn: (record: RecordType) => boolean,
-		updates: Partial<RecordType>,
-	): Promise<boolean> {
+	async updateOne(filterFn: (record: RecordType) => boolean, updates: Partial<RecordType>): Promise<boolean> {
 		const data = await this.readData();
 		const index = data.findIndex(filterFn);
 
@@ -75,10 +66,7 @@ export class FileDB<
 	}
 
 	// Update multiple records based on a filter function
-	async updateMany(
-		filterFn: (record: RecordType) => boolean,
-		updates: Partial<RecordType>,
-	): Promise<number> {
+	async updateMany(filterFn: (record: RecordType) => boolean, updates: Partial<RecordType>): Promise<number> {
 		const data = await this.readData();
 		let updatedCount = 0;
 
