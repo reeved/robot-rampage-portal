@@ -1,9 +1,4 @@
-import {
-	type BracketMatch,
-	type QualifyingMatch,
-	type Schedule,
-	ScheduleSchema,
-} from "@/db";
+import { type Schedule, ScheduleSchema } from "@/db";
 import { dbMiddleware } from "@/middleware";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
@@ -42,14 +37,12 @@ function RouteComponent() {
 	const match = schedule.matches.find((match) => match.id === matchId);
 
 	const handleUpdate = async (data: Schedule["matches"][number]) => {
-		const updatedMatches = schedule.matches.map(
-			(match): Schedule["matches"][number] => {
-				if (match.id === data.id) {
-					return { ...match, ...data };
-				}
-				return match;
-			},
-		);
+		const updatedMatches = schedule.matches.map((match): Schedule["matches"][number] => {
+			if (match.id === data.id) {
+				return { ...match, ...data };
+			}
+			return match;
+		});
 
 		await updateSchedule({
 			...schedule,
@@ -68,11 +61,7 @@ function RouteComponent() {
 	return (
 		<div key={matchId} className="flex flex-col gap-y-6">
 			{schedule.type === "QUALIFYING" || schedule.type === "EXHIBITION" ? (
-				<QualifyingMatchForm
-					participants={participants}
-					onSubmit={handleUpdate}
-					defaultValues={match}
-				/>
+				<QualifyingMatchForm participants={participants} onSubmit={handleUpdate} defaultValues={match} />
 			) : schedule.type === "BRACKET" ? (
 				<BracketMatchForm
 					bracketNames={bracketNames}
@@ -84,11 +73,7 @@ function RouteComponent() {
 
 			<div className="flex gap-10">
 				<QueueMatchForm match={match} participants={participants} />
-				<ResultForm
-					scheduleId={schedule.id}
-					match={match}
-					participants={participants}
-				/>
+				<ResultForm scheduleId={schedule.id} match={match} participants={participants} />
 			</div>
 		</div>
 	);

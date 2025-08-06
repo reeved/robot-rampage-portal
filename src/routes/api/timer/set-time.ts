@@ -1,9 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router'
+// import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/api/timer/set-time')({
-  component: RouteComponent,
-})
+// export const Route = createFileRoute("/api/timer/set-time")({
+// 	component: RouteComponent,
+// });
 
-function RouteComponent() {
-  return <div>Hello "/api/timer/set-time"!</div>
-}
+// function RouteComponent() {
+//   return <div>Hello "/api/timer/set-time"!</div>
+// }

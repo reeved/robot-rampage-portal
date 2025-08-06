@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "motion/react";
 import type { PropsWithChildren } from "react";
 
 export const TimerMiniPreview = ({ children }: PropsWithChildren) => {

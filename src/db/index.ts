@@ -98,7 +98,6 @@ export const BracketScheduleSchema = z.object({
 	id: z.string(),
 	name: z.string(),
 	matches: z.array(BracketMatchSchema),
-	bracketSize: z.union([z.literal(4), z.literal(8)]),
 });
 
 export const ScheduleSchema = z.discriminatedUnion("type", [

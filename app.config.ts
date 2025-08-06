@@ -1,8 +1,9 @@
+// @ts-ignore 
 import { defineConfig } from "@tanstack/react-start/config";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 
-import { env } from "./src/env";
+// import { env } from "./src/env";
 
 const config = defineConfig({
   // server: {
@@ -22,7 +23,7 @@ const config = defineConfig({
       tailwindcss(),
       {
         name: 'ignore-database-updates',
-        handleHotUpdate({ file }) {
+        handleHotUpdate({ file }: { file: string }) {
           if (file.includes('database/')) {
             return []; // prevent reload
           }

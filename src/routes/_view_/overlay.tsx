@@ -20,9 +20,7 @@ const getMatchData = createServerFn({
 		const currentMatchId = event?.currentMatchId;
 		const allMatches = allSchedules.flatMap((schedule) => schedule.matches);
 
-		const currentMatch = allMatches.find(
-			(match) => match.id === currentMatchId,
-		);
+		const currentMatch = allMatches.find((match) => match.id === currentMatchId);
 		const participants = await context.db.participants.find(
 			(p) => !!currentMatch?.participants.some((part) => part.id === p.id),
 		);
@@ -60,7 +58,7 @@ const Overlay = ({ children }: PropsWithChildren) => {
 	);
 };
 
-const getComponentToShow = (isRunning: boolean, timeLeft: number) => {
+const getComponentToShow = (_isRunning: boolean, timeLeft: number) => {
 	if (timeLeft > 80 || timeLeft === 0) {
 		return "bar";
 	}
@@ -86,8 +84,7 @@ const getComponentToShow = (isRunning: boolean, timeLeft: number) => {
 
 export const Route = createFileRoute("/_view_/overlay")({
 	component: RouteComponent,
-	loader: async ({ context }) =>
-		context.queryClient.ensureQueryData(scheduleQuery),
+	loader: async ({ context }) => context.queryClient.ensureQueryData(scheduleQuery),
 });
 
 function RouteComponent() {

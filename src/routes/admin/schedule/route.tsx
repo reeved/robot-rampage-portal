@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { BracketScheduleSchema, type Schedule } from "@/db";
+import type { Schedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { Link, Outlet, createFileRoute, useRouter } from "@tanstack/react-router";
@@ -38,47 +38,46 @@ const generateNewQualifying = createServerFn({
 		return newQualifying;
 	});
 
-const getRoundForMatch = (matchIndex: number, bracketSize: 4 | 8) => {
-	if (bracketSize === 8) {
-		if (matchIndex < 4) {
-			return `QF${matchIndex + 1}`;
-		}
-		if (matchIndex < 6) {
-			return `SF${matchIndex - 3}`;
-		}
-		return "Final";
-	}
+// const getRoundForMatch = (matchIndex: number, bracketSize: 4 | 8) => {
+// 	if (bracketSize === 8) {
+// 		if (matchIndex < 4) {
+// 			return `QF${matchIndex + 1}`;
+// 		}
+// 		if (matchIndex < 6) {
+// 			return `SF${matchIndex - 3}`;
+// 		}
+// 		return "Final";
+// 	}
 
-	if (matchIndex < 2) {
-		return `SF${matchIndex + 1}`;
-	}
-	return "Final";
-};
+// 	if (matchIndex < 2) {
+// 		return `SF${matchIndex + 1}`;
+// 	}
+// 	return "Final";
+// };
 
 const generateNewBracket = createServerFn({
 	method: "POST",
 })
 	.middleware([dbMiddleware])
-	.validator(BracketScheduleSchema.pick({ bracketSize: true }))
-	.handler(async ({ context, data }) => {
+	.handler(async ({ context }) => {
 		const existingBrackets = await context.db.schedule.find((s) => s.type === "BRACKET");
 
 		const newBracket: Schedule = {
 			id: generateId("schedule"),
 			type: "BRACKET",
-			// generate placeholder matches based on bracket size
-			matches: Array.from({ length: data.bracketSize === 8 ? 7 : 3 }, (_, i) => ({
-				id: generateId("match"),
-				bracket: "Championship",
-				round: getRoundForMatch(i, data.bracketSize) as any,
-				name: `Match ${i + 1}`,
-				participants: [
-					{ id: undefined, videoName: undefined },
-					{ id: undefined, videoName: undefined },
-				],
-			})),
+			matches: [],
+			// // generate placeholder matches based on bracket size
+			// matches: Array.from({ length: data.bracketSize === 8 ? 7 : 3 }, (_, i) => ({
+			// 	id: generateId("match"),
+			// 	bracket: "Championship",
+			// 	round: getRoundForMatch(i, data.bracketSize) as any,
+			// 	name: `Match ${i + 1}`,
+			// 	participants: [
+			// 		{ id: undefined, videoName: undefined },
+			// 		{ id: undefined, videoName: undefined },
+			// 	],
+			// })),
 			name: `Bracket ${existingBrackets.length + 1}`,
-			bracketSize: data.bracketSize,
 		};
 		context.db.schedule.insert(newBracket);
 		return newBracket;
@@ -135,8 +134,8 @@ function RouteComponent() {
 		router.invalidate();
 	};
 
-	const addNewBracket = (bracketSize: 4 | 8) => {
-		generateNewBracket({ data: { bracketSize } });
+	const addNewBracket = () => {
+		generateNewBracket();
 		router.invalidate();
 	};
 
@@ -154,7 +153,7 @@ function RouteComponent() {
 		<div className="flex h-full flex-1">
 			<div className="w-2/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
 				<div className="flex flex-wrap flex-col items-center gap-2 justify-between w-full px-4">
-					<h4 className="text-2xl font-bold">Schedules</h4>
+					<h4 className="text-2xl font-bold">Sessions</h4>
 					<div className="flex flex-wrap w-full gap-2">
 						<Button variant="default" onClick={addNewQualifying}>
 							Add new Quali +
@@ -165,11 +164,8 @@ function RouteComponent() {
 						<Button variant="default" onClick={addNewExhibition}>
 							Add new Exhibition +
 						</Button>
-						<Button variant="default" onClick={() => addNewBracket(8)}>
-							Add new 8 bot Bracket +
-						</Button>
-						<Button variant="default" onClick={() => addNewBracket(4)}>
-							Add new 4 bot Bracket +
+						<Button variant="default" onClick={() => addNewBracket()}>
+							Add new Bracket +
 						</Button>
 					</div>
 				</div>

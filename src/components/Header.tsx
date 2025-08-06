@@ -8,7 +8,7 @@ export default function Header() {
 					<Link to="/admin/participants">Participants</Link>
 				</div>
 				<div className="px-2 font-bold text-foreground">
-					<Link to="/admin/schedule">Schedule</Link>
+					<Link to="/admin/schedule">Sessions</Link>
 				</div>
 				<div className="px-2 font-bold text-foreground">
 					<Link to="/admin/rankings">Rankings</Link>

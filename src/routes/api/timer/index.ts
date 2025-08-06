@@ -1,9 +1,9 @@
 import { json } from "@tanstack/react-start";
 import { createServerFileRoute } from "@tanstack/react-start/server";
-import { TimerStore, getTimerStatus } from "./-timer";
+import { TimerStore } from "./-timer";
 
 export const ServerRoute = createServerFileRoute("/api/timer/").methods({
-	GET: async ({ request, params }) => {
+	GET: async () => {
 		return json(TimerStore.countdownTimer);
 	},
 });

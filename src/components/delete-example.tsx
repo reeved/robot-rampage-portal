@@ -1,5 +1,4 @@
 import { DeleteConfirmation } from "@/components/ui/delete-confirmation";
-import React from "react";
 
 export function DeleteExample() {
 	const handleDelete = async () => {

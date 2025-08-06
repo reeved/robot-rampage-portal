@@ -1,13 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { dbMiddleware } from "@/middleware";
-import {
-	Link,
-	Outlet,
-	createFileRoute,
-	useRouter,
-} from "@tanstack/react-router";
+import { Link, Outlet, createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 const getParticipants = createServerFn({
@@ -64,9 +58,7 @@ function RouteComponent() {
 										<span className="flex-1 flex justify-end items-end gap-4">
 											{p.isDead && <Badge variant="destructive">Dead</Badge>}
 
-											{!p.isCompeting && (
-												<Badge variant="destructive">Not competing</Badge>
-											)}
+											{!p.isCompeting && <Badge variant="destructive">Not competing</Badge>}
 										</span>
 									</>
 								</Link>
@@ -77,17 +69,10 @@ function RouteComponent() {
 					{participants
 						.filter((p) => p.type === "HEAVYWEIGHT")
 						.map((p) => (
-							<Button
-								asChild
-								key={p.id}
-								variant="secondary"
-								className="px-4 py-4 rounded-sm  self-stretch mx-4"
-							>
+							<Button asChild key={p.id} variant="secondary" className="px-4 py-4 rounded-sm  self-stretch mx-4">
 								<Link to="/admin/participants/$id" params={{ id: p.id }}>
 									<>
-										{(!p.weapon || !p.weight || !p.photo || !p.builders) && (
-											<span>(*)</span>
-										)}
+										{(!p.weapon || !p.weight || !p.photo || !p.builders) && <span>(*)</span>}
 										{p.name}
 									</>
 								</Link>

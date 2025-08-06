@@ -13,11 +13,7 @@ import {
 	useSensor,
 	useSensors,
 } from "@dnd-kit/core";
-import {
-	SortableContext,
-	useSortable,
-	verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
+import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Link, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
@@ -37,9 +33,7 @@ export const updateMatchOrderFn = createServerFn({
 		}),
 	)
 	.handler(async ({ data, context }) => {
-		const schedule = await context.db.schedule.findOne(
-			(s) => s.id === data.scheduleId,
-		);
+		const schedule = await context.db.schedule.findOne((s) => s.id === data.scheduleId);
 		if (!schedule) {
 			throw new Error("Schedule not found");
 		}
@@ -52,8 +46,7 @@ export const updateMatchOrderFn = createServerFn({
 			}
 			return {
 				...match,
-				name:
-					schedule.type === "QUALIFYING" ? `Match ${index + 1}` : match.name,
+				name: schedule.type === "QUALIFYING" ? `Match ${index + 1}` : match.name,
 			};
 		});
 
@@ -79,14 +72,7 @@ const SortableListItem = ({
 	currentMatchId: string | undefined;
 }) => {
 	const hasWinner = match.winner !== undefined;
-	const {
-		attributes,
-		listeners,
-		setNodeRef,
-		transform,
-		transition,
-		isDragging,
-	} = useSortable({
+	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
 		id: match.id,
 		disabled: hasWinner,
 	});
@@ -100,43 +86,23 @@ const SortableListItem = ({
 		<div
 			ref={setNodeRef}
 			style={style}
-			className={cn(
-				"relative group",
-				isDragging && "opacity-50",
-				hasWinner && "opacity-60",
-			)}
+			className={cn("relative group", isDragging && "opacity-50", hasWinner && "opacity-60")}
 		>
-			<Link
-				to="/admin/schedule/$id/$matchId"
-				params={{ id: schedule.id, matchId: match.id }}
-			>
+			<Link to="/admin/schedule/$id/$matchId" params={{ id: schedule.id, matchId: match.id }}>
 				<Card className={cn("p-2")}>
 					<CardContent className="flex gap-4 items-center">
-						<p
-							className={cn(
-								"text-lg font-bold",
-								match.id === currentMatchId && "text-green-500",
-							)}
-						>
-							{match.name}
-						</p>
+						<p className={cn("text-lg font-bold", match.id === currentMatchId && "text-green-500")}>{match.name}</p>
 						<div className="flex items-center gap-4">
 							<Badge
 								variant="secondary"
-								className={cn(
-									"text-lg",
-									bot1 && match.winner?.id === bot1.id && "text-amber-400",
-								)}
+								className={cn("text-lg", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
 							>
 								{bot1?.name || "TBD"}
 							</Badge>
 							<p>vs</p>
 							<Badge
 								variant="secondary"
-								className={cn(
-									"text-lg",
-									bot2 && match.winner?.id === bot2.id && "text-amber-400",
-								)}
+								className={cn("text-lg", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
 							>
 								{bot2?.name || "TBD"}
 							</Badge>
@@ -172,31 +138,18 @@ const DraggingListItem = ({
 	return (
 		<Card className="p-2 shadow-lg">
 			<CardContent className="flex gap-4 items-center">
-				<p
-					className={cn(
-						"text-lg font-bold",
-						match.id === currentMatchId && "text-green-500",
-					)}
-				>
-					{match.name}
-				</p>
+				<p className={cn("text-lg font-bold", match.id === currentMatchId && "text-green-500")}>{match.name}</p>
 				<div className="flex items-center gap-4">
 					<Badge
 						variant="secondary"
-						className={cn(
-							"text-lg",
-							bot1 && match.winner?.id === bot1.id && "text-amber-400",
-						)}
+						className={cn("text-lg", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
 					>
 						{bot1?.name || "TBD"}
 					</Badge>
 					<p>vs</p>
 					<Badge
 						variant="secondary"
-						className={cn(
-							"text-lg",
-							bot2 && match.winner?.id === bot2.id && "text-amber-400",
-						)}
+						className={cn("text-lg", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
 					>
 						{bot2?.name || "TBD"}
 					</Badge>
@@ -243,7 +196,7 @@ export const MatchList = ({
 
 		if (over && active.id !== over.id) {
 			const draggedMatch = optimisticMatches.find((m) => m.id === active.id);
-			const targetMatch = optimisticMatches.find((m) => m.id === over.id);
+			// const targetMatch = optimisticMatches.find((m) => m.id === over.id);
 
 			// Prevent dragging matches with winners
 			if (draggedMatch?.winner) {
@@ -256,9 +209,7 @@ export const MatchList = ({
 
 			// Check if there are any completed matches above the target position
 			// We want to prevent dropping above completed matches
-			const completedMatchesAbove = optimisticMatches
-				.slice(targetIndex)
-				.filter((m) => m.winner);
+			const completedMatchesAbove = optimisticMatches.slice(targetIndex).filter((m) => m.winner);
 
 			// If there are completed matches above the target, prevent the drop
 			if (completedMatchesAbove.length > 0) {
@@ -296,14 +247,10 @@ export const MatchList = ({
 		setActiveId(null);
 	};
 
-	const activeMatch = activeId
-		? optimisticMatches.find((m) => m.id === activeId)
-		: null;
+	const activeMatch = activeId ? optimisticMatches.find((m) => m.id === activeId) : null;
 
 	const activeMatchBots = activeMatch
-		? activeMatch.participants
-				.map((p) => participants.find((part) => part.id === p.id))
-				.filter(Boolean)
+		? activeMatch.participants.map((p) => participants.find((part) => part.id === p.id)).filter(Boolean)
 		: [];
 
 	// Use default collision detection for better drag experience
@@ -316,10 +263,7 @@ export const MatchList = ({
 			onDragStart={handleDragStart}
 			onDragEnd={handleDragEnd}
 		>
-			<SortableContext
-				items={optimisticMatches.map((m) => m.id)}
-				strategy={verticalListSortingStrategy}
-			>
+			<SortableContext items={optimisticMatches.map((m) => m.id)} strategy={verticalListSortingStrategy}>
 				<div className="space-y-2">
 					{optimisticMatches.map((match) => {
 						const [bot1, bot2] = match.participants

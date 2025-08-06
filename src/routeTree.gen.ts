@@ -26,7 +26,6 @@ import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-ma
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
 import { Route as ViewBracketIndexRouteImport } from './routes/_view/bracket/index'
-import { Route as ApiTimerSetTimeRouteImport } from './routes/api/timer/set-time'
 import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id'
 import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdRouteImport } from './routes/admin/participants/$id'
@@ -120,11 +119,6 @@ const ViewBracketIndexRoute = ViewBracketIndexRouteImport.update({
   id: '/bracket/',
   path: '/bracket/',
   getParentRoute: () => ViewRouteRoute,
-} as any)
-const ApiTimerSetTimeRoute = ApiTimerSetTimeRouteImport.update({
-  id: '/api/timer/set-time',
-  path: '/api/timer/set-time',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminScheduleIdRoute = AdminScheduleIdRouteImport.update({
   id: '/$id',
@@ -228,7 +222,6 @@ export interface FileRoutesByFullPath {
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
-  '/api/timer/set-time': typeof ApiTimerSetTimeRoute
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
@@ -254,7 +247,6 @@ export interface FileRoutesByTo {
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
-  '/api/timer/set-time': typeof ApiTimerSetTimeRoute
   '/bracket': typeof ViewBracketIndexRoute
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
@@ -284,7 +276,6 @@ export interface FileRoutesById {
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
-  '/api/timer/set-time': typeof ApiTimerSetTimeRoute
   '/_view/bracket/': typeof ViewBracketIndexRoute
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
@@ -314,7 +305,6 @@ export interface FileRouteTypes {
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
-    | '/api/timer/set-time'
     | '/bracket'
     | '/schedule/'
     | '/stats'
@@ -340,7 +330,6 @@ export interface FileRouteTypes {
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
-    | '/api/timer/set-time'
     | '/bracket'
     | '/schedule'
     | '/stats'
@@ -369,7 +358,6 @@ export interface FileRouteTypes {
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/schedule/$id'
-    | '/api/timer/set-time'
     | '/_view/bracket/'
     | '/_view/schedule/'
     | '/_view/stats/'
@@ -388,7 +376,6 @@ export interface RootRouteChildren {
   ViewRouteRoute: typeof ViewRouteRouteWithChildren
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   ViewOverlayRoute: typeof ViewOverlayRoute
-  ApiTimerSetTimeRoute: typeof ApiTimerSetTimeRoute
   AdminMobileIndexRoute: typeof AdminMobileIndexRoute
   AdminMobileIdMatchIdRoute: typeof AdminMobileIdMatchIdRoute
   AdminMobileIdIndexRoute: typeof AdminMobileIdIndexRoute
@@ -560,13 +547,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/bracket'
       preLoaderRoute: typeof ViewBracketIndexRouteImport
       parentRoute: typeof ViewRouteRoute
-    }
-    '/api/timer/set-time': {
-      id: '/api/timer/set-time'
-      path: '/api/timer/set-time'
-      fullPath: '/api/timer/set-time'
-      preLoaderRoute: typeof ApiTimerSetTimeRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/admin/schedule/$id': {
       id: '/admin/schedule/$id'
@@ -806,7 +786,6 @@ const rootRouteChildren: RootRouteChildren = {
   ViewRouteRoute: ViewRouteRouteWithChildren,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   ViewOverlayRoute: ViewOverlayRoute,
-  ApiTimerSetTimeRoute: ApiTimerSetTimeRoute,
   AdminMobileIndexRoute: AdminMobileIndexRoute,
   AdminMobileIdMatchIdRoute: AdminMobileIdMatchIdRoute,
   AdminMobileIdIndexRoute: AdminMobileIdIndexRoute,
