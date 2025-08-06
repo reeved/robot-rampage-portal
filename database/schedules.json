@@ -668,7 +668,7 @@
           }
         ],
         "winner": {
-          "id": "part-uov2lni",
+          "id": "",
           "condition": "KO"
         },
         "type": "QUALIFYING"
@@ -686,10 +686,7 @@
           }
         ],
         "type": "QUALIFYING",
-        "winner": {
-          "id": "part-hh5ch23",
-          "condition": "KO"
-        }
+        "winner": {}
       },
       {
         "id": "match-7xyc7fs",

@@ -116,7 +116,11 @@ function RouteComponent() {
 											to={"/admin/rankings/$id"}
 											params={{ id: participant.id }}
 											key={participant.id}
-											className={cn(participant.isDead && "opacity-50", !participant.isCompeting && "opacity-75")}
+											className={cn(
+												"cursor-pointer",
+												participant.isDead && "opacity-50",
+												!participant.isCompeting && "opacity-75",
+											)}
 										>
 											<TableCell className="font-bold">{getPositionBadge(position)}</TableCell>
 											<TableCell className="font-semibold">
