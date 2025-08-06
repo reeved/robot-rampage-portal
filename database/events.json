@@ -2,10 +2,6 @@
   {
     "id": "may",
     "currentMatchId": "teams-match-98bw08q",
-    "bracketNames": [
-      "Championship",
-      "Bottom 16"
-    ],
     "qualifyingResults": {
       "part-04xspbq": {
         "wins": 0,
@@ -338,6 +334,16 @@
         "id": "part-04xspbq",
         "position": 16
       }
+    ],
+    "brackets": [
+      {
+        "name": "Championship",
+        "size": 8
+      },
+      {
+        "name": "Bottom 16",
+        "size": 8
+      }
     ]
   },
   {
@@ -348,6 +354,16 @@
       "9th Place"
     ],
     "qualifyingResults": {},
-    "rankings": []
+    "rankings": [],
+    "brackets": [
+      {
+        "name": "Championship",
+        "size": 8
+      },
+      {
+        "name": "Bottom 16",
+        "size": 8
+      }
+    ]
   }
 ]

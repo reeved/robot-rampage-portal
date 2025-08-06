@@ -111,19 +111,27 @@ const getBracketMatches = createServerFn({
 	.middleware([dbMiddleware])
 	.validator(z.string())
 	.handler(async ({ context, data: bracketName }) => {
-		const bracketSchedule = await context.db.schedule.findOne(({ type }) => type === "BRACKET");
+		const event = await context.db.events.findOne((e) => e.id === "may");
+		const bracketSchedules = (await context.db.schedule.find(({ type }) => type === "BRACKET")).filter(
+			({ matches, type }) => type === "BRACKET" && matches.some((m) => m.bracket === bracketName),
+		);
+		const bracketConfig = event?.brackets.find((b) => b.name === bracketName);
 
-		if (!bracketSchedule || bracketSchedule.type !== "BRACKET") {
+		if (!bracketSchedules || !bracketConfig) {
+			console.log("BRACKET NAME", bracketName, bracketConfig);
 			throw new Error("Bracket schedule not found");
 		}
 
 		const participants = await context.db.participants.find(() => true);
 
-		const bracketMatches = bracketSchedule.matches.filter((match) => match.bracket === bracketName);
+		const bracketMatches = bracketSchedules
+			.filter((b) => b.type === "BRACKET")
+			.flatMap((schedule) => schedule.matches)
+			.filter((m) => m.bracket === bracketName);
 
 		console.log("BRACKET NAME", bracketName, bracketMatches);
 
-		const boxes = getBracketBoxes(bracketSchedule.bracketSize, bracketMatches, participants);
+		const boxes = getBracketBoxes(bracketConfig.size, bracketMatches, participants);
 
 		return { boxes, bracketName };
 	});

@@ -18,7 +18,7 @@ export const getSchedule = createServerFn({
 			throw redirect({ to: "/admin/schedule" });
 		}
 
-		const bracketNames = event.bracketNames;
+		const bracketNames = event.brackets.map((b) => b.name);
 		return {
 			schedule,
 			participants: participants.sort((a, b) => a.name.localeCompare(b.name)),

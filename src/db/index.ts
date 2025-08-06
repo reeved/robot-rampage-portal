@@ -21,7 +21,7 @@ export const EventSchema = z.object({
 	id: z.string(),
 	currentMatchId: z.string().optional(),
 	currentScheduleId: z.string().optional(),
-	bracketNames: z.array(z.string()),
+	brackets: z.array(z.object({ name: z.string(), size: z.union([z.literal(4), z.literal(8)]) })),
 	qualifyingResults: z.record(
 		z.string(),
 		z.object({
