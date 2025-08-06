@@ -710,5 +710,66 @@
       }
     ],
     "name": "Qualifying Session 2"
+  },
+  {
+    "id": "schedule-qjiotq0",
+    "type": "TEAMS",
+    "matches": [
+      {
+        "id": "teams-match-ubuwk9c",
+        "name": "Teams match",
+        "participants": [
+          {
+            "id": "u0fr1y9"
+          },
+          {
+            "id": "part-dllub2q",
+            "videoName": "Mjolnir_A.mov"
+          }
+        ]
+      }
+    ],
+    "team1Name": "TEAM AUS",
+    "team2Name": "TEAM NZ",
+    "team1bots": {
+      "bot1": {
+        "id": "uhunewo",
+        "isDead": true,
+        "isActive": false
+      },
+      "bot2": {
+        "id": "luecccm",
+        "isDead": true,
+        "isActive": false
+      },
+      "bot3": {
+        "id": "u0fr1y9",
+        "isActive": true,
+        "isDead": false
+      },
+      "bot4": {},
+      "bot5": {}
+    },
+    "team2bots": {
+      "bot1": {
+        "id": "part-04xspbq",
+        "isDead": true,
+        "isActive": false
+      },
+      "bot2": {
+        "id": "rot076r",
+        "isDead": true,
+        "isActive": false
+      },
+      "bot3": {
+        "id": "part-dllub2q",
+        "isActive": true,
+        "videoName": "Mjolnir_A.mov",
+        "isDead": false
+      },
+      "bot4": {},
+      "bot5": {}
+    },
+    "name": "Teams 1"
   }
 ]
