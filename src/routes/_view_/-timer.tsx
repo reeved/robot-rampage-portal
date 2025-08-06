@@ -5,8 +5,8 @@ import { queryOptions, useQuery, useQueryClient } from "@tanstack/react-query";
 const API_ENDPOINTS = {
 	get: "/api/timer",
 	start: "/api/timer/start?duration=30",
-	startFrom5: "/api/timer/start?duration=16",
-	startFrom130: "/api/timer/start?duration=91",
+	startFrom5: "/api/timer/start?duration=15",
+	startFrom130: "/api/timer/start?duration=90",
 	pause: "/api/timer/pause",
 	reset: "/api/timer/restart",
 	resume: "/api/timer/resume",
@@ -62,7 +62,7 @@ export const useTimer = (): {
 	}
 
 	return {
-		currentTime: formatTimeAsMinutes(data.currentTime),
+		currentTime: formatTimeAsMinutes(Math.ceil(data.currentTime)),
 		isRunning: data.isRunning,
 		timeLeft: data.currentTime,
 	};
@@ -79,7 +79,7 @@ export const TimeText = ({ currentTime }: { currentTime: { minutes: string; seco
 };
 
 export const TimerComponent = () => {
-	const { data } = useQuery(timerQuery());
+	const { currentTime, isRunning, timeLeft } = useTimer();
 	const queryClient = useQueryClient();
 
 	// Generic handler to avoid duplication
@@ -88,32 +88,30 @@ export const TimerComponent = () => {
 		queryClient.invalidateQueries({ queryKey: ["timer"] });
 	};
 
-	if (!data) {
-		return <div>Loading...</div>;
-	}
-
-	// Format time display
-	const displayTime = formatTimeAsMinutes(data.currentTime);
+	// if (!timeLeft) {
+	// 	return <div>Loading...</div>;
+	// }
 
 	// Determine button states
-	const canResume = !data.isRunning && data.currentTime > 0;
+	const canResume = !isRunning && timeLeft > 0;
 
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="text-4xl font-bold text-center">
-				{displayTime.minutes}:{displayTime.seconds}
+				{currentTime.minutes}:{currentTime.seconds}
+				<div>Time remaining: {timeLeft} seconds</div>
 			</div>
 			<div className="flex gap-4">
-				<Button variant="default" onClick={() => handleTimerAction("start")} disabled={data.isRunning}>
+				<Button variant="default" onClick={() => handleTimerAction("start")} disabled={isRunning}>
 					Start
 				</Button>
-				<Button variant="default" onClick={() => handleTimerAction("startFrom5")} disabled={data.isRunning}>
+				<Button variant="default" onClick={() => handleTimerAction("startFrom5")} disabled={isRunning}>
 					Start From 5
 				</Button>
-				<Button variant="default" onClick={() => handleTimerAction("startFrom130")} disabled={data.isRunning}>
+				<Button variant="default" onClick={() => handleTimerAction("startFrom130")} disabled={isRunning}>
 					Start From 1:30
 				</Button>
-				<Button variant="default" onClick={() => handleTimerAction("pause")} disabled={!data.isRunning}>
+				<Button variant="default" onClick={() => handleTimerAction("pause")} disabled={!isRunning}>
 					Pause
 				</Button>
 				<Button variant="default" onClick={() => handleTimerAction("resume")} disabled={!canResume}>
@@ -123,7 +121,6 @@ export const TimerComponent = () => {
 					Reset
 				</Button>
 			</div>
-			<div>Time remaining: {data.currentTime} seconds</div>
 		</div>
 	);
 };
