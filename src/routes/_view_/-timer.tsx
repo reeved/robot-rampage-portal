@@ -72,6 +72,9 @@ export const useTimer = (): {
 };
 
 export const TimeText = ({ currentTime }: { currentTime: { minutes: string; seconds: string } }) => {
+	if (currentTime.minutes === "0" && currentTime.seconds === "00") {
+		return null;
+	}
 	return (
 		<div className="font-light font-rubik text-center flex">
 			<div className="w-[1ch]">{currentTime.minutes}</div>

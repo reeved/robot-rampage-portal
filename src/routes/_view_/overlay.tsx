@@ -44,12 +44,12 @@ export const Overlay = ({ children }: PropsWithChildren) => {
 			<div className="h-full w-full">
 				<div
 					className="h-[1080px] w-[1920px] relative box-border"
-					style={{
-						backgroundImage: "url(/arena-fight.png)",
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						backgroundRepeat: "no-repeat",
-					}}
+					// style={{
+					// 	backgroundImage: "url(/arena-fight.png)",
+					// 	backgroundSize: "cover",
+					// 	backgroundPosition: "center",
+					// 	backgroundRepeat: "no-repeat",
+					// }}
 				>
 					{children}
 				</div>
