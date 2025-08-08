@@ -5,7 +5,7 @@ import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
-import { Link, Outlet, createFileRoute, createLink } from "@tanstack/react-router";
+import { Outlet, createFileRoute, createLink } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 const getRankingsData = createServerFn({

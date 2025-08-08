@@ -1,6 +1,6 @@
 import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { BotImage, BotInfo } from "./-bot-card";
 import { SharedStats } from "./-shared-stats";

@@ -95,6 +95,7 @@ code {
 	--color-rrorange: var(--color-orange-500);
 	--color-rrblue: var(--color-blue-700);
 	--color-rrgreen: var(--color-green-600);
+	--color-rryellow: var(--color-yellow-500);
 	--color-popover: var(--popover);
 	--color-popover-foreground: var(--popover-foreground);
 	--color-primary: var(--primary);

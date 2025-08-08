@@ -65,14 +65,12 @@ export const BracketMatchSchema = sharedMatchSchema.extend({
 
 export const MatchSchema = z.union([QualifyingMatchSchema, BracketMatchSchema]);
 
-const TeamsMatchBot = z
-	.object({
-		id: z.string().optional(),
-		isDead: z.boolean().optional(),
-		isActive: z.boolean().optional(),
-		videoName: z.string().optional(),
-	})
-	.optional();
+const TeamsMatchBot = z.object({
+	id: z.string().optional(),
+	isDead: z.boolean().optional(),
+	isActive: z.boolean().optional(),
+	videoName: z.string().optional(),
+});
 
 export const TeamsMatchTeamSchema = z.object({
 	bot1: TeamsMatchBot,
@@ -88,8 +86,8 @@ export const TeamsMatchSchema = z.object({
 	name: z.string(),
 	team1Name: z.string(),
 	team2Name: z.string(),
-	team1bots: TeamsMatchTeamSchema,
-	team2bots: TeamsMatchTeamSchema,
+	team1bots: z.array(TeamsMatchBot).length(5),
+	team2bots: z.array(TeamsMatchBot).length(5),
 	matches: z.array(TeamMatchSchema),
 });
 

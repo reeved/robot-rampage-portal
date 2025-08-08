@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { type Participant, type Schedule, TeamsMatchSchema, type TeamsSchedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
+import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
@@ -36,14 +37,14 @@ const TeamList = ({
 }) => {
 	return (
 		<div className="flex flex-col gap-10">
-			{(["bot1", "bot2", "bot3", "bot4", "bot5"] as const).map((bot) => (
+			{([0, 1, 2, 3, 4] as const).map((bot) => (
 				<div key={`${team}-${bot}`} className="flex flex-col gap-2">
 					<FormField
 						name={`${team}bots.${bot}.id`}
 						control={form.control}
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className="text-white">Bot {bot.at(-1)}</FormLabel>
+								<FormLabel className="text-white">Bot {bot + 1}</FormLabel>
 								<FormControl>
 									<Select
 										value={field.value ?? "none"}
@@ -57,7 +58,7 @@ const TeamList = ({
 												field.value === "none" || field.value === undefined ? "text-gray-400" : "",
 											)}
 										>
-											<SelectValue placeholder={`Select bot${bot.charAt(-1)}`} />
+											<SelectValue placeholder={`Select bot${bot + 1}`} />
 										</SelectTrigger>
 										<SelectContent className="bg-zinc-800 text-white">
 											<SelectItem value="none" className="font-bold text-gray-400">
@@ -181,14 +182,13 @@ const TeamName = ({
 };
 
 const processBots = (bots: TeamsSchedule["team1bots"]) => {
-	return ["bot1", "bot2", "bot3", "bot4", "bot5"].reduce(
-		(acc, bot) => {
-			const botData = bots[bot as keyof typeof bots];
-			acc[bot as keyof typeof bots] = botData?.id ? { ...botData, isDead: botData.isDead ?? false } : {};
-			return acc;
-		},
-		{} as typeof bots,
-	);
+	return [0, 1, 2, 3, 4].map((index) => ({
+		id: undefined,
+		isDead: false,
+		isActive: false,
+		videoName: undefined,
+		...bots[index],
+	}));
 };
 
 const updateTeamsMatch = createServerFn({
@@ -198,6 +198,8 @@ const updateTeamsMatch = createServerFn({
 	.validator(teamsSchema.extend({ scheduleId: z.string() }))
 	.handler(async ({ context, data }) => {
 		const { scheduleId, team1Name, team2Name, team1bots, team2bots } = data;
+
+		console.log(data);
 
 		const schedule = await context.db.schedule.find((s) => s.id === scheduleId);
 		if (!schedule) {
@@ -266,6 +268,7 @@ export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule;
 	return (
 		<div className="flex gap-10">
 			<Form {...form}>
+				<DevTool control={form.control} placement="top-right" />
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
 					// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
@@ -282,6 +285,8 @@ export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule;
 							<TeamList team="team2" participants={participants} form={form} />
 						</div>
 					</div>
+
+					{form.formState.errors && <div className="text-red-500">{JSON.stringify(form.formState.errors)}</div>}
 
 					<Button type="submit" className="mt-10 w-30">
 						Save

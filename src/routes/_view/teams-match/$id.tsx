@@ -39,43 +39,46 @@ export const Route = createFileRoute("/_view/teams-match/$id")({
 	ssr: false,
 });
 
-const getActiveBotForTeam = (bots: TeamsSchedule["team1bots"]) =>
-	Object.values(bots).find((b) => b?.id && b.isActive) || bots.bot5;
+const getActiveBotForTeam = (bots: TeamsSchedule["team1bots"]) => Object.values(bots).find((b) => b?.id && b.isActive);
 
 const BotInfo = ({
 	bot,
 	participants,
 	teamColor,
 }: {
-	bot: TeamsSchedule["team1bots"]["bot1"];
+	bot: TeamsSchedule["team1bots"][number] | undefined;
 	participants: Participant[];
-	teamColor: "green" | "blue";
+	teamColor: "yellow" | "blue";
 }) => {
 	const botDetails = participants.find((p) => p.id === bot?.id);
 
 	return (
-		<div className={cn("flex flex-col flex-1 gap-y-4", teamColor === "green" ? "text-rrgreen" : "text-rrblue")}>
-			<img
-				src={botDetails?.photo ? `/${botDetails.photo}` : undefined}
-				className={cn(
-					"w-8/12 -mt-10 mx-auto rounded-3xl",
-					teamColor === "blue" && "transform -scale-x-100",
-					bot?.isDead ? "grayscale greyscale-manual" : "animate-breathing",
-				)}
-				alt="bot-photo"
-				height={160}
-				style={
-					bot?.isDead
-						? {}
-						: ({
-								filter: "drop-shadow(0 0 35px currentColor)",
-								// This custom property will be used by the animation
-								"--shadow-color": "currentColor",
-							} as React.CSSProperties)
-				}
-			/>
-			<div className="text-6xl font-rubik -mt-20 z-20">{botDetails?.name}</div>
-			<div className="text-2xl font-heading uppercase text-white mt-4">{botDetails?.weapon}</div>
+		<div className={cn("flex flex-col flex-1 gap-y-4", teamColor === "yellow" ? "text-rryellow" : "text-rrblue")}>
+			{bot ? (
+				<img
+					src={botDetails?.photo ? `/${botDetails.photo}` : undefined}
+					className={cn(
+						"w-8/12 -mt-10 mx-auto rounded-3xl",
+						teamColor === "blue" && "transform -scale-x-100",
+						bot?.isDead ? "grayscale greyscale-manual" : "animate-breathing",
+					)}
+					alt="bot-photo"
+					height={160}
+					style={
+						bot?.isDead
+							? {}
+							: ({
+									filter: "drop-shadow(0 0 35px currentColor)",
+									// This custom property will be used by the animation
+									"--shadow-color": "currentColor",
+								} as React.CSSProperties)
+					}
+				/>
+			) : (
+				<div className="h-[160px]" />
+			)}
+			<div className="text-6xl font-rubik -mt-20 z-20">{botDetails?.name ?? ""} </div>
+			<div className="text-2xl font-heading uppercase text-white mt-4">{botDetails?.weapon ?? ""}</div>
 		</div>
 	);
 };
@@ -85,21 +88,23 @@ const BotPreview = ({
 	participants,
 	teamColor,
 }: {
-	bot: TeamsSchedule["team1bots"]["bot1"];
+	bot: TeamsSchedule["team1bots"][number] | undefined;
 	participants: Participant[];
-	teamColor: "green" | "blue";
+	teamColor: "yellow" | "blue";
 }) => {
 	const botDetails = participants.find((p) => p.id === bot?.id);
 
 	if (!botDetails) {
 		return (
-			<div
-				className="h-30 w-30 flex items-center justify-center bg-neutral-800 font-heading text-5xl text-center text-primary relative"
-				style={{
-					clipPath: "polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%)",
-				}}
-			>
-				?
+			<div className="h-40 flex items-center justify-center">
+				<div
+					className="h-30 w-30 flex items-center justify-center bg-neutral-800 font-heading text-5xl text-center text-primary relative"
+					style={{
+						clipPath: "polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%)",
+					}}
+				>
+					?
+				</div>
 			</div>
 		);
 	}
@@ -108,9 +113,10 @@ const BotPreview = ({
 		<img
 			src={botDetails.photo ? `/${botDetails.photo}` : undefined}
 			className={cn(
-				"h-40 text-primary",
+				"h-40 text-rrgreen",
 				bot?.isDead && "greyscale-manual",
 				teamColor === "blue" && "transform -scale-x-100",
+				// teamColor === "blue" ? "text-rrblue" : "text-rryellow",
 			)}
 			style={
 				bot?.isDead
@@ -135,26 +141,28 @@ const TeamInfo = ({
 	teamName: TeamsSchedule["name"];
 	bots: TeamsSchedule["team1bots"];
 	participants: Participant[];
-	teamColor: "green" | "blue";
+	teamColor: "yellow" | "blue";
 }) => {
 	const activeBot = getActiveBotForTeam(bots);
 
-	const botNames =
-		teamColor === "green"
-			? (["bot1", "bot2", "bot3", "bot4", "bot5"] as const)
-			: (["bot5", "bot4", "bot3", "bot2", "bot1"] as const);
+	const botIndexes = teamColor === "yellow" ? [0, 1, 2, 3, 4] : [4, 3, 2, 1, 0];
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col w-full">
 			<BotInfo bot={activeBot} participants={participants} teamColor={teamColor} />
 			<div
-				className={cn("text-4xl font-rubik text-white mt-15", teamColor === "green" ? "text-rrgreen" : "text-rrblue")}
+				className={cn("text-4xl font-rubik text-white mt-15", teamColor === "yellow" ? "text-rryellow" : "text-rrblue")}
 			>
 				{teamName}
 			</div>
 			<div className="mx-10 flex flex-row justify-between items-center">
-				{botNames.map((bot) => (
-					<BotPreview key={`${teamName}-${bot}`} bot={bots[bot]} participants={participants} teamColor={teamColor} />
+				{botIndexes.map((index) => (
+					<BotPreview
+						key={`${teamName}-${index}`}
+						bot={bots[index]}
+						participants={participants}
+						teamColor={teamColor}
+					/>
 				))}
 			</div>
 		</div>
@@ -180,15 +188,15 @@ function RouteComponent() {
 				<h3 className="text-[40px]">FIGHT {numberOfBotsWithIds - 1}</h3>
 				<h3 className="text-[50px] mt-100">VS</h3>
 			</div>
-			<div className="flex-1 items-center justify-center text-center">
+			<div className="flex flex-1 items-end justify-center text-center">
 				<TeamInfo
 					teamName={schedule.team1Name}
 					bots={schedule.team1bots}
 					participants={participants}
-					teamColor="green"
+					teamColor="yellow"
 				/>
 			</div>
-			<div className="flex-1 items-center justify-center text-center">
+			<div className="flex flex-1 items-end justify-center text-center">
 				<TeamInfo
 					teamName={schedule.team2Name}
 					bots={schedule.team2bots}

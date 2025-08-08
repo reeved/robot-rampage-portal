@@ -113,8 +113,8 @@ const generateNewTeams = createServerFn({
 			matches: [],
 			team1Name: "Team 1",
 			team2Name: "Team 2",
-			team1bots: {},
-			team2bots: {},
+			team1bots: [{}, {}, {}, {}, {}],
+			team2bots: [{}, {}, {}, {}, {}],
 			name: `Teams ${existingTeams.length + 1}`,
 		};
 		context.db.schedule.insert(newTeams);

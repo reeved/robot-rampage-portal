@@ -709,64 +709,69 @@
     "name": "Qualifying Session 2"
   },
   {
-    "id": "schedule-qjiotq0",
+    "id": "schedule-z1d1or4",
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-ubuwk9c",
+        "id": "teams-match-svs8phv",
         "name": "Teams match",
         "participants": [
           {
-            "id": "u0fr1y9"
+            "id": "uhunewo"
           },
-          {
-            "id": "part-dllub2q",
-            "videoName": "Mjolnir_A.mov"
-          }
+          {}
         ]
       }
     ],
-    "team1Name": "TEAM AUS",
-    "team2Name": "TEAM NZ",
-    "team1bots": {
-      "bot1": {
+    "team1Name": "Team 1",
+    "team2Name": "Team 2",
+    "team1bots": [
+      {
         "id": "uhunewo",
-        "isDead": true,
-        "isActive": false
+        "isDead": false,
+        "isActive": true
       },
-      "bot2": {
-        "id": "luecccm",
-        "isDead": true,
-        "isActive": false
-      },
-      "bot3": {
-        "id": "u0fr1y9",
-        "isActive": true,
-        "isDead": false
-      },
-      "bot4": {},
-      "bot5": {}
-    },
-    "team2bots": {
-      "bot1": {
+      {
         "id": "part-04xspbq",
-        "isDead": true,
+        "isDead": false,
         "isActive": false
       },
-      "bot2": {
-        "id": "rot076r",
-        "isDead": true,
+      {
+        "id": "u0fr1y9",
+        "isDead": false,
         "isActive": false
       },
-      "bot3": {
-        "id": "part-dllub2q",
-        "isActive": true,
-        "videoName": "Mjolnir_A.mov",
-        "isDead": false
+      {
+        "isDead": false,
+        "isActive": false
       },
-      "bot4": {},
-      "bot5": {}
-    },
+      {
+        "isDead": false,
+        "isActive": false
+      }
+    ],
+    "team2bots": [
+      {
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "isDead": false,
+        "isActive": false
+      }
+    ],
     "name": "Teams 1"
   }
 ]
