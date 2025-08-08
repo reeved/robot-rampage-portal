@@ -126,7 +126,6 @@ const getBracketMatches = createServerFn({
 		const bracketConfig = event?.brackets.find((b) => b.name === bracketName);
 
 		if (!bracketSchedules || !bracketConfig) {
-			console.log("BRACKET NAME", bracketName, bracketConfig);
 			throw new Error("Bracket schedule not found");
 		}
 
@@ -137,7 +136,6 @@ const getBracketMatches = createServerFn({
 			.flatMap((schedule) => schedule.matches)
 			.filter((m) => m.bracket === bracketName);
 
-		console.log("BRACKET NAME", bracketName, bracketMatches);
 
 		const boxes = getBracketBoxes(bracketConfig.size, bracketMatches, participants);
 

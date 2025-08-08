@@ -58,7 +58,11 @@ export const Overlay = ({ children }: PropsWithChildren) => {
 	);
 };
 
-const getComponentToShow = (_isRunning: boolean, timeLeft: number) => {
+const getComponentToShow = (forceBottombar: boolean, timeLeft: number) => {
+	if (forceBottombar) {
+		return "bar"
+	}
+
 	if (timeLeft > 80 || timeLeft === 0) {
 		return "bar";
 	}
@@ -97,7 +101,7 @@ function RouteComponent() {
 
 	const { currentMatch, participants } = data;
 
-	const componentToShow = getComponentToShow(isRunning || !!customMessage, timeLeft);
+	const componentToShow = getComponentToShow(!isRunning || !!customMessage, timeLeft);
 
 	return (
 		<Overlay>

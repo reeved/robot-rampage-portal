@@ -3,8 +3,11 @@ import { createServerFileRoute } from "@tanstack/react-start/server";
 import { resumeTimer } from "./-timer";
 
 export const ServerRoute = createServerFileRoute("/api/timer/resume").methods({
-	GET: () => {
-		const timer = resumeTimer();
+	GET: async ({ request }) => {
+		const searchParams = new URL(request.url).searchParams;
+		const shouldCountdown = searchParams.get("countdown") === "true";
+
+		const timer = await resumeTimer(shouldCountdown);
 		return json({ message: "Timer resumed", timer });
 	},
 });

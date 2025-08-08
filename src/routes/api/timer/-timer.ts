@@ -44,6 +44,8 @@ const clearTimerInterval = () => {
  * Helper function to stop the timer
  */
 const stopTimer = () => {
+	console.log("STOPPING TIMER AT", TimerStore.countdownTimer.currentTime)
+
 	TimerStore.countdownTimer.isRunning = false;
 	clearTimerInterval();
 };
@@ -112,13 +114,14 @@ export const debugTimer = createServerFn({
 	};
 });
 
-export const startTimer = (duration: number, shouldCountdown: boolean) => {
+export const startTimer = async (duration: number, shouldCountdown: boolean) => {
 	console.log("Starting timer with duration:", duration);
 
 	// Stop any existing timers
 	stopTimer();
 
 	if (shouldCountdown) {
+		await sleep(1000)
 		// Start countdown sequence
 		TimerStore.countdownTimer.customMessage = "3";
 
@@ -143,7 +146,9 @@ export const startTimer = (duration: number, shouldCountdown: boolean) => {
 			startCountdown();
 		}, 4000);
 	} else {
+		console.log("A")
 		// Start the main timer immediately
+		TimerStore.countdownTimer.currentTime = duration
 		TimerStore.countdownTimer.isRunning = true;
 		startCountdown();
 	}
@@ -152,6 +157,8 @@ export const startTimer = (duration: number, shouldCountdown: boolean) => {
 };
 
 export const pauseTimer = () => {
+			console.log("PAUSING TIMER AT", TimerStore.countdownTimer.currentTime)
+
 	if (TimerStore.countdownTimer.isRunning) {
 		stopTimer();
 	}
@@ -160,6 +167,7 @@ export const pauseTimer = () => {
 };
 
 export const resetTimer = () => {
+	console.log("RESETTING TIMER AT", TimerStore.countdownTimer.currentTime)
 	// Stop the timer if it's running
 	if (TimerStore.countdownTimer.isRunning) {
 		stopTimer();
@@ -171,12 +179,52 @@ export const resetTimer = () => {
 	return TimerStore.countdownTimer;
 };
 
-export const resumeTimer = () => {
-	// Only resume if not already running and has time left
+async function sleep(ms: number): Promise<void> {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export const resumeTimer = async (shouldCountdown: boolean) => {
+
+		// Stop any existing timers
+	stopTimer();
+
+	if (shouldCountdown) {
+		// Start countdown sequence
+		await sleep(1000)
+		
+		TimerStore.countdownTimer.customMessage = "3";
+
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "2";
+		}, 1000);
+
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "1";
+		}, 2000);
+
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "FIGHT!";
+		}, 3000);
+
+		// Start the main timer after countdown completes (4 seconds total)
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "";
+			// Set the duration
+			// Only resume if not already running and has time left
+			if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
+				TimerStore.countdownTimer.isRunning = true;
+				startCountdown();
+			}
+		}, 4000);
+	} else {
+		// Only resume if not already running and has time left
 	if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
 		TimerStore.countdownTimer.isRunning = true;
 		startCountdown();
 	}
+	}
+
+	
 
 	return TimerStore.countdownTimer;
 };

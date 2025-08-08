@@ -2,11 +2,11 @@ import type { PropsWithChildren } from "react";
 
 export const TimerMiniPreview = ({ children }: PropsWithChildren) => {
 	return (
-		<div className="flex items-center justify-center p-4 absolute top-10 left-15">
+		<div className="flex items-center justify-center p-4 absolute top-10 left-10">
 			<div
 				className="
     relative
-    w-44
+    w-46
     h-20
     bg-primary
     shadow-2xl

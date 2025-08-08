@@ -3,7 +3,7 @@ import { createServerFileRoute } from "@tanstack/react-start/server";
 import { startTimer } from "./-timer";
 
 export const ServerRoute = createServerFileRoute("/api/timer/start").methods({
-	GET: ({ request }) => {
+	GET: async ({ request }) => {
 		const searchParams = new URL(request.url).searchParams;
 		const duration = searchParams.get("duration");
 		const shouldCountdown = searchParams.get("countdown") === "true";

@@ -125,10 +125,6 @@ const getUpdatedRankings = (matches: QualifyingMatch[], participants: Participan
 		// return aOpponentWins - bOpponentWins;
 	});
 
-	console.log(sortedRankings);
-	sortedRankings.forEach(([id, { score }], index) => {
-		console.log(participants.find((p) => p.id === id)?.name, score, index);
-	});
 
 	return { participantResults, sortedRankings };
 };
