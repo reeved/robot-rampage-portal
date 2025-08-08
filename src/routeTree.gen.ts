@@ -15,6 +15,7 @@ import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as ViewRouteRouteImport } from './routes/_view/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminTimerRouteImport } from './routes/admin_/timer'
+import { Route as AdminMiniTimerRouteImport } from './routes/admin_/mini-timer'
 import { Route as AdminCompetitorsRouteImport } from './routes/admin/competitors'
 import { Route as ViewOverlayRouteImport } from './routes/_view_/overlay'
 import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
@@ -65,6 +66,11 @@ const IndexRoute = IndexRouteImport.update({
 const AdminTimerRoute = AdminTimerRouteImport.update({
   id: '/admin_/timer',
   path: '/admin/timer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMiniTimerRoute = AdminMiniTimerRouteImport.update({
+  id: '/admin_/mini-timer',
+  path: '/admin/mini-timer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminCompetitorsRoute = AdminCompetitorsRouteImport.update({
@@ -229,6 +235,7 @@ export interface FileRoutesByFullPath {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
+  '/admin/mini-timer': typeof AdminMiniTimerRoute
   '/admin/timer': typeof AdminTimerRoute
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
@@ -256,6 +263,7 @@ export interface FileRoutesByTo {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
+  '/admin/mini-timer': typeof AdminMiniTimerRoute
   '/admin/timer': typeof AdminTimerRoute
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
@@ -287,6 +295,7 @@ export interface FileRoutesById {
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
   '/_view_/overlay': typeof ViewOverlayRoute
   '/admin/competitors': typeof AdminCompetitorsRoute
+  '/admin_/mini-timer': typeof AdminMiniTimerRoute
   '/admin_/timer': typeof AdminTimerRoute
   '/_view/bracket/$id': typeof ViewBracketIdRoute
   '/_view/schedule/$id': typeof ViewScheduleIdRoute
@@ -318,6 +327,7 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/overlay'
     | '/admin/competitors'
+    | '/admin/mini-timer'
     | '/admin/timer'
     | '/bracket/$id'
     | '/schedule/$id'
@@ -345,6 +355,7 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/overlay'
     | '/admin/competitors'
+    | '/admin/mini-timer'
     | '/admin/timer'
     | '/bracket/$id'
     | '/schedule/$id'
@@ -375,6 +386,7 @@ export interface FileRouteTypes {
     | '/admin/schedule'
     | '/_view_/overlay'
     | '/admin/competitors'
+    | '/admin_/mini-timer'
     | '/admin_/timer'
     | '/_view/bracket/$id'
     | '/_view/schedule/$id'
@@ -400,6 +412,7 @@ export interface RootRouteChildren {
   ViewRouteRoute: typeof ViewRouteRouteWithChildren
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   ViewOverlayRoute: typeof ViewOverlayRoute
+  AdminMiniTimerRoute: typeof AdminMiniTimerRoute
   AdminTimerRoute: typeof AdminTimerRoute
   AdminMobileIndexRoute: typeof AdminMobileIndexRoute
   AdminMobileIdMatchIdRoute: typeof AdminMobileIdMatchIdRoute
@@ -494,6 +507,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/timer'
       fullPath: '/admin/timer'
       preLoaderRoute: typeof AdminTimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin_/mini-timer': {
+      id: '/admin_/mini-timer'
+      path: '/admin/mini-timer'
+      fullPath: '/admin/mini-timer'
+      preLoaderRoute: typeof AdminMiniTimerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/competitors': {
@@ -836,6 +856,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViewRouteRoute: ViewRouteRouteWithChildren,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   ViewOverlayRoute: ViewOverlayRoute,
+  AdminMiniTimerRoute: AdminMiniTimerRoute,
   AdminTimerRoute: AdminTimerRoute,
   AdminMobileIndexRoute: AdminMobileIndexRoute,
   AdminMobileIdMatchIdRoute: AdminMobileIdMatchIdRoute,

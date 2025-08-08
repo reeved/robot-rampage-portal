@@ -5,9 +5,16 @@ import { createServerFn } from "@tanstack/react-start";
 const TimerStore = {
 	countdownTimer: {
 		currentTime: 0,
+		customMessage: "",
 		isRunning: false,
 	},
+	// secondaryTimer: {
+	// 	currentTime: 0,
+	// 	customMessage: "",
+	// 	isRunning: false,
+	// },
 	timerInterval: null as NodeJS.Timeout | null,
+	// preTimerInterval: null as NodeJS.Timeout | null,
 };
 
 export { TimerStore };
@@ -26,6 +33,13 @@ const clearTimerInterval = () => {
 	}
 };
 
+// const clearPreTimerInterval = () => {
+// 	if (TimerStore.preTimerInterval) {
+// 		clearInterval(TimerStore.preTimerInterval);
+// 		TimerStore.preTimerInterval = null;
+// 	}
+// };
+
 /**
  * Helper function to stop the timer
  */
@@ -33,6 +47,25 @@ const stopTimer = () => {
 	TimerStore.countdownTimer.isRunning = false;
 	clearTimerInterval();
 };
+
+// const startPreCountdown = (duration: number) => {
+// 	// Clear any existing interval first
+// 	clearPreTimerInterval();
+// 	TimerStore.secondaryTimer.currentTime = duration;
+
+// 	// Start the countdown
+// 	TimerStore.preTimerInterval = setInterval(() => {
+// 		if (TimerStore.secondaryTimer.currentTime > 0) {
+// 			TimerStore.secondaryTimer.currentTime -= TIME_DECREMENT;
+// 			// Round to one decimal place to avoid floating point issues
+// 			TimerStore.countdownTimer.currentTime = Math.round(TimerStore.countdownTimer.currentTime * 10) / 10;
+// 		} else {
+// 			// Stop when reaching zero
+// 			TimerStore.countdownTimer.currentTime = 0;
+// 			stopTimer();
+// 		}
+// 	}, UPDATE_INTERVAL);
+// };
 
 /**
  * Helper function to start the countdown with the interval
@@ -79,15 +112,38 @@ export const debugTimer = createServerFn({
 	};
 });
 
-export const startTimer = (duration: number) => {
+export const startTimer = (duration: number, shouldCountdown: boolean) => {
 	console.log("Starting timer with duration:", duration);
-	// Set the duration if provided, otherwise continue from current time
-	if (duration > 0) {
-		TimerStore.countdownTimer.currentTime = duration;
-	}
 
-	// Only start if not already running and has time left
-	if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
+	// Stop any existing timers
+	stopTimer();
+
+	if (shouldCountdown) {
+		// Start countdown sequence
+		TimerStore.countdownTimer.customMessage = "3";
+
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "2";
+		}, 1000);
+
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "1";
+		}, 2000);
+
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "FIGHT!";
+		}, 3000);
+
+		// Start the main timer after countdown completes (4 seconds total)
+		setTimeout(() => {
+			TimerStore.countdownTimer.customMessage = "";
+			TimerStore.countdownTimer.isRunning = true;
+			// Set the duration
+			TimerStore.countdownTimer.currentTime = duration - 1;
+			startCountdown();
+		}, 4000);
+	} else {
+		// Start the main timer immediately
 		TimerStore.countdownTimer.isRunning = true;
 		startCountdown();
 	}

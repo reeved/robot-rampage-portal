@@ -5,7 +5,7 @@ import { queryOptions, useQuery, useQueryClient } from "@tanstack/react-query";
 const API_ENDPOINTS = {
 	get: "/api/timer",
 	start: "/api/timer/start?duration=30",
-	startFrom5: "/api/timer/start?duration=15",
+	startFrom5: "/api/timer/start?duration=15&countdown=true",
 	startFrom130: "/api/timer/start?duration=90",
 	pause: "/api/timer/pause",
 	reset: "/api/timer/restart",
@@ -42,7 +42,7 @@ function fetchTimer<T>(endpoint: string): Promise<T> {
 const timerQuery = () =>
 	queryOptions({
 		queryKey: ["timer"],
-		queryFn: () => fetchTimer<{ currentTime: number; isRunning: boolean }>(API_ENDPOINTS.get),
+		queryFn: () => fetchTimer<{ currentTime: number; isRunning: boolean; customMessage: string }>(API_ENDPOINTS.get),
 		refetchInterval: 50,
 	});
 
@@ -50,11 +50,13 @@ export const useTimer = (): {
 	currentTime: { minutes: string; seconds: string };
 	isRunning: boolean;
 	timeLeft: number;
+	customMessage: string | null;
 } => {
 	const { data } = useQuery(timerQuery());
 
 	if (!data) {
 		return {
+			customMessage: null,
 			currentTime: { minutes: "0", seconds: "00" },
 			isRunning: false,
 			timeLeft: 0,
@@ -63,6 +65,7 @@ export const useTimer = (): {
 
 	return {
 		currentTime: formatTimeAsMinutes(Math.ceil(data.currentTime)),
+		customMessage: data.customMessage,
 		isRunning: data.isRunning,
 		timeLeft: data.currentTime,
 	};
@@ -78,8 +81,16 @@ export const TimeText = ({ currentTime }: { currentTime: { minutes: string; seco
 	);
 };
 
+export const CustomTimeText = ({ customMessage }: { customMessage: string }) => {
+	return (
+		<div className="font-light font-rubik text-center flex">
+			<div>{customMessage}</div>
+		</div>
+	);
+};
+
 export const TimerComponent = () => {
-	const { currentTime, isRunning, timeLeft } = useTimer();
+	const { currentTime, customMessage, isRunning, timeLeft } = useTimer();
 	const queryClient = useQueryClient();
 
 	// Generic handler to avoid duplication
@@ -100,6 +111,7 @@ export const TimerComponent = () => {
 			<div className="text-4xl font-bold text-center">
 				{currentTime.minutes}:{currentTime.seconds}
 				<div>Time remaining: {timeLeft} seconds</div>
+				<div>Custom message: {customMessage}</div>
 			</div>
 			<div className="flex gap-4">
 				<Button variant="default" onClick={() => handleTimerAction("start")} disabled={isRunning}>

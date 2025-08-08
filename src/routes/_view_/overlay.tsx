@@ -6,7 +6,7 @@ import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
 import type { PropsWithChildren } from "react";
 import { BotBar } from "./-bot-bar";
-import { TimeText, useTimer } from "./-timer";
+import { CustomTimeText, TimeText, useTimer } from "./-timer";
 import { TimerMiniPreview } from "./-timer-mini-preview";
 
 const getMatchData = createServerFn({
@@ -37,7 +37,7 @@ const scheduleQuery = queryOptions({
 	refetchInterval: 2000,
 });
 
-const Overlay = ({ children }: PropsWithChildren) => {
+export const Overlay = ({ children }: PropsWithChildren) => {
 	return (
 		<>
 			<style>{"html, body { background: transparent !important; }"}</style>
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/_view_/overlay")({
 
 function RouteComponent() {
 	const { data } = useQuery(scheduleQuery);
-	const { currentTime, isRunning, timeLeft } = useTimer();
+	const { currentTime, isRunning, timeLeft, customMessage } = useTimer();
 
 	if (!data) {
 		return <Overlay />;
@@ -97,7 +97,7 @@ function RouteComponent() {
 
 	const { currentMatch, participants } = data;
 
-	const componentToShow = getComponentToShow(isRunning, timeLeft);
+	const componentToShow = getComponentToShow(isRunning || !!customMessage, timeLeft);
 
 	return (
 		<Overlay>
@@ -116,7 +116,13 @@ function RouteComponent() {
 						<BotBar
 							currentMatch={currentMatch}
 							participants={participants}
-							middleContent={<TimeText currentTime={currentTime} />}
+							middleContent={
+								customMessage ? (
+									<CustomTimeText customMessage={customMessage} />
+								) : (
+									<TimeText currentTime={currentTime} />
+								)
+							}
 						/>
 					)}
 					{componentToShow === "mini-preview" && (

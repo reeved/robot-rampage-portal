@@ -9,7 +9,7 @@ function RouteComponent() {
 	const { currentTime } = useTimer();
 
 	return (
-		<div className="h-full w-full overflow-hidden flex justify-center items-center text-center text-primary font-extrabold text-[950px]">
+		<div className="h-full w-full overflow-hidden flex justify-center items-center text-center text-primary font-extrabold text-[60vh]">
 			<div className="font-bold text-center flex items-center justify-center">
 				<div className="w-[1ch]">{currentTime.minutes}</div>
 				<div className="w-[1ch] mb-50">:</div>
