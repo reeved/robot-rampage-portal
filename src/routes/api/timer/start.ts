@@ -1,6 +1,22 @@
 import { json } from "@tanstack/react-start";
 import { createServerFileRoute } from "@tanstack/react-start/server";
-import { startTimer } from "./-timer";
+import { Timer } from "./-timer-new";
+// import { startTimer } from "./-timer";
+
+// export const ServerRoute = createServerFileRoute("/api/timer/start").methods({
+// 	GET: async ({ request }) => {
+// 		const searchParams = new URL(request.url).searchParams;
+// 		const duration = searchParams.get("duration");
+// 		const shouldCountdown = searchParams.get("countdown") === "true";
+
+// 		if (!duration || Number.isNaN(Number(duration))) {
+// 			return json({ error: "Invalid duration parameter" }, { status: 400 });
+// 		}
+
+// 		const timer = startTimer(Number(duration), shouldCountdown);
+// 		return json({ message: "Timer started", timer });
+// 	},
+// });
 
 export const ServerRoute = createServerFileRoute("/api/timer/start").methods({
 	GET: async ({ request }) => {
@@ -8,11 +24,11 @@ export const ServerRoute = createServerFileRoute("/api/timer/start").methods({
 		const duration = searchParams.get("duration");
 		const shouldCountdown = searchParams.get("countdown") === "true";
 
-		if (!duration || Number.isNaN(Number(duration))) {
+		if ((!duration && duration !== "0") || Number.isNaN(Number(duration))) {
 			return json({ error: "Invalid duration parameter" }, { status: 400 });
 		}
 
-		const timer = startTimer(Number(duration), shouldCountdown);
+		const timer = Timer.start(Number(duration), shouldCountdown);
 		return json({ message: "Timer started", timer });
 	},
 });
