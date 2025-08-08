@@ -20,8 +20,8 @@ const TimerStore = {
 export { TimerStore };
 
 // Constants
-const UPDATE_INTERVAL = 100; // Update every 100ms for a smooth countdown
-const TIME_DECREMENT = 0.1; // Decrement by 0.1 second for smooth countdown
+const UPDATE_INTERVAL = 1000; // Update every 100ms for a smooth countdown
+const TIME_DECREMENT = 1.0; // Decrement by 0.1 second for smooth countdown
 
 /**
  * Helper function to clear any existing timer interval
