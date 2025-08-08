@@ -69,6 +69,7 @@ const TeamsMatchBot = z.object({
 	id: z.string().optional(),
 	isDead: z.boolean().optional(),
 	isActive: z.boolean().optional(),
+	isSubbed: z.boolean().optional(),
 	videoName: z.string().optional(),
 });
 

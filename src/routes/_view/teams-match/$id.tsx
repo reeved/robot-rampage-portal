@@ -116,6 +116,7 @@ const BotPreview = ({
 				"h-40 text-rrgreen",
 				bot?.isDead && "greyscale-manual",
 				teamColor === "blue" && "transform -scale-x-100",
+				bot?.isSubbed && "text-primary",
 				// teamColor === "blue" ? "text-rrblue" : "text-rryellow",
 			)}
 			style={

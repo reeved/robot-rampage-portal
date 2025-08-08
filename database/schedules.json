@@ -713,13 +713,13 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-svs8phv",
+        "id": "teams-match-t9cyh6x",
         "name": "Teams match",
         "participants": [
+          {},
           {
             "id": "uhunewo"
-          },
-          {}
+          }
         ]
       }
     ],
@@ -727,21 +727,24 @@
     "team2Name": "Team 2",
     "team1bots": [
       {
-        "id": "uhunewo",
+        "id": "",
         "isDead": false,
-        "isActive": true
+        "isActive": false,
+        "isSubbed": false
+      },
+      {
+        "id": "",
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "id": "part-dx6qvml",
+        "isDead": false,
+        "isActive": false,
+        "isSubbed": true
       },
       {
         "id": "part-04xspbq",
-        "isDead": false,
-        "isActive": false
-      },
-      {
-        "id": "u0fr1y9",
-        "isDead": false,
-        "isActive": false
-      },
-      {
         "isDead": false,
         "isActive": false
       },
@@ -752,8 +755,9 @@
     ],
     "team2bots": [
       {
+        "id": "uhunewo",
         "isDead": false,
-        "isActive": false
+        "isActive": true
       },
       {
         "isDead": false,
