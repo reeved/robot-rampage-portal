@@ -1,8 +1,9 @@
-type List = "BotA" | "BotB";
+type List = "BotA" | "BotB" | "Replays";
 
 class VmixApi {
 	private ENDPOINT = "http://192.168.50.48:8088/api/";
 	private BASEPATH = "C:\\RRMedia\\";
+	private REPLAYS_BASEPATH = "C:\\RRMedia\\";
 
 	private async ListAdd(input: List, value: string) {
 		try {
@@ -38,6 +39,16 @@ class VmixApi {
 		}
 		if (bot2Video) {
 			await this.ListAdd("BotB", `${this.BASEPATH}${bot2Video}`);
+		}
+	}
+
+	async UpdateReplaysList(fileNames: string[]) {
+		const SHOULD_RUN = false;
+		if (!SHOULD_RUN) return;
+
+		await this.ListRemoveAll("Replays");
+		for (const fileName of fileNames) {
+			await this.ListAdd("Replays", `${this.REPLAYS_BASEPATH}${fileName}`);
 		}
 	}
 }

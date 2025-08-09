@@ -5,6 +5,9 @@ export default function Header() {
 		<header className="p-2 flex gap-2 bg-background text-black justify-between">
 			<nav className="flex flex-row">
 				<div className="px-2 font-bold text-foreground">
+					<Link to="/admin/event">Event</Link>
+				</div>
+				<div className="px-2 font-bold text-foreground">
 					<Link to="/admin/participants">Participants</Link>
 				</div>
 				<div className="px-2 font-bold text-foreground">

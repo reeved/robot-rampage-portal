@@ -24,6 +24,7 @@ import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/parti
 import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
 import { Route as ViewScheduleRouteRouteImport } from './routes/_view/schedule/route'
 import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile.index'
+import { Route as AdminEventIndexRouteImport } from './routes/admin/event/index'
 import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
@@ -41,6 +42,7 @@ import { Route as AdminScheduleIdNewbracketRouteImport } from './routes/admin/sc
 import { Route as AdminScheduleIdNewRouteImport } from './routes/admin/schedule/$id.new'
 import { Route as AdminScheduleIdMatchIdRouteImport } from './routes/admin/schedule/$id.$matchId'
 import { ServerRoute as ApiTimerIndexServerRouteImport } from './routes/api/timer/index'
+import { ServerRoute as ApiVmixGetReplaysServerRouteImport } from './routes/api/vmix/get-replays'
 import { ServerRoute as ApiTimerStartServerRouteImport } from './routes/api/timer/start'
 import { ServerRoute as ApiTimerResumeServerRouteImport } from './routes/api/timer/resume'
 import { ServerRoute as ApiTimerRestartServerRouteImport } from './routes/api/timer/restart'
@@ -112,6 +114,11 @@ const AdminMobileIndexRoute = AdminMobileIndexRouteImport.update({
   id: '/admin_/mobile/',
   path: '/admin/mobile/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventIndexRoute = AdminEventIndexRouteImport.update({
+  id: '/event/',
+  path: '/event/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexRouteImport.update({
   id: '/',
@@ -199,6 +206,11 @@ const ApiTimerIndexServerRoute = ApiTimerIndexServerRouteImport.update({
   path: '/api/timer/',
   getParentRoute: () => rootServerRouteImport,
 } as any)
+const ApiVmixGetReplaysServerRoute = ApiVmixGetReplaysServerRouteImport.update({
+  id: '/api/vmix/get-replays',
+  path: '/api/vmix/get-replays',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
 const ApiTimerStartServerRoute = ApiTimerStartServerRouteImport.update({
   id: '/api/timer/start',
   path: '/api/timer/start',
@@ -248,6 +260,7 @@ export interface FileRoutesByFullPath {
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match/': typeof ViewTeamsMatchIndexRoute
+  '/admin/event': typeof AdminEventIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -276,6 +289,7 @@ export interface FileRoutesByTo {
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match': typeof ViewTeamsMatchIndexRoute
+  '/admin/event': typeof AdminEventIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -308,6 +322,7 @@ export interface FileRoutesById {
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
   '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
+  '/admin/event/': typeof AdminEventIndexRoute
   '/admin_/mobile/': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -340,6 +355,7 @@ export interface FileRouteTypes {
     | '/schedule/'
     | '/stats'
     | '/teams-match/'
+    | '/admin/event'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -368,6 +384,7 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/stats'
     | '/teams-match'
+    | '/admin/event'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -399,6 +416,7 @@ export interface FileRouteTypes {
     | '/_view/schedule/'
     | '/_view/stats/'
     | '/_view/teams-match/'
+    | '/admin/event/'
     | '/admin_/mobile/'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -424,6 +442,7 @@ export interface FileServerRoutesByFullPath {
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
   '/api/timer/resume': typeof ApiTimerResumeServerRoute
   '/api/timer/start': typeof ApiTimerStartServerRoute
+  '/api/vmix/get-replays': typeof ApiVmixGetReplaysServerRoute
   '/api/timer': typeof ApiTimerIndexServerRoute
 }
 export interface FileServerRoutesByTo {
@@ -432,6 +451,7 @@ export interface FileServerRoutesByTo {
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
   '/api/timer/resume': typeof ApiTimerResumeServerRoute
   '/api/timer/start': typeof ApiTimerStartServerRoute
+  '/api/vmix/get-replays': typeof ApiVmixGetReplaysServerRoute
   '/api/timer': typeof ApiTimerIndexServerRoute
 }
 export interface FileServerRoutesById {
@@ -441,6 +461,7 @@ export interface FileServerRoutesById {
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
   '/api/timer/resume': typeof ApiTimerResumeServerRoute
   '/api/timer/start': typeof ApiTimerStartServerRoute
+  '/api/vmix/get-replays': typeof ApiVmixGetReplaysServerRoute
   '/api/timer/': typeof ApiTimerIndexServerRoute
 }
 export interface FileServerRouteTypes {
@@ -451,6 +472,7 @@ export interface FileServerRouteTypes {
     | '/api/timer/restart'
     | '/api/timer/resume'
     | '/api/timer/start'
+    | '/api/vmix/get-replays'
     | '/api/timer'
   fileServerRoutesByTo: FileServerRoutesByTo
   to:
@@ -459,6 +481,7 @@ export interface FileServerRouteTypes {
     | '/api/timer/restart'
     | '/api/timer/resume'
     | '/api/timer/start'
+    | '/api/vmix/get-replays'
     | '/api/timer'
   id:
     | '__root__'
@@ -467,6 +490,7 @@ export interface FileServerRouteTypes {
     | '/api/timer/restart'
     | '/api/timer/resume'
     | '/api/timer/start'
+    | '/api/vmix/get-replays'
     | '/api/timer/'
   fileServerRoutesById: FileServerRoutesById
 }
@@ -476,6 +500,7 @@ export interface RootServerRouteChildren {
   ApiTimerRestartServerRoute: typeof ApiTimerRestartServerRoute
   ApiTimerResumeServerRoute: typeof ApiTimerResumeServerRoute
   ApiTimerStartServerRoute: typeof ApiTimerStartServerRoute
+  ApiVmixGetReplaysServerRoute: typeof ApiVmixGetReplaysServerRoute
   ApiTimerIndexServerRoute: typeof ApiTimerIndexServerRoute
 }
 
@@ -571,6 +596,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/mobile'
       preLoaderRoute: typeof AdminMobileIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/event/': {
+      id: '/admin/event/'
+      path: '/event'
+      fullPath: '/admin/event'
+      preLoaderRoute: typeof AdminEventIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/_view/teams-match/': {
       id: '/_view/teams-match/'
@@ -693,6 +725,13 @@ declare module '@tanstack/react-start/server' {
       path: '/api/timer'
       fullPath: '/api/timer'
       preLoaderRoute: typeof ApiTimerIndexServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/vmix/get-replays': {
+      id: '/api/vmix/get-replays'
+      path: '/api/vmix/get-replays'
+      fullPath: '/api/vmix/get-replays'
+      preLoaderRoute: typeof ApiVmixGetReplaysServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
     '/api/timer/start': {
@@ -838,6 +877,7 @@ interface AdminRouteRouteChildren {
   AdminRankingsRouteRoute: typeof AdminRankingsRouteRouteWithChildren
   AdminScheduleRouteRoute: typeof AdminScheduleRouteRouteWithChildren
   AdminCompetitorsRoute: typeof AdminCompetitorsRoute
+  AdminEventIndexRoute: typeof AdminEventIndexRoute
 }
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
@@ -845,6 +885,7 @@ const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminRankingsRouteRoute: AdminRankingsRouteRouteWithChildren,
   AdminScheduleRouteRoute: AdminScheduleRouteRouteWithChildren,
   AdminCompetitorsRoute: AdminCompetitorsRoute,
+  AdminEventIndexRoute: AdminEventIndexRoute,
 }
 
 const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
@@ -871,6 +912,7 @@ const rootServerRouteChildren: RootServerRouteChildren = {
   ApiTimerRestartServerRoute: ApiTimerRestartServerRoute,
   ApiTimerResumeServerRoute: ApiTimerResumeServerRoute,
   ApiTimerStartServerRoute: ApiTimerStartServerRoute,
+  ApiVmixGetReplaysServerRoute: ApiVmixGetReplaysServerRoute,
   ApiTimerIndexServerRoute: ApiTimerIndexServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
