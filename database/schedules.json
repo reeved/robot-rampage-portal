@@ -713,7 +713,7 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-9ppuhkw",
+        "id": "teams-match-k006ltr",
         "name": "Teams match",
         "participants": [
           {
@@ -730,13 +730,13 @@
     "team1bots": [
       {
         "id": "s9xj92s",
-        "isDead": false,
+        "isDead": true,
         "isActive": false,
         "isSubbed": false
       },
       {
         "id": "luecccm",
-        "isDead": false,
+        "isDead": true,
         "isActive": false
       },
       {

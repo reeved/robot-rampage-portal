@@ -4,6 +4,7 @@ import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import type { CSSProperties } from "react";
 import { z } from "zod";
 
 const getTeamsSchedule = createServerFn({
@@ -125,6 +126,25 @@ const BotPreview = ({
 		);
 	}
 
+	// Create a sophisticated border effect using multiple drop-shadows
+	const createBorderEffect = (): string => {
+		// Create multiple drop-shadows with increasing blur radius to create a more defined border
+		const shadows = [
+			`drop-shadow(0 0 1px currentColor)`,
+			`drop-shadow(0 0 2px currentColor)`,
+			`drop-shadow(0 0 3px currentColor)`,
+			`drop-shadow(0 0 4px currentColor)`,
+			`drop-shadow(0 0 5px currentColor)`,
+			// `drop-shadow(0 0 8px currentColor)`,
+			// `drop-shadow(0 0 10px currentColor)`,
+			// `drop-shadow(0 0 12px currentColor)`,
+			// `drop-shadow(0 0 14px currentColor)`,
+			// `drop-shadow(0 0 16px currentColor)`,
+		];
+
+		return shadows.join(" ");
+	};
+
 	return (
 		<img
 			src={botDetails.photo ? `/${botDetails.photo}` : undefined}
@@ -133,15 +153,14 @@ const BotPreview = ({
 				bot?.isDead && "greyscale-manual",
 				teamColor === "blue" && "transform -scale-x-100",
 				bot?.isSubbed && "text-primary",
+				bot?.isDead && "text-neutral-500",
 				// teamColor === "blue" ? "text-rrblue" : "text-rryellow",
 			)}
 			style={
 				bot?.isDead
-					? {}
+					? {} // No additional filters for dead bots - only grayscale from CSS class
 					: ({
-							filter: "drop-shadow(0 0 20px currentColor)",
-							// This custom property will be used by the animation
-							"--shadow-color": "currentColor",
+							filter: createBorderEffect(),
 						} as React.CSSProperties)
 			}
 			alt={`bot-photo-${bot?.isDead ? "dead" : "alive"}`}
