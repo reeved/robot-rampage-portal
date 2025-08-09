@@ -713,12 +713,14 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-t9cyh6x",
+        "id": "teams-match-9ppuhkw",
         "name": "Teams match",
         "participants": [
-          {},
           {
-            "id": "uhunewo"
+            "id": "part-y3konnp"
+          },
+          {
+            "id": "part-aw653qy"
           }
         ]
       }
@@ -727,13 +729,13 @@
     "team2Name": "Team 2",
     "team1bots": [
       {
-        "id": "",
+        "id": "s9xj92s",
         "isDead": false,
         "isActive": false,
         "isSubbed": false
       },
       {
-        "id": "",
+        "id": "luecccm",
         "isDead": false,
         "isActive": false
       },
@@ -744,36 +746,41 @@
         "isSubbed": true
       },
       {
-        "id": "part-04xspbq",
+        "id": "part-odwrzot",
         "isDead": false,
         "isActive": false
       },
       {
+        "id": "part-y3konnp",
         "isDead": false,
-        "isActive": false
+        "isActive": true
       }
     ],
     "team2bots": [
       {
         "id": "uhunewo",
         "isDead": false,
+        "isActive": false
+      },
+      {
+        "id": "part-hh5ch23",
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "id": "part-dllub2q",
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "id": "part-ul19jgv",
+        "isDead": false,
+        "isActive": false
+      },
+      {
+        "id": "part-aw653qy",
+        "isDead": false,
         "isActive": true
-      },
-      {
-        "isDead": false,
-        "isActive": false
-      },
-      {
-        "isDead": false,
-        "isActive": false
-      },
-      {
-        "isDead": false,
-        "isActive": false
-      },
-      {
-        "isDead": false,
-        "isActive": false
       }
     ],
     "name": "Teams 1"
