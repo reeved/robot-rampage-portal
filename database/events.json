@@ -1,24 +1,23 @@
 [
   {
     "id": "may",
-    "currentMatchId": "teams-match-t9cyh6x",
+    "currentMatchId": "match-twy6836",
     "qualifyingResults": {
       "part-04xspbq": {
         "wins": 0,
-        "losses": 3,
+        "losses": 2,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 1,
-        "lossesByJD": 1,
+        "lossesByJD": 0,
         "lossesByNS": 1,
         "opponentIds": [
-          "uhunewo",
           "part-rzeus3u",
           "part-rzeus3u"
         ],
-        "opponentWins": 5,
-        "score": -0.01105
+        "opponentWins": 4,
+        "score": -0.01096
       },
       "part-aw653qy": {
         "wins": 2,
@@ -131,8 +130,8 @@
           "uhunewo",
           "part-y3konnp"
         ],
-        "opponentWins": 4,
-        "score": 2.19994
+        "opponentWins": 3,
+        "score": 2.19993
       },
       "part-uov2lni": {
         "wins": 0,
@@ -216,20 +215,19 @@
         "score": 1.09904
       },
       "uhunewo": {
-        "wins": 1,
+        "wins": 0,
         "losses": 1,
         "winsByKO": 0,
-        "winsByJD": 1,
+        "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 1,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
-          "part-04xspbq",
           "part-dllub2q"
         ],
         "opponentWins": 2,
-        "score": 0.99902
+        "score": -0.00098
       },
       "rot076r": {
         "wins": 1,
@@ -271,11 +269,11 @@
         "position": 1
       },
       {
-        "id": "part-dllub2q",
+        "id": "part-qpm0bjg",
         "position": 2
       },
       {
-        "id": "part-qpm0bjg",
+        "id": "part-dllub2q",
         "position": 3
       },
       {
@@ -307,11 +305,11 @@
         "position": 10
       },
       {
-        "id": "uhunewo",
+        "id": "part-ul19jgv",
         "position": 11
       },
       {
-        "id": "part-ul19jgv",
+        "id": "uhunewo",
         "position": 12
       },
       {
@@ -323,11 +321,11 @@
         "position": 14
       },
       {
-        "id": "luecccm",
+        "id": "part-04xspbq",
         "position": 15
       },
       {
-        "id": "part-04xspbq",
+        "id": "luecccm",
         "position": 16
       }
     ],

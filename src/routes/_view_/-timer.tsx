@@ -6,7 +6,7 @@ const API_ENDPOINTS = {
 	get: "/api/timer",
 	start: "/api/timer/start?duration=30",
 	startFrom5: "/api/timer/start?duration=15&countdown=true",
-	startFrom130: "/api/timer/start?duration=90",
+	startFrom130: "/api/timer/start?duration=126&countdown=true",
 	pause: "/api/timer/pause",
 	reset: "/api/timer/restart",
 	resume: "/api/timer/resume",

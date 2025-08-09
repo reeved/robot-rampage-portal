@@ -59,12 +59,8 @@ export const BotBar = ({ currentMatch, participants, middleContent }: Props) => 
 	return (
 		<div className="absolute bottom-10 left-60 right-60 flex">
 			<BotInfo participant={participant1} winner={winner} position="left" />
-			<div className="h-24 w-[6ch] bg-primary relative grid place-items-center text-6xl font-black">
-				{/* <img
-								src="/rr-logo.png"
-								alt="Logo"
-								className="h-8 max-w-none bottom-25 -left-15 absolute"
-							/> */}
+			<div className="h-24 w-[7ch] bg-primary relative grid place-items-center text-6xl font-black">
+				<img src="/rr-logo.png" alt="Logo" className="h-8 max-w-none bottom-25 -left-15 absolute" />
 				{middleContent}
 			</div>
 			<BotInfo participant={participant2} winner={winner} position="right" />

@@ -58,28 +58,40 @@ export const Overlay = ({ children }: PropsWithChildren) => {
 	);
 };
 
+const isTimeAround = (time: number, currentTime: number) => {
+	return time >= currentTime - 2 && time <= currentTime + 3;
+};
+
 const getComponentToShow = (forceBottombar: boolean, timeLeft: number) => {
 	if (forceBottombar) {
-		return "bar"
-	}
-
-	if (timeLeft > 80 || timeLeft === 0) {
 		return "bar";
 	}
 
-	if (timeLeft < 80 && timeLeft > 75) {
+	if (timeLeft === 0) {
+		return "bar";
+	}
+
+	// show for the start of the match
+	if (timeLeft >= 174) {
+		return "bar";
+	}
+
+	// 2mins
+	if (isTimeAround(120, timeLeft)) {
 		return "mini-preview";
 	}
 
-	if (timeLeft >= 55 && timeLeft <= 65) {
+	// 1min
+	if (isTimeAround(60, timeLeft)) {
 		return "mini-preview";
 	}
 
-	if (timeLeft >= 25 && timeLeft <= 35) {
+	// 30s
+	if (isTimeAround(30, timeLeft)) {
 		return "mini-preview";
 	}
 
-	if (timeLeft < 11) {
+	if (timeLeft <= 10) {
 		return "mini-preview";
 	}
 
