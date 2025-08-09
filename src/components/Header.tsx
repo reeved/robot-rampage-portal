@@ -30,6 +30,9 @@ export default function Header() {
 					<Link to="/overlay">Overlay</Link>
 				</div>
 				<div className="px-2 font-bold text-foreground">
+					<Link to="/admin/mini-timer">Mini Timer Overlay</Link>
+				</div>
+				<div className="px-2 font-bold text-foreground">
 					<Link to="/stats">Stats</Link>
 				</div>
 				<div className="px-2 font-bold text-foreground">
