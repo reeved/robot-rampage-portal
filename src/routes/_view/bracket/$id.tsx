@@ -30,6 +30,7 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 		height: number,
 		isLoser: boolean,
 		showImage: boolean,
+		color: "orange" | "blue",
 	) => ({
 		id,
 		orientation,
@@ -40,6 +41,7 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 		width,
 		height,
 		isLoser,
+		color,
 	});
 
 	if (botCount === 4) {
@@ -55,16 +57,16 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 
 		const boxes: Box[] = [
 			// Left side - SF1 participants
-			createBox(1, sf1Bots[0], "right", columns[0], rows[0], 280, 120, isLoser(sf1, sf1Bots[0]), true),
-			createBox(2, sf1Bots[1], "right", columns[0], rows[2], 280, 120, isLoser(sf1, sf1Bots[1]), true),
+			createBox(1, sf1Bots[0], "right", columns[0], rows[0], 280, 120, isLoser(sf1, sf1Bots[0]), true, "orange"),
+			createBox(2, sf1Bots[1], "right", columns[0], rows[2], 280, 120, isLoser(sf1, sf1Bots[1]), true, "blue"),
 
 			// Middle - Final participants
-			createBox(3, finalBots[0], "right", columns[1], rows[1], 280, 120, isLoser(final, finalBots[0]), false),
-			createBox(4, finalBots[1], "left", columns[2], rows[1], 280, 120, isLoser(final, finalBots[1]), false),
+			createBox(3, finalBots[0], "right", columns[1], rows[1], 280, 120, isLoser(final, finalBots[0]), true, "orange"),
+			createBox(4, finalBots[1], "left", columns[2], rows[1], 280, 120, isLoser(final, finalBots[1]), true, "blue"),
 
 			// Right side - SF2 participants
-			createBox(5, sf2Bots[0], "left", columns[3], rows[0], 280, 120, isLoser(sf2, sf2Bots[0]), true),
-			createBox(6, sf2Bots[1], "left", columns[3], rows[2], 280, 120, isLoser(sf2, sf2Bots[1]), true),
+			createBox(5, sf2Bots[0], "left", columns[3], rows[0], 280, 120, isLoser(sf2, sf2Bots[0]), true, "orange"),
+			createBox(6, sf2Bots[1], "left", columns[3], rows[2], 280, 120, isLoser(sf2, sf2Bots[1]), true, "blue"),
 		];
 
 		return boxes;
@@ -79,32 +81,32 @@ const getBracketBoxes = (botCount: 4 | 8, bracketMatches: BracketMatch[], partic
 		const [qf1Bots, qf2Bots, qf3Bots, qf4Bots, sf1Bots, sf2Bots, finalBots] = matches.map(getParticipantsForMatch);
 
 		const columns = [70, 390, 700, 980, 1300, 1600] as const;
-		const rows = [60, 150, 250, 420, 600, 700, 800] as const;
+		const rows = [60, 170, 280, 430, 580, 690, 800] as const;
 
 		const boxes: Box[] = [
 			// Quarter Finals - Left side
-			createBox(1, qf1Bots[0], "right", columns[0], rows[0], 240, 120, isLoser(qf1, qf1Bots[0]), false),
-			createBox(2, qf1Bots[1], "right", columns[0], rows[2], 240, 120, isLoser(qf1, qf1Bots[1]), false),
-			createBox(3, qf2Bots[0], "right", columns[0], rows[4], 240, 120, isLoser(qf2, qf2Bots[0]), false),
-			createBox(4, qf2Bots[1], "right", columns[0], rows[6], 240, 120, isLoser(qf2, qf2Bots[1]), false),
+			createBox(1, qf1Bots[0], "right", columns[0], rows[0], 240, 120, isLoser(qf1, qf1Bots[0]), true, "orange"),
+			createBox(2, qf1Bots[1], "right", columns[0], rows[2], 240, 120, isLoser(qf1, qf1Bots[1]), true, "blue"),
+			createBox(3, qf2Bots[0], "right", columns[0], rows[4], 240, 120, isLoser(qf2, qf2Bots[0]), true, "orange"),
+			createBox(4, qf2Bots[1], "right", columns[0], rows[6], 240, 120, isLoser(qf2, qf2Bots[1]), true, "blue"),
 
 			// Quarter Finals - Right side
-			createBox(5, qf3Bots[0], "left", columns[5], rows[0], 240, 120, isLoser(qf3, qf3Bots[0]), false),
-			createBox(6, qf3Bots[1], "left", columns[5], rows[2], 240, 120, isLoser(qf3, qf3Bots[1]), false),
-			createBox(7, qf4Bots[0], "left", columns[5], rows[4], 240, 120, isLoser(qf4, qf4Bots[0]), false),
-			createBox(8, qf4Bots[1], "left", columns[5], rows[6], 240, 120, isLoser(qf4, qf4Bots[1]), false),
+			createBox(5, qf3Bots[0], "left", columns[5], rows[0], 240, 120, isLoser(qf3, qf3Bots[0]), true, "orange"),
+			createBox(6, qf3Bots[1], "left", columns[5], rows[2], 240, 120, isLoser(qf3, qf3Bots[1]), true, "blue"),
+			createBox(7, qf4Bots[0], "left", columns[5], rows[4], 240, 120, isLoser(qf4, qf4Bots[0]), true, "orange"),
+			createBox(8, qf4Bots[1], "left", columns[5], rows[6], 240, 120, isLoser(qf4, qf4Bots[1]), true, "blue"),
 
 			// Semi Finals - Left side
-			createBox(9, sf1Bots[0], "right", columns[1], rows[1], 240, 120, isLoser(sf1, sf1Bots[0]), false),
-			createBox(10, sf1Bots[1], "right", columns[1], rows[5], 240, 120, isLoser(sf1, sf1Bots[1]), false),
+			createBox(9, sf1Bots[0], "right", columns[1], rows[1], 240, 120, isLoser(sf1, sf1Bots[0]), true, "orange"),
+			createBox(10, sf1Bots[1], "right", columns[1], rows[5], 240, 120, isLoser(sf1, sf1Bots[1]), true, "blue"),
 
 			// Semi Finals - Right side
-			createBox(11, sf2Bots[0], "left", columns[4], rows[1], 240, 120, isLoser(sf2, sf2Bots[0]), false),
-			createBox(12, sf2Bots[1], "left", columns[4], rows[5], 240, 120, isLoser(sf2, sf2Bots[1]), false),
+			createBox(11, sf2Bots[0], "left", columns[4], rows[1], 240, 120, isLoser(sf2, sf2Bots[0]), true, "orange"),
+			createBox(12, sf2Bots[1], "left", columns[4], rows[5], 240, 120, isLoser(sf2, sf2Bots[1]), true, "blue"),
 
 			// Final
-			createBox(13, finalBots[0], "right", columns[2], rows[3], 240, 120, isLoser(final, finalBots[0]), false),
-			createBox(14, finalBots[1], "left", columns[3], rows[3], 240, 120, isLoser(final, finalBots[1]), false),
+			createBox(13, finalBots[0], "right", columns[2], rows[3], 240, 120, isLoser(final, finalBots[0]), true, "orange"),
+			createBox(14, finalBots[1], "left", columns[3], rows[3], 240, 120, isLoser(final, finalBots[1]), true, "blue"),
 		];
 
 		return boxes;
@@ -135,7 +137,6 @@ const getBracketMatches = createServerFn({
 			.filter((b) => b.type === "BRACKET")
 			.flatMap((schedule) => schedule.matches)
 			.filter((m) => m.bracket === bracketName);
-
 
 		const boxes = getBracketBoxes(bracketConfig.size, bracketMatches, participants);
 

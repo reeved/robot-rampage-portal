@@ -10,6 +10,7 @@ export type Box = {
 	width: number;
 	height: number;
 	isLoser?: boolean;
+	color: "orange" | "blue";
 };
 
 export type Connection = {
@@ -156,6 +157,30 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 	);
 };
 
+const BotBox = ({ box }: { box: Box }) => {
+	return (
+		<div
+			className={cn(
+				"flex-1 shadow-md flex-col items-center justify-center font-rubik uppercase text-center transition-all duration-700 ease-in-out",
+				box.isLoser && "opacity-20",
+			)}
+		>
+			<div className="bg-white">
+				<img src={`/${box.image}`} alt="bot" className="h-40 mx-auto" />
+			</div>
+			<div
+				className={cn(
+					"px-2 py-2 line-clamp-2 flex items-center justify-center",
+					// box.color === "orange" ? "bg-rrorange" : "bg-rrblue",
+					"bg-primary",
+				)}
+			>
+				{box.title}
+			</div>
+		</div>
+	);
+};
+
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 	const isEightBot = boxes.length > 7;
 	// const containerClass = isEightBot ? "relative h-[700px] p-4 w-[1800px]" : "relative h-[420px] p-4 w-[1550px]";
@@ -176,7 +201,7 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 					}}
 				>
 					{/* Image containers */}
-					<div
+					{/* <div
 						className={cn(
 							"absolute",
 							isEightBot ? "h-60 w-80" : "h-80 w-120",
@@ -208,9 +233,9 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 								/>
 							</div>
 						)}
-					</div>
+					</div> */}
 					{/* Red box */}
-					<div
+					{/* <div
 						className={cn(
 							"flex-1 bg-primary shadow-md flex items-center justify-center font-rubik uppercase text-center transition-all duration-700 ease-in-out",
 							isEightBot ? "text-2xl" : "text-2xl",
@@ -228,7 +253,8 @@ export const Bracket = ({ boxes }: { boxes: Box[] }) => {
 						}}
 					>
 						{box.title}
-					</div>
+					</div> */}
+					<BotBox box={box} />
 				</div>
 			))}
 			<Connectors boxes={boxes} />
