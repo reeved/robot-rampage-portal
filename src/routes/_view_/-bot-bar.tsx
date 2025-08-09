@@ -15,7 +15,7 @@ const BotInfo = ({
 		<div className="h-24 flex-1 relative font-rubik text-4xl ">
 			<div
 				className={cn(
-					"h-full w-full flex bg-black items-center justify-center  z-20 relative border-4",
+					"h-full w-full flex bg-black items-center justify-center text-center z-20 relative border-4",
 					position === "left" ? "clip-path-left-hex" : "clip-path-right-hex",
 				)}
 			>
