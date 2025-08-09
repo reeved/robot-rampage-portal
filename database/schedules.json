@@ -713,14 +713,14 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-k006ltr",
+        "id": "teams-match-ux4m8pk",
         "name": "Teams match",
         "participants": [
           {
             "id": "part-y3konnp"
           },
           {
-            "id": "part-aw653qy"
+            "id": "part-ul19jgv"
           }
         ]
       }
@@ -775,12 +775,12 @@
       {
         "id": "part-ul19jgv",
         "isDead": false,
-        "isActive": false
+        "isActive": true
       },
       {
         "id": "part-aw653qy",
         "isDead": false,
-        "isActive": true
+        "isActive": false
       }
     ],
     "name": "Teams 1"

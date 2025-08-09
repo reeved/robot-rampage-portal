@@ -54,23 +54,18 @@ const BotInfo = ({
 	const botDetails = participants.find((p) => p.id === bot?.id);
 
 	return (
-		<div
-			className={cn(
-				"flex flex-col flex-1 gap-y-4 min-h-[400px]",
-				teamColor === "yellow" ? "text-rryellow" : "text-rrblue",
-			)}
-		>
+		<div className="flex flex-col h-full justify-end gap-4">
 			{bot ? (
-				<div className="flex items-center justify-center flex-1 min-h-[300px]">
+				<div className="flex items-center justify-center flex-1 min-h-0">
 					<img
 						src={botDetails?.photo ? `/${botDetails.photo}` : undefined}
 						className={cn(
-							"max-w-9/12 max-h-100 object-contain -mt-10 mx-auto rounded-3xl",
+							"max-w-9/12 max-h-full object-contain mx-auto rounded-3xl",
 							teamColor === "blue" && "transform -scale-x-100",
 							bot?.isDead ? "grayscale greyscale-manual" : "animate-breathing",
+							teamColor === "yellow" ? "text-rryellow" : "text-rrblue",
 						)}
 						alt="bot-photo"
-						height={400}
 						style={
 							bot?.isDead
 								? {}
@@ -83,17 +78,18 @@ const BotInfo = ({
 					/>
 				</div>
 			) : (
-				<div className="flex-1 min-h-[300px] flex items-center justify-center" />
+				<div className="flex-1 flex items-center justify-center" />
 			)}
 			<div
 				className={cn(
-					"text-6xl font-rubik z-20 min-h-[60px] flex items-center justify-center",
+					"text-6xl font-rubik z-20 flex items-center justify-center",
 					botDetails?.name?.length && botDetails?.name?.length > 20 && "text-4xl",
+					teamColor === "yellow" ? "text-rryellow" : "text-rrblue",
 				)}
 			>
-				{botDetails?.name ?? ""}{" "}
+				{botDetails?.name ?? ""}
 			</div>
-			<div className="text-2xl font-heading uppercase text-white mt-4 min-h-[32px] flex items-center justify-center">
+			<div className="text-2xl font-heading uppercase text-white flex items-center justify-center">
 				{botDetails?.weapon ?? ""}
 			</div>
 		</div>
@@ -184,19 +180,24 @@ const TeamInfo = ({
 	const botIndexes = teamColor === "yellow" ? [0, 1, 2, 3, 4] : [4, 3, 2, 1, 0];
 
 	return (
-		<div className="flex flex-col w-full h-full justify-end">
-			<div className="flex-1 flex flex-col justify-end min-h-[500px]">
+		<div className="w-full h-full grid grid-cols-1 grid-rows-[5fr_1.5fr_1fr]">
+			{/* Bot info section - takes up remaining space */}
+			<div className="min-h-0 flex flex-col justify-end">
 				<BotInfo bot={activeBot} participants={participants} teamColor={teamColor} />
 			</div>
+
+			{/* Team name section */}
 			<div
 				className={cn(
-					"text-4xl font-rubik text-white mt-16 min-h-[60px] flex items-center justify-center",
+					"mt-10 text-4xl font-rubik text-white flex items-center justify-center",
 					teamColor === "yellow" ? "text-rryellow" : "text-rrblue",
 				)}
 			>
 				{teamName}
 			</div>
-			<div className="mx-10 flex flex-row justify-between items-center mt-4 min-h-[100px]">
+
+			{/* Bot previews section */}
+			<div className="mx-10 flex flex-row justify-between items-center min-h-[100px]">
 				{botIndexes.map((index) => (
 					<BotPreview
 						key={`${teamName}-${index}`}
@@ -229,22 +230,13 @@ function RouteComponent() {
 				<h3 className="text-[40px]">FIGHT {numberOfBotsWithIds - 1}</h3>
 				<h3 className="text-[50px] mt-100">VS</h3>
 			</div>
-			<div className="flex flex-col justify-end text-center h-full">
-				<TeamInfo
-					teamName={schedule.team1Name}
-					bots={schedule.team1bots}
-					participants={participants}
-					teamColor="yellow"
-				/>
-			</div>
-			<div className="flex flex-col justify-end text-center h-full">
-				<TeamInfo
-					teamName={schedule.team2Name}
-					bots={schedule.team2bots}
-					participants={participants}
-					teamColor="blue"
-				/>
-			</div>
+			<TeamInfo
+				teamName={schedule.team1Name}
+				bots={schedule.team1bots}
+				participants={participants}
+				teamColor="yellow"
+			/>
+			<TeamInfo teamName={schedule.team2Name} bots={schedule.team2bots} participants={participants} teamColor="blue" />
 		</div>
 	);
 }
