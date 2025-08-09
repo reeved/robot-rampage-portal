@@ -149,7 +149,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 							index
 						}`}
 					>
-						<path d={path} fill="none" stroke="white" strokeWidth="6" className="transition-all duration-300" />
+						<path d={path} fill="none" stroke="white" strokeWidth="4" className="transition-all duration-300" />
 					</g>
 				);
 			})}
@@ -162,21 +162,24 @@ const BotBox = ({ box }: { box: Box }) => {
 		<div
 			className={cn(
 				"flex-1 shadow-md flex-col items-center justify-center font-rubik uppercase text-center transition-all duration-700 ease-in-out",
-				box.isLoser && "opacity-20",
+				// box.isLoser && "opacity-20",
 			)}
 		>
-			<div className="bg-white">
-				<img src={`/${box.image}`} alt="bot" className="h-40 mx-auto" />
+			<div className="bg-white/0 h-40 flex items-center justify-center p-2">
+				{box.image && <img src={`/${box.image}`} alt="bot" className="max-h-40 mx-auto aspect-auto w-auto" />}
 			</div>
-			<div
-				className={cn(
-					"px-2 py-2 line-clamp-2 flex items-center justify-center",
-					// box.color === "orange" ? "bg-rrorange" : "bg-rrblue",
-					"bg-primary",
-				)}
-			>
-				{box.title}
-			</div>
+			{box.title !== "TBD" && (
+				<div
+					className={cn(
+						"px-2 py-2 line-clamp-2 flex items-center justify-center",
+						// box.color === "orange" ? "bg-rrorange" : "bg-rrblue",
+						"bg-primary",
+						box.isLoser && "bg-primary/20 text-white/50",
+					)}
+				>
+					{box.title}
+				</div>
+			)}
 		</div>
 	);
 };

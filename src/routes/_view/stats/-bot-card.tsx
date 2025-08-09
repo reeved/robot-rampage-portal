@@ -1,4 +1,5 @@
 import type { Participant } from "@/db";
+import { cn } from "@/lib/utils";
 
 export const BotImage = ({ src, color }: { src?: string; color: "orange" | "blue" }) => {
 	if (!src) {
@@ -9,7 +10,7 @@ export const BotImage = ({ src, color }: { src?: string; color: "orange" | "blue
 		<div className={color === "orange" ? "flex-1 text-rrorange" : "flex-1 text-rrblue transform -scale-x-100"}>
 			<img
 				src={src ? `/${src}` : undefined}
-				className="w-11/12 mx-auto rounded-3xl animate-breathing"
+				className="aspect-auto max-w-10/12 mx-auto rounded-3xl animate-breathing"
 				alt="bot-photo"
 				style={
 					{
@@ -43,18 +44,26 @@ export const BotInfo = ({ details }: Props) => {
 		<div className="relative flex items-center gap-25">
 			{/* Left Skewed Box */}
 			<div
-				className="bg-black w-[75ch] border-8 border-rrorange text-white skew-x-[20deg] shadow-lg py-6 z-0"
+				className="bg-black w-[75ch] border-8 border-rrorange text-white skew-x-[20deg] shadow-lg z-0 h-45 flex items-center justify-center"
 				style={{
 					transform: "skewX(20deg)",
 				}}
 			>
 				<div
-					className="skew-x-[-20deg] text-center flex flex-col items-center"
+					className="skew-x-[-20deg] text-center flex flex-col items-center px-8 justify-between h-full py-4"
 					style={{
 						transform: "skewX(-20deg)",
 					}}
 				>
-					<div className="text-6xl  uppercase font-rubik">{bot1Info.participant?.name ?? "TBD"}</div>
+					<div
+						className={cn(
+							"text-6xl uppercase font-rubik",
+							bot1Info.participant?.name?.length && bot1Info.participant?.name?.length > 10 && "text-4xl",
+							!bot1Info.stats && "my-auto",
+						)}
+					>
+						{bot1Info.participant?.name ?? "TBD"}
+					</div>
 					{bot1Info.stats && (
 						<div className="mt-4 mb-0">
 							<span className="font-bold flex gap-2 text-4xl">
@@ -78,18 +87,26 @@ export const BotInfo = ({ details }: Props) => {
 
 			{/* Right Skewed Box */}
 			<div
-				className="bg-black border-8 border-rrblue text-white skew-x-[-20deg] shadow-lg  w-[75ch] py-6 z-0"
+				className="bg-black border-8 border-rrblue text-white skew-x-[-20deg] shadow-lg  w-[75ch] z-0 h-45 flex items-center justify-center"
 				style={{
 					transform: "skewX(-20deg)",
 				}}
 			>
 				<div
-					className="skew-x-[20deg] text-center flex flex-col items-center"
+					className="skew-x-[20deg] text-center flex flex-col items-center justify-between h-full py-4"
 					style={{
 						transform: "skewX(20deg)",
 					}}
 				>
-					<div className="text-6xl  uppercase font-rubik">{bot2Info.participant?.name ?? "TBD"}</div>
+					<div
+						className={cn(
+							"text-6xl  uppercase font-rubik",
+							bot2Info.participant?.name?.length && bot2Info.participant?.name?.length > 10 && "text-4xl",
+							!bot2Info.stats && "my-auto",
+						)}
+					>
+						{bot2Info.participant?.name ?? "TBD"}
+					</div>
 					{bot2Info.stats && (
 						<div className="mt-4 mb-0">
 							<span className="font-bold flex gap-2 text-4xl">

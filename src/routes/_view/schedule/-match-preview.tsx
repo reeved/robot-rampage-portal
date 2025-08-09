@@ -21,6 +21,7 @@ export const MatchPreview = ({ match, participants, currentMatchId }: Props) => 
 							"text-right w-full font-extrabold",
 							bot1 && match.winner?.id === bot1.id && "text-amber-400",
 							bot1 && match.winner?.id && match.winner?.id !== bot1.id && "text-neutral-500",
+							bot1?.name?.length && bot1.name?.length > 15 && "text-lg",
 						)}
 					>
 						{bot1?.name ?? "TBD"}
@@ -33,6 +34,7 @@ export const MatchPreview = ({ match, participants, currentMatchId }: Props) => 
 							"text-left w-full font-extrabold",
 							bot2 && match.winner?.id === bot2.id && "text-amber-400",
 							bot2 && match.winner?.id && match.winner?.id !== bot2.id && "text-neutral-500",
+							bot2?.name?.length && bot2.name?.length > 15 && "text-lg",
 						)}
 					>
 						{bot2?.name ?? "TBD"}
