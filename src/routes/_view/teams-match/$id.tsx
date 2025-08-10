@@ -220,14 +220,14 @@ function RouteComponent() {
 	}
 
 	const { schedule, participants } = data;
-	const numberOfBotsWithIds = [...Object.values(schedule.team1bots), ...Object.values(schedule.team2bots)].filter(
-		(b) => b?.id,
+	const numberOfDeadBots = [...Object.values(schedule.team1bots), ...Object.values(schedule.team2bots)].filter(
+		(b) => !!b?.isDead,
 	).length;
 
 	return (
 		<div className="grid grid-cols-2 h-full gap-x-40 relative pb-10 pt-25">
 			<div className="absolute left-1/2 transform -translate-x-1/2 text-center text-primary font-heading mt-4 ">
-				<h3 className="text-[40px]">FIGHT {numberOfBotsWithIds - 1}</h3>
+				<h3 className="text-[40px]">FIGHT {numberOfDeadBots + 1}</h3>
 				<h3 className="text-[50px] mt-100">VS</h3>
 			</div>
 			<TeamInfo

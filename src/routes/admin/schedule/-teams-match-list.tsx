@@ -237,7 +237,6 @@ const TeamList = ({
 	const handleDragEnd = (event: DragEndEvent) => {
 		const { active, over } = event;
 
-		console.log("Drag end event:", { active: active.id, over: over?.id });
 
 		if (active.id !== over?.id) {
 			const activeId = active.id as string;
@@ -247,13 +246,11 @@ const TeamList = ({
 			const [activeTeam, activeIndexStr] = activeId.split("-");
 			const [overTeam, overIndexStr] = overId.split("-");
 
-			console.log("Parsed IDs:", { activeTeam, activeIndexStr, overTeam, overIndexStr });
 
 			if (activeTeam === overTeam && (activeTeam === "team1" || activeTeam === "team2")) {
 				const activeIndex = Number.parseInt(activeIndexStr, 10);
 				const overIndex = Number.parseInt(overIndexStr, 10);
 
-				console.log("Moving from index", activeIndex, "to index", overIndex);
 
 				// Use field array move method to properly update the array
 				fieldArray.move(activeIndex, overIndex);
@@ -326,7 +323,6 @@ const updateTeamsMatch = createServerFn({
 	.handler(async ({ context, data }) => {
 		const { scheduleId, team1Name, team2Name, team1bots, team2bots } = data;
 
-		console.log(data);
 
 		const schedule = await context.db.schedule.find((s) => s.id === scheduleId);
 		if (!schedule) {

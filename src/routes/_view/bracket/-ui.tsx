@@ -162,7 +162,7 @@ const BotBox = ({ box }: { box: Box }) => {
 		<div
 			className={cn(
 				"flex-1 shadow-md flex-col items-center justify-center font-rubik uppercase text-center transition-all duration-700 ease-in-out",
-				// box.isLoser && "opacity-20",
+				box.isLoser && "opacity-30",
 			)}
 		>
 			<div className="bg-white/0 h-40 flex items-center justify-center p-2">
@@ -172,9 +172,9 @@ const BotBox = ({ box }: { box: Box }) => {
 				<div
 					className={cn(
 						"px-2 py-2 line-clamp-2 flex items-center justify-center",
-						// box.color === "orange" ? "bg-rrorange" : "bg-rrblue",
 						"bg-primary",
-						box.isLoser && "bg-primary/20 text-white/50",
+						box.color === "orange" ? "bg-rrorange" : "bg-rrblue",
+						// box.isLoser && "bg-primary/20 text-white/50",
 					)}
 				>
 					{box.title}

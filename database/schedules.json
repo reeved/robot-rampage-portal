@@ -19,7 +19,7 @@
           "id": "part-04xspbq",
           "condition": "KO"
         },
-        "bracket": "Championship",
+        "bracket": "Bottom 16",
         "round": "QF1"
       },
       {
@@ -37,7 +37,7 @@
           "id": "luecccm",
           "condition": "KO"
         },
-        "bracket": "Championship",
+        "bracket": "Bottom 16",
         "round": "QF2"
       },
       {
@@ -56,7 +56,7 @@
           "id": "part-hh5ch23",
           "condition": "KO"
         },
-        "bracket": "Championship",
+        "bracket": "Bottom 16",
         "round": "QF3"
       },
       {
@@ -75,7 +75,7 @@
           "id": "part-aw653qy",
           "condition": "JD"
         },
-        "bracket": "Championship",
+        "bracket": "Bottom 16",
         "round": "QF4"
       },
       {
@@ -713,7 +713,7 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-ux4m8pk",
+        "id": "teams-match-z9zcint",
         "name": "Teams match",
         "participants": [
           {
@@ -746,7 +746,7 @@
         "isSubbed": true
       },
       {
-        "id": "part-odwrzot",
+        "id": "part-y3konnp",
         "isDead": false,
         "isActive": false
       },
