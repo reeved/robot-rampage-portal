@@ -90,7 +90,7 @@ const BotInfo = ({
 				{botDetails?.name ?? ""}
 			</div>
 			<div className="text-2xl font-heading uppercase text-white flex items-center justify-center">
-				{botDetails?.weapon ?? ""}
+				
 			</div>
 		</div>
 	);

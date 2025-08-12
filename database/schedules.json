@@ -713,7 +713,7 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-z9zcint",
+        "id": "teams-match-uzbpvvd",
         "name": "Teams match",
         "participants": [
           {
@@ -725,8 +725,8 @@
         ]
       }
     ],
-    "team1Name": "Team 1",
-    "team2Name": "Team 2",
+    "team1Name": "Team AUS",
+    "team2Name": "Team NZ",
     "team1bots": [
       {
         "id": "s9xj92s",

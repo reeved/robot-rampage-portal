@@ -102,8 +102,13 @@ class TimerClass {
 		}
 
 		this.state.isRunning = true;
-		if (shouldCountdown && this.state.countdownPhase === "pre") {
+		if (shouldCountdown) {
 			this.state.isCountingDown = true;
+			this.state.isCountingDown = shouldCountdown;
+			this.state.countdownPhase = "pre";
+			this.state.countdownText = "3";
+			this.state.preCountdownTime = 3; // Track pre-countdown separately
+			this.state.duration = this.state.timeLeft
 		}
 
 		this.lastTick = performance.now();

@@ -3,7 +3,7 @@ type List = "BotA" | "BotB" | "Replays";
 class VmixApi {
 	private ENDPOINT = "http://192.168.50.48:8088/api/";
 	private BASEPATH = "C:\\RRMedia\\";
-	private REPLAYS_BASEPATH = "C:\\RRMedia\\";
+	private REPLAYS_BASEPATH = "R:\\Edits\\";
 
 	private async ListAdd(input: List, value: string) {
 		try {
