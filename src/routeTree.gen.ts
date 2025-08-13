@@ -24,7 +24,7 @@ import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/parti
 import { Route as AdminEventRouteRouteImport } from './routes/admin/event/route'
 import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
 import { Route as ViewScheduleRouteRouteImport } from './routes/_view/schedule/route'
-import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile.index'
+import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile/index'
 import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
@@ -39,11 +39,12 @@ import { Route as AdminEventFinalRankingsRouteImport } from './routes/admin/even
 import { Route as ViewTeamsMatchIdRouteImport } from './routes/_view/teams-match/$id'
 import { Route as ViewScheduleIdRouteImport } from './routes/_view/schedule/$id'
 import { Route as ViewBracketIdRouteImport } from './routes/_view/bracket/$id'
-import { Route as AdminMobileIdIndexRouteImport } from './routes/admin_/mobile.$id.index'
-import { Route as AdminMobileIdMatchIdRouteImport } from './routes/admin_/mobile.$id.$matchId'
+import { Route as AdminMobileIdIndexRouteImport } from './routes/admin_/mobile/$id.index'
 import { Route as AdminScheduleIdNewbracketRouteImport } from './routes/admin/schedule/$id.newbracket'
 import { Route as AdminScheduleIdNewRouteImport } from './routes/admin/schedule/$id.new'
 import { Route as AdminScheduleIdMatchIdRouteImport } from './routes/admin/schedule/$id.$matchId'
+import { Route as AdminMobileIdMatchIdRouteRouteImport } from './routes/admin_/mobile/$id.$matchId/route'
+import { Route as AdminMobileIdMatchIdIndexRouteImport } from './routes/admin_/mobile/$id.$matchId/index'
 import { ServerRoute as ApiTimerIndexServerRouteImport } from './routes/api/timer/index'
 import { ServerRoute as ApiVmixGetReplaysServerRouteImport } from './routes/api/vmix/get-replays'
 import { ServerRoute as ApiTimerStartServerRouteImport } from './routes/api/timer/start'
@@ -198,11 +199,6 @@ const AdminMobileIdIndexRoute = AdminMobileIdIndexRouteImport.update({
   path: '/admin/mobile/$id/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminMobileIdMatchIdRoute = AdminMobileIdMatchIdRouteImport.update({
-  id: '/admin_/mobile/$id/$matchId',
-  path: '/admin/mobile/$id/$matchId',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminScheduleIdNewbracketRoute =
   AdminScheduleIdNewbracketRouteImport.update({
     id: '/newbracket',
@@ -219,6 +215,18 @@ const AdminScheduleIdMatchIdRoute = AdminScheduleIdMatchIdRouteImport.update({
   path: '/$matchId',
   getParentRoute: () => AdminScheduleIdRoute,
 } as any)
+const AdminMobileIdMatchIdRouteRoute =
+  AdminMobileIdMatchIdRouteRouteImport.update({
+    id: '/admin_/mobile/$id/$matchId',
+    path: '/admin/mobile/$id/$matchId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminMobileIdMatchIdIndexRoute =
+  AdminMobileIdMatchIdIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AdminMobileIdMatchIdRouteRoute,
+  } as any)
 const ApiTimerIndexServerRoute = ApiTimerIndexServerRouteImport.update({
   id: '/api/timer/',
   path: '/api/timer/',
@@ -283,11 +291,12 @@ export interface FileRoutesByFullPath {
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match/': typeof ViewTeamsMatchIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
+  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRouteRouteWithChildren
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
-  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
   '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
+  '/admin/mobile/$id/$matchId/': typeof AdminMobileIdMatchIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -318,8 +327,8 @@ export interface FileRoutesByTo {
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
-  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
   '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
+  '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -351,11 +360,12 @@ export interface FileRoutesById {
   '/_view/stats/': typeof ViewStatsIndexRoute
   '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
   '/admin_/mobile/': typeof AdminMobileIndexRoute
+  '/admin_/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRouteRouteWithChildren
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
-  '/admin_/mobile/$id/$matchId': typeof AdminMobileIdMatchIdRoute
   '/admin_/mobile/$id/': typeof AdminMobileIdIndexRoute
+  '/admin_/mobile/$id/$matchId/': typeof AdminMobileIdMatchIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -387,11 +397,12 @@ export interface FileRouteTypes {
     | '/stats'
     | '/teams-match/'
     | '/admin/mobile'
+    | '/admin/mobile/$id/$matchId'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
-    | '/admin/mobile/$id/$matchId'
     | '/admin/mobile/$id'
+    | '/admin/mobile/$id/$matchId/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -422,8 +433,8 @@ export interface FileRouteTypes {
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
-    | '/admin/mobile/$id/$matchId'
     | '/admin/mobile/$id'
+    | '/admin/mobile/$id/$matchId'
   id:
     | '__root__'
     | '/'
@@ -454,11 +465,12 @@ export interface FileRouteTypes {
     | '/_view/stats/'
     | '/_view/teams-match/'
     | '/admin_/mobile/'
+    | '/admin_/mobile/$id/$matchId'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
-    | '/admin_/mobile/$id/$matchId'
     | '/admin_/mobile/$id/'
+    | '/admin_/mobile/$id/$matchId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -469,7 +481,7 @@ export interface RootRouteChildren {
   AdminMiniTimerRoute: typeof AdminMiniTimerRoute
   AdminTimerRoute: typeof AdminTimerRoute
   AdminMobileIndexRoute: typeof AdminMobileIndexRoute
-  AdminMobileIdMatchIdRoute: typeof AdminMobileIdMatchIdRoute
+  AdminMobileIdMatchIdRouteRoute: typeof AdminMobileIdMatchIdRouteRouteWithChildren
   AdminMobileIdIndexRoute: typeof AdminMobileIdIndexRoute
 }
 export interface FileServerRoutesByFullPath {
@@ -745,13 +757,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminMobileIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin_/mobile/$id/$matchId': {
-      id: '/admin_/mobile/$id/$matchId'
-      path: '/admin/mobile/$id/$matchId'
-      fullPath: '/admin/mobile/$id/$matchId'
-      preLoaderRoute: typeof AdminMobileIdMatchIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin/schedule/$id/newbracket': {
       id: '/admin/schedule/$id/newbracket'
       path: '/newbracket'
@@ -772,6 +777,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/schedule/$id/$matchId'
       preLoaderRoute: typeof AdminScheduleIdMatchIdRouteImport
       parentRoute: typeof AdminScheduleIdRoute
+    }
+    '/admin_/mobile/$id/$matchId': {
+      id: '/admin_/mobile/$id/$matchId'
+      path: '/admin/mobile/$id/$matchId'
+      fullPath: '/admin/mobile/$id/$matchId'
+      preLoaderRoute: typeof AdminMobileIdMatchIdRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin_/mobile/$id/$matchId/': {
+      id: '/admin_/mobile/$id/$matchId/'
+      path: '/'
+      fullPath: '/admin/mobile/$id/$matchId/'
+      preLoaderRoute: typeof AdminMobileIdMatchIdIndexRouteImport
+      parentRoute: typeof AdminMobileIdMatchIdRouteRoute
     }
   }
 }
@@ -965,6 +984,20 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
   AdminRouteRouteChildren,
 )
 
+interface AdminMobileIdMatchIdRouteRouteChildren {
+  AdminMobileIdMatchIdIndexRoute: typeof AdminMobileIdMatchIdIndexRoute
+}
+
+const AdminMobileIdMatchIdRouteRouteChildren: AdminMobileIdMatchIdRouteRouteChildren =
+  {
+    AdminMobileIdMatchIdIndexRoute: AdminMobileIdMatchIdIndexRoute,
+  }
+
+const AdminMobileIdMatchIdRouteRouteWithChildren =
+  AdminMobileIdMatchIdRouteRoute._addFileChildren(
+    AdminMobileIdMatchIdRouteRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ViewRouteRoute: ViewRouteRouteWithChildren,
@@ -973,7 +1006,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminMiniTimerRoute: AdminMiniTimerRoute,
   AdminTimerRoute: AdminTimerRoute,
   AdminMobileIndexRoute: AdminMobileIndexRoute,
-  AdminMobileIdMatchIdRoute: AdminMobileIdMatchIdRoute,
+  AdminMobileIdMatchIdRouteRoute: AdminMobileIdMatchIdRouteRouteWithChildren,
   AdminMobileIdIndexRoute: AdminMobileIdIndexRoute,
 }
 export const routeTree = rootRouteImport
