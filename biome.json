@@ -7,16 +7,21 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["src/routeTree.gen.ts"],
-		"include": ["src/*", ".vscode/*", "index.html", "vite.config.js"]
+		"includes": [
+			"**/src/**/*",
+			"**/.vscode/**/*",
+			"**/index.html",
+			"**/vite.config.js",
+			"!**/src/routeTree.gen.ts"
+		]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
 		"lineWidth": 120
 	},
-	"organizeImports": {
-		"enabled": true
+	"assist": {
+		"actions": { "source": { "organizeImports": "on" } }
 	},
 	"linter": {
 		"enabled": true,

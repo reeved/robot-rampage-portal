@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { getSchedule } from "../admin/schedule/$id";
+import { getSchedule } from "../../admin/schedule/$id";
 import { MatchList } from "./-match-list";
 
 export const Route = createFileRoute("/admin_/mobile/$id/")({
@@ -18,5 +18,5 @@ function RouteComponent() {
 			</Link>
 			<MatchList schedule={schedule} participants={participants} currentMatchId={currentMatchId} />
 		</div>
-	);
+	)
 }
