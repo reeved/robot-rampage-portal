@@ -147,7 +147,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 						key={`connection-${
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							index
-							}`}
+						}`}
 					>
 						<path d={path} fill="none" stroke="white" strokeWidth="4" className="transition-all duration-300" />
 					</g>

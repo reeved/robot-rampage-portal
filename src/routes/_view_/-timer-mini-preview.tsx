@@ -1,10 +1,9 @@
 import type { PropsWithChildren } from "react";
 
 export const TimerMiniPreview = ({ children }: PropsWithChildren) => {
-  return (
-
-    <div
-      className="
+	return (
+		<div
+			className="
     relative
     w-46
     h-20
@@ -12,11 +11,11 @@ export const TimerMiniPreview = ({ children }: PropsWithChildren) => {
     shadow-2xl
     [clip-path:polygon(16%_0%,_84%_0%,_100%_50%,_84%_100%,_16%_100%,_0%_50%)]
   "
-    >
-      {/* The inner element for the main body of the hexagon.
+		>
+			{/* The inner element for the main body of the hexagon.
         It's slightly smaller to create the illusion of a red border. */}
-      <div
-        className="
+			<div
+				className="
       absolute
       inset-1.5
       bg-black
@@ -26,9 +25,9 @@ export const TimerMiniPreview = ({ children }: PropsWithChildren) => {
       justify-center
       text-4xl
     "
-      >
-        {children}
-      </div>
-    </div>
-  );
+			>
+				{children}
+			</div>
+		</div>
+	);
 };

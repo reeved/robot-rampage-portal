@@ -44,7 +44,7 @@ const clearTimerInterval = () => {
  * Helper function to stop the timer
  */
 const stopTimer = () => {
-	console.log("STOPPING TIMER AT", TimerStore.countdownTimer.currentTime)
+	console.log("STOPPING TIMER AT", TimerStore.countdownTimer.currentTime);
 
 	TimerStore.countdownTimer.isRunning = false;
 	clearTimerInterval();
@@ -121,7 +121,7 @@ export const startTimer = async (duration: number, shouldCountdown: boolean) => 
 	stopTimer();
 
 	if (shouldCountdown) {
-		await sleep(1000)
+		await sleep(1000);
 		// Start countdown sequence
 		TimerStore.countdownTimer.customMessage = "3";
 
@@ -146,9 +146,9 @@ export const startTimer = async (duration: number, shouldCountdown: boolean) => 
 			startCountdown();
 		}, 4000);
 	} else {
-		console.log("A")
+		console.log("A");
 		// Start the main timer immediately
-		TimerStore.countdownTimer.currentTime = duration
+		TimerStore.countdownTimer.currentTime = duration;
 		TimerStore.countdownTimer.isRunning = true;
 		startCountdown();
 	}
@@ -157,7 +157,7 @@ export const startTimer = async (duration: number, shouldCountdown: boolean) => 
 };
 
 export const pauseTimer = () => {
-			console.log("PAUSING TIMER AT", TimerStore.countdownTimer.currentTime)
+	console.log("PAUSING TIMER AT", TimerStore.countdownTimer.currentTime);
 
 	if (TimerStore.countdownTimer.isRunning) {
 		stopTimer();
@@ -167,7 +167,7 @@ export const pauseTimer = () => {
 };
 
 export const resetTimer = () => {
-	console.log("RESETTING TIMER AT", TimerStore.countdownTimer.currentTime)
+	console.log("RESETTING TIMER AT", TimerStore.countdownTimer.currentTime);
 	// Stop the timer if it's running
 	if (TimerStore.countdownTimer.isRunning) {
 		stopTimer();
@@ -180,18 +180,17 @@ export const resetTimer = () => {
 };
 
 async function sleep(ms: number): Promise<void> {
-return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export const resumeTimer = async (shouldCountdown: boolean) => {
-
-		// Stop any existing timers
+	// Stop any existing timers
 	stopTimer();
 
 	if (shouldCountdown) {
 		// Start countdown sequence
-		await sleep(1000)
-		
+		await sleep(1000);
+
 		TimerStore.countdownTimer.customMessage = "3";
 
 		setTimeout(() => {
@@ -218,13 +217,11 @@ export const resumeTimer = async (shouldCountdown: boolean) => {
 		}, 4000);
 	} else {
 		// Only resume if not already running and has time left
-	if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
-		TimerStore.countdownTimer.isRunning = true;
-		startCountdown();
+		if (!TimerStore.countdownTimer.isRunning && TimerStore.countdownTimer.currentTime > 0) {
+			TimerStore.countdownTimer.isRunning = true;
+			startCountdown();
+		}
 	}
-	}
-
-	
 
 	return TimerStore.countdownTimer;
 };

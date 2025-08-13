@@ -10,11 +10,7 @@ import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { DndContext, KeyboardSensor, PointerSensor, closestCenter, useSensor, useSensors } from "@dnd-kit/core";
 import type { DragEndEvent } from "@dnd-kit/core";
-import {
-	SortableContext,
-	sortableKeyboardCoordinates,
-	verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
+import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { DevTool } from "@hookform/devtools";
@@ -236,7 +232,6 @@ const TeamList = ({
 	const handleDragEnd = (event: DragEndEvent) => {
 		const { active, over } = event;
 
-
 		if (active.id !== over?.id) {
 			const activeId = active.id as string;
 			const overId = over?.id as string;
@@ -245,11 +240,9 @@ const TeamList = ({
 			const [activeTeam, activeIndexStr] = activeId.split("-");
 			const [overTeam, overIndexStr] = overId.split("-");
 
-
 			if (activeTeam === overTeam && (activeTeam === "team1" || activeTeam === "team2")) {
 				const activeIndex = Number.parseInt(activeIndexStr, 10);
 				const overIndex = Number.parseInt(overIndexStr, 10);
-
 
 				// Use field array move method to properly update the array
 				fieldArray.move(activeIndex, overIndex);
@@ -280,13 +273,7 @@ const TeamList = ({
 	);
 };
 
-const TeamName = ({
-	fieldName,
-	form,
-}: {
-	fieldName: "team1Name" | "team2Name";
-	form: UseFormReturn<TeamsSchema>;
-}) => {
+const TeamName = ({ fieldName, form }: { fieldName: "team1Name" | "team2Name"; form: UseFormReturn<TeamsSchema> }) => {
 	return (
 		<FormField
 			name={fieldName}
@@ -321,7 +308,6 @@ const updateTeamsMatch = createServerFn({
 	.validator(teamsSchema.extend({ scheduleId: z.string() }))
 	.handler(async ({ context, data }) => {
 		const { scheduleId, team1Name, team2Name, team1bots, team2bots } = data;
-
 
 		const schedule = await context.db.schedule.find((s) => s.id === scheduleId);
 		if (!schedule) {
@@ -393,7 +379,7 @@ export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule;
 				<DevTool control={form.control} placement="top-right" />
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-				// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
+					// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
 				>
 					<div className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg">
 						<div className="flex-1 flex flex-col gap-10">

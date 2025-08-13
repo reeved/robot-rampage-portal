@@ -69,10 +69,10 @@ const BotInfo = ({
 							bot?.isDead
 								? {}
 								: ({
-									filter: "drop-shadow(0 0 35px currentColor)",
-									// This custom property will be used by the animation
-									"--shadow-color": "currentColor",
-								} as React.CSSProperties)
+										filter: "drop-shadow(0 0 35px currentColor)",
+										// This custom property will be used by the animation
+										"--shadow-color": "currentColor",
+									} as React.CSSProperties)
 						}
 					/>
 				</div>
@@ -88,9 +88,7 @@ const BotInfo = ({
 			>
 				{botDetails?.name ?? ""}
 			</div>
-			<div className="text-2xl font-heading uppercase text-white flex items-center justify-center">
-
-			</div>
+			<div className="text-2xl font-heading uppercase text-white flex items-center justify-center"></div>
 		</div>
 	);
 };
@@ -155,8 +153,8 @@ const BotPreview = ({
 				bot?.isDead
 					? {} // No additional filters for dead bots - only grayscale from CSS class
 					: ({
-						filter: createBorderEffect(),
-					} as React.CSSProperties)
+							filter: createBorderEffect(),
+						} as React.CSSProperties)
 			}
 			alt={`bot-photo-${bot?.isDead ? "dead" : "alive"}`}
 		/>

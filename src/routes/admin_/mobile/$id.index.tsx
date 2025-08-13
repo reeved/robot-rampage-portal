@@ -18,5 +18,5 @@ function RouteComponent() {
 			</Link>
 			<MatchList schedule={schedule} participants={participants} currentMatchId={currentMatchId} />
 		</div>
-	)
+	);
 }

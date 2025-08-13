@@ -125,7 +125,6 @@ const getUpdatedRankings = (matches: QualifyingMatch[], participants: Participan
 		// return aOpponentWins - bOpponentWins;
 	});
 
-
 	return { participantResults, sortedRankings };
 };
 

@@ -108,7 +108,7 @@ class TimerClass {
 			this.state.countdownPhase = "pre";
 			this.state.countdownText = "3";
 			this.state.preCountdownTime = 3; // Track pre-countdown separately
-			this.state.duration = this.state.timeLeft
+			this.state.duration = this.state.timeLeft;
 		}
 
 		this.lastTick = performance.now();

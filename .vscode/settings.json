@@ -2,6 +2,7 @@
 	"files.watcherExclude": {
 		"**/routeTree.gen.ts": true
 	},
+	"biome.lsp.bin": "node_modules/@biomejs/cli-darwin-x64/biome",
 	"search.exclude": {
 		"**/routeTree.gen.ts": true
 	},
@@ -15,10 +16,12 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[typescript]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
 	},
 	"[typescriptreact]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
 	},
 	"[json]": {
 		"editor.defaultFormatter": "biomejs.biome"

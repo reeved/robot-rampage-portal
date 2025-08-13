@@ -1,15 +1,7 @@
 import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
 
-const InfoRow = ({
-	heading,
-	valueBot1,
-	valueBot2,
-}: {
-	heading: string;
-	valueBot1: string;
-	valueBot2: string;
-}) => {
+const InfoRow = ({ heading, valueBot1, valueBot2 }: { heading: string; valueBot1: string; valueBot2: string }) => {
 	return (
 		<div className="flex flex-col gap-1 flex-1">
 			<span className="text-2xl font-semibold uppercase text-center">{heading}</span>
