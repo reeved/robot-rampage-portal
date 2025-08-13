@@ -28,6 +28,7 @@ import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile/ind
 import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
+import { Route as ViewResultsIndexRouteImport } from './routes/_view/results/index'
 import { Route as ViewBracketIndexRouteImport } from './routes/_view/bracket/index'
 import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id'
 import { Route as AdminRankingsIdRouteImport } from './routes/admin/rankings/$id'
@@ -140,6 +141,11 @@ const ViewScheduleIndexRoute = ViewScheduleIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ViewScheduleRouteRoute,
+} as any)
+const ViewResultsIndexRoute = ViewResultsIndexRouteImport.update({
+  id: '/results/',
+  path: '/results/',
+  getParentRoute: () => ViewRouteRoute,
 } as any)
 const ViewBracketIndexRoute = ViewBracketIndexRouteImport.update({
   id: '/bracket/',
@@ -301,6 +307,7 @@ export interface FileRoutesByFullPath {
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/bracket': typeof ViewBracketIndexRoute
+  '/results': typeof ViewResultsIndexRoute
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match/': typeof ViewTeamsMatchIndexRoute
@@ -336,6 +343,7 @@ export interface FileRoutesByTo {
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/bracket': typeof ViewBracketIndexRoute
+  '/results': typeof ViewResultsIndexRoute
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match': typeof ViewTeamsMatchIndexRoute
@@ -374,6 +382,7 @@ export interface FileRoutesById {
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
   '/admin/schedule/$id': typeof AdminScheduleIdRouteWithChildren
   '/_view/bracket/': typeof ViewBracketIndexRoute
+  '/_view/results/': typeof ViewResultsIndexRoute
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
   '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
@@ -413,6 +422,7 @@ export interface FileRouteTypes {
     | '/admin/rankings/$id'
     | '/admin/schedule/$id'
     | '/bracket'
+    | '/results'
     | '/schedule/'
     | '/stats'
     | '/teams-match/'
@@ -448,6 +458,7 @@ export interface FileRouteTypes {
     | '/admin/rankings/$id'
     | '/admin/schedule/$id'
     | '/bracket'
+    | '/results'
     | '/schedule'
     | '/stats'
     | '/teams-match'
@@ -485,6 +496,7 @@ export interface FileRouteTypes {
     | '/admin/rankings/$id'
     | '/admin/schedule/$id'
     | '/_view/bracket/'
+    | '/_view/results/'
     | '/_view/schedule/'
     | '/_view/stats/'
     | '/_view/teams-match/'
@@ -698,6 +710,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/schedule/'
       preLoaderRoute: typeof ViewScheduleIndexRouteImport
       parentRoute: typeof ViewScheduleRouteRoute
+    }
+    '/_view/results/': {
+      id: '/_view/results/'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ViewResultsIndexRouteImport
+      parentRoute: typeof ViewRouteRoute
     }
     '/_view/bracket/': {
       id: '/_view/bracket/'
@@ -919,6 +938,7 @@ interface ViewRouteRouteChildren {
   ViewTeamsMatchRouteRoute: typeof ViewTeamsMatchRouteRouteWithChildren
   ViewBracketIdRoute: typeof ViewBracketIdRoute
   ViewBracketIndexRoute: typeof ViewBracketIndexRoute
+  ViewResultsIndexRoute: typeof ViewResultsIndexRoute
   ViewStatsIndexRoute: typeof ViewStatsIndexRoute
 }
 
@@ -927,6 +947,7 @@ const ViewRouteRouteChildren: ViewRouteRouteChildren = {
   ViewTeamsMatchRouteRoute: ViewTeamsMatchRouteRouteWithChildren,
   ViewBracketIdRoute: ViewBracketIdRoute,
   ViewBracketIndexRoute: ViewBracketIndexRoute,
+  ViewResultsIndexRoute: ViewResultsIndexRoute,
   ViewStatsIndexRoute: ViewStatsIndexRoute,
 }
 
