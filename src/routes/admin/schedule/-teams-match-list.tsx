@@ -12,7 +12,6 @@ import { DndContext, KeyboardSensor, PointerSensor, closestCenter, useSensor, us
 import type { DragEndEvent } from "@dnd-kit/core";
 import {
 	SortableContext,
-	arrayMove,
 	sortableKeyboardCoordinates,
 	verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
@@ -45,7 +44,7 @@ interface SortableBotCardProps {
 	fieldArray: ReturnType<typeof useFieldArray<TeamsSchema, "team1bots" | "team2bots", "id">>;
 }
 
-const SortableBotCard = ({ team, botIndex, participants, form, fieldArray }: SortableBotCardProps) => {
+const SortableBotCard = ({ team, botIndex, participants, form }: SortableBotCardProps) => {
 	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
 		id: `${team}-${botIndex}`,
 	});
@@ -394,7 +393,7 @@ export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule;
 				<DevTool control={form.control} placement="top-right" />
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
+				// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
 				>
 					<div className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg">
 						<div className="flex-1 flex flex-col gap-10">

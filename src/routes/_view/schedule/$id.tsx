@@ -25,7 +25,7 @@ const getScheduleData = createServerFn({
 			schedule,
 			participants,
 			currentMatchId: evt?.currentMatchId,
-			rankings: evt?.rankings,
+			rankings: evt?.qualifyingRankings,
 			qualifyingResults: evt?.qualifyingResults,
 		};
 	});

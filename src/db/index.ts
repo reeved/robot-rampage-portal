@@ -38,7 +38,8 @@ export const EventSchema = z.object({
 			score: z.number(),
 		}),
 	),
-	rankings: z.array(z.object({ id: z.string(), position: z.number() })),
+	qualifyingRankings: z.array(z.object({ id: z.string(), position: z.number() })),
+	finalRankings: z.array(z.object({ id: z.string(), position: z.number() })).optional(),
 });
 
 const sharedMatchSchema = z.object({

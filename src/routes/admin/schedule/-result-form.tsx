@@ -186,7 +186,7 @@ const updateMatchResult = createServerFn({
 
 		await context.db.events.updateOne((e) => e.id === "may", {
 			qualifyingResults: participantResults,
-			rankings: sortedRankings.map(([id], index) => ({
+			qualifyingRankings: sortedRankings.map(([id], index) => ({
 				id,
 				position: index + 1,
 			})),

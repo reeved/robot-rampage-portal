@@ -147,7 +147,7 @@ export const Connectors = ({ boxes }: { boxes: Box[] }) => {
 						key={`connection-${
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							index
-						}`}
+							}`}
 					>
 						<path d={path} fill="none" stroke="white" strokeWidth="4" className="transition-all duration-300" />
 					</g>
@@ -185,7 +185,7 @@ const BotBox = ({ box }: { box: Box }) => {
 };
 
 export const Bracket = ({ boxes }: { boxes: Box[] }) => {
-	const isEightBot = boxes.length > 7;
+	// const isEightBot = boxes.length > 7;
 	// const containerClass = isEightBot ? "relative h-[700px] p-4 w-[1800px]" : "relative h-[420px] p-4 w-[1550px]";
 
 	return (

@@ -2,7 +2,7 @@ import type { Event, Participant } from "@/db";
 import { cn } from "@/lib/utils";
 
 type Props = {
-	rankings: Event["rankings"];
+	rankings: Event["qualifyingRankings"];
 	qualifyingResults: Event["qualifyingResults"];
 	participants: Participant[];
 };

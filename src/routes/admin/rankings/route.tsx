@@ -24,7 +24,7 @@ const getRankingsData = createServerFn({
 		}
 
 		// Combine rankings with participant data
-		const rankingsWithParticipants = currentEvent.rankings
+		const rankingsWithParticipants = currentEvent.qualifyingRankings
 			.map((ranking) => {
 				const participant = participants.find((p) => p.id === ranking.id);
 				const qualifyingResults = currentEvent.qualifyingResults[ranking.id];

@@ -38,7 +38,7 @@ const getStatsData = createServerFn({
 			schedule,
 			currentMatch,
 			participants: currentMatch.participants.map((p) => participants.find((participant) => participant.id === p.id)),
-			rankings: evt.rankings,
+			rankings: evt.qualifyingRankings,
 			qualifyingResults: evt.qualifyingResults,
 		};
 	});
