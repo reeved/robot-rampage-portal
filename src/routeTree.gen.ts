@@ -33,6 +33,7 @@ import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id
 import { Route as AdminRankingsIdRouteImport } from './routes/admin/rankings/$id'
 import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdRouteImport } from './routes/admin/participants/$id'
+import { Route as AdminEventTimerRouteImport } from './routes/admin/event/timer'
 import { Route as AdminEventGeneralRouteImport } from './routes/admin/event/general'
 import { Route as AdminEventFinalRankingsRouteImport } from './routes/admin/event/final-rankings'
 import { Route as ViewTeamsMatchIdRouteImport } from './routes/_view/teams-match/$id'
@@ -162,6 +163,11 @@ const AdminParticipantsIdRoute = AdminParticipantsIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => AdminParticipantsRouteRoute,
 } as any)
+const AdminEventTimerRoute = AdminEventTimerRouteImport.update({
+  id: '/timer',
+  path: '/timer',
+  getParentRoute: () => AdminEventRouteRoute,
+} as any)
 const AdminEventGeneralRoute = AdminEventGeneralRouteImport.update({
   id: '/general',
   path: '/general',
@@ -267,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/teams-match/$id': typeof ViewTeamsMatchIdRoute
   '/admin/event/final-rankings': typeof AdminEventFinalRankingsRoute
   '/admin/event/general': typeof AdminEventGeneralRoute
+  '/admin/event/timer': typeof AdminEventTimerRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
@@ -298,6 +305,7 @@ export interface FileRoutesByTo {
   '/teams-match/$id': typeof ViewTeamsMatchIdRoute
   '/admin/event/final-rankings': typeof AdminEventFinalRankingsRoute
   '/admin/event/general': typeof AdminEventGeneralRoute
+  '/admin/event/timer': typeof AdminEventTimerRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
@@ -333,6 +341,7 @@ export interface FileRoutesById {
   '/_view/teams-match/$id': typeof ViewTeamsMatchIdRoute
   '/admin/event/final-rankings': typeof AdminEventFinalRankingsRoute
   '/admin/event/general': typeof AdminEventGeneralRoute
+  '/admin/event/timer': typeof AdminEventTimerRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
@@ -368,6 +377,7 @@ export interface FileRouteTypes {
     | '/teams-match/$id'
     | '/admin/event/final-rankings'
     | '/admin/event/general'
+    | '/admin/event/timer'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/rankings/$id'
@@ -399,6 +409,7 @@ export interface FileRouteTypes {
     | '/teams-match/$id'
     | '/admin/event/final-rankings'
     | '/admin/event/general'
+    | '/admin/event/timer'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/rankings/$id'
@@ -433,6 +444,7 @@ export interface FileRouteTypes {
     | '/_view/teams-match/$id'
     | '/admin/event/final-rankings'
     | '/admin/event/general'
+    | '/admin/event/timer'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/rankings/$id'
@@ -684,6 +696,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminParticipantsIdRouteImport
       parentRoute: typeof AdminParticipantsRouteRoute
     }
+    '/admin/event/timer': {
+      id: '/admin/event/timer'
+      path: '/timer'
+      fullPath: '/admin/event/timer'
+      preLoaderRoute: typeof AdminEventTimerRouteImport
+      parentRoute: typeof AdminEventRouteRoute
+    }
     '/admin/event/general': {
       id: '/admin/event/general'
       path: '/general'
@@ -859,11 +878,13 @@ const ViewRouteRouteWithChildren = ViewRouteRoute._addFileChildren(
 interface AdminEventRouteRouteChildren {
   AdminEventFinalRankingsRoute: typeof AdminEventFinalRankingsRoute
   AdminEventGeneralRoute: typeof AdminEventGeneralRoute
+  AdminEventTimerRoute: typeof AdminEventTimerRoute
 }
 
 const AdminEventRouteRouteChildren: AdminEventRouteRouteChildren = {
   AdminEventFinalRankingsRoute: AdminEventFinalRankingsRoute,
   AdminEventGeneralRoute: AdminEventGeneralRoute,
+  AdminEventTimerRoute: AdminEventTimerRoute,
 }
 
 const AdminEventRouteRouteWithChildren = AdminEventRouteRoute._addFileChildren(

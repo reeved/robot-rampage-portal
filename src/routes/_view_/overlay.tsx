@@ -44,12 +44,12 @@ export const Overlay = ({ children }: PropsWithChildren) => {
 			<div className="h-full w-full">
 				<div
 					className="h-[1080px] w-[1920px] relative box-border"
-					// style={{
-					// 	backgroundImage: "url(/arena-fight.png)",
-					// 	backgroundSize: "cover",
-					// 	backgroundPosition: "center",
-					// 	backgroundRepeat: "no-repeat",
-					// }}
+				// style={{
+				// 	backgroundImage: "url(/arena-fight.png)",
+				// 	backgroundSize: "cover",
+				// 	backgroundPosition: "center",
+				// 	backgroundRepeat: "no-repeat",
+				// }}
 				>
 					{children}
 				</div>
@@ -142,9 +142,12 @@ function RouteComponent() {
 						/>
 					)}
 					{componentToShow === "mini-preview" && (
-						<TimerMiniPreview>
-							<TimeText currentTime={currentTime} />
-						</TimerMiniPreview>
+						<div className="flex items-center justify-center p-4 absolute top-10 left-10">
+							<TimerMiniPreview>
+								<TimeText currentTime={currentTime} />
+							</TimerMiniPreview>
+						</div>
+
 					)}
 				</motion.div>
 			</AnimatePresence>

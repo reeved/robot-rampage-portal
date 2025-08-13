@@ -40,6 +40,7 @@ export const EventSchema = z.object({
 	),
 	qualifyingRankings: z.array(z.object({ id: z.string(), position: z.number() })),
 	finalRankings: z.array(z.object({ id: z.string(), position: z.number() })).optional(),
+	miniTimerText: z.string(),
 });
 
 const sharedMatchSchema = z.object({
