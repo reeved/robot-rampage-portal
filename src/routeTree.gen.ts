@@ -21,10 +21,10 @@ import { Route as ViewOverlayRouteImport } from './routes/_view_/overlay'
 import { Route as AdminScheduleRouteRouteImport } from './routes/admin/schedule/route'
 import { Route as AdminRankingsRouteRouteImport } from './routes/admin/rankings/route'
 import { Route as AdminParticipantsRouteRouteImport } from './routes/admin/participants/route'
+import { Route as AdminEventRouteRouteImport } from './routes/admin/event/route'
 import { Route as ViewTeamsMatchRouteRouteImport } from './routes/_view/teams-match/route'
 import { Route as ViewScheduleRouteRouteImport } from './routes/_view/schedule/route'
 import { Route as AdminMobileIndexRouteImport } from './routes/admin_/mobile.index'
-import { Route as AdminEventIndexRouteImport } from './routes/admin/event/index'
 import { Route as ViewTeamsMatchIndexRouteImport } from './routes/_view/teams-match/index'
 import { Route as ViewStatsIndexRouteImport } from './routes/_view/stats/index'
 import { Route as ViewScheduleIndexRouteImport } from './routes/_view/schedule/index'
@@ -33,6 +33,8 @@ import { Route as AdminScheduleIdRouteImport } from './routes/admin/schedule/$id
 import { Route as AdminRankingsIdRouteImport } from './routes/admin/rankings/$id'
 import { Route as AdminParticipantsNewRouteImport } from './routes/admin/participants/new'
 import { Route as AdminParticipantsIdRouteImport } from './routes/admin/participants/$id'
+import { Route as AdminEventGeneralRouteImport } from './routes/admin/event/general'
+import { Route as AdminEventFinalRankingsRouteImport } from './routes/admin/event/final-rankings'
 import { Route as ViewTeamsMatchIdRouteImport } from './routes/_view/teams-match/$id'
 import { Route as ViewScheduleIdRouteImport } from './routes/_view/schedule/$id'
 import { Route as ViewBracketIdRouteImport } from './routes/_view/bracket/$id'
@@ -100,6 +102,11 @@ const AdminParticipantsRouteRoute = AdminParticipantsRouteRouteImport.update({
   path: '/participants',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminEventRouteRoute = AdminEventRouteRouteImport.update({
+  id: '/event',
+  path: '/event',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const ViewTeamsMatchRouteRoute = ViewTeamsMatchRouteRouteImport.update({
   id: '/teams-match',
   path: '/teams-match',
@@ -114,11 +121,6 @@ const AdminMobileIndexRoute = AdminMobileIndexRouteImport.update({
   id: '/admin_/mobile/',
   path: '/admin/mobile/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const AdminEventIndexRoute = AdminEventIndexRouteImport.update({
-  id: '/event/',
-  path: '/event/',
-  getParentRoute: () => AdminRouteRoute,
 } as any)
 const ViewTeamsMatchIndexRoute = ViewTeamsMatchIndexRouteImport.update({
   id: '/',
@@ -159,6 +161,16 @@ const AdminParticipantsIdRoute = AdminParticipantsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => AdminParticipantsRouteRoute,
+} as any)
+const AdminEventGeneralRoute = AdminEventGeneralRouteImport.update({
+  id: '/general',
+  path: '/general',
+  getParentRoute: () => AdminEventRouteRoute,
+} as any)
+const AdminEventFinalRankingsRoute = AdminEventFinalRankingsRouteImport.update({
+  id: '/final-rankings',
+  path: '/final-rankings',
+  getParentRoute: () => AdminEventRouteRoute,
 } as any)
 const ViewTeamsMatchIdRoute = ViewTeamsMatchIdRouteImport.update({
   id: '/$id',
@@ -242,6 +254,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteRouteWithChildren
   '/schedule': typeof ViewScheduleRouteRouteWithChildren
   '/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
+  '/admin/event': typeof AdminEventRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/rankings': typeof AdminRankingsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
@@ -252,6 +265,8 @@ export interface FileRoutesByFullPath {
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
   '/teams-match/$id': typeof ViewTeamsMatchIdRoute
+  '/admin/event/final-rankings': typeof AdminEventFinalRankingsRoute
+  '/admin/event/general': typeof AdminEventGeneralRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
@@ -260,7 +275,6 @@ export interface FileRoutesByFullPath {
   '/schedule/': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match/': typeof ViewTeamsMatchIndexRoute
-  '/admin/event': typeof AdminEventIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -271,6 +285,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
+  '/admin/event': typeof AdminEventRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/rankings': typeof AdminRankingsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
@@ -281,6 +296,8 @@ export interface FileRoutesByTo {
   '/bracket/$id': typeof ViewBracketIdRoute
   '/schedule/$id': typeof ViewScheduleIdRoute
   '/teams-match/$id': typeof ViewTeamsMatchIdRoute
+  '/admin/event/final-rankings': typeof AdminEventFinalRankingsRoute
+  '/admin/event/general': typeof AdminEventGeneralRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
@@ -289,7 +306,6 @@ export interface FileRoutesByTo {
   '/schedule': typeof ViewScheduleIndexRoute
   '/stats': typeof ViewStatsIndexRoute
   '/teams-match': typeof ViewTeamsMatchIndexRoute
-  '/admin/event': typeof AdminEventIndexRoute
   '/admin/mobile': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -304,6 +320,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteRouteWithChildren
   '/_view/schedule': typeof ViewScheduleRouteRouteWithChildren
   '/_view/teams-match': typeof ViewTeamsMatchRouteRouteWithChildren
+  '/admin/event': typeof AdminEventRouteRouteWithChildren
   '/admin/participants': typeof AdminParticipantsRouteRouteWithChildren
   '/admin/rankings': typeof AdminRankingsRouteRouteWithChildren
   '/admin/schedule': typeof AdminScheduleRouteRouteWithChildren
@@ -314,6 +331,8 @@ export interface FileRoutesById {
   '/_view/bracket/$id': typeof ViewBracketIdRoute
   '/_view/schedule/$id': typeof ViewScheduleIdRoute
   '/_view/teams-match/$id': typeof ViewTeamsMatchIdRoute
+  '/admin/event/final-rankings': typeof AdminEventFinalRankingsRoute
+  '/admin/event/general': typeof AdminEventGeneralRoute
   '/admin/participants/$id': typeof AdminParticipantsIdRoute
   '/admin/participants/new': typeof AdminParticipantsNewRoute
   '/admin/rankings/$id': typeof AdminRankingsIdRoute
@@ -322,7 +341,6 @@ export interface FileRoutesById {
   '/_view/schedule/': typeof ViewScheduleIndexRoute
   '/_view/stats/': typeof ViewStatsIndexRoute
   '/_view/teams-match/': typeof ViewTeamsMatchIndexRoute
-  '/admin/event/': typeof AdminEventIndexRoute
   '/admin_/mobile/': typeof AdminMobileIndexRoute
   '/admin/schedule/$id/$matchId': typeof AdminScheduleIdMatchIdRoute
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
@@ -337,6 +355,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/schedule'
     | '/teams-match'
+    | '/admin/event'
     | '/admin/participants'
     | '/admin/rankings'
     | '/admin/schedule'
@@ -347,6 +366,8 @@ export interface FileRouteTypes {
     | '/bracket/$id'
     | '/schedule/$id'
     | '/teams-match/$id'
+    | '/admin/event/final-rankings'
+    | '/admin/event/general'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/rankings/$id'
@@ -355,7 +376,6 @@ export interface FileRouteTypes {
     | '/schedule/'
     | '/stats'
     | '/teams-match/'
-    | '/admin/event'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -366,6 +386,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/admin'
+    | '/admin/event'
     | '/admin/participants'
     | '/admin/rankings'
     | '/admin/schedule'
@@ -376,6 +397,8 @@ export interface FileRouteTypes {
     | '/bracket/$id'
     | '/schedule/$id'
     | '/teams-match/$id'
+    | '/admin/event/final-rankings'
+    | '/admin/event/general'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/rankings/$id'
@@ -384,7 +407,6 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/stats'
     | '/teams-match'
-    | '/admin/event'
     | '/admin/mobile'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -398,6 +420,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/_view/schedule'
     | '/_view/teams-match'
+    | '/admin/event'
     | '/admin/participants'
     | '/admin/rankings'
     | '/admin/schedule'
@@ -408,6 +431,8 @@ export interface FileRouteTypes {
     | '/_view/bracket/$id'
     | '/_view/schedule/$id'
     | '/_view/teams-match/$id'
+    | '/admin/event/final-rankings'
+    | '/admin/event/general'
     | '/admin/participants/$id'
     | '/admin/participants/new'
     | '/admin/rankings/$id'
@@ -416,7 +441,6 @@ export interface FileRouteTypes {
     | '/_view/schedule/'
     | '/_view/stats/'
     | '/_view/teams-match/'
-    | '/admin/event/'
     | '/admin_/mobile/'
     | '/admin/schedule/$id/$matchId'
     | '/admin/schedule/$id/new'
@@ -576,6 +600,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminParticipantsRouteRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/event': {
+      id: '/admin/event'
+      path: '/event'
+      fullPath: '/admin/event'
+      preLoaderRoute: typeof AdminEventRouteRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/_view/teams-match': {
       id: '/_view/teams-match'
       path: '/teams-match'
@@ -596,13 +627,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/mobile'
       preLoaderRoute: typeof AdminMobileIndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/admin/event/': {
-      id: '/admin/event/'
-      path: '/event'
-      fullPath: '/admin/event'
-      preLoaderRoute: typeof AdminEventIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
     }
     '/_view/teams-match/': {
       id: '/_view/teams-match/'
@@ -659,6 +683,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/participants/$id'
       preLoaderRoute: typeof AdminParticipantsIdRouteImport
       parentRoute: typeof AdminParticipantsRouteRoute
+    }
+    '/admin/event/general': {
+      id: '/admin/event/general'
+      path: '/general'
+      fullPath: '/admin/event/general'
+      preLoaderRoute: typeof AdminEventGeneralRouteImport
+      parentRoute: typeof AdminEventRouteRoute
+    }
+    '/admin/event/final-rankings': {
+      id: '/admin/event/final-rankings'
+      path: '/final-rankings'
+      fullPath: '/admin/event/final-rankings'
+      preLoaderRoute: typeof AdminEventFinalRankingsRouteImport
+      parentRoute: typeof AdminEventRouteRoute
     }
     '/_view/teams-match/$id': {
       id: '/_view/teams-match/$id'
@@ -818,6 +856,20 @@ const ViewRouteRouteWithChildren = ViewRouteRoute._addFileChildren(
   ViewRouteRouteChildren,
 )
 
+interface AdminEventRouteRouteChildren {
+  AdminEventFinalRankingsRoute: typeof AdminEventFinalRankingsRoute
+  AdminEventGeneralRoute: typeof AdminEventGeneralRoute
+}
+
+const AdminEventRouteRouteChildren: AdminEventRouteRouteChildren = {
+  AdminEventFinalRankingsRoute: AdminEventFinalRankingsRoute,
+  AdminEventGeneralRoute: AdminEventGeneralRoute,
+}
+
+const AdminEventRouteRouteWithChildren = AdminEventRouteRoute._addFileChildren(
+  AdminEventRouteRouteChildren,
+)
+
 interface AdminParticipantsRouteRouteChildren {
   AdminParticipantsIdRoute: typeof AdminParticipantsIdRoute
   AdminParticipantsNewRoute: typeof AdminParticipantsNewRoute
@@ -873,19 +925,19 @@ const AdminScheduleRouteRouteWithChildren =
   AdminScheduleRouteRoute._addFileChildren(AdminScheduleRouteRouteChildren)
 
 interface AdminRouteRouteChildren {
+  AdminEventRouteRoute: typeof AdminEventRouteRouteWithChildren
   AdminParticipantsRouteRoute: typeof AdminParticipantsRouteRouteWithChildren
   AdminRankingsRouteRoute: typeof AdminRankingsRouteRouteWithChildren
   AdminScheduleRouteRoute: typeof AdminScheduleRouteRouteWithChildren
   AdminCompetitorsRoute: typeof AdminCompetitorsRoute
-  AdminEventIndexRoute: typeof AdminEventIndexRoute
 }
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminEventRouteRoute: AdminEventRouteRouteWithChildren,
   AdminParticipantsRouteRoute: AdminParticipantsRouteRouteWithChildren,
   AdminRankingsRouteRoute: AdminRankingsRouteRouteWithChildren,
   AdminScheduleRouteRoute: AdminScheduleRouteRouteWithChildren,
   AdminCompetitorsRoute: AdminCompetitorsRoute,
-  AdminEventIndexRoute: AdminEventIndexRoute,
 }
 
 const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
