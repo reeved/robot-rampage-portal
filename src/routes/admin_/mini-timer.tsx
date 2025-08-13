@@ -10,16 +10,15 @@ export const Route = createFileRoute("/admin_/mini-timer")({
 function RouteComponent() {
 	const { currentTime } = useTimer();
 
-	if (currentTime.minutes === "0" && currentTime.seconds === "0") {
-		return null
-	}
+	const timeIsZero = currentTime.minutes === "0" && currentTime.seconds === "00";
+
 
 	return (
 		<Overlay>
-			<div className="flex items-center justify-center p-4 absolute top-10  font-rubik">
+			{!timeIsZero && <div className="flex items-center justify-center p-4 absolute top-10  font-rubik">
 				<p className="mx-3 -mt-2 font-rubik text-xl bg-black/40 px-4 py-2">Next match in</p>
 				<TimerMiniPreview><TimeText currentTime={currentTime} /></TimerMiniPreview>
-			</div>
+			</div>}
 		</Overlay>
 	);
 }
