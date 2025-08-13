@@ -1,11 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { QueueMatchForm } from "@/routes/admin/schedule/-queue-match-form";
+import { ResultForm } from "@/routes/admin/schedule/-result-form";
 import { getSchedule } from "@/routes/admin/schedule/$id";
-import { QueueMatchForm } from "../../../admin/schedule/-queue-match-form";
-import { ResultForm } from "../../../admin/schedule/-result-form";
 import { MatchCard } from "../-match-list";
 
-export const Route = createFileRoute("/admin_/mobile/$id/$matchId/")({
+export const Route = createFileRoute("/admin_/mobile/$id/$matchId/score")({
 	component: RouteComponent,
 	loader: async ({ params }) => getSchedule({ data: params.id }),
 });

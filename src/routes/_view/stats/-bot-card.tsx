@@ -58,7 +58,7 @@ export const BotInfo = ({ details }: Props) => {
 					<div
 						className={cn(
 							"text-6xl uppercase font-rubik",
-							bot1Info.participant?.name?.length && bot1Info.participant?.name?.length > 10 && "text-4xl",
+							bot1Info.participant?.name?.length && bot1Info.participant?.name?.length > 12 && "text-4xl",
 							!bot1Info.stats && "my-auto",
 						)}
 					>
@@ -101,7 +101,7 @@ export const BotInfo = ({ details }: Props) => {
 					<div
 						className={cn(
 							"text-6xl  uppercase font-rubik",
-							bot2Info.participant?.name?.length && bot2Info.participant?.name?.length > 10 && "text-4xl",
+							bot2Info.participant?.name?.length && bot2Info.participant?.name?.length > 12 && "text-4xl",
 							!bot2Info.stats && "my-auto",
 						)}
 					>

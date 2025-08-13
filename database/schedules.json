@@ -327,8 +327,7 @@
         "winner": {
           "id": "",
           "condition": "JD"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-g1f7dlj",
@@ -345,8 +344,7 @@
         "winner": {
           "id": "part-dllub2q",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-akmdyt3",
@@ -363,8 +361,7 @@
         "winner": {
           "id": "part-y3konnp",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-84eq17r",
@@ -381,8 +378,7 @@
         "winner": {
           "id": "part-fdrxhj5",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-48ldi7f",
@@ -399,8 +395,7 @@
         "winner": {
           "id": "part-fok7byp",
           "condition": "JD"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-g8d6lsz",
@@ -416,8 +411,7 @@
         "winner": {
           "id": "rot076r",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-lru3tzg",
@@ -434,8 +428,7 @@
         "winner": {
           "id": "part-aw653qy",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-172boy0",
@@ -452,8 +445,7 @@
         "winner": {
           "id": "part-dllub2q",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-ea48331",
@@ -470,8 +462,7 @@
         "winner": {
           "id": "part-fok7byp",
           "condition": "JD"
-        },
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-5d7yyzu",
@@ -488,25 +479,11 @@
         "winner": {
           "id": "part-y3konnp",
           "condition": "KO"
-        },
-        "type": "QUALIFYING"
-      },
-      {
-        "id": "match-yo60hgt",
-        "name": "Match 11",
-        "participants": [
-          {
-            "id": "part-aw653qy"
-          },
-          {
-            "id": "part-uov2lni"
-          }
-        ],
-        "type": "QUALIFYING"
+        }
       },
       {
         "id": "match-rtw0jep",
-        "name": "Match 12",
+        "name": "Match 11",
         "participants": [
           {
             "id": "part-04xspbq",
@@ -519,8 +496,35 @@
         "winner": {
           "id": "part-rzeus3u",
           "condition": "NS"
-        },
-        "type": "QUALIFYING"
+        }
+      },
+      {
+        "id": "match-yo60hgt",
+        "name": "Match 12",
+        "participants": [
+          {
+            "id": "part-aw653qy"
+          },
+          {
+            "id": "part-uov2lni"
+          }
+        ]
+      },
+      {
+        "id": "match-7we41fh",
+        "name": "Match 13",
+        "participants": [
+          {},
+          {}
+        ]
+      },
+      {
+        "id": "match-jr6j23z",
+        "name": "Match 14",
+        "participants": [
+          {},
+          {}
+        ]
       }
     ],
     "name": "Qualifying Session 1"

@@ -17,7 +17,7 @@ const InfoRow = ({ heading, valueBot1, valueBot2 }: { heading: string; valueBot1
 				<div
 					className={cn(
 						"text-white flex items-center justify-center w-80 bg-rrblue py-2 font-extrabold text-2xl uppercase text-center clip-path-right-hex",
-						valueBot2?.length <= 15 ? "text-2xl" : valueBot2.length <= 20 ? "text-xl" : "text-lg",
+						valueBot2?.length <= 20 ? "text-2xl" : valueBot2.length <= 25 ? "text-xl" : "text-lg",
 					)}
 				>
 					{valueBot2}

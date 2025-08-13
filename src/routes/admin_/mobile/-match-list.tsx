@@ -1,8 +1,8 @@
+import { Link } from "@tanstack/react-router";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Match, Participant, Schedule } from "@/db";
 import { cn } from "@/lib/utils";
-import { Link } from "@tanstack/react-router";
 
 export const MatchCard = ({
 	match,
@@ -56,7 +56,7 @@ export const MatchList = ({ schedule, participants, currentMatchId }: Props) => 
 					.filter(Boolean);
 
 				return (
-					<Link to="/admin/mobile/$id/$matchId" params={{ id: schedule.id, matchId: match.id }} key={match.id}>
+					<Link to="/admin/mobile/$id/$matchId/info" params={{ id: schedule.id, matchId: match.id }} key={match.id}>
 						<MatchCard match={match} currentMatchId={currentMatchId} bot1={bot1} bot2={bot2} />
 					</Link>
 				);

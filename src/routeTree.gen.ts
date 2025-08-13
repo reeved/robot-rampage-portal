@@ -45,6 +45,8 @@ import { Route as AdminScheduleIdNewRouteImport } from './routes/admin/schedule/
 import { Route as AdminScheduleIdMatchIdRouteImport } from './routes/admin/schedule/$id.$matchId'
 import { Route as AdminMobileIdMatchIdRouteRouteImport } from './routes/admin_/mobile/$id.$matchId/route'
 import { Route as AdminMobileIdMatchIdIndexRouteImport } from './routes/admin_/mobile/$id.$matchId/index'
+import { Route as AdminMobileIdMatchIdScoreRouteImport } from './routes/admin_/mobile/$id.$matchId/score'
+import { Route as AdminMobileIdMatchIdInfoRouteImport } from './routes/admin_/mobile/$id.$matchId/info'
 import { ServerRoute as ApiTimerIndexServerRouteImport } from './routes/api/timer/index'
 import { ServerRoute as ApiVmixGetReplaysServerRouteImport } from './routes/api/vmix/get-replays'
 import { ServerRoute as ApiTimerStartServerRouteImport } from './routes/api/timer/start'
@@ -227,6 +229,18 @@ const AdminMobileIdMatchIdIndexRoute =
     path: '/',
     getParentRoute: () => AdminMobileIdMatchIdRouteRoute,
   } as any)
+const AdminMobileIdMatchIdScoreRoute =
+  AdminMobileIdMatchIdScoreRouteImport.update({
+    id: '/score',
+    path: '/score',
+    getParentRoute: () => AdminMobileIdMatchIdRouteRoute,
+  } as any)
+const AdminMobileIdMatchIdInfoRoute =
+  AdminMobileIdMatchIdInfoRouteImport.update({
+    id: '/info',
+    path: '/info',
+    getParentRoute: () => AdminMobileIdMatchIdRouteRoute,
+  } as any)
 const ApiTimerIndexServerRoute = ApiTimerIndexServerRouteImport.update({
   id: '/api/timer/',
   path: '/api/timer/',
@@ -296,6 +310,8 @@ export interface FileRoutesByFullPath {
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
   '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
+  '/admin/mobile/$id/$matchId/info': typeof AdminMobileIdMatchIdInfoRoute
+  '/admin/mobile/$id/$matchId/score': typeof AdminMobileIdMatchIdScoreRoute
   '/admin/mobile/$id/$matchId/': typeof AdminMobileIdMatchIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -328,6 +344,8 @@ export interface FileRoutesByTo {
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
   '/admin/mobile/$id': typeof AdminMobileIdIndexRoute
+  '/admin/mobile/$id/$matchId/info': typeof AdminMobileIdMatchIdInfoRoute
+  '/admin/mobile/$id/$matchId/score': typeof AdminMobileIdMatchIdScoreRoute
   '/admin/mobile/$id/$matchId': typeof AdminMobileIdMatchIdIndexRoute
 }
 export interface FileRoutesById {
@@ -365,6 +383,8 @@ export interface FileRoutesById {
   '/admin/schedule/$id/new': typeof AdminScheduleIdNewRoute
   '/admin/schedule/$id/newbracket': typeof AdminScheduleIdNewbracketRoute
   '/admin_/mobile/$id/': typeof AdminMobileIdIndexRoute
+  '/admin_/mobile/$id/$matchId/info': typeof AdminMobileIdMatchIdInfoRoute
+  '/admin_/mobile/$id/$matchId/score': typeof AdminMobileIdMatchIdScoreRoute
   '/admin_/mobile/$id/$matchId/': typeof AdminMobileIdMatchIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -402,6 +422,8 @@ export interface FileRouteTypes {
     | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
     | '/admin/mobile/$id'
+    | '/admin/mobile/$id/$matchId/info'
+    | '/admin/mobile/$id/$matchId/score'
     | '/admin/mobile/$id/$matchId/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -434,6 +456,8 @@ export interface FileRouteTypes {
     | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
     | '/admin/mobile/$id'
+    | '/admin/mobile/$id/$matchId/info'
+    | '/admin/mobile/$id/$matchId/score'
     | '/admin/mobile/$id/$matchId'
   id:
     | '__root__'
@@ -470,6 +494,8 @@ export interface FileRouteTypes {
     | '/admin/schedule/$id/new'
     | '/admin/schedule/$id/newbracket'
     | '/admin_/mobile/$id/'
+    | '/admin_/mobile/$id/$matchId/info'
+    | '/admin_/mobile/$id/$matchId/score'
     | '/admin_/mobile/$id/$matchId/'
   fileRoutesById: FileRoutesById
 }
@@ -792,6 +818,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminMobileIdMatchIdIndexRouteImport
       parentRoute: typeof AdminMobileIdMatchIdRouteRoute
     }
+    '/admin_/mobile/$id/$matchId/score': {
+      id: '/admin_/mobile/$id/$matchId/score'
+      path: '/score'
+      fullPath: '/admin/mobile/$id/$matchId/score'
+      preLoaderRoute: typeof AdminMobileIdMatchIdScoreRouteImport
+      parentRoute: typeof AdminMobileIdMatchIdRouteRoute
+    }
+    '/admin_/mobile/$id/$matchId/info': {
+      id: '/admin_/mobile/$id/$matchId/info'
+      path: '/info'
+      fullPath: '/admin/mobile/$id/$matchId/info'
+      preLoaderRoute: typeof AdminMobileIdMatchIdInfoRouteImport
+      parentRoute: typeof AdminMobileIdMatchIdRouteRoute
+    }
   }
 }
 declare module '@tanstack/react-start/server' {
@@ -985,11 +1025,15 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
 )
 
 interface AdminMobileIdMatchIdRouteRouteChildren {
+  AdminMobileIdMatchIdInfoRoute: typeof AdminMobileIdMatchIdInfoRoute
+  AdminMobileIdMatchIdScoreRoute: typeof AdminMobileIdMatchIdScoreRoute
   AdminMobileIdMatchIdIndexRoute: typeof AdminMobileIdMatchIdIndexRoute
 }
 
 const AdminMobileIdMatchIdRouteRouteChildren: AdminMobileIdMatchIdRouteRouteChildren =
   {
+    AdminMobileIdMatchIdInfoRoute: AdminMobileIdMatchIdInfoRoute,
+    AdminMobileIdMatchIdScoreRoute: AdminMobileIdMatchIdScoreRoute,
     AdminMobileIdMatchIdIndexRoute: AdminMobileIdMatchIdIndexRoute,
   }
 

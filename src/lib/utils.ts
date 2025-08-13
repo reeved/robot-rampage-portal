@@ -13,3 +13,22 @@ export function generateId(prefix?: string) {
 	}
 	return id;
 }
+
+// Create a sophisticated border effect using multiple drop-shadows
+export const createBorderEffect = (): string => {
+	// Create multiple drop-shadows with increasing blur radius to create a more defined border
+	const shadows = [
+		"drop-shadow(0 0 1px currentColor)",
+		"drop-shadow(0 0 2px currentColor)",
+		"drop-shadow(0 0 3px currentColor)",
+		"drop-shadow(0 0 4px currentColor)",
+		"drop-shadow(0 0 5px currentColor)",
+		// `drop-shadow(0 0 8px currentColor)`,
+		// `drop-shadow(0 0 10px currentColor)`,
+		// `drop-shadow(0 0 12px currentColor)`,
+		// `drop-shadow(0 0 14px currentColor)`,
+		// `drop-shadow(0 0 16px currentColor)`,
+	];
+
+	return shadows.join(" ");
+};
