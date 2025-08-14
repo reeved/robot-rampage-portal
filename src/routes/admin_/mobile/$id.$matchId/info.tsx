@@ -46,45 +46,66 @@ const BotPreview = ({
 	bot,
 	rankings,
 	stats,
+	toggleSelectedBot,
 }: {
 	bot: Participant;
 	rankings: Event["qualifyingRankings"];
 	stats: Event["qualifyingResults"];
+	toggleSelectedBot: () => void;
 }) => {
+	const [api, setApi] = useState<CarouselApi>();
 	const qualifyingPosition = rankings.find((r) => r.id === bot.id)?.position;
 	const botStats = stats[bot.id];
 
+	useEffect(() => {
+		if (!api) {
+			return;
+		}
+
+		api.on("select", () => {
+			toggleSelectedBot();
+		});
+	}, [api, toggleSelectedBot]);
+
 	return (
 		<div className="flex flex-col gap-2 items-center">
-			<img
-				src={`/${bot.photo}`}
-				alt={bot.name}
-				className="h-20 text-primary"
-				height={80}
-				style={
-					{
-						filter: createBorderEffect(),
-					} as React.CSSProperties
-				}
-			/>
-			<div className="text-primary font-heading uppercase text-xl flex items-center gap-4">
-				{qualifyingPosition && (
-					<span className="bg-yellow-400 w-[2ch] h-[2ch] aspect-square rounded text-black font-heading uppercase text-md flex items-center justify-center">
-						{qualifyingPosition}
-					</span>
-				)}
-				{bot.name}
-			</div>
-			{botStats && (
-				<div className="mb-0 -mt-2">
-					<span className="font-bold flex gap-2 text-lg">
-						<span className="text-green-500 rounded-md w-[3ch] text-right  ">{`${botStats.wins}W`}</span>
-						<span className="w-[2ch] text-center">|</span>
-						<span className="text-red-500 w-[3ch] text-left ">{`${botStats.losses}L`}</span>
-					</span>
-				</div>
-			)}
-			<div className="text-center uppercase text-lg font-bold -mt-1">{bot.weapon}</div>
+			<Carousel setApi={setApi} opts={{ loop: true }} className="flex-1 w-full h-full">
+				<CarouselContent className="h-full" wrapperClassName="h-full">
+					<CarouselItem className="flex flex-col gap-2 items-center">
+						<img
+							src={`/${bot.photo}`}
+							alt={bot.name}
+							className="h-20 text-primary"
+							height={80}
+							style={
+								{
+									filter: createBorderEffect(),
+								} as React.CSSProperties
+							}
+						/>
+
+						<div className="text-primary font-heading uppercase text-xl flex items-center gap-4">
+							{qualifyingPosition && (
+								<span className="bg-yellow-400 w-[2ch] h-[2ch] aspect-square rounded text-black font-heading uppercase text-md flex items-center justify-center">
+									{qualifyingPosition}
+								</span>
+							)}
+							{bot.name}
+						</div>
+						{botStats && (
+							<div className="mb-0 -mt-2">
+								<span className="font-bold flex gap-2 text-lg">
+									<span className="text-green-500 rounded-md w-[3ch] text-right  ">{`${botStats.wins}W`}</span>
+									<span className="w-[2ch] text-center">|</span>
+									<span className="text-red-500 w-[3ch] text-left ">{`${botStats.losses}L`}</span>
+								</span>
+							</div>
+						)}
+						<div className="text-center uppercase text-lg font-bold -mt-1">{bot.weapon}</div>
+					</CarouselItem>
+					<CarouselItem></CarouselItem>
+				</CarouselContent>
+			</Carousel>
 		</div>
 	);
 };
@@ -264,6 +285,14 @@ function RouteComponent() {
 		})
 		.filter(Boolean);
 
+	const toggleSelectedBot = () => {
+		if (selectedBot === bot1) {
+			setSelectedBot(bot2 ?? null);
+		} else {
+			setSelectedBot(bot1 ?? null);
+		}
+	};
+
 	return (
 		<div className="flex flex-col gap-8 p-4 h-full">
 			<BotSelector
@@ -273,7 +302,15 @@ function RouteComponent() {
 				selectedBot={selectedBot}
 				setSelectedBot={setSelectedBot}
 			/>
-			{selectedBot && <BotPreview bot={selectedBot} rankings={rankings} stats={stats} />}
+			{selectedBot && (
+				<BotPreview
+					key={selectedBot.id}
+					bot={selectedBot}
+					toggleSelectedBot={toggleSelectedBot}
+					rankings={rankings}
+					stats={stats}
+				/>
+			)}
 			{selectedBot && <BotInfo bot={selectedBot} match={match} />}
 		</div>
 	);
