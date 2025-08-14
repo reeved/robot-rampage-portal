@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { Trash2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -248,7 +249,8 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 			<form className="p-6 gap-y-6 flex flex-col items-start w-full bg-zinc-900 rounded-xl shadow-lg">
 				<div className="flex items-center justify-between w-full">
 					<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
-					<Button type="button" onClick={clearResult} variant="default" className="w-1/4">
+					<Button type="button" onClick={clearResult} variant="default" className="font-bold">
+						<Trash2 className="size-4" />
 						CLEAR
 					</Button>
 				</div>

@@ -64,6 +64,7 @@ export const QualifyingMatchForm = ({ participants, onSubmit, defaultValues }: P
 					<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
 					{defaultValues.id && (
 						<DeleteConfirmation
+							variant="button"
 							onDelete={handleDelete}
 							buttonText="Delete Match"
 							title="Delete Match"

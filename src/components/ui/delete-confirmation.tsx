@@ -1,8 +1,8 @@
+import { Trash2 } from "lucide-react";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { Trash2 } from "lucide-react";
-import * as React from "react";
 
 interface DeleteConfirmationProps {
 	onDelete: () => void;
@@ -57,7 +57,7 @@ export function DeleteConfirmation({
 			variant={buttonVariant}
 			size={buttonSize}
 			disabled={disabled || loading || isDeleting}
-			className={cn(variant === "icon" && "h-9 w-9 p-0", className)}
+			className={cn(variant === "icon" ? "h-9 w-9 p-0" : "w-fit px-2", className)}
 		>
 			{variant === "icon" ? (
 				<Trash2 className="h-4 w-4" />
