@@ -25,7 +25,7 @@ function RouteComponent() {
 		.filter(Boolean);
 
 	return (
-		<div className="flex flex-col gap-5 p-4">
+		<div className="flex flex-col gap-2 p-2">
 			<MatchCard match={match} currentMatchId={currentMatchId} bot1={bot1} bot2={bot2} />
 			<QueueMatchForm match={match} participants={participants} />
 			<ResultForm scheduleId={schedule.id} match={match} participants={participants} />

@@ -20,7 +20,7 @@ function RouteComponent() {
 					variant="outline"
 					asChild
 					className={cn(
-						"font-medium text-xl text-center bg-card py-10 rounded-md",
+						"font-bold text-xl text-center bg-card py-10 rounded-md",
 						s.matches.some((m) => m.id === currentMatchId) && "text-green-500",
 					)}
 				>

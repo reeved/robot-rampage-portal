@@ -1,15 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import type { Match, Participant, Schedule } from "@/db";
-import { Vmix } from "@/lib/vmix-api";
-import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import type { Match, Participant, Schedule } from "@/db";
+import { Vmix } from "@/lib/vmix-api";
+import { dbMiddleware } from "@/middleware";
 
 const QueueSchema = z.object({
 	scheduleId: z.string(),
@@ -130,7 +130,7 @@ export const QueueMatchForm = ({ match, participants }: Props) => {
 					)}
 				/>
 
-				<Button type="button" onClick={onSubmit} variant="default" className="w-full mt-6 py-3 text-lg font-bold">
+				<Button type="button" onClick={onSubmit} variant="default" className="w-full mt-4 py-3 text-lg font-bold">
 					QUEUE MATCH
 				</Button>
 			</form>

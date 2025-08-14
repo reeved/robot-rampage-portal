@@ -17,21 +17,34 @@ export const MatchCard = ({
 }) => {
 	return (
 		<Card className={cn("p-2")}>
-			<CardContent className="flex flex-col gap-4 items-center">
-				<p className={cn("text-sm font-bold", match.id === currentMatchId && "text-green-500")}>{match.name}</p>
-				<div className="flex items-center gap-4">
+			<CardContent className="p-0 flex flex-col gap-4 items-center md:flex-row ">
+				<p
+					className={cn(
+						"text-sm font-bold shrink-0 md:w-1/6 md:text-lg",
+						match.id === currentMatchId && "text-green-500",
+					)}
+				>
+					{match.name}
+				</p>
+				<div className="flex items-center justify-center gap-4 w-full md:justify-center">
 					<Badge
 						variant="secondary"
-						className={cn("text-sm", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
+						className={cn(
+							"text-sm w-5/12 min-w-0 truncate md:max-w-[30ch] md:py-2 md:text-lg",
+							bot1 && match.winner?.id === bot1.id && "text-amber-400",
+						)}
 					>
-						{bot1?.name || "TBD"}
+						<p className="truncate text-center">{bot1?.name || "TBD"}</p>
 					</Badge>
-					<p>vs</p>
+					<p className="text-lg font-bold">vs</p>
 					<Badge
 						variant="secondary"
-						className={cn("text-sm", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
+						className={cn(
+							"text-sm w-5/12 min-w-0 truncate md:max-w-[30ch] md:py-2 md:text-lg",
+							bot2 && match.winner?.id === bot2.id && "text-amber-400",
+						)}
 					>
-						{bot2?.name || "TBD"}
+						<p className="truncate text-center">{bot2?.name || "TBD"}</p>
 					</Badge>
 				</div>
 			</CardContent>
@@ -48,6 +61,7 @@ type Props = {
 export const MatchList = ({ schedule, participants, currentMatchId }: Props) => {
 	return (
 		<>
+			<div className="mt-16" />
 			{schedule.matches.map((match) => {
 				const [bot1, bot2] = match.participants
 					.map((p) => {
