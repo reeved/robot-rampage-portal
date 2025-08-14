@@ -105,7 +105,7 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/chain-damage.png",
     "weight": 8.9,
-    "isDead": true,
+    "isDead": false,
     "isCompeting": true
   },
   {
@@ -141,7 +141,7 @@
     "weight": 13.6,
     "photo": "bot-photos/hodr.png",
     "isCompeting": false,
-    "isDead": true
+    "isDead": false
   },
   {
     "id": "part-dx6qvml",
@@ -152,7 +152,7 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/fulcrum.png",
     "weight": 10.2,
-    "isDead": true,
+    "isDead": false,
     "isCompeting": true
   },
   {
@@ -165,8 +165,9 @@
     "photo": "bot-photos/angry-bird.png",
     "previousRank": "14th Place",
     "weight": 13.2,
-    "isDead": true,
-    "isCompeting": true
+    "isDead": false,
+    "isCompeting": true,
+    "otherNotes": "asdf\nasdf\n\n\nasdfa\n\nasdfasdf"
   },
   {
     "id": "q9h4q1i",
@@ -226,7 +227,7 @@
     "weapon": "Horizontal Spinner",
     "photo": "bot-photos/haymaker.png",
     "isCompeting": true,
-    "isDead": true
+    "isDead": false
   },
   {
     "id": "u0fr1y9",

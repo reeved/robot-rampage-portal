@@ -1,8 +1,8 @@
-import { type Participant, ParticipantSchema } from "@/db";
-import { dbMiddleware } from "@/middleware";
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { type Participant, ParticipantSchema } from "@/db";
+import { dbMiddleware } from "@/middleware";
 import { ParticipantForm } from "./-form";
 
 const updateParticipant = createServerFn({
@@ -23,6 +23,10 @@ const updateParticipant = createServerFn({
 			previousRank: data.data.previousRank,
 			isDead: data.data.isDead,
 			isCompeting: data.data.isCompeting,
+			town: data.data.town,
+			occupation: data.data.occupation,
+			teamExperience: data.data.teamExperience,
+			otherNotes: data.data.otherNotes,
 		});
 		return true;
 	});
@@ -60,7 +64,6 @@ function RouteComponent() {
 	return (
 		<div key={data.id}>
 			<ParticipantForm defaultValues={data} onSubmit={handleSave} />
-			{data.photo && <img alt="bot-image" src={`/${data.photo}`} className="h-200" />}
 		</div>
 	);
 }
