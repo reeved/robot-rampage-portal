@@ -1,3 +1,19 @@
+import type { DragEndEvent } from "@dnd-kit/core";
+import { closestCenter, DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
+import {
+	SortableContext,
+	sortableKeyboardCoordinates,
+	useSortable,
+	verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { DevTool } from "@hookform/devtools";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
+import { type UseFormReturn, useFieldArray, useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -8,20 +24,9 @@ import { Separator } from "@/components/ui/separator";
 import { type Participant, type Schedule, TeamsMatchSchema, type TeamsSchedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import { DndContext, KeyboardSensor, PointerSensor, closestCenter, useSensor, useSensors } from "@dnd-kit/core";
-import type { DragEndEvent } from "@dnd-kit/core";
-import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from "@dnd-kit/sortable";
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { DevTool } from "@hookform/devtools";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
-import { type UseFormReturn, useFieldArray, useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
 import { getBotVideos } from "./-queue-match-form";
 import { ResultForm } from "./-result-form";
+import { TeamsMatchForm } from "./-teams-match-form";
 
 const teamsSchema = TeamsMatchSchema.pick({
 	team1bots: true,
@@ -341,12 +346,14 @@ const updateTeamsMatch = createServerFn({
 		});
 	});
 
-export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule; participants: Participant[] }) => {
+export const TeamsMatchList = ({
+	schedule,
+	participants,
+}: {
+	schedule: Schedule & { type: "TEAMS" };
+	participants: Participant[];
+}) => {
 	const router = useRouter();
-
-	if (schedule.type !== "TEAMS") {
-		return null;
-	}
 
 	const form = useForm<TeamsSchema>({
 		defaultValues: {
@@ -402,7 +409,8 @@ export const TeamsMatchList = ({ schedule, participants }: { schedule: Schedule;
 				</form>
 			</Form>
 			{schedule.matches[0] && (
-				<div>
+				<div key={schedule.matches[0].id} className="w-200 flex flex-col gap-4">
+					<TeamsMatchForm defaultValues={schedule.matches[0]} participants={participants} />
 					<ResultForm scheduleId={schedule.id} match={schedule.matches[0]} participants={participants} />
 				</div>
 			)}

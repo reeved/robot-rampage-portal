@@ -1,10 +1,11 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { type BracketMatch, BracketMatchSchema, type Participant, type Schedule } from "@/db";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { getBotVideos } from "./-queue-match-form";
 
 type Props = {
@@ -151,6 +152,20 @@ export const BracketMatchForm = ({ bracketNames, participants, onSubmit, default
 					/>
 				</div>
 
+				<FormField
+					name="participants.0.introText"
+					control={form.control}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Bot 1 Intro Text</FormLabel>
+							<FormControl>
+								<Textarea {...field} placeholder="Intro text" rows={3} className="w-[60ch]" />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
 				<div className="flex gap-4">
 					<FormField
 						name="participants.1.id"
@@ -204,6 +219,20 @@ export const BracketMatchForm = ({ bracketNames, participants, onSubmit, default
 						)}
 					/>
 				</div>
+
+				<FormField
+					name="participants.1.introText"
+					control={form.control}
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Bot 2 Intro Text</FormLabel>
+							<FormControl>
+								<Textarea {...field} placeholder="Intro text" rows={3} className="w-[60ch]" />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
 
 				<Button type="submit" variant="default" className="w-full mt-6 py-3 text-lg font-bold">
 					SAVE
