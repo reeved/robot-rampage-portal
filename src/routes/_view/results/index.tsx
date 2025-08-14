@@ -22,7 +22,7 @@ const BotPreview = ({
 			<img src={`/${bot?.photo}`} alt={bot?.name} className="object-contain h-20 max-w-20" />
 			<h3
 				className={cn(
-					"text-2xl font-heading uppercase",
+					"text-2xl font-bold uppercase",
 					bot?.name.length && bot?.name.length > 15 ? "text-xl" : "text-2xl",
 				)}
 			>
@@ -132,7 +132,7 @@ function RouteComponent() {
 					<PodiumSpot position={1} finalRankings={data.finalRankings} participants={data.participants} />
 					<PodiumSpot position={3} finalRankings={data.finalRankings} participants={data.participants} />
 				</div>
-				<div className="bg-card rounded-lg grid grid-cols-3 p-6 gap-24">
+				<div className="bg-card rounded-lg grid grid-cols-3 p-6 gap-34">
 					<div className="w-full flex flex-col justify-between">
 						<BotPreview position={4} finalRankings={data.finalRankings} participants={data.participants} />
 						<BotPreview position={5} finalRankings={data.finalRankings} participants={data.participants} />
