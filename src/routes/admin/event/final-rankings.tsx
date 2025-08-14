@@ -1,13 +1,13 @@
+import { queryOptions, useQuery } from "@tanstack/react-query";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { toast } from "sonner";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Participant } from "@/db";
 import { dbMiddleware } from "@/middleware";
-import { useRouter, createFileRoute } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
-import { queryOptions, useQuery } from "@tanstack/react-query";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { toast } from "sonner";
-import { z } from "zod";
 
 type FinalRankingsData = {
 	participants: Participant[];
@@ -108,9 +108,7 @@ function RouteComponent() {
 		}
 	}, [existing.length, rowCount]); // Only depend on length, not the actual arrays
 
-	const selectedIds = useMemo(() => new Set(positions.filter(Boolean) as string[]), [positions]);
-
-	const setPosition = useCallback((index: number, id: string | undefined) => {
+	const setPosition = useCallback((index: number, id: string) => {
 		setPositions((prev) => {
 			const next = [...prev];
 			next[index] = id;
@@ -118,12 +116,7 @@ function RouteComponent() {
 		});
 	}, []);
 
-	const hasDuplicates = positions.filter(Boolean).length !== selectedIds.size;
-	const canSave = !hasDuplicates && rowCount > 0 && !!eventId;
-
 	const handleSave = async () => {
-		if (!canSave) return;
-
 		// Create final rankings with correct positions, skipping undefined slots
 		const finalRankings: { id: string; position: number }[] = [];
 		positions.forEach((id, index) => {
@@ -141,21 +134,15 @@ function RouteComponent() {
 		<div className="p-6 flex flex-col gap-6 bg-zinc-900 rounded-xl shadow-lg">
 			<div className="flex items-center justify-between">
 				<h2 className="text-xl font-bold">FINAL RANKINGS</h2>
-				<Button onClick={handleSave} disabled={!canSave} className="font-bold">
+				<Button onClick={handleSave} className="font-bold">
 					Save
 				</Button>
 			</div>
 
-			{hasDuplicates && (
-				<div className="text-red-400 font-semibold">
-					Duplicate selections detected. Ensure each bot is selected only once.
-				</div>
-			)}
-
 			<div className="grid grid-cols-1 gap-3">
 				{Array.from({ length: rowCount }, (_, i) => {
 					const current = positions[i];
-					const options = participants.filter((p) => !selectedIds.has(p.id) || p.id === current);
+					const options = participants;
 					return (
 						<div key={i} className="flex items-center gap-4">
 							<div className="w-36 font-bold">{ordinal(i + 1)}</div>
@@ -165,6 +152,9 @@ function RouteComponent() {
 										<SelectValue placeholder="Select bot" />
 									</SelectTrigger>
 									<SelectContent className="bg-zinc-800 text-white max-h-80">
+										<SelectItem value="none" className="font-bold text-gray-400">
+											-- No bot selected --
+										</SelectItem>
 										{options.map((p) => (
 											<SelectItem key={p.id} value={p.id} className="font-bold">
 												{p.name}

@@ -107,7 +107,6 @@ export const ParticipantForm = ({
 								/>
 							</div>
 						</div>
-						{defaultValues.photo && <img alt="bot-image" src={`/${defaultValues.photo}`} className="h-30 flex-1" />}
 					</div>
 
 					<h3 className="my-4 text-2xl font-bold">Team Info</h3>
@@ -291,6 +290,22 @@ export const ParticipantForm = ({
 							</FormItem>
 						)}
 					/>
+				</div>
+				<div>
+					{defaultValues.photo ? (
+						<img alt="bot-image" src={`/${defaultValues.photo}`} className="w-full flex-1 max-w-70 object-contain" />
+					) : (
+						<p className="mt-10 text-lg">No bot photo</p>
+					)}{" "}
+					{defaultValues.teamPhoto ? (
+						<img
+							alt="team-image"
+							src={`/${defaultValues.teamPhoto}`}
+							className="w-full flex-1 max-w-70 object-contain"
+						/>
+					) : (
+						<p className="mt-10 text-lg">No team photo</p>
+					)}
 				</div>
 			</form>
 		</Form>

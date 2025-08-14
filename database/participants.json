@@ -34,7 +34,8 @@
     "weight": 13.6,
     "previousRank": "3rd Place",
     "photo": "bot-photos/borris.png",
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/borris.png"
   },
   {
     "id": "part-fdrxhj5",
@@ -46,7 +47,8 @@
     "photo": "bot-photos/inferno-fox.png",
     "weight": 13.5,
     "previousRank": "4th Place",
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/inferno-fox.png"
   },
   {
     "id": "part-ul19jgv",
@@ -118,7 +120,8 @@
     "weight": 8.7,
     "previousRank": "9th Place",
     "photo": "bot-photos/chef-woody.png",
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/chef-woody.png"
   },
   {
     "id": "part-y3konnp",
@@ -153,7 +156,8 @@
     "photo": "bot-photos/fulcrum.png",
     "weight": 10.2,
     "isDead": false,
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/fulcrum.png"
   },
   {
     "id": "uhunewo",

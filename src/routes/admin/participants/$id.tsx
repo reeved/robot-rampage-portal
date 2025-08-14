@@ -27,6 +27,7 @@ const updateParticipant = createServerFn({
 			occupation: data.data.occupation,
 			teamExperience: data.data.teamExperience,
 			otherNotes: data.data.otherNotes,
+			teamPhoto: data.data.teamPhoto,
 		});
 		return true;
 	});
