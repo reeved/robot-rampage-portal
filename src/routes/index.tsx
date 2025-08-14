@@ -10,11 +10,11 @@ function App() {
 		<div className="flex flex-col gap-10 p-10">
 			<div className="text-primary font-heading uppercase text-xl">Robot Rampage Portal</div>
 			<Button asChild variant="secondary" className="text-4xl h-70">
-				<Link to="/admin">Go to admin</Link>
+				<Link to="/admin">Admin</Link>
 			</Button>
 
 			<Button asChild variant="secondary" className="text-4xl  h-70">
-				<Link to="/admin/mobile">Go to mobile admin</Link>
+				<Link to="/admin/mobile">Commentator</Link>
 			</Button>
 		</div>
 	);

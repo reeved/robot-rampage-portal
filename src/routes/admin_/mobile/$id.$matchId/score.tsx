@@ -28,7 +28,12 @@ function RouteComponent() {
 		<div className="flex flex-col gap-2 p-2">
 			<MatchCard match={match} currentMatchId={currentMatchId} bot1={bot1} bot2={bot2} />
 			<QueueMatchForm match={match} participants={participants} />
-			<ResultForm scheduleId={schedule.id} match={match} participants={participants} />
+			<ResultForm
+				key={`${match.winner?.id}-${match.winner?.condition}`}
+				scheduleId={schedule.id}
+				match={match}
+				participants={participants}
+			/>
 		</div>
 	);
 }
