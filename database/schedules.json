@@ -342,11 +342,7 @@
           {
             "id": "part-uov2lni"
           }
-        ],
-        "winner": {
-          "id": "part-dllub2q",
-          "condition": "KO"
-        }
+        ]
       },
       {
         "id": "match-akmdyt3",
@@ -359,11 +355,7 @@
           {
             "id": "part-y3konnp"
           }
-        ],
-        "winner": {
-          "id": "part-y3konnp",
-          "condition": "KO"
-        }
+        ]
       },
       {
         "id": "match-84eq17r",
@@ -376,11 +368,7 @@
           {
             "id": "part-odwrzot"
           }
-        ],
-        "winner": {
-          "id": "part-fdrxhj5",
-          "condition": "KO"
-        }
+        ]
       },
       {
         "id": "match-48ldi7f",
@@ -393,11 +381,7 @@
           {
             "id": "part-fok7byp"
           }
-        ],
-        "winner": {
-          "id": "part-fok7byp",
-          "condition": "JD"
-        }
+        ]
       },
       {
         "id": "match-g8d6lsz",

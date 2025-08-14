@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { type Event, type Match, type Participant, type QualifyingMatch, QualifyingMatchSchema } from "@/db";
-import { dbMiddleware } from "@/middleware";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { type Event, type Match, type Participant, type QualifyingMatch, QualifyingMatchSchema } from "@/db";
+import { dbMiddleware } from "@/middleware";
 
 const MatchWinnerSchema = QualifyingMatchSchema.pick({ winner: true });
 type MatchResult = z.infer<typeof MatchWinnerSchema>;
@@ -226,6 +226,19 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 		toast.success("Match winner updated");
 	};
 
+	const clearResult = async () => {
+		await updateMatchResult({
+			data: {
+				scheduleId,
+				matchId: match.id,
+				winner: undefined,
+			},
+		});
+		router.invalidate();
+
+		toast.success("Match result cleared");
+	};
+
 	if (!matchParticipants.length) {
 		return null;
 	}
@@ -233,7 +246,12 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 	return (
 		<Form {...form}>
 			<form className="p-6 gap-y-6 flex flex-col items-start w-full bg-zinc-900 rounded-xl shadow-lg">
-				<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
+				<div className="flex items-center justify-between w-full">
+					<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
+					<Button type="button" onClick={clearResult} variant="default" className="w-1/4">
+						CLEAR
+					</Button>
+				</div>
 
 				<div className="flex gap-4">
 					<div className="flex flex-col gap-4">
@@ -285,24 +303,6 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 							)}
 						/>
 					</div>
-
-					<Button
-						type="button"
-						onClick={() => {
-							form.reset({
-								winner: {
-									id: "",
-									condition: undefined,
-								},
-							});
-
-							form.trigger();
-						}}
-						variant="ghost"
-						className="w-1/4"
-					>
-						CLEAR
-					</Button>
 				</div>
 
 				<Button type="button" onClick={onSubmit} variant="default" className="w-full mt-6 py-3 text-lg font-bold">

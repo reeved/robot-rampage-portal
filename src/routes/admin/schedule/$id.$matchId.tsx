@@ -1,12 +1,12 @@
-import { type Schedule, ScheduleSchema } from "@/db";
-import { dbMiddleware } from "@/middleware";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { getSchedule } from "./$id";
+import { type Schedule, ScheduleSchema } from "@/db";
+import { dbMiddleware } from "@/middleware";
 import { BracketMatchForm } from "./-bracket-match-form";
 import { QualifyingMatchForm } from "./-qualifying-match-form";
 import { QueueMatchForm } from "./-queue-match-form";
 import { ResultForm } from "./-result-form";
+import { getSchedule } from "./$id";
 
 export const updateScheduleFn = createServerFn({
 	method: "POST",
@@ -73,7 +73,12 @@ function RouteComponent() {
 
 			<div className="flex gap-10">
 				<QueueMatchForm match={match} participants={participants} />
-				<ResultForm scheduleId={schedule.id} match={match} participants={participants} />
+				<ResultForm
+					key={`${match.winner?.id}-${match.winner?.condition}`}
+					scheduleId={schedule.id}
+					match={match}
+					participants={participants}
+				/>
 			</div>
 		</div>
 	);
