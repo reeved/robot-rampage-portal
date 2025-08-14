@@ -53,6 +53,90 @@ code {
 	--sidebar-ring: oklch(0.62 0.2122 25.43);
 } */
 
+/* Teams match layout stability */
+.teams-match-grid {
+	grid-template-rows: 65% 15% 20%;
+	height: 100%;
+	min-height: 0;
+}
+
+.teams-match-grid > * {
+	min-height: 0;
+	overflow: hidden;
+}
+
+/* Ensure images don't cause layout shifts */
+.bot-image-container {
+	aspect-ratio: 1;
+	contain: layout;
+}
+
+.bot-image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+/* Additional stability for teams match layout */
+.teams-match-grid {
+	contain: layout style;
+}
+
+.teams-match-grid > *:nth-child(1) {
+	grid-row: 1;
+	height: 100%;
+}
+
+.teams-match-grid > *:nth-child(2) {
+	grid-row: 2;
+	height: 100%;
+}
+
+.teams-match-grid > *:nth-child(3) {
+	grid-row: 3;
+	height: 100%;
+}
+
+/* Prevent layout shifts during image loading */
+.bot-image {
+	transition: opacity 0.2s ease-in-out;
+}
+
+.bot-image:not([src]),
+.bot-image[src=""] {
+	opacity: 0;
+}
+
+.bot-image[src] {
+	opacity: 1;
+}
+
+/* Ensure consistent spacing and prevent overflow */
+.teams-match-grid {
+	gap: 0;
+	align-items: stretch;
+}
+
+.teams-match-grid > * {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Main teams match container stability */
+.teams-match-container {
+	height: 100%;
+	max-height: 100vh;
+	overflow: hidden;
+	contain: layout style;
+}
+
+/* Ensure the main grid respects height constraints */
+.teams-match-container .grid {
+	height: 100%;
+	min-height: 0;
+}
+
 :root {
 	--radius: 0.5rem;
 	--background: oklch(0.141 0.005 285.823);

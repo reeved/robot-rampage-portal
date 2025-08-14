@@ -77,10 +77,7 @@ export const MatchSchema = z.union([QualifyingMatchSchema, BracketMatchSchema]);
 
 const TeamsMatchBot = z.object({
 	id: z.string().optional(),
-	isDead: z.boolean().optional(),
-	isActive: z.boolean().optional(),
-	isSubbed: z.boolean().optional(),
-	videoName: z.string().optional(),
+	status: z.enum(["ALIVE", "ACTIVE", "DEAD", "SUBBED"]).optional(),
 });
 
 export const TeamsMatchTeamSchema = z.object({

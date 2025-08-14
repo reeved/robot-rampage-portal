@@ -16,18 +16,19 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { type Participant, type Schedule, TeamsMatchSchema, type TeamsSchedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import { getBotVideos } from "./-queue-match-form";
 import { ResultForm } from "./-result-form";
 import { TeamsMatchForm } from "./-teams-match-form";
 
+// Create a custom schema that extends TeamsMatchSchema to use status instead of boolean fields
 const teamsSchema = TeamsMatchSchema.pick({
 	team1bots: true,
 	team2bots: true,
@@ -112,96 +113,46 @@ const SortableBotCard = ({ team, botIndex, participants, form }: SortableBotCard
 								</FormItem>
 							)}
 						/>
-
-						<FormField
-							name={`${team}bots.${botIndex}.videoName`}
-							control={form.control}
-							render={({ field }) => {
-								const selectedBot = form.watch(`${team}bots.${botIndex}`);
-
-								const { bot1Videos } = getBotVideos(participants, [{ id: selectedBot?.id }]);
-
-								if (!bot1Videos.length || !selectedBot?.id || !selectedBot.isActive) {
-									return <></>;
-								}
-
-								return (
-									<FormItem>
-										<FormLabel className="text-white text-sm">Bot Video</FormLabel>
-										<FormControl>
-											<Select value={field.value} onValueChange={field.onChange}>
-												<SelectTrigger className="bg-zinc-700 text-white font-bold border-zinc-600">
-													<SelectValue placeholder="Select bot video" />
-												</SelectTrigger>
-												<SelectContent className="bg-zinc-800 text-white">
-													{bot1Videos.map((v) => (
-														<SelectItem key={v} value={v} className="font-bold">
-															{v}
-														</SelectItem>
-													))}
-												</SelectContent>
-											</Select>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								);
-							}}
-						/>
 					</div>
-					<div className="flex flex-col gap-4 items-center pt-2">
+					<div className="flex flex-col gap-2 items-center pt-2">
 						<FormField
-							name={`${team}bots.${botIndex}.isDead`}
+							name={`${team}bots.${botIndex}.status`}
 							control={form.control}
-							rules={{ required: false }}
 							render={({ field }) => (
-								<FormItem className="w-25 flex flex-row gap-2 items-center justify-start">
+								<FormItem className="w-full">
+									<FormLabel className="text-white text-sm mb-2 block">Bot Status</FormLabel>
 									<FormControl>
-										<Checkbox
-											checked={field.value ?? false}
-											onCheckedChange={(checked) => {
-												field.onChange(checked === true);
-											}}
-										/>
+										<RadioGroup
+											onValueChange={(value) => field.onChange(value)}
+											value={field.value}
+											className="flex flex-row gap-4 justify-center"
+										>
+											<div className="flex items-center space-x-2">
+												<RadioGroupItem value="ALIVE" id={`${team}-${botIndex}-alive`} className="text-primary" />
+												<Label htmlFor={`${team}-${botIndex}-alive`} className="text-white text-sm">
+													Alive
+												</Label>
+											</div>
+											<div className="flex items-center space-x-2">
+												<RadioGroupItem value="ACTIVE" id={`${team}-${botIndex}-active`} className="text-primary" />
+												<Label htmlFor={`${team}-${botIndex}-active`} className="text-white text-sm">
+													Active
+												</Label>
+											</div>
+											<div className="flex items-center space-x-2">
+												<RadioGroupItem value="DEAD" id={`${team}-${botIndex}-dead`} className="text-primary" />
+												<Label htmlFor={`${team}-${botIndex}-dead`} className="text-white text-sm">
+													Dead
+												</Label>
+											</div>
+											<div className="flex items-center space-x-2">
+												<RadioGroupItem value="SUBBED" id={`${team}-${botIndex}-subbed`} className="text-primary" />
+												<Label htmlFor={`${team}-${botIndex}-subbed`} className="text-white text-sm">
+													Subbed
+												</Label>
+											</div>
+										</RadioGroup>
 									</FormControl>
-									<FormLabel className="text-sm font-normal text-white">Is dead</FormLabel>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							name={`${team}bots.${botIndex}.isActive`}
-							control={form.control}
-							rules={{ required: false }}
-							render={({ field }) => (
-								<FormItem className="w-25 flex flex-row gap-2 items-center justify-start">
-									<FormControl>
-										<Checkbox
-											checked={field.value ?? false}
-											onCheckedChange={(checked) => {
-												field.onChange(checked === true);
-											}}
-										/>
-									</FormControl>
-									<FormLabel className="text-sm font-normal text-white">Is active</FormLabel>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							name={`${team}bots.${botIndex}.isSubbed`}
-							control={form.control}
-							rules={{ required: false }}
-							render={({ field }) => (
-								<FormItem className="w-25 flex flex-row gap-2 items-center justify-start">
-									<FormControl>
-										<Checkbox
-											checked={field.value ?? false}
-											onCheckedChange={(checked) => {
-												field.onChange(checked === true);
-											}}
-										/>
-									</FormControl>
-									<FormLabel className="text-sm font-normal text-white">Is subbed</FormLabel>
 									<FormMessage />
 								</FormItem>
 							)}
@@ -296,14 +247,16 @@ const TeamName = ({ fieldName, form }: { fieldName: "team1Name" | "team2Name"; f
 	);
 };
 
-const processBots = (bots: TeamsSchedule["team1bots"]) => {
-	return [0, 1, 2, 3, 4].map((index) => ({
-		id: undefined,
-		isDead: false,
-		isActive: false,
-		videoName: undefined,
-		...bots[index],
-	}));
+const processBots = (bots: TeamsSchedule["team1bots"]): TeamsSchedule["team1bots"] => {
+	return [0, 1, 2, 3, 4].map((index) => {
+		const bot = bots[index];
+
+		return {
+			id: undefined,
+			status: "ALIVE",
+			...bot,
+		};
+	});
 };
 
 const updateTeamsMatch = createServerFn({
@@ -321,22 +274,25 @@ const updateTeamsMatch = createServerFn({
 
 		const matchId = generateId("teams-match");
 
-		const team1ActiveBot = Object.values(team1bots).find((b) => b?.isActive);
-		const team2ActiveBot = Object.values(team2bots).find((b) => b?.isActive);
+		const team1ActiveBot = Object.values(team1bots).find((b) => b?.status === "ACTIVE");
+		const team2ActiveBot = Object.values(team2bots).find((b) => b?.status === "ACTIVE");
 
 		await context.db.schedule.updateOne((s) => s.id === scheduleId, {
 			team1Name,
 			team2Name,
-			team1bots: processBots(team1bots),
-			team2bots: processBots(team2bots),
+			team1bots: team1bots.map((bot) => ({
+				id: bot.id,
+				status: bot.status,
+			})),
+			team2bots: team2bots.map((bot) => ({
+				id: bot.id,
+				status: bot.status,
+			})),
 			matches: [
 				{
 					id: matchId,
 					name: "Teams match",
-					participants: [
-						{ id: team1ActiveBot?.id, videoName: team1ActiveBot?.videoName },
-						{ id: team2ActiveBot?.id, videoName: team2ActiveBot?.videoName },
-					],
+					participants: [{ id: team1ActiveBot?.id }, { id: team2ActiveBot?.id }],
 				},
 			],
 		});
@@ -401,15 +357,13 @@ export const TeamsMatchList = ({
 						</div>
 					</div>
 
-					{form.formState.errors && <div className="text-red-500">{JSON.stringify(form.formState.errors)}</div>}
-
 					<Button type="submit" className="mt-10 w-30">
 						Save
 					</Button>
 				</form>
 			</Form>
 			{schedule.matches[0] && (
-				<div key={schedule.matches[0].id} className="w-200 flex flex-col gap-4">
+				<div key={schedule.matches[0].id} className="w-150 flex flex-col gap-4">
 					<TeamsMatchForm defaultValues={schedule.matches[0]} participants={participants} />
 					<ResultForm scheduleId={schedule.id} match={schedule.matches[0]} participants={participants} />
 				</div>

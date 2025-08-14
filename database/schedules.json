@@ -703,14 +703,14 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-5uwqvh9",
+        "id": "teams-match-c37af8k",
         "name": "Teams match",
         "participants": [
           {
-            "id": "part-y3konnp"
+            "id": "part-dx6qvml"
           },
           {
-            "id": "part-hh5ch23"
+            "id": "uhunewo"
           }
         ]
       }
@@ -719,58 +719,46 @@
     "team2Name": "Team NZ",
     "team1bots": [
       {
-        "id": "s9xj92s",
-        "isDead": true,
-        "isActive": false,
-        "isSubbed": false
+        "id": "luecccm",
+        "status": "DEAD"
       },
       {
-        "id": "luecccm",
-        "isDead": true,
-        "isActive": false
+        "id": "s9xj92s",
+        "status": "DEAD"
       },
       {
         "id": "part-dx6qvml",
-        "isDead": false,
-        "isActive": false,
-        "isSubbed": true
+        "status": "ACTIVE"
       },
       {
         "id": "part-y3konnp",
-        "isDead": false,
-        "isActive": false
+        "status": "DEAD"
       },
       {
-        "id": "part-y3konnp",
-        "isDead": false,
-        "isActive": true
+        "id": "jjsm1pd",
+        "status": "DEAD"
       }
     ],
     "team2bots": [
       {
         "id": "uhunewo",
-        "isDead": false,
-        "isActive": false
+        "status": "ACTIVE"
       },
       {
         "id": "part-hh5ch23",
-        "isDead": false,
-        "isActive": true
+        "status": "DEAD"
       },
       {
         "id": "part-dllub2q",
-        "isDead": false,
-        "isActive": false
+        "status": "DEAD"
       },
       {
         "id": "part-ul19jgv",
-        "isDead": false,
-        "isActive": false
+        "status": "DEAD"
       },
       {
         "id": "part-aw653qy",
-        "isDead": false,
-        "isActive": false
+        "status": "DEAD"
       }
     ],
     "name": "Teams 1"

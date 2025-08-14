@@ -1,4 +1,4 @@
-import { Outlet, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_view/teams-match")({
 	component: RouteComponent,
@@ -33,7 +33,7 @@ function TeamsBanner() {
 
 function RouteComponent() {
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col h-full">
 			<div className="flex items-center justify-center mx-155 mt-4">
 				<div className="flex-1 h-1.5 bg-red-500 mx-4" />
 				<TeamsBanner />
