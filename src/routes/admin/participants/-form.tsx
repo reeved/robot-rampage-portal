@@ -233,7 +233,7 @@ export const ParticipantForm = ({
 						control={form.control}
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Videos</FormLabel>
+								<FormLabel>Videos (Played before matches)</FormLabel>
 								<FormControl>
 									<Input {...field} className="w-[60ch]" placeholder="Comma-separated video paths" />
 								</FormControl>
@@ -247,9 +247,23 @@ export const ParticipantForm = ({
 						control={form.control}
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Photo</FormLabel>
+								<FormLabel>Bot photo (Displayed in pages)</FormLabel>
 								<FormControl>
-									<Input {...field} className="w-[60ch]" placeholder="Name of photo for app" />
+									<Input {...field} className="w-[60ch]" placeholder="File path to bot photo" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						name="teamPhoto"
+						control={form.control}
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Team photo (Displayed in results page)</FormLabel>
+								<FormControl>
+									<Input {...field} className="w-[60ch]" placeholder="File path to team photo" />
 								</FormControl>
 								<FormMessage />
 							</FormItem>

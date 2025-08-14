@@ -16,6 +16,7 @@ export const ParticipantSchema = z.object({
 	matchIntros: z.array(z.string()).optional(),
 	videos: z.string().min(0),
 	photo: z.string().optional(),
+	teamPhoto: z.string().optional(),
 	funFact: z.string().optional(),
 	previousRank: z.string().optional(),
 	isDead: z.boolean().optional(),
