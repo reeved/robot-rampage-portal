@@ -318,10 +318,12 @@
         "participants": [
           {
             "id": "part-04xspbq",
-            "videoName": "Bad_Blood_A.mov"
+            "videoName": "Bad_Blood_A.mov",
+            "introText": "hello"
           },
           {
-            "id": "uhunewo"
+            "id": "uhunewo",
+            "introText": "hi"
           }
         ],
         "winner": {

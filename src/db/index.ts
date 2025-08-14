@@ -52,7 +52,9 @@ export const EventSchema = z.object({
 const sharedMatchSchema = z.object({
 	id: z.string(),
 	name: z.string(),
-	participants: z.array(z.object({ id: z.string().optional(), videoName: z.string().optional() })),
+	participants: z.array(
+		z.object({ id: z.string().optional(), videoName: z.string().optional(), introText: z.string().optional() }),
+	),
 	names: z.array(z.string()).optional(),
 	winner: z
 		.object({

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Separator as SeparatorComponent } from "@/components/ui/separator";
-import type { Event, Participant } from "@/db";
+import type { Event, Match, Participant } from "@/db";
 import { cn, createBorderEffect } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
 import { getSchedule } from "@/routes/admin/schedule/$id";
@@ -131,28 +131,20 @@ const Slide2 = ({ bot }: { bot: Participant }) => {
 	);
 };
 
-const Slide3 = ({ bot }: { bot: Participant }) => {
+const Slide3 = ({ bot, match }: { bot: Participant; match: Match }) => {
 	return (
 		<div className="flex flex-col gap-2">
 			<LabelledDetails
-				label="Match Intro 1"
-				value={`some random interesting thing
-some random interesting thing
-some random interesting thing
-some random interesting thing
-some random interesting thing`}
+				label="Match Intro"
+				value={match.participants.find((p) => p.id === bot.id)?.introText ?? ""}
 				isVertical
 				isUppercase={false}
 			/>
-			<Separator />
-			<LabelledDetails label="Match Intro 2" value={bot.matchIntros?.[2]} isVertical isUppercase={false} />
-			<Separator />
-			<LabelledDetails label="Match Intro 3" value={bot.matchIntros?.[3]} isVertical isUppercase={false} />
 		</div>
 	);
 };
 
-const BotInfo = ({ bot }: { bot: Participant }) => {
+const BotInfo = ({ bot, match }: { bot: Participant; match: Match }) => {
 	const [api, setApi] = useState<CarouselApi>();
 	const [current, setCurrent] = useState(0);
 	const [count, setCount] = useState(0);
@@ -199,7 +191,7 @@ const BotInfo = ({ bot }: { bot: Participant }) => {
 				<CarouselItem className="h-full">
 					<Card className="flex-1 h-full">
 						<CardContent>
-							<Slide3 bot={bot} />
+							<Slide3 bot={bot} match={match} />
 						</CardContent>
 					</Card>
 				</CarouselItem>
@@ -282,7 +274,7 @@ function RouteComponent() {
 				setSelectedBot={setSelectedBot}
 			/>
 			{selectedBot && <BotPreview bot={selectedBot} rankings={rankings} stats={stats} />}
-			{selectedBot && <BotInfo bot={selectedBot} />}
+			{selectedBot && <BotInfo bot={selectedBot} match={match} />}
 		</div>
 	);
 }
