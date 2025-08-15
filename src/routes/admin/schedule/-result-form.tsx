@@ -43,13 +43,20 @@ const getUpdatedRankings = (matches: QualifyingMatch[], participants: Participan
 		};
 	}
 
-	for (const match of matches) {
+	const matchesWithoutExhibition = matches.filter((match) => {
+		const matchParticipants = match.participants.map((p) => participants.find((part) => part.id === p.id));
+		return !matchParticipants.some((p) => !p || p?.type === "HEAVYWEIGHT");
+	});
+
+	for (const match of matchesWithoutExhibition) {
 		const winner = match.winner?.id;
 		const condition = match.winner?.condition;
 
 		for (const participant of match.participants) {
 			const participantId = participant.id;
-			if (!participantId) continue;
+			if (!participantId) {
+				continue;
+			}
 
 			participantResults[participantId].opponentIds.push(
 				match.participants.filter((p) => p.id !== participantId)[0].id ?? "",
