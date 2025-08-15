@@ -39,16 +39,16 @@
   },
   {
     "id": "part-fdrxhj5",
-    "name": "Inferno Fox",
-    "builders": "Tim Sly",
-    "videos": "Inferno_Fox_A.mov,Inferno_Fox_B.mov",
+    "name": "Killabyte",
+    "builders": "Ray Connor",
+    "videos": "",
     "weapon": "Vertical Spinner",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/inferno-fox.png",
+    "photo": "",
     "weight": 13.5,
     "previousRank": "4th Place",
     "isCompeting": true,
-    "teamPhoto": "team-photos/inferno-fox.png"
+    "teamPhoto": ""
   },
   {
     "id": "part-ul19jgv",
@@ -84,7 +84,7 @@
     "weight": 12,
     "previousRank": "6th Place",
     "photo": "bot-photos/hammertime.png",
-    "isCompeting": true
+    "isCompeting": false
   },
   {
     "id": "part-dllub2q",
@@ -254,5 +254,75 @@
     "weapon": "Vertical Spinner",
     "photo": "bot-photos/blue-blur.png",
     "isCompeting": true
+  },
+  {
+    "id": "0a41c0a",
+    "type": "FEATHERWEIGHT",
+    "name": "Obliterator",
+    "builders": "James Kirby",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
+  },
+  {
+    "id": "hfk4hiu",
+    "type": "FEATHERWEIGHT",
+    "name": "Drumroll Please",
+    "builders": "Nicholas",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
+  },
+  {
+    "id": "3osxali",
+    "type": "FEATHERWEIGHT",
+    "name": "Tessellate",
+    "builders": "James Kirby",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
+  },
+  {
+    "id": "8pii4jf",
+    "type": "FEATHERWEIGHT",
+    "name": "Naptime",
+    "builders": "Sam",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
+  },
+  {
+    "id": "uvy1k73",
+    "type": "FEATHERWEIGHT",
+    "name": "Perry",
+    "builders": "Hayden Moore",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
+  },
+  {
+    "id": "kf92kfb",
+    "type": "FEATHERWEIGHT",
+    "name": "Inator",
+    "builders": "Hayden Moore",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
+  },
+  {
+    "id": "puvpwxl",
+    "type": "FEATHERWEIGHT",
+    "name": "Fury Fox",
+    "builders": "Tim Sly",
+    "videos": "",
+    "weapon": "",
+    "isCompeting": true,
+    "isDead": false
   }
 ]
