@@ -8,64 +8,76 @@
         "name": "Match 1",
         "participants": [
           {
-            "id": "part-qpm0bjg"
+            "id": "part-qpm0bjg",
+            "introText": "“He may be beautiful, but don’t get too close — those petals are hiding punishment! He’s blooming back into the arena to reclaim his crown — make way for Black Rose!”"
           },
           {
-            "id": "part-hh5ch23"
+            "id": "part-hh5ch23",
+            "introText": "“He doesn’t talk trash — he crushes it. From the pits of Auckland and built like a freight train, it’s the one, the only, Borris!”"
           }
-        ]
-      },
-      {
-        "id": "match-s2lx7qa",
-        "name": "Match 2",
-        "participants": [
-          {
-            "id": "puvpwxl"
-          },
-          {
-            "id": "part-dllub2q"
-          }
-        ]
+        ],
+        "winner": {
+          "id": "part-hh5ch23",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-cl2qls1",
+        "name": "Match 2",
+        "participants": [
+          {
+            "id": "part-uov2lni",
+            "introText": "“He spins, he slides, he shreds! This melty brain brings total disorientation to every rotation — Auckland, make some noise for Chain Damage!”"
+          },
+          {
+            "id": "3osxali",
+            "introText": "“He doesn’t drive — he dances! This melty brain spins like geometry on caffeine and hits like chaos in motion — it’s the swirling storm called Tessellate!”"
+          }
+        ],
+        "winner": {
+          "id": "3osxali",
+          "condition": "KO"
+        }
+      },
+      {
+        "id": "match-s2lx7qa",
         "name": "Match 3",
         "participants": [
           {
-            "id": "part-uov2lni"
+            "id": "puvpwxl",
+            "introText": "“He’s not here to sneak — he’s here to strike! Quick on his feet and ruthless with the hits, he’s out for redemption and ready to rage — this is Fury Fox!”"
           },
           {
-            "id": "3osxali"
+            "id": "part-dllub2q",
+            "introText": "“He’s not just bringing the hammer — he is the hammer! With power from the gods and strikes from the depths, brace yourself for the storm called Mjolnir!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-dllub2q",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-cfbi25r",
         "name": "Match 4",
         "participants": [
           {
-            "id": "part-aw653qy"
+            "id": "part-aw653qy",
+            "introText": "“One bot causes problems. Two? They create pure anarchy! These misfits from the North and South have teamed up for maximum madness — it's the tag-team terror of Snollygoster and Ragamuffin!”"
           },
           {
-            "id": "8pii4jf"
+            "id": "8pii4jf",
+            "introText": "“He’ll tuck you in — permanently! From the land of koalas and chaos, this hammersaw monster is here to lull you to your doom — nighty-night from Naptime!”"
           }
-        ]
-      },
-      {
-        "id": "match-50cb9sz",
-        "name": "Match 5",
-        "participants": [
-          {
-            "id": "rot076r"
-          },
-          {
-            "id": "part-odwrzot"
-          }
-        ]
+        ],
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-ilg9gpv",
-        "name": "Match 6",
+        "name": "Match 5",
         "participants": [
           {
             "id": "s9xj92s"
@@ -73,57 +85,244 @@
           {
             "id": "96j1t3r"
           }
-        ]
+        ],
+        "winner": {
+          "id": "s9xj92s",
+          "condition": "JD"
+        }
+      },
+      {
+        "id": "match-50cb9sz",
+        "name": "Match 6",
+        "participants": [
+          {
+            "id": "rot076r",
+            "introText": "“He’s not just swinging for points — he’s swinging for pain! Built in Auckland and driven with rage, this bot’s about to throw hands — say hello to Haymaker!”"
+          },
+          {
+            "id": "part-odwrzot",
+            "introText": "“He’s carved from timber but built to destroy! This isn’t your grandma’s kitchen — he’s serving up carnage with a side of splinters — it’s the one and only Chef Woody!”"
+          }
+        ],
+        "winner": {
+          "id": "rot076r",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-iqsbbmx",
         "name": "Match 7",
         "participants": [
           {
-            "id": "part-dx6qvml"
+            "id": "part-dx6qvml",
+            "introText": "“Every lever needs a pivot — and every fight needs a reckoning! She lifts, she slams, she crushes with precision — here comes the force behind the chaos: Fulcrum!”"
           },
           {
-            "id": "part-fdrxhj5"
+            "id": "part-fdrxhj5",
+            "introText": "This bot’s got more bite than bark — slicing, dicing, and deleting the competition one byte at a time! Make some noise for… KILLABYYYYTE!"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-fdrxhj5",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-qcmkj45",
         "name": "Match 8",
         "participants": [
           {
-            "id": "part-y3konnp"
+            "id": "part-y3konnp",
+            "introText": "“No knives, no spoons — just the sharpest forks in the fight! He’s lifting bots and lifting expectations — it’s time to dine on destruction with OnlyForks!”"
           },
           {
-            "id": "uvy1k73"
+            "id": "uvy1k73",
+            "introText": "“He may look cute, but don’t be fooled — this Aussie export is all killer and no filler. Get ready for eggbeaters, chaos, and mayhem — here comes Perry!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "uvy1k73",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-i8kf3sa",
         "name": "Match 9",
         "participants": [
           {
-            "id": "hfk4hiu"
+            "id": "hfk4hiu",
+            "introText": "“The suspense is building… the beat is rising… and now it’s time for the drop! Hold your applause — and your bots — for Drumroll Pls!”"
           },
           {
-            "id": "luecccm"
+            "id": "luecccm",
+            "introText": "“He’s fast, he’s fierce, and he’s leaving sparks in his wake. You won’t see him coming — but you’ll feel the impact of Blue Blur!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "hfk4hiu",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-opyvny7",
         "name": "Match 10",
         "participants": [
           {
-            "id": "part-04xspbq"
+            "id": "part-04xspbq",
+            "introText": "“When this bot enters the ring, old scores get settled and new grudges are born. He’s here to turn rivalries into wreckage — bring the heat for Bad Blood!”"
           },
           {
-            "id": "0a41c0a"
+            "id": "0a41c0a",
+            "introText": "“From the outback to the outbreak, this Aussie menace brings absolute annihilation. The name says it all — brace yourself for the unstoppable Obliterator!”"
+          }
+        ],
+        "winner": {
+          "id": "0a41c0a",
+          "condition": "JD"
+        }
+      }
+    ],
+    "name": "Qualifying Session 1"
+  },
+  {
+    "id": "schedule-n52v5ix",
+    "type": "QUALIFYING",
+    "matches": [
+      {
+        "id": "match-265femo",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "part-aw653qy",
+            "introText": "“You thought one was bad? These two bring twice the trouble, twice the chaos, and twice the fun. It’s double the danger with Snollygoster and Ragamuffin!”"
+          },
+          {
+            "id": "uvy1k73",
+            "introText": "“From the land of kangaroos and chaos comes a spinner with serious bite — stealthy, deadly, and dangerously adorable — give it up for Perry!”"
+          }
+        ]
+      },
+      {
+        "id": "match-jve4ev1",
+        "name": "Match 2",
+        "participants": [
+          {
+            "id": "part-dx6qvml",
+            "introText": "“She’s not here to play fair — she’s here to flip your world upside down! She’s the hammer and the hinge — make some noise for Fulcrum!”"
+          },
+          {
+            "id": "8pii4jf",
+            "introText": "“This isn’t rest — it’s ruin. He’s cutting deep and coming fast, and if you blink… you’re already dreaming. Lights out — it’s Naptime!”"
+          }
+        ]
+      },
+      {
+        "id": "match-90tzs2j",
+        "name": "Match 3",
+        "participants": [
+          {
+            "id": "puvpwxl",
+            "introText": "“Don’t mistake his silence for mercy — this fox is furious and focused, and he’s bringing the heat from Auckland’s underground. Give it up for Fury Fox!”"
+          },
+          {
+            "id": "part-uov2lni",
+            "videoName": "Chain_Damage_A.mov",
+            "introText": "Spinning at full speed and bringing the pain with every swing — this melty bot from Auckland is ready to rattle the competition! Give it up for… CHAIN DAMAAAAGE!"
+          }
+        ]
+      },
+      {
+        "id": "match-bv01dcq",
+        "name": "Match 4",
+        "participants": [
+          {
+            "id": "luecccm",
+            "introText": "“From Auckland’s edge to the heart of the arena, this speedster’s spinning to win — blink and you’ll miss Blue Blur!”"
+          },
+          {
+            "id": "part-y3konnp",
+            "videoName": "Onlyforks_A.mov",
+            "introText": "“When the other utensils ran, he stayed to scrap. He’s flipping bots and flippin’ mad — sharpen your senses for OnlyForks!”"
+          }
+        ]
+      },
+      {
+        "id": "match-tv86f5h",
+        "name": "Match 5",
+        "participants": [
+          {
+            "id": "part-qpm0bjg",
+            "videoName": "Black_Rose_A.mov",
+            "introText": "“From the garden of nightmares and straight into your gearbox — a former champion who fights with grace and grinds with fury — it’s the delicate but deadly Black Rose!”"
+          },
+          {
+            "id": "part-odwrzot",
+            "videoName": "Chef_Woody_A.mov",
+            "introText": "“Forget steel — he’s made of wood and bad intentions! Cooking up chaos with every collision, fire up the grill for Chef Woody!”"
+          }
+        ]
+      },
+      {
+        "id": "match-u9r64fb",
+        "name": "Match 6",
+        "participants": [
+          {
+            "id": "part-hh5ch23",
+            "videoName": "Borris_A.mov",
+            "introText": "“When the lights go on, this beast goes wild. It’s not finesse, it’s not subtle — it’s just pure power from Borris!”"
+          },
+          {
+            "id": "part-fdrxhj5",
+            "introText": "Locked, loaded, and ready to send the competition sky-high — this vertical spinner is here to take a byte out of anyone in its way! Give it up for… KILLABYYYYTE!"
+          }
+        ]
+      },
+      {
+        "id": "match-pebvjez",
+        "name": "Match 7",
+        "participants": [
+          {
+            "id": "hfk4hiu",
+            "introText": "“You hear that? That’s not just drums — it’s doom on delivery! Get your sticks ready and your chassis steady for Drumroll Pls!”"
+          },
+          {
+            "id": "3osxali",
+            "introText": "“Spinning, shifting, and tearing it all apart — this puzzle doesn’t solve, it shatters! From the mind of madness, it’s Tessellate!”"
+          }
+        ]
+      },
+      {
+        "id": "match-whm6nig",
+        "name": "Match 8",
+        "participants": [
+          {
+            "id": "rot076r",
+            "videoName": "Haymaker_A.mov",
+            "introText": "“From the corner of the pit comes a punch you won’t see coming! He’s winding up, loading up, and ready to drop jaws — brace for Haymaker!”"
+          },
+          {
+            "id": "part-04xspbq",
+            "videoName": "Bad_Blood_A.mov",
+            "introText": "“There’s history, there’s hostility, and there’s one bot that thrives on both. Tauranga’s coldest fighter is back to spill some Bad Blood!”"
+          }
+        ]
+      },
+      {
+        "id": "match-3fb63h2",
+        "name": "Match 9",
+        "participants": [
+          {
+            "id": "part-dllub2q",
+            "videoName": "Mjolnir_A.mov",
+            "introText": "“Lightning? Thunder? Nah, that’s just the sound of this monster winding up! When he swings, the earth trembles — fear the wrath of Mjolnir!”"
+          },
+          {
+            "id": "0a41c0a",
+            "introText": "From the land down under comes the bot they call the most feared in Australia — a horizontal spinner built to shred anything that dares to enter the arena. Driven by James Kirby, make some noise for… OBLITERAAAATOR!"
           }
         ]
       }
     ],
-    "name": "Qualifying Session 1"
+    "name": "Qualifying Session 2"
   }
 ]

@@ -30,7 +30,7 @@
   {
     "id": "part-hh5ch23",
     "name": "Borris",
-    "builders": "Gren Anderson",
+    "builders": "Greg Anderson",
     "videos": "Borris_A.mov",
     "weapon": "Vertical Spinner",
     "type": "FEATHERWEIGHT",
@@ -103,7 +103,8 @@
     "weight": 13.3,
     "previousRank": "4th Place",
     "isCompeting": true,
-    "teamPhoto": "team-photos/mjolnir.png"
+    "teamPhoto": "team-photos/mjolnir.png",
+    "otherNotes": "Titanium frame, hardox 500 weapon\n4KG weapon, 6S battery. Weapon does 90m/s tip speed, 200mph.\n\nHits VERY hard but drives a bit slow.\nRobot is invertible and has full redundancy.\n4mm AR450 shock mount on the Ti frame."
   },
   {
     "id": "part-uov2lni",
@@ -213,7 +214,7 @@
     "id": "96j1t3r",
     "type": "HEAVYWEIGHT",
     "name": "NoodleBot",
-    "builders": "Jolene Bedwell",
+    "builders": "Miriam Bradley",
     "videos": "",
     "weapon": "Pusher with Noodles",
     "photo": "bot-photos/noodle-bot.png",
@@ -225,7 +226,7 @@
     "id": "s9xj92s",
     "type": "HEAVYWEIGHT",
     "name": "Krusty Grab",
-    "builders": "Steve Barker",
+    "builders": "Daniel Pound",
     "videos": "",
     "weapon": "Lifter",
     "photo": "bot-photos/krusty-grab.png",
@@ -281,7 +282,8 @@
     "isDead": false,
     "photo": "bot-photos/obliterator.png",
     "teamPhoto": "team-photos/obliterator.png",
-    "weight": 13.1
+    "weight": 13.1,
+    "otherNotes": "6061 Aluminium, HDPE and Hardox (weapon)\n4.5kg horz weapon, motor can pull 350+ Amps on start up, upto 4500RPM\n\nRebuilt from 2018 build\nAllll new except weapon motor and gearbox and esc\nAngle grinder gearbox used for weapon\n\n20mm shock mounted HDPE drive\n6mm hardox with alu frame\n"
   },
   {
     "id": "hfk4hiu",
@@ -310,7 +312,8 @@
     "isDead": false,
     "photo": "bot-photos/tessallate.png",
     "teamPhoto": "team-photos/tessallate.png",
-    "weight": 12.5
+    "weight": 12.5,
+    "otherNotes": "Mild steel frame with hardox teeth\n52 volt power system with 12.5kg weapon (yes you read that correctly)\nCustom electronics to control motion\nArmour is 3mm mild steel\n8kw drive power, essentially a very powerful skateboard\n\n\"Melty Brain tech\"\nInvertible\nMostly a tech demo made cheaply from the team's spare parts!"
   },
   {
     "id": "8pii4jf",
