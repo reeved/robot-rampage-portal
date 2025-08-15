@@ -6,7 +6,8 @@ import { Vmix } from "@/lib/vmix-api";
 export const ServerRoute = createServerFileRoute("/api/vmix/get-replays").methods({
 	GET: async () => {
 		const filesInCDrive = await readdir("C:\\RRServer\\Edits");
-		await Vmix.UpdateReplaysList(filesInCDrive);
+		const filteredFiles = filesInCDrive.filter((file) => file !== "DS_Store");
+		await Vmix.UpdateReplaysList(filteredFiles);
 		return json(filesInCDrive);
 	},
 });
