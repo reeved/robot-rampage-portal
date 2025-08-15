@@ -129,7 +129,7 @@ const LabelledDetails = ({
 			<div className={cn("text-lg md:text-3xl lg:text-3xl font-bold text-yellow-400 uppercase")}>{label}</div>
 			<div
 				className={cn(
-					"text-lg md:text-3xl lg:text-3xl font-bold flex-1",
+					"text-lg md:text-3xl lg:text-3xl font-bold flex-1 whitespace-pre-wrap",
 					!isVertical && "text-right",
 					isUppercase && "uppercase",
 				)}

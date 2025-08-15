@@ -3,9 +3,9 @@
     "id": "part-04xspbq",
     "name": "Bad Blood",
     "builders": "Steve Barker",
-    "videos": "Bad_Blood_A.mov,Bad_Blood_B.mov",
+    "videos": "Bad_Blood_A.mov",
     "weapon": "Vertical Spinner",
-    "previousRank": "1st place",
+    "previousRank": "9th Place",
     "funFact": "Taylor Swift",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/bad-blood.png",
@@ -17,24 +17,25 @@
     "id": "part-aw653qy",
     "name": "Snollygoster and Ragamuffin",
     "builders": "Mike Barry",
-    "videos": "Snollygoster_A.mov",
-    "weapon": "Pusher",
+    "videos": "",
+    "weapon": "Multi-Bot (Push + Vert)",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/snolly-ragga.png",
-    "weight": 8.2,
-    "previousRank": "2nd Place",
+    "weight": 13.6,
+    "previousRank": "",
     "isCompeting": true,
-    "teamPhoto": "team-photos/snolly-ragga.png"
+    "teamPhoto": "team-photos/snolly-ragga.png",
+    "otherNotes": "Offense\nSnolly - UHMWHBPE (UMPY) Chassis, brushless friction drive.\n\nRaga - UHMW Primary chassis, AR450 wedge, grade 5 Ti lid, brushless drive + weapon\nINTERNALS OF RAGAMUFFIN ARE FROM BLACKROSE\n\n4.2 kW weapon with 6s battery"
   },
   {
     "id": "part-hh5ch23",
     "name": "Borris",
     "builders": "Gren Anderson",
-    "videos": "Borris_A.mov,Borris_B.mov",
+    "videos": "Borris_A.mov",
     "weapon": "Vertical Spinner",
     "type": "FEATHERWEIGHT",
     "weight": 13.6,
-    "previousRank": "3rd Place",
+    "previousRank": "5th Place",
     "photo": "bot-photos/borris.png",
     "isCompeting": true,
     "teamPhoto": "team-photos/borris.png"
@@ -47,7 +48,7 @@
     "weapon": "Vertical Spinner",
     "type": "FEATHERWEIGHT",
     "photo": "",
-    "weight": 13.5,
+    "weight": 13.6,
     "previousRank": "4th Place",
     "isCompeting": true,
     "teamPhoto": ""
@@ -69,11 +70,11 @@
     "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
-    "videos": "Black_Rose_A.mov,Black_Rose_B.mov",
+    "videos": "Black_Rose_A.mov",
     "weapon": "Drum Spinner",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/black-rose.png",
-    "previousRank": "5th Place",
+    "previousRank": "1st Place",
     "weight": 13.3,
     "isCompeting": true,
     "teamPhoto": "team-photos/black-rose.png"
@@ -86,7 +87,7 @@
     "weapon": "Melty brain (Hammer Spinner)",
     "type": "FEATHERWEIGHT",
     "weight": 12,
-    "previousRank": "6th Place",
+    "previousRank": "8th Place",
     "photo": "bot-photos/hammertime.png",
     "isCompeting": false,
     "teamPhoto": "team-photos/hammertime.png"
@@ -95,12 +96,12 @@
     "id": "part-dllub2q",
     "name": "Mjölnir",
     "builders": "Paul Mumby",
-    "videos": "Mjolnir_A.mov,Mjolnir_B.mov",
+    "videos": "Mjolnir_A.mov",
     "weapon": "Horizontal Spinner",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/mjolnir.png",
     "weight": 13.3,
-    "previousRank": "7th Place",
+    "previousRank": "4th Place",
     "isCompeting": true,
     "teamPhoto": "team-photos/mjolnir.png"
   },
@@ -108,24 +109,25 @@
     "id": "part-uov2lni",
     "name": "Chain Damage",
     "builders": "Kerey Watters",
-    "videos": "",
+    "videos": "Chain_Damage_A.mov",
     "weapon": "Thwack Bot",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/chain-damage.png",
     "weight": 8.9,
     "isDead": false,
     "isCompeting": true,
-    "teamPhoto": "team-photos/chain-damage.png"
+    "teamPhoto": "team-photos/chain-damage.png",
+    "previousRank": "13th Place"
   },
   {
     "id": "part-odwrzot",
     "name": "Chef Woody",
     "builders": "Joseph Connolly",
-    "videos": "",
+    "videos": "Chef_Woody_A.mov",
     "weapon": "Pusher",
     "type": "FEATHERWEIGHT",
     "weight": 8.7,
-    "previousRank": "9th Place",
+    "previousRank": "12th Place",
     "photo": "bot-photos/chef-woody.png",
     "isCompeting": true,
     "teamPhoto": "team-photos/chef-woody.png"
@@ -134,13 +136,14 @@
     "id": "part-y3konnp",
     "name": "OnlyForks",
     "builders": "Ethan Kyle",
-    "videos": "",
+    "videos": "Onlyforks_A.mov",
     "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
     "weight": 13.5,
     "photo": "bot-photos/onlyforks.png",
     "isCompeting": true,
-    "teamPhoto": "team-photos/onlyforks.png"
+    "teamPhoto": "team-photos/onlyforks.png",
+    "previousRank": "3rd Place"
   },
   {
     "id": "part-fok7byp",
@@ -158,14 +161,15 @@
     "id": "part-dx6qvml",
     "name": "Fulcrum",
     "builders": "Jolene Bedwell",
-    "videos": "",
+    "videos": "Fulcrum_A.mov",
     "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/fulcrum.png",
     "weight": 10.2,
     "isDead": false,
     "isCompeting": true,
-    "teamPhoto": "team-photos/fulcrum.png"
+    "teamPhoto": "team-photos/fulcrum.png",
+    "previousRank": "15th Place"
   },
   {
     "id": "uhunewo",
@@ -235,12 +239,13 @@
     "name": "Haymaker",
     "builders": "Mike Barry",
     "weight": 12.4,
-    "videos": "",
+    "videos": "Haymaker_A.mov",
     "weapon": "Horizontal Spinner",
     "photo": "bot-photos/haymaker.png",
     "isCompeting": true,
     "isDead": false,
-    "teamPhoto": "team-photos/haymaker.png"
+    "teamPhoto": "team-photos/haymaker.png",
+    "previousRank": "11th Place"
   },
   {
     "id": "u0fr1y9",
@@ -262,7 +267,8 @@
     "videos": "",
     "weapon": "Vertical Spinner",
     "photo": "bot-photos/blue-blur.png",
-    "isCompeting": true
+    "isCompeting": true,
+    "previousRank": "10th Place"
   },
   {
     "id": "0a41c0a",
@@ -270,23 +276,28 @@
     "name": "Obliterator",
     "builders": "James Kirby",
     "videos": "",
-    "weapon": "",
+    "weapon": "Horizontal Spinner",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/obliterator.png",
-    "teamPhoto": "team-photos/obliterator.png"
+    "teamPhoto": "team-photos/obliterator.png",
+    "weight": 13.1
   },
   {
     "id": "hfk4hiu",
     "type": "FEATHERWEIGHT",
     "name": "Drumroll Please",
-    "builders": "Nicholas",
+    "builders": "Ovidiu Morea",
     "videos": "",
-    "weapon": "",
+    "weapon": "Drum Spinner",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/drumroll-pls.png",
-    "teamPhoto": "team-photos/drumroll-pls.png"
+    "teamPhoto": "team-photos/drumroll-pls.png",
+    "weight": 11.6,
+    "town": "Penrose",
+    "teamExperience": "Robot Rampage",
+    "otherNotes": "Offense\nThe drum is made of scrapped forklift parts. It will fork you up!\n\nWeapon top speed 14,000 RPM (20x faster than a helicopter rotor)\n\nThe weapon is part of the cooling system like a jet pushing cool air inside to keep everything from melting\n\nDefense\nPlastic armour outside is made of the same stuff Storm Troopers wear. Inner armour is made of high-tech metal. Together they might stop a bullet.\n\nFaster than a possum\n\nAlways lands right side up (like a cat? magician's coin?)\n\nPrototype was sliced with lasers and the final bot was carved with water."
   },
   {
     "id": "3osxali",
@@ -294,11 +305,12 @@
     "name": "Tessellate",
     "builders": "James Kirby",
     "videos": "",
-    "weapon": "",
+    "weapon": "Melty Brain",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/tessallate.png",
-    "teamPhoto": "team-photos/tessallate.png"
+    "teamPhoto": "team-photos/tessallate.png",
+    "weight": 12.5
   },
   {
     "id": "8pii4jf",
@@ -306,11 +318,12 @@
     "name": "Naptime",
     "builders": "Sam",
     "videos": "",
-    "weapon": "",
+    "weapon": "Hammer Saw",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/naptime.png",
-    "teamPhoto": "team-photos/naptime.png"
+    "teamPhoto": "team-photos/naptime.png",
+    "weight": 13.6
   },
   {
     "id": "uvy1k73",
@@ -318,11 +331,13 @@
     "name": "Perry",
     "builders": "Hayden Moore",
     "videos": "",
-    "weapon": "",
+    "weapon": "Eggbeater",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/perry.png",
-    "teamPhoto": ""
+    "teamPhoto": "",
+    "weight": 13.6,
+    "otherNotes": "Offense\n4140 steel weapon, dual tapered roller bearings, 20mm thick grade 5 Titanium shaft.\n\n12s (50Volt) battery. 4kW inrunner motor poly v belt drive\n\nPerry is semi aquatic\n\nDefense\nAluminium Chassis, HDPE armour, 3d printed tpu shocks\n\nBrushless 800kv 4250, 19:1 planetary gearbox\nbelts to front and back wheels\n\nEars allow it to drive upside down, spinning weapon cools motor + esc\n\nHas tail because Perry is a platypus"
   },
   {
     "id": "kf92kfb",
@@ -330,11 +345,12 @@
     "name": "Inator",
     "builders": "Hayden Moore",
     "videos": "",
-    "weapon": "",
-    "isCompeting": true,
+    "weapon": "Turret Hammer Saw",
+    "isCompeting": false,
     "isDead": false,
     "photo": "bot-photos/inator.png",
-    "teamPhoto": "team-photos/inator.png"
+    "teamPhoto": "team-photos/inator.png",
+    "weight": 13.6
   },
   {
     "id": "puvpwxl",
@@ -342,10 +358,11 @@
     "name": "Fury Fox",
     "builders": "Tim Sly",
     "videos": "",
-    "weapon": "",
+    "weapon": "Vertical Spinner",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/fury-fox.png",
-    "teamPhoto": "team-photos/fury-fox.png"
+    "teamPhoto": "team-photos/fury-fox.png",
+    "weight": 13.6
   }
 ]
