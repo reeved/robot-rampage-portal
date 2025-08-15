@@ -1,4 +1,4 @@
-import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/admin/event")({
@@ -6,9 +6,6 @@ export const Route = createFileRoute("/admin/event")({
 });
 
 function RouteComponent() {
-	const childRoutes = useChildMatches();
-	console.log(childRoutes);
-
 	return (
 		<div className="py-6 grid grid-cols-6 gap-4 h-full">
 			<div className="col-span-1 border-r-2 border-white px-4">

@@ -114,8 +114,6 @@ function RouteComponent() {
 
 	const componentToShow = getComponentToShow(!isRunning || !!customMessage, timeLeft);
 
-	console.log({ timeLeft, customMessage });
-
 	return (
 		<Overlay>
 			<AnimatePresence>
