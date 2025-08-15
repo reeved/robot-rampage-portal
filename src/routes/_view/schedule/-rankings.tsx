@@ -29,8 +29,10 @@ export const Rankings = ({ rankings, qualifyingResults, participants }: Props) =
 						className={cn("flex justify-between items-center gap-4", participant?.isDead && "opacity-30")}
 					>
 						<span className="text-lg font-extrabold w-[2ch] text-right mr-4">{index + 1}</span>
-						<span className={cn("flex-1 text-2xl font-extrabold uppercase")}>{participant?.name}</span>
-						<span className="font-bold flex gap-2 text-2xl">
+						<span className={cn("flex-1 text-xl font-extrabold uppercase", participant?.name.length > 15 && "text-md")}>
+							{participant?.name}
+						</span>
+						<span className="font-bold flex gap-2 text-xl">
 							<span className="text-green-500 rounded-md w-[3ch] text-right">{`${qualifyingResults[participant?.id]?.wins}W`}</span>
 							<span className="w-[2ch] text-center">|</span>
 							<span className="text-red-500 w-[3ch]">{`${qualifyingResults[participant?.id]?.losses}L`}</span>

@@ -1,8 +1,8 @@
-import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { dbMiddleware } from "@/middleware";
 import { MatchPreview } from "./-match-preview";
 import { Rankings } from "./-rankings";
 
@@ -14,7 +14,7 @@ const getScheduleData = createServerFn({
 	.validator(z.string())
 	.handler(async ({ data: id, context }) => {
 		const schedule = await context.db.schedule.findOne((p) => p.id === id);
-		const participants = await context.db.participants.find(() => true);
+		const participants = await context.db.participants.find((p) => !!p.isCompeting);
 		const evt = await context.db.events.findOne((e) => e.id === "may");
 
 		if (!schedule || !evt) {

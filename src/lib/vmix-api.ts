@@ -29,7 +29,7 @@ class VmixApi {
 	}
 
 	async UpdateListsForMatch(bot1Video?: string, bot2Video?: string) {
-		const SHOULD_RUN = true                                            ;
+		const SHOULD_RUN = false;
 		if (!SHOULD_RUN) return;
 
 		await this.ListRemoveAll("BotA");
@@ -43,7 +43,7 @@ class VmixApi {
 	}
 
 	async UpdateReplaysList(fileNames: string[]) {
-		const SHOULD_RUN = true;
+		const SHOULD_RUN = false;
 		if (!SHOULD_RUN) return;
 
 		await this.ListRemoveAll("Replays");

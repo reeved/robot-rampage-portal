@@ -10,7 +10,8 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/bad-blood.png",
     "weight": 13.2,
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/bad-blood.png"
   },
   {
     "id": "part-aw653qy",
@@ -19,10 +20,11 @@
     "videos": "Snollygoster_A.mov",
     "weapon": "Pusher",
     "type": "FEATHERWEIGHT",
-    "photo": "bot-photos/snollygoster.png",
+    "photo": "bot-photos/snolly-ragga.png",
     "weight": 8.2,
     "previousRank": "2nd Place",
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/snolly-ragga.png"
   },
   {
     "id": "part-hh5ch23",
@@ -60,7 +62,8 @@
     "photo": "bot-photos/pretty-scary.png",
     "previousRank": "7th Place",
     "weight": 12.1,
-    "isCompeting": false
+    "isCompeting": false,
+    "teamPhoto": ""
   },
   {
     "id": "part-qpm0bjg",
@@ -72,7 +75,8 @@
     "photo": "bot-photos/black-rose.png",
     "previousRank": "5th Place",
     "weight": 13.3,
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/black-rose.png"
   },
   {
     "id": "part-rzeus3u",
@@ -84,7 +88,8 @@
     "weight": 12,
     "previousRank": "6th Place",
     "photo": "bot-photos/hammertime.png",
-    "isCompeting": false
+    "isCompeting": false,
+    "teamPhoto": "team-photos/hammertime.png"
   },
   {
     "id": "part-dllub2q",
@@ -96,7 +101,8 @@
     "photo": "bot-photos/mjolnir.png",
     "weight": 13.3,
     "previousRank": "7th Place",
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/mjolnir.png"
   },
   {
     "id": "part-uov2lni",
@@ -108,7 +114,8 @@
     "photo": "bot-photos/chain-damage.png",
     "weight": 8.9,
     "isDead": false,
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/chain-damage.png"
   },
   {
     "id": "part-odwrzot",
@@ -132,7 +139,8 @@
     "type": "FEATHERWEIGHT",
     "weight": 13.5,
     "photo": "bot-photos/onlyforks.png",
-    "isCompeting": true
+    "isCompeting": true,
+    "teamPhoto": "team-photos/onlyforks.png"
   },
   {
     "id": "part-fok7byp",
@@ -171,7 +179,7 @@
     "weight": 13.2,
     "isDead": false,
     "isCompeting": true,
-    "otherNotes": "asdf\nasdf\n\n\nasdfa\n\nasdfasdf"
+    "otherNotes": ""
   },
   {
     "id": "q9h4q1i",
@@ -231,7 +239,8 @@
     "weapon": "Horizontal Spinner",
     "photo": "bot-photos/haymaker.png",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "teamPhoto": "team-photos/haymaker.png"
   },
   {
     "id": "u0fr1y9",
@@ -263,7 +272,9 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/obliterator.png",
+    "teamPhoto": "team-photos/obliterator.png"
   },
   {
     "id": "hfk4hiu",
@@ -273,7 +284,9 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/drumroll-pls.png",
+    "teamPhoto": "team-photos/drumroll-pls.png"
   },
   {
     "id": "3osxali",
@@ -283,7 +296,9 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/tessallate.png",
+    "teamPhoto": "team-photos/tessallate.png"
   },
   {
     "id": "8pii4jf",
@@ -293,7 +308,9 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/naptime.png",
+    "teamPhoto": "team-photos/naptime.png"
   },
   {
     "id": "uvy1k73",
@@ -303,7 +320,9 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/perry.png",
+    "teamPhoto": ""
   },
   {
     "id": "kf92kfb",
@@ -313,7 +332,9 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/inator.png",
+    "teamPhoto": "team-photos/inator.png"
   },
   {
     "id": "puvpwxl",
@@ -323,6 +344,8 @@
     "videos": "",
     "weapon": "",
     "isCompeting": true,
-    "isDead": false
+    "isDead": false,
+    "photo": "bot-photos/fury-fox.png",
+    "teamPhoto": "team-photos/fury-fox.png"
   }
 ]

@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { queryOptions, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Button } from "@/components/ui/button";
 
 // Define API endpoints in one place
 const API_ENDPOINTS = {
@@ -35,6 +35,7 @@ function fetchTimer<T>(endpoint: string): Promise<T> {
 			return res.json();
 		})
 		.then((data) => {
+			console.log("TIMER DATA", data);
 			return data as T;
 		});
 }
@@ -53,6 +54,8 @@ export const useTimer = (): {
 	customMessage: string | null;
 } => {
 	const { data } = useQuery(timerQuery());
+
+	console.log("TIMER DATA", data);
 
 	if (!data) {
 		return {

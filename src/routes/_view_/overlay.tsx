@@ -1,10 +1,9 @@
-import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { AnimatePresence } from "motion/react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import type { PropsWithChildren } from "react";
+import { dbMiddleware } from "@/middleware";
 import { BotBar } from "./-bot-bar";
 import { CustomTimeText, TimeText, useTimer } from "./-timer";
 import { TimerMiniPreview } from "./-timer-mini-preview";
@@ -114,6 +113,8 @@ function RouteComponent() {
 	const { currentMatch, participants } = data;
 
 	const componentToShow = getComponentToShow(!isRunning || !!customMessage, timeLeft);
+
+	console.log({ timeLeft, customMessage });
 
 	return (
 		<Overlay>

@@ -1,7 +1,7 @@
 [
   {
     "id": "may",
-    "currentMatchId": "teams-match-c37af8k",
+    "currentMatchId": "match-08zpmx3",
     "miniTimerText": "Next match in",
     "qualifyingResults": {
       "part-04xspbq": {
@@ -318,7 +318,7 @@
         "position": 3
       },
       {
-        "id": "part-aw653qy",
+        "id": "part-fdrxhj5",
         "position": 4
       },
       {
@@ -366,7 +366,7 @@
         "position": 15
       },
       {
-        "id": "uhunewo",
+        "id": "luecccm",
         "position": 16
       },
       {
@@ -408,88 +408,7 @@
         "size": 8
       }
     ],
-    "finalRankings": [
-      {
-        "id": "none",
-        "position": 1
-      },
-      {
-        "id": "none",
-        "position": 2
-      },
-      {
-        "id": "none",
-        "position": 3
-      },
-      {
-        "id": "none",
-        "position": 4
-      },
-      {
-        "id": "none",
-        "position": 5
-      },
-      {
-        "id": "none",
-        "position": 6
-      },
-      {
-        "id": "none",
-        "position": 7
-      },
-      {
-        "id": "none",
-        "position": 8
-      },
-      {
-        "id": "none",
-        "position": 9
-      },
-      {
-        "id": "none",
-        "position": 10
-      },
-      {
-        "id": "none",
-        "position": 11
-      },
-      {
-        "id": "none",
-        "position": 12
-      },
-      {
-        "id": "none",
-        "position": 13
-      },
-      {
-        "id": "none",
-        "position": 14
-      },
-      {
-        "id": "none",
-        "position": 15
-      },
-      {
-        "id": "none",
-        "position": 16
-      },
-      {
-        "id": "none",
-        "position": 17
-      },
-      {
-        "id": "none",
-        "position": 18
-      },
-      {
-        "id": "none",
-        "position": 19
-      },
-      {
-        "id": "none",
-        "position": 20
-      }
-    ]
+    "finalRankings": []
   },
   {
     "id": "august",
