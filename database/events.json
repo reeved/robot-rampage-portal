@@ -2,7 +2,7 @@
   {
     "id": "may",
     "currentMatchId": "match-ndvnh3p",
-    "miniTimerText": "Match starts in",
+    "miniTimerText": "Event starts in",
     "qualifyingResults": {
       "part-04xspbq": {
         "wins": 2,
@@ -480,7 +480,40 @@
         "size": 8
       }
     ],
-    "finalRankings": []
+    "finalRankings": [
+      {
+        "id": "puvpwxl",
+        "position": 7
+      },
+      {
+        "id": "uvy1k73",
+        "position": 8
+      },
+      {
+        "id": "3osxali",
+        "position": 13
+      },
+      {
+        "id": "luecccm",
+        "position": 14
+      },
+      {
+        "id": "8pii4jf",
+        "position": 15
+      },
+      {
+        "id": "part-odwrzot",
+        "position": 16
+      },
+      {
+        "id": "part-dx6qvml",
+        "position": 17
+      },
+      {
+        "id": "hfk4hiu",
+        "position": 18
+      }
+    ]
   },
   {
     "id": "august",
