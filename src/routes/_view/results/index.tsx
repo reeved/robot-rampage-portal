@@ -19,15 +19,19 @@ const BotPreview = ({
 	return (
 		<div className="grid grid-cols-[3ch_auto_1fr] gap-6 items-center">
 			<h3 className="text-2xl font-heading uppercase text-primary">{position}</h3>
-			<img src={`/${bot?.photo}`} alt={bot?.name} className="object-contain h-20 max-w-20" />
-			<h3
-				className={cn(
-					"text-2xl font-bold uppercase",
-					bot?.name.length && bot?.name.length > 15 ? "text-xl" : "text-2xl",
-				)}
-			>
-				{bot?.name}
-			</h3>
+			{bot && (
+				<>
+					<img src={`/${bot?.photo}`} alt={bot?.name} className="object-contain h-20 max-w-20" />
+					<h3
+						className={cn(
+							"text-2xl font-bold uppercase",
+							bot?.name.length && bot?.name.length > 15 ? "text-xl" : "text-2xl",
+						)}
+					>
+						{bot?.name}
+					</h3>
+				</>
+			)}
 		</div>
 	);
 };
