@@ -1,13 +1,13 @@
 [
   {
     "id": "may",
-    "currentMatchId": "match-3fb63h2",
-    "miniTimerText": "Next match in",
+    "currentMatchId": "match-k0246of",
+    "miniTimerText": "Match starts in",
     "qualifyingResults": {
       "part-04xspbq": {
-        "wins": 1,
+        "wins": 2,
         "losses": 1,
-        "winsByKO": 0,
+        "winsByKO": 1,
         "winsByJD": 1,
         "winsByNS": 0,
         "lossesByKO": 1,
@@ -15,31 +15,33 @@
         "lossesByNS": 0,
         "opponentIds": [
           "0a41c0a",
-          "rot076r"
+          "rot076r",
+          "part-fdrxhj5"
         ],
-        "opponentWins": 3,
-        "score": 0.99903
+        "opponentWins": 5,
+        "score": 2.09905
       },
       "part-aw653qy": {
         "wins": 1,
-        "losses": 1,
+        "losses": 2,
         "winsByKO": 1,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 0,
+        "lossesByKO": 1,
         "lossesByJD": 1,
         "lossesByNS": 0,
         "opponentIds": [
           "8pii4jf",
-          "uvy1k73"
+          "uvy1k73",
+          "part-y3konnp"
         ],
-        "opponentWins": 3,
-        "score": 1.09993
+        "opponentWins": 5,
+        "score": 1.09895
       },
       "part-hh5ch23": {
-        "wins": 2,
+        "wins": 3,
         "losses": 0,
-        "winsByKO": 1,
+        "winsByKO": 2,
         "winsByJD": 1,
         "winsByNS": 0,
         "lossesByKO": 0,
@@ -47,26 +49,28 @@
         "lossesByNS": 0,
         "opponentIds": [
           "part-qpm0bjg",
-          "part-fdrxhj5"
+          "part-fdrxhj5",
+          "uvy1k73"
         ],
-        "opponentWins": 2,
-        "score": 2.10002
+        "opponentWins": 5,
+        "score": 3.20005
       },
       "part-fdrxhj5": {
         "wins": 1,
-        "losses": 1,
+        "losses": 2,
         "winsByKO": 0,
         "winsByJD": 1,
         "winsByNS": 0,
-        "lossesByKO": 1,
+        "lossesByKO": 2,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
           "part-dx6qvml",
-          "part-hh5ch23"
+          "part-hh5ch23",
+          "part-04xspbq"
         ],
-        "opponentWins": 2,
-        "score": 0.99902
+        "opponentWins": 5,
+        "score": 0.99805
       },
       "part-ul19jgv": {
         "wins": 0,
@@ -82,9 +86,9 @@
         "score": 0
       },
       "part-qpm0bjg": {
-        "wins": 1,
+        "wins": 2,
         "losses": 1,
-        "winsByKO": 1,
+        "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
@@ -92,10 +96,11 @@
         "lossesByNS": 0,
         "opponentIds": [
           "part-hh5ch23",
-          "part-odwrzot"
+          "part-odwrzot",
+          "3osxali"
         ],
-        "opponentWins": 2,
-        "score": 1.09992
+        "opponentWins": 4,
+        "score": 2.19994
       },
       "part-rzeus3u": {
         "wins": 0,
@@ -111,9 +116,9 @@
         "score": 0
       },
       "part-dllub2q": {
-        "wins": 1,
+        "wins": 2,
         "losses": 1,
-        "winsByKO": 1,
+        "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
@@ -121,47 +126,50 @@
         "lossesByNS": 0,
         "opponentIds": [
           "puvpwxl",
-          "0a41c0a"
+          "0a41c0a",
+          "rot076r"
         ],
-        "opponentWins": 3,
-        "score": 1.09993
+        "opponentWins": 6,
+        "score": 2.19996
       },
       "part-uov2lni": {
-        "wins": 0,
+        "wins": 1,
         "losses": 2,
         "winsByKO": 0,
-        "winsByJD": 0,
+        "winsByJD": 1,
         "winsByNS": 0,
         "lossesByKO": 2,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
           "3osxali",
-          "puvpwxl"
+          "puvpwxl",
+          "part-dx6qvml"
         ],
-        "opponentWins": 2,
-        "score": -0.00198
+        "opponentWins": 3,
+        "score": 0.99803
       },
       "part-odwrzot": {
         "wins": 0,
-        "losses": 2,
+        "losses": 3,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 1,
+        "lossesByKO": 2,
         "lossesByJD": 1,
         "lossesByNS": 0,
         "opponentIds": [
           "rot076r",
-          "part-qpm0bjg"
+          "part-qpm0bjg",
+          "luecccm"
         ],
-        "opponentWins": 2,
-        "score": -0.00108
+        "opponentWins": 4,
+        "score": -0.00206
       },
       "part-y3konnp": {
-        "wins": 1,
+        "wins": 2,
         "losses": 1,
-        "winsByKO": 1,
+        "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 1,
@@ -169,10 +177,11 @@
         "lossesByNS": 0,
         "opponentIds": [
           "uvy1k73",
-          "luecccm"
+          "luecccm",
+          "part-aw653qy"
         ],
-        "opponentWins": 2,
-        "score": 1.09902
+        "opponentWins": 4,
+        "score": 2.19904
       },
       "part-fok7byp": {
         "wins": 0,
@@ -189,19 +198,20 @@
       },
       "part-dx6qvml": {
         "wins": 0,
-        "losses": 2,
+        "losses": 3,
         "winsByKO": 0,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 1,
-        "lossesByJD": 1,
+        "lossesByJD": 2,
         "lossesByNS": 0,
         "opponentIds": [
           "part-fdrxhj5",
-          "8pii4jf"
+          "8pii4jf",
+          "part-uov2lni"
         ],
-        "opponentWins": 2,
-        "score": -0.00108
+        "opponentWins": 3,
+        "score": -0.00117
       },
       "uhunewo": {
         "wins": 0,
@@ -218,24 +228,25 @@
       },
       "rot076r": {
         "wins": 1,
-        "losses": 1,
+        "losses": 2,
         "winsByKO": 0,
         "winsByJD": 1,
         "winsByNS": 0,
-        "lossesByKO": 0,
+        "lossesByKO": 1,
         "lossesByJD": 1,
         "lossesByNS": 0,
         "opponentIds": [
           "part-odwrzot",
-          "part-04xspbq"
+          "part-04xspbq",
+          "part-dllub2q"
         ],
-        "opponentWins": 1,
-        "score": 0.99991
+        "opponentWins": 4,
+        "score": 0.99894
       },
       "luecccm": {
-        "wins": 0,
+        "wins": 1,
         "losses": 2,
-        "winsByKO": 0,
+        "winsByKO": 1,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 2,
@@ -243,90 +254,96 @@
         "lossesByNS": 0,
         "opponentIds": [
           "hfk4hiu",
-          "part-y3konnp"
+          "part-y3konnp",
+          "part-odwrzot"
         ],
-        "opponentWins": 3,
-        "score": -0.00197
+        "opponentWins": 4,
+        "score": 1.09804
       },
       "0a41c0a": {
-        "wins": 2,
+        "wins": 3,
         "losses": 0,
         "winsByKO": 1,
-        "winsByJD": 1,
+        "winsByJD": 2,
         "winsByNS": 0,
         "lossesByKO": 0,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
           "part-04xspbq",
-          "part-dllub2q"
+          "part-dllub2q",
+          "hfk4hiu"
         ],
-        "opponentWins": 2,
-        "score": 2.10002
+        "opponentWins": 6,
+        "score": 3.10006
       },
       "hfk4hiu": {
         "wins": 2,
-        "losses": 0,
+        "losses": 1,
         "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 0,
-        "lossesByJD": 0,
+        "lossesByJD": 1,
         "lossesByNS": 0,
         "opponentIds": [
           "luecccm",
-          "3osxali"
+          "3osxali",
+          "0a41c0a"
         ],
-        "opponentWins": 1,
-        "score": 2.20001
+        "opponentWins": 5,
+        "score": 2.19995
       },
       "3osxali": {
         "wins": 1,
-        "losses": 1,
+        "losses": 2,
         "winsByKO": 1,
         "winsByJD": 0,
         "winsByNS": 0,
-        "lossesByKO": 1,
+        "lossesByKO": 2,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
           "part-uov2lni",
-          "hfk4hiu"
+          "hfk4hiu",
+          "part-qpm0bjg"
         ],
-        "opponentWins": 2,
-        "score": 1.09902
+        "opponentWins": 5,
+        "score": 1.09805
       },
       "8pii4jf": {
         "wins": 1,
-        "losses": 1,
+        "losses": 2,
         "winsByKO": 1,
         "winsByJD": 0,
+        "winsByNS": 0,
+        "lossesByKO": 2,
+        "lossesByJD": 0,
+        "lossesByNS": 0,
+        "opponentIds": [
+          "part-aw653qy",
+          "part-dx6qvml",
+          "puvpwxl"
+        ],
+        "opponentWins": 3,
+        "score": 1.09803
+      },
+      "uvy1k73": {
+        "wins": 2,
+        "losses": 1,
+        "winsByKO": 1,
+        "winsByJD": 1,
         "winsByNS": 0,
         "lossesByKO": 1,
         "lossesByJD": 0,
         "lossesByNS": 0,
         "opponentIds": [
-          "part-aw653qy",
-          "part-dx6qvml"
-        ],
-        "opponentWins": 1,
-        "score": 1.09901
-      },
-      "uvy1k73": {
-        "wins": 2,
-        "losses": 0,
-        "winsByKO": 1,
-        "winsByJD": 1,
-        "winsByNS": 0,
-        "lossesByKO": 0,
-        "lossesByJD": 0,
-        "lossesByNS": 0,
-        "opponentIds": [
           "part-y3konnp",
-          "part-aw653qy"
+          "part-aw653qy",
+          "part-hh5ch23"
         ],
-        "opponentWins": 2,
-        "score": 2.10002
+        "opponentWins": 6,
+        "score": 2.09906
       },
       "kf92kfb": {
         "wins": 0,
@@ -342,9 +359,9 @@
         "score": 0
       },
       "puvpwxl": {
-        "wins": 1,
+        "wins": 2,
         "losses": 1,
-        "winsByKO": 1,
+        "winsByKO": 2,
         "winsByJD": 0,
         "winsByNS": 0,
         "lossesByKO": 1,
@@ -352,103 +369,104 @@
         "lossesByNS": 0,
         "opponentIds": [
           "part-dllub2q",
-          "part-uov2lni"
+          "part-uov2lni",
+          "8pii4jf"
         ],
-        "opponentWins": 1,
-        "score": 1.09901
+        "opponentWins": 4,
+        "score": 2.19904
       }
     },
     "qualifyingRankings": [
       {
-        "id": "hfk4hiu",
+        "id": "part-hh5ch23",
         "position": 1
       },
       {
-        "id": "part-hh5ch23",
+        "id": "0a41c0a",
         "position": 2
       },
       {
-        "id": "0a41c0a",
+        "id": "part-dllub2q",
         "position": 3
       },
       {
-        "id": "uvy1k73",
+        "id": "hfk4hiu",
         "position": 4
       },
       {
-        "id": "part-aw653qy",
+        "id": "part-qpm0bjg",
         "position": 5
       },
       {
-        "id": "part-dllub2q",
+        "id": "part-y3konnp",
         "position": 6
       },
       {
-        "id": "part-qpm0bjg",
+        "id": "puvpwxl",
         "position": 7
       },
       {
-        "id": "part-y3konnp",
+        "id": "uvy1k73",
         "position": 8
       },
       {
-        "id": "3osxali",
+        "id": "part-04xspbq",
         "position": 9
       },
       {
-        "id": "8pii4jf",
+        "id": "part-aw653qy",
         "position": 10
       },
       {
-        "id": "puvpwxl",
+        "id": "3osxali",
         "position": 11
       },
       {
-        "id": "rot076r",
+        "id": "luecccm",
         "position": 12
       },
       {
-        "id": "part-04xspbq",
+        "id": "8pii4jf",
         "position": 13
       },
       {
-        "id": "part-fdrxhj5",
+        "id": "rot076r",
         "position": 14
       },
       {
-        "id": "part-ul19jgv",
+        "id": "part-fdrxhj5",
         "position": 15
       },
       {
-        "id": "part-rzeus3u",
+        "id": "part-uov2lni",
         "position": 16
       },
       {
-        "id": "part-fok7byp",
+        "id": "part-ul19jgv",
         "position": 17
       },
       {
-        "id": "uhunewo",
+        "id": "part-rzeus3u",
         "position": 18
       },
       {
-        "id": "kf92kfb",
+        "id": "part-fok7byp",
         "position": 19
       },
       {
-        "id": "part-odwrzot",
+        "id": "uhunewo",
         "position": 20
       },
       {
-        "id": "part-dx6qvml",
+        "id": "kf92kfb",
         "position": 21
       },
       {
-        "id": "luecccm",
+        "id": "part-dx6qvml",
         "position": 22
       },
       {
-        "id": "part-uov2lni",
+        "id": "part-odwrzot",
         "position": 23
       }
     ],

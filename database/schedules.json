@@ -385,25 +385,15 @@
             "videoName": "Onlyforks_A.mov",
             "introText": "If you set this robot loose on a bunch of birds.. the sounds you hear will be only Squawks.... but if you wanted to come dine on destruction, then you've made the right choice, GIVE IT UP FOR ONLY FOOOORKS"
           }
-        ]
-      },
-      {
-        "id": "match-qj21rso",
-        "name": "Match 2",
-        "participants": [
-          {
-            "id": "part-dx6qvml",
-            "introText": "The great mind of Archimedes once said \"if you give me a lever long enough and a place to stand and I shall move the world\". But this bot doesn't care about that. It has a single focus and that is to send opponents closer to the sun than any robot should come. Ladies and gentlemen, make some noise for FULCRUM!"
-          },
-          {
-            "id": "part-uov2lni",
-            "introText": "This bot is like a reactor, once it spins up it's gonna be a chain reaction. He hits so hard you should take some panadol.. or tramadol- yknow- so you can pain manage. Everybody please put your hands together for CHAIN DAMAAAAGE"
-          }
-        ]
+        ],
+        "winner": {
+          "id": "part-y3konnp",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-wau9jf5",
-        "name": "Match 3",
+        "name": "Match 2",
         "participants": [
           {
             "id": "puvpwxl",
@@ -414,26 +404,15 @@
             "id": "8pii4jf",
             "introText": "This bot has strategy- don't let him get behind you or he'll put you in a sleeper hold. And if that don't work, he's taking a hammer through you and putting your lights out COLD. Say goodnight- to NAPTIIIIME"
           }
-        ]
-      },
-      {
-        "id": "match-7vha1kk",
-        "name": "Match 4",
-        "participants": [
-          {
-            "id": "part-odwrzot",
-            "videoName": "Chef_Woody_A.mov",
-            "introText": "Excuse me waiter, I'd like to order the chef special- Yeah that's right, I'd like one fight full of destruction please- and make it a goody.. cause it's not like robots grow on trees.. oh except this one. GIVE IT UP FOR CHEF WOODYYY"
-          },
-          {
-            "id": "luecccm",
-            "introText": "If you're in the ring but you can't see your opponent you will have to use more of your senses. Take a sniff, taste the air... wait.... Hear that noise? Listen to that baby purrrr. Now MAKE SOME NOISE, and give it up, FOR BLUE BLURRRR"
-          }
-        ]
+        ],
+        "winner": {
+          "id": "puvpwxl",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-sx84ebk",
-        "name": "Match 5",
+        "name": "Match 3",
         "participants": [
           {
             "id": "3osxali",
@@ -444,11 +423,71 @@
             "videoName": "Black_Rose_A.mov",
             "introText": "This robot is our champion from last event, they've been fighting since time's dawn. And if you're trying to take their crown from them, you're bound to catch their thorns. I can't believe they make me write prose but anyway put your hands together for BLAAAAAAACK ROOOOOOSE"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "KO"
+        }
+      },
+      {
+        "id": "match-qj21rso",
+        "name": "Match 4",
+        "participants": [
+          {
+            "id": "part-dx6qvml",
+            "introText": "The great mind of Archimedes once said \"if you give me a lever long enough and a place to stand and I shall move the world\". But this bot doesn't care about that. It has a single focus and that is to send opponents closer to the sun than any robot should come. Ladies and gentlemen, make some noise for FULCRUM!"
+          },
+          {
+            "id": "part-uov2lni",
+            "introText": "This bot is like a reactor, once it spins up it's gonna be a chain reaction. He hits so hard you should take some panadol.. or tramadol- yknow- so you can pain manage. Everybody please put your hands together for CHAIN DAMAAAAGE"
+          }
+        ],
+        "winner": {
+          "id": "part-uov2lni",
+          "condition": "JD"
+        }
+      },
+      {
+        "id": "match-7vha1kk",
+        "name": "Match 5",
+        "participants": [
+          {
+            "id": "part-odwrzot",
+            "videoName": "Chef_Woody_A.mov",
+            "introText": "Excuse me waiter, I'd like to order the chef special- Yeah that's right, I'd like one fight full of destruction please- and make it a goody.. cause it's not like robots grow on trees.. oh except this one. GIVE IT UP FOR CHEF WOODYYY"
+          },
+          {
+            "id": "luecccm",
+            "introText": "If you're in the ring but you can't see your opponent you will have to use more of your senses. Take a sniff, taste the air... wait.... Hear that noise? Listen to that baby purrrr. Now MAKE SOME NOISE, and give it up, FOR BLUE BLURRRR"
+          }
+        ],
+        "winner": {
+          "id": "luecccm",
+          "condition": "KO"
+        }
+      },
+      {
+        "id": "match-ze3yddn",
+        "name": "Match 6",
+        "participants": [
+          {
+            "id": "part-hh5ch23",
+            "videoName": "Borris_A.mov",
+            "introText": "This bot is a bully. It's fuelled on pure hate. Should you run for the hills? No... you should run for a forest... When it comes out the gate, nothing will save you from BORRIS"
+          },
+          {
+            "id": "uvy1k73",
+            "introText": "This thing is named after a mammal, so it's about to get hairy. This mammal also gives milk? So I hope you're not intolerant to dairy.. Give us a big roar and say hello to .... PERRRYYYYY"
+          }
+        ],
+        "winner": {
+          "id": "part-hh5ch23",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-rh2n2pd",
-        "name": "Match 6",
+        "name": "Match 7",
         "participants": [
           {
             "id": "part-fdrxhj5",
@@ -460,35 +499,30 @@
             "videoName": "Bad_Blood_A.mov",
             "introText": "When this robot outmanoeuvres you and there's nothing you can do cause their driver is so good? That's a Shane... And he's here de Rijk the floor with his opponent. Ohhhhh. no.... This can't be good... Oh that makes sense.. because it's BAAAAAAD BLOOOOOD"
           }
-        ]
-      },
-      {
-        "id": "match-ze3yddn",
-        "name": "Match 7",
-        "participants": [
-          {
-            "id": "part-hh5ch23",
-            "videoName": "Borris_A.mov",
-            "introText": "This bot is a bully. It's fuelled on pure hate. Should you run for the hills? No... you should run for a forest... When it comes out the gate, nothing will save you from BORRIS"
-          },
-          {
-            "id": "uvy1k73",
-            "introText": "This thing is named after a mammal, so it's about to get hairy. This mammal also gives milk? So I hope you're not intolerant to dairy.. Give us a big roar and say hello to .... PERRRYYYYY"
-          }
-        ]
+        ],
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-gvyc9o5",
         "name": "Match 8",
         "participants": [
           {
-            "id": "hfk4hiu"
+            "id": "hfk4hiu",
+            "introText": "The hum of the motors, the whirr of the weapon, and the bang of the drum. This isn't some humdrum nobody who can be bested with ease. They're here to bring the noise, the pain, and the DRUMS. OHHHYEAEAAAAAH It's DRUMROLL PLEAAASE"
           },
           {
             "id": "0a41c0a",
-            "videoName": "Obliterator_A.mov"
+            "videoName": "Obliterator_A.mov",
+            "introText": "This. Is the robot that all the other robots are taught by their parents to fear. If you don't go to sleep on time... From all the way across the ditch he's gonna come and get ya! Awwwuer Naur It's OBLITERATORRR!"
           }
-        ]
+        ],
+        "winner": {
+          "id": "0a41c0a",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-k0246of",
@@ -504,7 +538,11 @@
             "videoName": "Haymaker_A.mov",
             "introText": "In his spare time he mows lawns and spreads the grass out to dry. But in his professional fighting career he's gonna copy and paste the same strategy. He's going to cut you to size and hang you out to dry- it's HAYMAKER"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-dllub2q",
+          "condition": "KO"
+        }
       }
     ],
     "name": "Qualifying Session 3"
