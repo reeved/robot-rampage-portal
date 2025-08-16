@@ -14,38 +14,41 @@ export const MatchPreview = ({ match, participants, currentMatchId }: Props) => 
 
 	return (
 		<div className="flex items-center relative">
-			<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-3xl uppercase relative z-30 ">
-				<div className="flex flex-1 text-right">
-					<span
-						className={cn(
-							"text-right w-full font-extrabold",
-							bot1 && match.winner?.id === bot1.id && "text-amber-400",
-							bot1 && match.winner?.id && match.winner?.id !== bot1.id && "text-neutral-500",
-							bot1?.name?.length && bot1.name?.length > 15 && "text-lg",
-						)}
-					>
-						{bot1?.name ?? "TBD"}
-					</span>
+			<div className="w-full flex flex-col">
+				<div className="w-fit  px-2 font-heading self-center text-primary uppercase">{match.name}</div>
+				<div className="w-full bg-card rounded-md flex items-center py-2 h-12 text-3xl uppercase relative z-30 ">
+					<div className="flex flex-1 text-right">
+						<span
+							className={cn(
+								"text-right w-full font-extrabold",
+								bot1 && match.winner?.id === bot1.id && "text-amber-400",
+								bot1 && match.winner?.id && match.winner?.id !== bot1.id && "text-neutral-500",
+								bot1?.name?.length && bot1.name?.length > 15 && "text-lg",
+							)}
+						>
+							{bot1?.name ?? "TBD"}
+						</span>
+					</div>
+					<div className="w-[10ch] text-center text-lg text-primary font-rubik">vs</div>
+					<div className="flex flex-1">
+						<span
+							className={cn(
+								"text-left w-full font-extrabold",
+								bot2 && match.winner?.id === bot2.id && "text-amber-400",
+								bot2 && match.winner?.id && match.winner?.id !== bot2.id && "text-neutral-500",
+								bot2?.name?.length && bot2.name?.length > 15 && "text-lg",
+							)}
+						>
+							{bot2?.name ?? "TBD"}
+						</span>
+					</div>
 				</div>
-				<div className="w-[10ch] text-center text-lg text-primary font-rubik">vs</div>
-				<div className="flex flex-1">
-					<span
-						className={cn(
-							"text-left w-full font-extrabold",
-							bot2 && match.winner?.id === bot2.id && "text-amber-400",
-							bot2 && match.winner?.id && match.winner?.id !== bot2.id && "text-neutral-500",
-							bot2?.name?.length && bot2.name?.length > 15 && "text-lg",
-						)}
-					>
-						{bot2?.name ?? "TBD"}
-					</span>
-				</div>
+				{currentMatchId && currentMatchId === match.id && (
+					<div className="absolute bg-primary -right-43 h-11 bottom-0.5 z-2 flex items-center w-[9ch] justify-center rounded-md font-rubik text-2xl">
+						UP NEXT
+					</div>
+				)}
 			</div>
-			{currentMatchId && currentMatchId === match.id && (
-				<div className="absolute bg-primary -right-43 h-11 bottom-0.5 z-2 flex items-center w-[9ch] justify-center rounded-md font-rubik text-2xl">
-					UP NEXT
-				</div>
-			)}
 		</div>
 	);
 };

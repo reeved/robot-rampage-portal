@@ -1,11 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { DeleteConfirmation } from "@/components/ui/delete-confirmation";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { type BracketMatch, BracketMatchSchema, type Participant, type Schedule } from "@/db";
+import { deleteMatch } from "./-qualifying-match-form";
 import { getBotVideos } from "./-queue-match-form";
 
 type Props = {
@@ -16,6 +20,7 @@ type Props = {
 };
 
 export const BracketMatchForm = ({ bracketNames, participants, onSubmit, defaultValues }: Props) => {
+	const router = useRouter();
 	const form = useForm<BracketMatch>({
 		defaultValues,
 		resolver: zodResolver(BracketMatchSchema),
@@ -24,13 +29,31 @@ export const BracketMatchForm = ({ bracketNames, participants, onSubmit, default
 	const selectedParticipants = form.watch("participants");
 	const { bot1Videos, bot2Videos } = getBotVideos(participants, selectedParticipants);
 
+	const handleDelete = async () => {
+		await deleteMatch({ data: { id: defaultValues.id } });
+		toast.success("Match deleted!");
+		router.invalidate();
+		router.navigate({ to: ".." });
+	};
+
 	return (
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="p-6 gap-y-6 flex flex-col items-start  bg-zinc-900 rounded-xl shadow-lg"
 			>
-				<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
+				<div className="flex justify-between w-full">
+					<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
+					{defaultValues.id && (
+						<DeleteConfirmation
+							variant="button"
+							onDelete={handleDelete}
+							buttonText="Delete Match"
+							title="Delete Match"
+							description="Are you sure you want to delete this match? This action cannot be undone."
+						/>
+					)}
+				</div>
 
 				<FormField
 					name="name"

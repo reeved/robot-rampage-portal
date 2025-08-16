@@ -3,6 +3,7 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { dbMiddleware } from "@/middleware";
+import { FinalRankings } from "./-final-rankings";
 import { MatchPreview } from "./-match-preview";
 import { Rankings } from "./-rankings";
 
@@ -26,6 +27,7 @@ const getScheduleData = createServerFn({
 			participants,
 			currentMatchId: evt?.currentMatchId,
 			rankings: evt?.qualifyingRankings,
+			finalRankings: evt?.finalRankings,
 			qualifyingResults: evt?.qualifyingResults,
 		};
 	});
@@ -54,9 +56,9 @@ function RouteComponent() {
 		);
 	}
 
-	const { schedule, participants, currentMatchId, rankings, qualifyingResults } = data;
+	const { schedule, participants, currentMatchId, rankings, finalRankings, qualifyingResults } = data;
 
-	const rankingsTitle = schedule.type === "QUALIFYING" ? "BOT RANKINGS" : "QUALIFYING RANKINGS";
+	const rankingsTitle = schedule.type === "QUALIFYING" ? "BOT RANKINGS" : "FINAL RANKINGS";
 
 	return (
 		<div className="w-9/12 h-full mx-auto p-4 pb-10">
@@ -64,7 +66,11 @@ function RouteComponent() {
 				{/* Left side: Score Tracker */}
 				<div className="md:col-span-2 flex flex-col gap-4">
 					<h2 className="text-3xl font-heading text-center text-primary">{rankingsTitle}</h2>
-					<Rankings rankings={rankings} qualifyingResults={qualifyingResults} participants={participants} />
+					{schedule.type === "QUALIFYING" ? (
+						<Rankings rankings={rankings} qualifyingResults={qualifyingResults} participants={participants} />
+					) : (
+						<FinalRankings rankings={finalRankings} participants={participants} />
+					)}
 				</div>
 
 				{/* Right side: Schedule */}
