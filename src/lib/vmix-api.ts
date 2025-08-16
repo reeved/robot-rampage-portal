@@ -35,7 +35,7 @@ class VmixApi {
 		await this.ListRemoveAll("BotA");
 		await this.ListRemoveAll("BotB");
 		if (bot1Video) {
-			await this.ListAdd("BotA", `${ this.BASEPATH}${bot1Video}`);
+			await this.ListAdd("BotA", `${this.BASEPATH}${bot1Video}`);
 		}
 		if (bot2Video) {
 			await this.ListAdd("BotB", `${this.BASEPATH}${bot2Video}`);
@@ -46,7 +46,6 @@ class VmixApi {
 		const SHOULD_RUN = true;
 		if (!SHOULD_RUN) return;
 
-		await this.ListRemoveAll("Replays");
 		for (const fileName of fileNames) {
 			await this.ListAdd("Replays", `${this.REPLAYS_BASEPATH}${fileName}`);
 		}
