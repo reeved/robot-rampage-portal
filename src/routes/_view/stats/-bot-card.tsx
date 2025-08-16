@@ -65,7 +65,12 @@ export const BotInfo = ({ details }: Props) => {
 						{bot1Info.participant?.name ?? "TBD"}
 					</div>
 					{bot1Info.stats && (
-						<div className="mt-4 mb-0">
+						<div className="mt-4 mb-0  flex gap-2 items-center justify-center">
+							{bot1Info.rank && (
+								<span className="bg-yellow-400 -mr-4 w-[2ch] h-[2ch] aspect-square rounded text-black font-heading uppercase text-xl flex items-center justify-center">
+									{bot1Info.rank}
+								</span>
+							)}
 							<span className="font-bold flex gap-2 text-4xl">
 								<span className="text-green-500 rounded-md w-[3ch] text-right font-rubik font-extralight ">{`${bot1Info.stats.wins}W`}</span>
 								<span className="w-[2ch] text-center">|</span>
@@ -108,7 +113,12 @@ export const BotInfo = ({ details }: Props) => {
 						{bot2Info.participant?.name ?? "TBD"}
 					</div>
 					{bot2Info.stats && (
-						<div className="mt-4 mb-0">
+						<div className="mt-4 mb-0 flex gap-2 items-center justify-center">
+							{bot2Info.rank && (
+								<span className="bg-yellow-400 -mr-4 w-[2ch] h-[2ch] aspect-square rounded text-black font-heading uppercase text-xl flex items-center justify-center">
+									{bot2Info.rank}
+								</span>
+							)}
 							<span className="font-bold flex gap-2 text-4xl">
 								<span className="text-green-500 rounded-md w-[3ch] text-right font-rubik font-extralight">{`${bot2Info.stats.wins}W`}</span>
 								<span className="w-[2ch] text-center">|</span>
