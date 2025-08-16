@@ -365,7 +365,20 @@
   {
     "id": "schedule-dspw9e4",
     "type": "EXHIBITION",
-    "matches": [],
+    "matches": [
+      {
+        "id": "match-dmtkwg1",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "s9xj92s"
+          },
+          {
+            "id": "96j1t3r"
+          }
+        ]
+      }
+    ],
     "name": "Exhibition 1"
   },
   {
@@ -559,25 +572,11 @@
             "id": "part-hh5ch23"
           },
           {
-            "id": "uvy1k73"
+            "id": "part-04xspbq"
           }
         ],
         "bracket": "Championship",
         "round": "QF1"
-      },
-      {
-        "id": "match-ndvnh3p",
-        "name": "Championship QF2",
-        "participants": [
-          {
-            "id": "0a41c0a"
-          },
-          {
-            "id": "puvpwxl"
-          }
-        ],
-        "bracket": "Championship",
-        "round": "QF3"
       },
       {
         "id": "match-uf9ibm7",
@@ -594,17 +593,17 @@
         "round": "QF4"
       },
       {
-        "id": "match-8h4q85l",
-        "name": "Championship QF4",
+        "id": "match-qyq2o36",
+        "name": "9th Place QF4",
         "participants": [
           {
-            "id": "hfk4hiu"
+            "id": "8pii4jf"
           },
           {
-            "id": "part-qpm0bjg"
+            "id": "rot076r"
           }
         ],
-        "bracket": "Championship",
+        "bracket": "9th Place",
         "round": "QF2"
       },
       {
@@ -612,21 +611,35 @@
         "name": "9th Place QF1",
         "participants": [
           {
-            "id": "part-04xspbq"
+            "id": "part-aw653qy"
           },
           {
-            "id": "part-uov2lni"
+            "id": "part-odwrzot"
           }
         ],
         "bracket": "9th Place",
         "round": "QF1"
       },
       {
+        "id": "match-avww33e",
+        "name": "9th Place QF3",
+        "participants": [
+          {
+            "id": "luecccm"
+          },
+          {
+            "id": "part-uov2lni"
+          }
+        ],
+        "bracket": "9th Place",
+        "round": "QF4"
+      },
+      {
         "id": "match-t4a0f5g",
         "name": "9th Place QF2",
         "participants": [
           {
-            "id": "part-aw653qy"
+            "id": "3osxali"
           },
           {
             "id": "part-fdrxhj5"
@@ -636,32 +649,32 @@
         "round": "QF3"
       },
       {
-        "id": "match-avww33e",
-        "name": "9th Place QF3",
+        "id": "match-8h4q85l",
+        "name": "Championship QF4",
         "participants": [
           {
-            "id": "3osxali"
+            "id": "part-qpm0bjg"
           },
           {
-            "id": "rot076r"
+            "id": "puvpwxl"
           }
         ],
-        "bracket": "9th Place",
-        "round": "QF4"
+        "bracket": "Championship",
+        "round": "QF2"
       },
       {
-        "id": "match-qyq2o36",
-        "name": "9th Place QF4",
+        "id": "match-ndvnh3p",
+        "name": "Championship QF2",
         "participants": [
           {
-            "id": "luecccm"
+            "id": "0a41c0a"
           },
           {
-            "id": "8pii4jf"
+            "id": "uvy1k73"
           }
         ],
-        "bracket": "9th Place",
-        "round": "QF2"
+        "bracket": "Championship",
+        "round": "QF3"
       }
     ],
     "name": "Bracket 1"

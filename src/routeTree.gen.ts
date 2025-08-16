@@ -48,6 +48,7 @@ import { Route as AdminMobileIdMatchIdRouteRouteImport } from './routes/admin_/m
 import { Route as AdminMobileIdMatchIdIndexRouteImport } from './routes/admin_/mobile/$id.$matchId/index'
 import { Route as AdminMobileIdMatchIdScoreRouteImport } from './routes/admin_/mobile/$id.$matchId/score'
 import { Route as AdminMobileIdMatchIdInfoRouteImport } from './routes/admin_/mobile/$id.$matchId/info'
+import { ServerRoute as ApiCompanionServerRouteImport } from './routes/api/companion'
 import { ServerRoute as ApiTimerIndexServerRouteImport } from './routes/api/timer/index'
 import { ServerRoute as ApiVmixGetReplaysServerRouteImport } from './routes/api/vmix/get-replays'
 import { ServerRoute as ApiTimerStartServerRouteImport } from './routes/api/timer/start'
@@ -55,6 +56,13 @@ import { ServerRoute as ApiTimerResumeServerRouteImport } from './routes/api/tim
 import { ServerRoute as ApiTimerRestartServerRouteImport } from './routes/api/timer/restart'
 import { ServerRoute as ApiTimerPauseServerRouteImport } from './routes/api/timer/pause'
 import { ServerRoute as ApiMigrationRunServerRouteImport } from './routes/api/migration/run'
+import { ServerRoute as ApiTimerEventIndexServerRouteImport } from './routes/api/timer/event/index'
+import { ServerRoute as ApiTimerEventStartServerRouteImport } from './routes/api/timer/event/start'
+import { ServerRoute as ApiTimerEventResumeServerRouteImport } from './routes/api/timer/event/resume'
+import { ServerRoute as ApiTimerEventRestartServerRouteImport } from './routes/api/timer/event/restart'
+import { ServerRoute as ApiTimerEventRemoveTimeServerRouteImport } from './routes/api/timer/event/remove-time'
+import { ServerRoute as ApiTimerEventPauseServerRouteImport } from './routes/api/timer/event/pause'
+import { ServerRoute as ApiTimerEventAddTimeServerRouteImport } from './routes/api/timer/event/add-time'
 
 const rootServerRouteImport = createServerRootRoute()
 
@@ -247,6 +255,11 @@ const AdminMobileIdMatchIdInfoRoute =
     path: '/info',
     getParentRoute: () => AdminMobileIdMatchIdRouteRoute,
   } as any)
+const ApiCompanionServerRoute = ApiCompanionServerRouteImport.update({
+  id: '/api/companion',
+  path: '/api/companion',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
 const ApiTimerIndexServerRoute = ApiTimerIndexServerRouteImport.update({
   id: '/api/timer/',
   path: '/api/timer/',
@@ -282,6 +295,48 @@ const ApiMigrationRunServerRoute = ApiMigrationRunServerRouteImport.update({
   path: '/api/migration/run',
   getParentRoute: () => rootServerRouteImport,
 } as any)
+const ApiTimerEventIndexServerRoute =
+  ApiTimerEventIndexServerRouteImport.update({
+    id: '/api/timer/event/',
+    path: '/api/timer/event/',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
+const ApiTimerEventStartServerRoute =
+  ApiTimerEventStartServerRouteImport.update({
+    id: '/api/timer/event/start',
+    path: '/api/timer/event/start',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
+const ApiTimerEventResumeServerRoute =
+  ApiTimerEventResumeServerRouteImport.update({
+    id: '/api/timer/event/resume',
+    path: '/api/timer/event/resume',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
+const ApiTimerEventRestartServerRoute =
+  ApiTimerEventRestartServerRouteImport.update({
+    id: '/api/timer/event/restart',
+    path: '/api/timer/event/restart',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
+const ApiTimerEventRemoveTimeServerRoute =
+  ApiTimerEventRemoveTimeServerRouteImport.update({
+    id: '/api/timer/event/remove-time',
+    path: '/api/timer/event/remove-time',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
+const ApiTimerEventPauseServerRoute =
+  ApiTimerEventPauseServerRouteImport.update({
+    id: '/api/timer/event/pause',
+    path: '/api/timer/event/pause',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
+const ApiTimerEventAddTimeServerRoute =
+  ApiTimerEventAddTimeServerRouteImport.update({
+    id: '/api/timer/event/add-time',
+    path: '/api/timer/event/add-time',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -523,6 +578,7 @@ export interface RootRouteChildren {
   AdminMobileIdIndexRoute: typeof AdminMobileIdIndexRoute
 }
 export interface FileServerRoutesByFullPath {
+  '/api/companion': typeof ApiCompanionServerRoute
   '/api/migration/run': typeof ApiMigrationRunServerRoute
   '/api/timer/pause': typeof ApiTimerPauseServerRoute
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
@@ -530,8 +586,16 @@ export interface FileServerRoutesByFullPath {
   '/api/timer/start': typeof ApiTimerStartServerRoute
   '/api/vmix/get-replays': typeof ApiVmixGetReplaysServerRoute
   '/api/timer': typeof ApiTimerIndexServerRoute
+  '/api/timer/event/add-time': typeof ApiTimerEventAddTimeServerRoute
+  '/api/timer/event/pause': typeof ApiTimerEventPauseServerRoute
+  '/api/timer/event/remove-time': typeof ApiTimerEventRemoveTimeServerRoute
+  '/api/timer/event/restart': typeof ApiTimerEventRestartServerRoute
+  '/api/timer/event/resume': typeof ApiTimerEventResumeServerRoute
+  '/api/timer/event/start': typeof ApiTimerEventStartServerRoute
+  '/api/timer/event': typeof ApiTimerEventIndexServerRoute
 }
 export interface FileServerRoutesByTo {
+  '/api/companion': typeof ApiCompanionServerRoute
   '/api/migration/run': typeof ApiMigrationRunServerRoute
   '/api/timer/pause': typeof ApiTimerPauseServerRoute
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
@@ -539,9 +603,17 @@ export interface FileServerRoutesByTo {
   '/api/timer/start': typeof ApiTimerStartServerRoute
   '/api/vmix/get-replays': typeof ApiVmixGetReplaysServerRoute
   '/api/timer': typeof ApiTimerIndexServerRoute
+  '/api/timer/event/add-time': typeof ApiTimerEventAddTimeServerRoute
+  '/api/timer/event/pause': typeof ApiTimerEventPauseServerRoute
+  '/api/timer/event/remove-time': typeof ApiTimerEventRemoveTimeServerRoute
+  '/api/timer/event/restart': typeof ApiTimerEventRestartServerRoute
+  '/api/timer/event/resume': typeof ApiTimerEventResumeServerRoute
+  '/api/timer/event/start': typeof ApiTimerEventStartServerRoute
+  '/api/timer/event': typeof ApiTimerEventIndexServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
+  '/api/companion': typeof ApiCompanionServerRoute
   '/api/migration/run': typeof ApiMigrationRunServerRoute
   '/api/timer/pause': typeof ApiTimerPauseServerRoute
   '/api/timer/restart': typeof ApiTimerRestartServerRoute
@@ -549,10 +621,18 @@ export interface FileServerRoutesById {
   '/api/timer/start': typeof ApiTimerStartServerRoute
   '/api/vmix/get-replays': typeof ApiVmixGetReplaysServerRoute
   '/api/timer/': typeof ApiTimerIndexServerRoute
+  '/api/timer/event/add-time': typeof ApiTimerEventAddTimeServerRoute
+  '/api/timer/event/pause': typeof ApiTimerEventPauseServerRoute
+  '/api/timer/event/remove-time': typeof ApiTimerEventRemoveTimeServerRoute
+  '/api/timer/event/restart': typeof ApiTimerEventRestartServerRoute
+  '/api/timer/event/resume': typeof ApiTimerEventResumeServerRoute
+  '/api/timer/event/start': typeof ApiTimerEventStartServerRoute
+  '/api/timer/event/': typeof ApiTimerEventIndexServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
   fullPaths:
+    | '/api/companion'
     | '/api/migration/run'
     | '/api/timer/pause'
     | '/api/timer/restart'
@@ -560,8 +640,16 @@ export interface FileServerRouteTypes {
     | '/api/timer/start'
     | '/api/vmix/get-replays'
     | '/api/timer'
+    | '/api/timer/event/add-time'
+    | '/api/timer/event/pause'
+    | '/api/timer/event/remove-time'
+    | '/api/timer/event/restart'
+    | '/api/timer/event/resume'
+    | '/api/timer/event/start'
+    | '/api/timer/event'
   fileServerRoutesByTo: FileServerRoutesByTo
   to:
+    | '/api/companion'
     | '/api/migration/run'
     | '/api/timer/pause'
     | '/api/timer/restart'
@@ -569,8 +657,16 @@ export interface FileServerRouteTypes {
     | '/api/timer/start'
     | '/api/vmix/get-replays'
     | '/api/timer'
+    | '/api/timer/event/add-time'
+    | '/api/timer/event/pause'
+    | '/api/timer/event/remove-time'
+    | '/api/timer/event/restart'
+    | '/api/timer/event/resume'
+    | '/api/timer/event/start'
+    | '/api/timer/event'
   id:
     | '__root__'
+    | '/api/companion'
     | '/api/migration/run'
     | '/api/timer/pause'
     | '/api/timer/restart'
@@ -578,9 +674,17 @@ export interface FileServerRouteTypes {
     | '/api/timer/start'
     | '/api/vmix/get-replays'
     | '/api/timer/'
+    | '/api/timer/event/add-time'
+    | '/api/timer/event/pause'
+    | '/api/timer/event/remove-time'
+    | '/api/timer/event/restart'
+    | '/api/timer/event/resume'
+    | '/api/timer/event/start'
+    | '/api/timer/event/'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
+  ApiCompanionServerRoute: typeof ApiCompanionServerRoute
   ApiMigrationRunServerRoute: typeof ApiMigrationRunServerRoute
   ApiTimerPauseServerRoute: typeof ApiTimerPauseServerRoute
   ApiTimerRestartServerRoute: typeof ApiTimerRestartServerRoute
@@ -588,6 +692,13 @@ export interface RootServerRouteChildren {
   ApiTimerStartServerRoute: typeof ApiTimerStartServerRoute
   ApiVmixGetReplaysServerRoute: typeof ApiVmixGetReplaysServerRoute
   ApiTimerIndexServerRoute: typeof ApiTimerIndexServerRoute
+  ApiTimerEventAddTimeServerRoute: typeof ApiTimerEventAddTimeServerRoute
+  ApiTimerEventPauseServerRoute: typeof ApiTimerEventPauseServerRoute
+  ApiTimerEventRemoveTimeServerRoute: typeof ApiTimerEventRemoveTimeServerRoute
+  ApiTimerEventRestartServerRoute: typeof ApiTimerEventRestartServerRoute
+  ApiTimerEventResumeServerRoute: typeof ApiTimerEventResumeServerRoute
+  ApiTimerEventStartServerRoute: typeof ApiTimerEventStartServerRoute
+  ApiTimerEventIndexServerRoute: typeof ApiTimerEventIndexServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -855,6 +966,13 @@ declare module '@tanstack/react-router' {
 }
 declare module '@tanstack/react-start/server' {
   interface ServerFileRoutesByPath {
+    '/api/companion': {
+      id: '/api/companion'
+      path: '/api/companion'
+      fullPath: '/api/companion'
+      preLoaderRoute: typeof ApiCompanionServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
     '/api/timer/': {
       id: '/api/timer/'
       path: '/api/timer'
@@ -902,6 +1020,55 @@ declare module '@tanstack/react-start/server' {
       path: '/api/migration/run'
       fullPath: '/api/migration/run'
       preLoaderRoute: typeof ApiMigrationRunServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/': {
+      id: '/api/timer/event/'
+      path: '/api/timer/event'
+      fullPath: '/api/timer/event'
+      preLoaderRoute: typeof ApiTimerEventIndexServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/start': {
+      id: '/api/timer/event/start'
+      path: '/api/timer/event/start'
+      fullPath: '/api/timer/event/start'
+      preLoaderRoute: typeof ApiTimerEventStartServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/resume': {
+      id: '/api/timer/event/resume'
+      path: '/api/timer/event/resume'
+      fullPath: '/api/timer/event/resume'
+      preLoaderRoute: typeof ApiTimerEventResumeServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/restart': {
+      id: '/api/timer/event/restart'
+      path: '/api/timer/event/restart'
+      fullPath: '/api/timer/event/restart'
+      preLoaderRoute: typeof ApiTimerEventRestartServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/remove-time': {
+      id: '/api/timer/event/remove-time'
+      path: '/api/timer/event/remove-time'
+      fullPath: '/api/timer/event/remove-time'
+      preLoaderRoute: typeof ApiTimerEventRemoveTimeServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/pause': {
+      id: '/api/timer/event/pause'
+      path: '/api/timer/event/pause'
+      fullPath: '/api/timer/event/pause'
+      preLoaderRoute: typeof ApiTimerEventPauseServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/timer/event/add-time': {
+      id: '/api/timer/event/add-time'
+      path: '/api/timer/event/add-time'
+      fullPath: '/api/timer/event/add-time'
+      preLoaderRoute: typeof ApiTimerEventAddTimeServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
   }
@@ -1078,6 +1245,7 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
+  ApiCompanionServerRoute: ApiCompanionServerRoute,
   ApiMigrationRunServerRoute: ApiMigrationRunServerRoute,
   ApiTimerPauseServerRoute: ApiTimerPauseServerRoute,
   ApiTimerRestartServerRoute: ApiTimerRestartServerRoute,
@@ -1085,6 +1253,13 @@ const rootServerRouteChildren: RootServerRouteChildren = {
   ApiTimerStartServerRoute: ApiTimerStartServerRoute,
   ApiVmixGetReplaysServerRoute: ApiVmixGetReplaysServerRoute,
   ApiTimerIndexServerRoute: ApiTimerIndexServerRoute,
+  ApiTimerEventAddTimeServerRoute: ApiTimerEventAddTimeServerRoute,
+  ApiTimerEventPauseServerRoute: ApiTimerEventPauseServerRoute,
+  ApiTimerEventRemoveTimeServerRoute: ApiTimerEventRemoveTimeServerRoute,
+  ApiTimerEventRestartServerRoute: ApiTimerEventRestartServerRoute,
+  ApiTimerEventResumeServerRoute: ApiTimerEventResumeServerRoute,
+  ApiTimerEventStartServerRoute: ApiTimerEventStartServerRoute,
+  ApiTimerEventIndexServerRoute: ApiTimerEventIndexServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
   ._addFileChildren(rootServerRouteChildren)
