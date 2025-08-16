@@ -132,6 +132,16 @@ class TimerClass {
 		};
 	}
 
+	addTime(time: number): void {
+		this.state.timeLeft += time;
+		// this.state.duration += time;
+	}
+
+	removeTime(time: number): void {
+		this.state.timeLeft -= time;
+		// this.state.duration -= time;
+	}
+
 	getState(): { currentTime: number; isRunning: boolean; customMessage: string | null } {
 		return {
 			currentTime: Math.max(0, this.state.timeLeft),
@@ -141,4 +151,5 @@ class TimerClass {
 	}
 }
 
-export const Timer = new TimerClass();
+export const MatchTimer = new TimerClass();
+export const EventTimer = new TimerClass();

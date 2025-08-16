@@ -6,17 +6,21 @@ export const Route = createFileRoute("/admin_/timer")({
 });
 
 function RouteComponent() {
-	const { currentTime, customMessage } = useTimer();
+	const { currentTime, customMessage } = useTimer("MATCH");
 
 	return (
 		<div className="h-full w-full overflow-hidden flex justify-center items-center text-center text-primary font-extrabold text-[35vw]">
 			<div className="font-bold text-center flex items-center justify-center">
-				{customMessage ? <p>{customMessage} </p>:
-				<>
-				<div className="w-[1ch]">{currentTime.minutes}</div>
-				<div className="w-[1ch] mb-50">:</div>
-				<div className="w-[1ch]">{currentTime.seconds[0]}</div>
-				<div className="w-[1ch]">{currentTime.seconds[1]}</div></>}
+				{customMessage ? (
+					<p>{customMessage} </p>
+				) : (
+					<>
+						<div className="w-[1ch]">{currentTime.minutes}</div>
+						<div className="w-[1ch] mb-50">:</div>
+						<div className="w-[1ch]">{currentTime.seconds[0]}</div>
+						<div className="w-[1ch]">{currentTime.seconds[1]}</div>
+					</>
+				)}
 			</div>
 		</div>
 	);

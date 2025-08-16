@@ -104,7 +104,7 @@ export const Route = createFileRoute("/_view_/overlay")({
 
 function RouteComponent() {
 	const { data } = useQuery(scheduleQuery);
-	const { currentTime, isRunning, timeLeft, customMessage } = useTimer();
+	const { currentTime, isRunning, timeLeft, customMessage } = useTimer("MATCH");
 
 	if (!data) {
 		return <Overlay />;

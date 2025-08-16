@@ -1,0 +1,18 @@
+import { json } from "@tanstack/react-start";
+import { createServerFileRoute } from "@tanstack/react-start/server";
+import { EventTimer } from "../-timer-new";
+
+export const ServerRoute = createServerFileRoute("/api/timer/event/start").methods({
+	GET: async ({ request }) => {
+		const searchParams = new URL(request.url).searchParams;
+		const duration = searchParams.get("duration");
+		const shouldCountdown = searchParams.get("countdown") === "true";
+
+		if ((!duration && duration !== "0") || Number.isNaN(Number(duration))) {
+			return json({ error: "Invalid duration parameter" }, { status: 400 });
+		}
+
+		const timer = EventTimer.start(Number(duration), shouldCountdown);
+		return json({ message: "Timer started", timer });
+	},
+});

@@ -1,6 +1,6 @@
 import { json } from "@tanstack/react-start";
 import { createServerFileRoute } from "@tanstack/react-start/server";
-import { Timer } from "./-timer-new";
+import { MatchTimer } from "./-timer-new";
 // import { startTimer } from "./-timer";
 
 // export const ServerRoute = createServerFileRoute("/api/timer/start").methods({
@@ -28,7 +28,7 @@ export const ServerRoute = createServerFileRoute("/api/timer/start").methods({
 			return json({ error: "Invalid duration parameter" }, { status: 400 });
 		}
 
-		const timer = Timer.start(Number(duration), shouldCountdown);
+		const timer = MatchTimer.start(Number(duration), shouldCountdown);
 		return json({ message: "Timer started", timer });
 	},
 });

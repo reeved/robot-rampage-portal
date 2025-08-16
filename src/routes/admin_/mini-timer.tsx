@@ -1,10 +1,10 @@
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { TimerMiniPreview } from "../_view_/-timer-mini-preview";
-import { Overlay } from "../_view_/overlay";
-import { TimeText, useTimer } from "../_view_/-timer";
 import { createServerFn } from "@tanstack/react-start";
 import { dbMiddleware } from "@/middleware";
-import { queryOptions, useQuery } from "@tanstack/react-query";
+import { TimeText, useTimer } from "../_view_/-timer";
+import { TimerMiniPreview } from "../_view_/-timer-mini-preview";
+import { Overlay } from "../_view_/overlay";
 
 const getEventData = createServerFn({
 	method: "GET",
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/admin_/mini-timer")({
 });
 
 function RouteComponent() {
-	const { currentTime } = useTimer();
+	const { currentTime } = useTimer("EVENT");
 
 	const timeIsZero = currentTime.minutes === "0" && currentTime.seconds === "00";
 

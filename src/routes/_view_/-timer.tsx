@@ -12,6 +12,16 @@ const API_ENDPOINTS = {
 	resume: "/api/timer/resume",
 };
 
+const EVENT_ENDPOINTS = {
+	get: "/api/timer/event",
+	start: "/api/timer/event/start?duration=30",
+	startFrom5: "/api/timer/event/start?duration=15&countdown=true",
+	startFrom130: "/api/timer/event/start?duration=126&countdown=true",
+	pause: "/api/timer/event/pause",
+	reset: "/api/timer/event/restart",
+	resume: "/api/timer/event/resume",
+};
+
 // Utility function to format seconds as "x:YY mins"
 export const formatTimeAsMinutes = (seconds: number) => {
 	if (seconds <= 0) return { minutes: "0", seconds: "00" };
@@ -39,20 +49,25 @@ function fetchTimer<T>(endpoint: string): Promise<T> {
 		});
 }
 
-const timerQuery = () =>
+const timerQuery = (type: "MATCH" | "EVENT") =>
 	queryOptions({
-		queryKey: ["timer"],
-		queryFn: () => fetchTimer<{ currentTime: number; isRunning: boolean; customMessage: string }>(API_ENDPOINTS.get),
+		queryKey: ["timer", type],
+		queryFn: () =>
+			fetchTimer<{ currentTime: number; isRunning: boolean; customMessage: string }>(
+				type === "MATCH" ? API_ENDPOINTS.get : EVENT_ENDPOINTS.get,
+			),
 		refetchInterval: 50,
 	});
 
-export const useTimer = (): {
+export const useTimer = (
+	type: "MATCH" | "EVENT",
+): {
 	currentTime: { minutes: string; seconds: string };
 	isRunning: boolean;
 	timeLeft: number;
 	customMessage: string | null;
 } => {
-	const { data } = useQuery(timerQuery());
+	const { data } = useQuery(timerQuery(type));
 
 	if (!data) {
 		return {
@@ -92,19 +107,16 @@ export const CustomTimeText = ({ customMessage }: { customMessage: string }) => 
 	);
 };
 
-export const TimerComponent = () => {
-	const { currentTime, customMessage, isRunning, timeLeft } = useTimer();
+const ViewTimer = ({ type }: { type: "MATCH" | "EVENT" }) => {
+	const { currentTime, customMessage, isRunning, timeLeft } = useTimer(type);
+
 	const queryClient = useQueryClient();
 
 	// Generic handler to avoid duplication
-	const handleTimerAction = async (action: keyof typeof API_ENDPOINTS) => {
-		await fetchTimer(API_ENDPOINTS[action]);
-		queryClient.invalidateQueries({ queryKey: ["timer"] });
+	const handleTimerAction = async (action: keyof typeof EVENT_ENDPOINTS) => {
+		await fetchTimer(type === "MATCH" ? API_ENDPOINTS[action] : EVENT_ENDPOINTS[action]);
+		queryClient.invalidateQueries({ queryKey: ["timer", type] });
 	};
-
-	// if (!timeLeft) {
-	// 	return <div>Loading...</div>;
-	// }
 
 	// Determine button states
 	const canResume = !isRunning && timeLeft > 0;
@@ -116,6 +128,7 @@ export const TimerComponent = () => {
 				<div>Time remaining: {timeLeft} seconds</div>
 				<div>Custom message: {customMessage}</div>
 			</div>
+			<h3>{type} Timer</h3>
 			<div className="flex gap-4">
 				<Button variant="default" onClick={() => handleTimerAction("start")} disabled={isRunning}>
 					Start
@@ -136,6 +149,15 @@ export const TimerComponent = () => {
 					Reset
 				</Button>
 			</div>
+		</div>
+	);
+};
+
+export const TimerComponent = () => {
+	return (
+		<div className="flex flex-col gap-4">
+			<ViewTimer type="EVENT" />
+			<ViewTimer type="MATCH" />
 		</div>
 	);
 };

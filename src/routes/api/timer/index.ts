@@ -8,10 +8,10 @@ import { createServerFileRoute } from "@tanstack/react-start/server";
 // 	},
 // });
 
-import { Timer } from "./-timer-new";
+import { MatchTimer } from "./-timer-new";
 
 export const ServerRoute = createServerFileRoute("/api/timer/").methods({
 	GET: async () => {
-		return json(Timer.getState());
+		return json(MatchTimer.getState());
 	},
 });
