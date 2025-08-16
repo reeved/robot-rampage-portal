@@ -145,12 +145,16 @@ class TimerClass {
 	}
 
 	addTime(time: number): void {
-		this.state.timeLeft += time;
+		if (this.state.isRunning) {
+			this.state.timeLeft += time;
+		}
 		// this.state.duration += time;
 	}
 
 	removeTime(time: number): void {
-		this.state.timeLeft -= time;
+		if (this.state.isRunning) {
+			this.state.timeLeft -= time;
+		}
 		// this.state.duration -= time;
 	}
 
