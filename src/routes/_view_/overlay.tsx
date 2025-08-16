@@ -134,6 +134,8 @@ function RouteComponent() {
 							middleContent={
 								customMessage ? (
 									<CustomTimeText customMessage={customMessage} />
+								) : currentTime.minutes === "0" && currentTime.seconds === "00" ? (
+									"vs"
 								) : (
 									<TimeText currentTime={currentTime} />
 								)
