@@ -1,12 +1,12 @@
+import { queryOptions, useQuery } from "@tanstack/react-query";
+import { createFileRoute, createLink, Outlet } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import { queryOptions, useQuery } from "@tanstack/react-query";
-import { Outlet, createFileRoute, createLink } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
 
 const getRankingsData = createServerFn({
 	method: "GET",
@@ -35,7 +35,7 @@ const getRankingsData = createServerFn({
 					qualifyingResults,
 				};
 			})
-			.filter((item) => item.participant); // Only include participants that exist
+			.filter((item) => item.participant?.isCompeting); // Only include participants that exist
 
 		return {
 			rankings: rankingsWithParticipants,

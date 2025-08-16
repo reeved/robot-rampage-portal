@@ -107,33 +107,24 @@ const getUpdatedRankings = (matches: QualifyingMatch[], participants: Participan
 		};
 	}
 
-	const sortedRankings = Object.entries(participantResults).sort(([, a], [, b]) => {
-		return b.score - a.score;
-		// if (a.wins !== b.wins) {
-		// 	return b.wins - a.wins;
-		// }
-		// if (a.winsByKO !== b.winsByKO) {
-		// 	return b.winsByKO - a.winsByKO;
-		// }
-		// if (a.lossesByNS !== b.lossesByNS) {
-		// 	return a.lossesByNS - b.lossesByNS;
-		// }
-		// if (a.lossesByKO !== b.lossesByKO) {
-		// 	return a.lossesByKO - b.lossesByKO;
-		// }
-		// if (a.lossesByJD !== b.lossesByJD) {
-		// 	return a.lossesByJD - b.lossesByJD;
-		// }
-		// const aOpponentWins = sumArr(
-		// 	a.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-		// );
-		// const bOpponentWins = sumArr(
-		// 	b.opponentIds.map((id) => participantResults[id]?.wins ?? 0),
-		// );
-		// return aOpponentWins - bOpponentWins;
-	});
+	const participantsData = Object.entries(participantResults);
+	const aliveParticipants = participantsData
+		.filter(([id]) => !participants.find((p) => p.id === id)?.isDead)
+		.sort(([, a], [, b]) => {
+			return b.score - a.score;
+		});
+	const deadParticipants = participantsData
+		.filter(([id]) => participants.find((p) => p.id === id)?.isDead)
+		.sort(([, a], [, b]) => {
+			return b.score - a.score;
+		});
 
-	return { participantResults, sortedRankings };
+	console.log(
+		"DEAD",
+		deadParticipants.map(([id], index) => `${index + 1} ${participants.find((p) => p.id === id)?.name}`),
+	);
+
+	return { participantResults, sortedRankings: [...aliveParticipants, ...deadParticipants] };
 };
 
 const updateMatchResult = createServerFn({
@@ -190,6 +181,8 @@ const updateMatchResult = createServerFn({
 			.filter((match) => !!match.winner?.id);
 
 		const { sortedRankings, participantResults } = getUpdatedRankings(allMatches, participants);
+
+		console.log(sortedRankings.map(([id], index) => `${index + 1} ${participants.find((p) => p.id === id)?.name}`));
 
 		await context.db.events.updateOne((e) => e.id === "may", {
 			qualifyingResults: participantResults,
