@@ -388,24 +388,8 @@
         ]
       },
       {
-        "id": "match-k0246of",
-        "name": "Match 2",
-        "participants": [
-          {
-            "id": "part-dllub2q",
-            "videoName": "Mjolnir_A.mov",
-            "introText": "(story time) They say the dwarven brothers Sindri and Brokkr forged a hammer so powerful they needed to enchant it to protect the unworthy from wielding it. Well.. turns out there is one here who is worthy, and they only made the weapon more appropriate for the time. This is a robot you won't wanna roll near, bring the thunder, for MJOOOOLNIIIIIIIR"
-          },
-          {
-            "id": "rot076r",
-            "videoName": "Haymaker_A.mov",
-            "introText": "In his spare time he mows lawns and spreads the grass out to dry. But in his professional fighting career he's gonna copy and paste the same strategy. He's going to cut you to size and hang you out to dry- it's HAYMAKER"
-          }
-        ]
-      },
-      {
         "id": "match-qj21rso",
-        "name": "Match 3",
+        "name": "Match 2",
         "participants": [
           {
             "id": "part-dx6qvml",
@@ -419,7 +403,7 @@
       },
       {
         "id": "match-wau9jf5",
-        "name": "Match 4",
+        "name": "Match 3",
         "participants": [
           {
             "id": "puvpwxl",
@@ -434,60 +418,68 @@
       },
       {
         "id": "match-7vha1kk",
-        "name": "Match 5",
+        "name": "Match 4",
         "participants": [
           {
             "id": "part-odwrzot",
-            "videoName": "Chef_Woody_A.mov"
+            "videoName": "Chef_Woody_A.mov",
+            "introText": "Excuse me waiter, I'd like to order the chef special- Yeah that's right, I'd like one fight full of destruction please- and make it a goody.. cause it's not like robots grow on trees.. oh except this one. GIVE IT UP FOR CHEF WOODYYY"
           },
           {
-            "id": "luecccm"
+            "id": "luecccm",
+            "introText": "If you're in the ring but you can't see your opponent you will have to use more of your senses. Take a sniff, taste the air... wait.... Hear that noise? Listen to that baby purrrr. Now MAKE SOME NOISE, and give it up, FOR BLUE BLURRRR"
           }
         ]
       },
       {
         "id": "match-sx84ebk",
-        "name": "Match 6",
+        "name": "Match 5",
         "participants": [
           {
-            "id": "3osxali"
+            "id": "3osxali",
+            "introText": "This melty brain will run circles around you- and itself! If you're going up against this bot, then your best bet is to wrestle it. Make some noise and give it up. It's TESSELAATE"
           },
           {
             "id": "part-qpm0bjg",
-            "videoName": "Black_Rose_A.mov"
+            "videoName": "Black_Rose_A.mov",
+            "introText": "This robot is our champion from last event, they've been fighting since time's dawn. And if you're trying to take their crown from them, you're bound to catch their thorns. I can't believe they make me write prose but anyway put your hands together for BLAAAAAAACK ROOOOOOSE"
           }
         ]
       },
       {
         "id": "match-rh2n2pd",
-        "name": "Match 7",
+        "name": "Match 6",
         "participants": [
           {
             "id": "part-fdrxhj5",
-            "videoName": "Borris_A.mov"
+            "videoName": "Borris_A.mov",
+            "introText": "This bot is gonna leave you in bits and... MORE BITS. They clearly have a good dentist because they can clearly chomp through their enemies! Everybody pleaaase make some noise for KILLABYTEEEE"
           },
           {
             "id": "part-04xspbq",
-            "videoName": "Bad_Blood_A.mov"
+            "videoName": "Bad_Blood_A.mov",
+            "introText": "When this robot outmanoeuvres you and there's nothing you can do cause their driver is so good? That's a Shane... And he's here de Rijk the floor with his opponent. Ohhhhh. no.... This can't be good... Oh that makes sense.. because it's BAAAAAAD BLOOOOOD"
           }
         ]
       },
       {
         "id": "match-ze3yddn",
-        "name": "Match 8",
+        "name": "Match 7",
         "participants": [
           {
             "id": "part-hh5ch23",
-            "videoName": "Borris_A.mov"
+            "videoName": "Borris_A.mov",
+            "introText": "This bot is a bully. It's fuelled on pure hate. Should you run for the hills? No... you should run for a forest... When it comes out the gate, nothing will save you from BORRIS"
           },
           {
-            "id": "uvy1k73"
+            "id": "uvy1k73",
+            "introText": "This thing is named after a mammal, so it's about to get hairy. This mammal also gives milk? So I hope you're not intolerant to dairy.. Give us a big roar and say hello to .... PERRRYYYYY"
           }
         ]
       },
       {
         "id": "match-gvyc9o5",
-        "name": "Match 9",
+        "name": "Match 8",
         "participants": [
           {
             "id": "hfk4hiu"
@@ -495,6 +487,22 @@
           {
             "id": "0a41c0a",
             "videoName": "Obliterator_A.mov"
+          }
+        ]
+      },
+      {
+        "id": "match-k0246of",
+        "name": "Match 9",
+        "participants": [
+          {
+            "id": "part-dllub2q",
+            "videoName": "Mjolnir_A.mov",
+            "introText": "(story time) They say the dwarven brothers Sindri and Brokkr forged a hammer so powerful they needed to enchant it to protect the unworthy from wielding it. Well.. turns out there is one here who is worthy, and they only made the weapon more appropriate for the time. This is a robot you won't wanna roll near, bring the thunder, for MJOOOOLNIIIIIIIR"
+          },
+          {
+            "id": "rot076r",
+            "videoName": "Haymaker_A.mov",
+            "introText": "In his spare time he mows lawns and spreads the grass out to dry. But in his professional fighting career he's gonna copy and paste the same strategy. He's going to cut you to size and hang you out to dry- it's HAYMAKER"
           }
         ]
       }
