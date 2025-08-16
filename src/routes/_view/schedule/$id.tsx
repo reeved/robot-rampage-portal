@@ -56,12 +56,14 @@ function RouteComponent() {
 
 	const { schedule, participants, currentMatchId, rankings, qualifyingResults } = data;
 
+	const rankingsTitle = schedule.type === "QUALIFYING" ? "BOT RANKINGS" : "QUALIFYING RANKINGS";
+
 	return (
 		<div className="w-9/12 h-full mx-auto p-4 pb-10">
 			<div className="h-full grid md:grid-cols-5 gap-20 b-10">
 				{/* Left side: Score Tracker */}
 				<div className="md:col-span-2 flex flex-col gap-4">
-					<h2 className="text-3xl font-heading text-center text-primary">BOT RANKINGS</h2>
+					<h2 className="text-3xl font-heading text-center text-primary">{rankingsTitle}</h2>
 					<Rankings rankings={rankings} qualifyingResults={qualifyingResults} participants={participants} />
 				</div>
 
