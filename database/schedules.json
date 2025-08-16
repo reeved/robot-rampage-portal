@@ -178,7 +178,7 @@
         ],
         "winner": {
           "id": "0a41c0a",
-          "condition": "JD"
+          "condition": "KO"
         }
       }
     ],
@@ -200,7 +200,11 @@
             "id": "uvy1k73",
             "introText": "“From the land of kangaroos and chaos comes a spinner with serious bite — stealthy, deadly, and dangerously adorable — give it up for Perry!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "uvy1k73",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-jve4ev1",
@@ -214,7 +218,11 @@
             "id": "8pii4jf",
             "introText": "“This isn’t rest — it’s ruin. He’s cutting deep and coming fast, and if you blink… you’re already dreaming. Lights out — it’s Naptime!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "8pii4jf",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-90tzs2j",
@@ -229,7 +237,11 @@
             "videoName": "Chain_Damage_A.mov",
             "introText": "Spinning at full speed and bringing the pain with every swing — this melty bot from Auckland is ready to rattle the competition! Give it up for… CHAIN DAMAAAAGE!"
           }
-        ]
+        ],
+        "winner": {
+          "id": "puvpwxl",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-bv01dcq",
@@ -244,7 +256,11 @@
             "videoName": "Onlyforks_A.mov",
             "introText": "“When the other utensils ran, he stayed to scrap. He’s flipping bots and flippin’ mad — sharpen your senses for OnlyForks!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-y3konnp",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-tv86f5h",
@@ -260,7 +276,11 @@
             "videoName": "Chef_Woody_A.mov",
             "introText": "“Forget steel — he’s made of wood and bad intentions! Cooking up chaos with every collision, fire up the grill for Chef Woody!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-u9r64fb",
@@ -275,7 +295,11 @@
             "id": "part-fdrxhj5",
             "introText": "Locked, loaded, and ready to send the competition sky-high — this vertical spinner is here to take a byte out of anyone in its way! Give it up for… KILLABYYYYTE!"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-hh5ch23",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-pebvjez",
@@ -289,7 +313,11 @@
             "id": "3osxali",
             "introText": "“Spinning, shifting, and tearing it all apart — this puzzle doesn’t solve, it shatters! From the mind of madness, it’s Tessellate!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "hfk4hiu",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-whm6nig",
@@ -305,7 +333,11 @@
             "videoName": "Bad_Blood_A.mov",
             "introText": "“There’s history, there’s hostility, and there’s one bot that thrives on both. Tauranga’s coldest fighter is back to spill some Bad Blood!”"
           }
-        ]
+        ],
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-3fb63h2",
@@ -318,11 +350,155 @@
           },
           {
             "id": "0a41c0a",
+            "videoName": "Obliterator_A",
             "introText": "From the land down under comes the bot they call the most feared in Australia — a horizontal spinner built to shred anything that dares to enter the arena. Driven by James Kirby, make some noise for… OBLITERAAAATOR!"
+          }
+        ],
+        "winner": {
+          "id": "0a41c0a",
+          "condition": "JD"
+        }
+      }
+    ],
+    "name": "Qualifying Session 2"
+  },
+  {
+    "id": "schedule-dspw9e4",
+    "type": "EXHIBITION",
+    "matches": [],
+    "name": "Exhibition 1"
+  },
+  {
+    "id": "schedule-mlmbk07",
+    "type": "QUALIFYING",
+    "matches": [
+      {
+        "id": "match-5z7bad6",
+        "name": "Match 1",
+        "participants": [
+          {
+            "id": "part-aw653qy",
+            "introText": "These lil guys are twins, but they aren't identical. One is gonna pin you down while the other cracks through your clavicle. You think you'll be fine by taking one down, but they'll stop at nothing. Put your hands together for SNOLLYGOSTER AND RAGAMUFFIN"
+          },
+          {
+            "id": "part-y3konnp",
+            "videoName": "Onlyforks_A.mov",
+            "introText": "If you set this robot loose on a bunch of birds.. the sounds you hear will be only Squawks.... but if you wanted to come dine on destruction, then you've made the right choice, GIVE IT UP FOR ONLY FOOOORKS"
+          }
+        ]
+      },
+      {
+        "id": "match-k0246of",
+        "name": "Match 2",
+        "participants": [
+          {
+            "id": "part-dllub2q",
+            "videoName": "Mjolnir_A.mov",
+            "introText": "(story time) They say the dwarven brothers Sindri and Brokkr forged a hammer so powerful they needed to enchant it to protect the unworthy from wielding it. Well.. turns out there is one here who is worthy, and they only made the weapon more appropriate for the time. This is a robot you won't wanna roll near, bring the thunder, for MJOOOOLNIIIIIIIR"
+          },
+          {
+            "id": "rot076r",
+            "videoName": "Haymaker_A.mov",
+            "introText": "In his spare time he mows lawns and spreads the grass out to dry. But in his professional fighting career he's gonna copy and paste the same strategy. He's going to cut you to size and hang you out to dry- it's HAYMAKER"
+          }
+        ]
+      },
+      {
+        "id": "match-qj21rso",
+        "name": "Match 3",
+        "participants": [
+          {
+            "id": "part-dx6qvml",
+            "introText": "The great mind of Archimedes once said \"if you give me a lever long enough and a place to stand and I shall move the world\". But this bot doesn't care about that. It has a single focus and that is to send opponents closer to the sun than any robot should come. Ladies and gentlemen, make some noise for FULCRUM!"
+          },
+          {
+            "id": "part-uov2lni",
+            "introText": "This bot is like a reactor, once it spins up it's gonna be a chain reaction. He hits so hard you should take some panadol.. or tramadol- yknow- so you can pain manage. Everybody please put your hands together for CHAIN DAMAAAAGE"
+          }
+        ]
+      },
+      {
+        "id": "match-wau9jf5",
+        "name": "Match 4",
+        "participants": [
+          {
+            "id": "puvpwxl",
+            "videoName": "Fury_Fox_A.mov",
+            "introText": "You might think he's a little upset, but don't get it twisted, this bot is gonna hit you so hard and leave you wishing you never existed. Give it up for FUUUURY FOX"
+          },
+          {
+            "id": "8pii4jf",
+            "introText": "This bot has strategy- don't let him get behind you or he'll put you in a sleeper hold. And if that don't work, he's taking a hammer through you and putting your lights out COLD. Say goodnight- to NAPTIIIIME"
+          }
+        ]
+      },
+      {
+        "id": "match-7vha1kk",
+        "name": "Match 5",
+        "participants": [
+          {
+            "id": "part-odwrzot",
+            "videoName": "Chef_Woody_A.mov"
+          },
+          {
+            "id": "luecccm"
+          }
+        ]
+      },
+      {
+        "id": "match-sx84ebk",
+        "name": "Match 6",
+        "participants": [
+          {
+            "id": "3osxali"
+          },
+          {
+            "id": "part-qpm0bjg",
+            "videoName": "Black_Rose_A.mov"
+          }
+        ]
+      },
+      {
+        "id": "match-rh2n2pd",
+        "name": "Match 7",
+        "participants": [
+          {
+            "id": "part-fdrxhj5",
+            "videoName": "Borris_A.mov"
+          },
+          {
+            "id": "part-04xspbq",
+            "videoName": "Bad_Blood_A.mov"
+          }
+        ]
+      },
+      {
+        "id": "match-ze3yddn",
+        "name": "Match 8",
+        "participants": [
+          {
+            "id": "part-hh5ch23",
+            "videoName": "Borris_A.mov"
+          },
+          {
+            "id": "uvy1k73"
+          }
+        ]
+      },
+      {
+        "id": "match-gvyc9o5",
+        "name": "Match 9",
+        "participants": [
+          {
+            "id": "hfk4hiu"
+          },
+          {
+            "id": "0a41c0a",
+            "videoName": "Obliterator_A.mov"
           }
         ]
       }
     ],
-    "name": "Qualifying Session 2"
+    "name": "Qualifying Session 3"
   }
 ]

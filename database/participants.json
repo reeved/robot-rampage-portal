@@ -183,7 +183,7 @@
     "previousRank": "14th Place",
     "weight": 13.2,
     "isDead": false,
-    "isCompeting": true,
+    "isCompeting": false,
     "otherNotes": ""
   },
   {
@@ -276,7 +276,7 @@
     "type": "FEATHERWEIGHT",
     "name": "Obliterator",
     "builders": "James Kirby",
-    "videos": "",
+    "videos": "Obliterator_A.mov",
     "weapon": "Horizontal Spinner",
     "isCompeting": true,
     "isDead": false,
@@ -360,7 +360,7 @@
     "type": "FEATHERWEIGHT",
     "name": "Fury Fox",
     "builders": "Tim Sly",
-    "videos": "",
+    "videos": "Fury_Fox_A.mov",
     "weapon": "Vertical Spinner",
     "isCompeting": true,
     "isDead": false,
