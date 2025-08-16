@@ -376,7 +376,11 @@
           {
             "id": "96j1t3r"
           }
-        ]
+        ],
+        "winner": {
+          "id": "96j1t3r",
+          "condition": "JD"
+        }
       }
     ],
     "name": "Exhibition 1"
@@ -569,114 +573,225 @@
         "name": "Championship QF1",
         "participants": [
           {
-            "id": "part-hh5ch23"
+            "id": "part-hh5ch23",
+            "introText": "They say that he counted to infinity... Twice! This bot must be the robot Chuck Norris. Everybody, please put your hands together for BORRIS!"
           },
           {
-            "id": "part-04xspbq"
+            "id": "part-04xspbq",
+            "introText": "This robot doesn't even have a heart, and somehow all that runs through his veins is rage, haemoglobin, and mud. Everybody, please put your hands together for BAAD BLOOOOD"
           }
         ],
         "bracket": "Championship",
-        "round": "QF1"
+        "round": "QF1",
+        "winner": {
+          "id": "part-04xspbq",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-uf9ibm7",
         "name": "Championship QF3",
         "participants": [
           {
-            "id": "part-dllub2q"
+            "id": "part-dllub2q",
+            "introText": "From the depths of the forge and the fury of the storm... wielding the power of the gods and the bite of a thousand blades... it's the hammer that doesn't fall—it spins! With a weapon that strikes like thunder and armor forged for war, brace yourselves for the Norse nightmare... this is Mjolnir!"
           },
           {
-            "id": "part-y3konnp"
+            "id": "part-y3konnp",
+            "introText": "Look, this is just dining cutlery etiquette. On the right hand side of the dish you can have your knives and spoons et cetera... But the left side and in the BLUE square, that's purely reserved for ONLY FOOOOORKS"
           }
         ],
         "bracket": "Championship",
-        "round": "QF4"
+        "round": "QF4",
+        "winner": {
+          "id": "part-y3konnp",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-qyq2o36",
         "name": "9th Place QF4",
         "participants": [
           {
-            "id": "8pii4jf"
+            "id": "8pii4jf",
+            "introText": "Rolling into the arena with a deceptively chill vibe, this may just be the tournaments sleeper bot! Everyone grab your blankets and shhhhhhhhh.... It's naap tiiime"
           },
           {
-            "id": "rot076r"
+            "id": "rot076r",
+            "introText": "This bot hits HARD- a real armour breaker. You'll feel the arena shake, this bot's an earthquaker. The force of the blow is gonna send you to Jamaica! Everybody give it up foor HAYMAKER"
           }
         ],
         "bracket": "9th Place",
-        "round": "QF2"
+        "round": "QF2",
+        "winner": {
+          "id": "rot076r",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-ocld65n",
         "name": "9th Place QF1",
         "participants": [
           {
-            "id": "part-aw653qy"
+            "id": "part-aw653qy",
+            "introText": "One minibot is going to make some room and push you around- Then the other sends you to the moon and let you splatter on the ground. Seriously, it's gonna hurt- the robot equivalent of a concussion. MAKE SOME NOISE It's Snollygoster and Ragamuffin!"
           },
           {
-            "id": "part-odwrzot"
+            "id": "part-odwrzot",
+            "introText": "Other bots have hearts of steel- but this bot has a heart of oak! Forget branches and grain, cause he's serving carrots, and pain. You don't think he'd go easy on you, would he? Brace yourselves, for CHEF WOOODYYYYY"
           }
         ],
         "bracket": "9th Place",
-        "round": "QF1"
+        "round": "QF1",
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "JD"
+        }
       },
       {
         "id": "match-avww33e",
         "name": "9th Place QF3",
         "participants": [
           {
-            "id": "luecccm"
+            "id": "luecccm",
+            "introText": "With an impressive weapon disc like lightning dipped in cobalt. Rivals get picked apart, till they've got no nuts and nobolts. He'll hit you once, twice, three times- and let that damage recur- Please make some noise and a big welcome to BLUE BLURRRR"
           },
           {
-            "id": "part-uov2lni"
+            "id": "part-uov2lni",
+            "introText": "They say this thwackbot was chained up in robo prison for committing crazy robo crimes.. But he broke free of his bonds, and now, they're his main weapon! IT'S CHAIN DAMAAAGE"
           }
         ],
         "bracket": "9th Place",
-        "round": "QF4"
+        "round": "QF4",
+        "winner": {
+          "id": "part-uov2lni",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-t4a0f5g",
         "name": "9th Place QF2",
         "participants": [
           {
-            "id": "3osxali"
+            "id": "3osxali",
+            "introText": "Watch him slice, dice and rearrange his opponents into a mosaic of defeat. Every hit they make they calculate, each opponent they face they dominate, and any rest assured- they'll give us a reason to celebrate. Make some noise! It's TESSELATE!"
           },
           {
-            "id": "part-fdrxhj5"
+            "id": "part-fdrxhj5",
+            "introText": "When this bot boots up, opponents start debugging their strategy, because this machine is programmed for destruction. Coming to battle with blades of vengeance and bytes of fury... it's KILLABYTE!"
           }
         ],
         "bracket": "9th Place",
-        "round": "QF3"
+        "round": "QF3",
+        "winner": {
+          "id": "part-fdrxhj5",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-8h4q85l",
         "name": "Championship QF4",
         "participants": [
           {
-            "id": "part-qpm0bjg"
+            "id": "part-qpm0bjg",
+            "introText": "He's lining up his enemies, then he switches to attack mode. If you come at him with long forks, oof- he's gonna snap those. That double barreled drum spinner... don't let it get THAT close. Ladies and gentlemen, give it up one time for BLACK ROSE."
           },
           {
-            "id": "puvpwxl"
+            "id": "puvpwxl",
+            "introText": "He's cunning, he's sneaky, he thinks outside the box. He's spinny, he's ANGRYY, he came from the school of hard knocks. They say hell hath no fury, but that's because Team Sly Robotics took it, and used it to fuel FUUURY FOXXXX"
           }
         ],
         "bracket": "Championship",
-        "round": "QF2"
+        "round": "QF2",
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-ndvnh3p",
         "name": "Championship QF2",
         "participants": [
           {
-            "id": "0a41c0a"
+            "id": "0a41c0a",
+            "introText": "With a horizontal spinner the size of your worst nightmare this bot doesn’t just hit—it erases. When it starts spinning, the laws of physics start sweating. Rivals don’t get dismantled—they get deleted. Watch as he turns the battlefield into a scrapyard. Everyone make some noise for OBLITERATOOOOOR"
           },
           {
-            "id": "uvy1k73"
+            "id": "uvy1k73",
+            "introText": "HAHAHAHAaaa my nemesis I finaally caught you!!! You silly little semi aquatic mammal of action-Wait.. is that a robot?! Oh my goodness it's PERRY THE ROBOT!?"
           }
         ],
         "bracket": "Championship",
-        "round": "QF3"
+        "round": "QF3",
+        "winner": {
+          "id": "0a41c0a",
+          "condition": "KO"
+        }
       }
     ],
     "name": "Bracket 1"
+  },
+  {
+    "id": "schedule-qmnmpw7",
+    "type": "BRACKET",
+    "matches": [
+      {
+        "id": "match-q9foy7r",
+        "name": "Championship SF1",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {
+            "id": "part-qpm0bjg"
+          }
+        ],
+        "bracket": "Championship",
+        "round": "SF1"
+      },
+      {
+        "id": "match-kwoyr5d",
+        "name": "Championship SF2",
+        "participants": [
+          {
+            "id": "0a41c0a"
+          },
+          {
+            "id": "part-y3konnp"
+          }
+        ],
+        "bracket": "Championship",
+        "round": "SF2"
+      },
+      {
+        "id": "match-4096jmb",
+        "name": "9th Place SF1",
+        "participants": [
+          {
+            "id": "part-aw653qy"
+          },
+          {
+            "id": "rot076r"
+          }
+        ],
+        "bracket": "9th Place",
+        "round": "SF1"
+      },
+      {
+        "id": "match-ja44th4",
+        "name": "9th Place SF2",
+        "participants": [
+          {
+            "id": "part-fdrxhj5"
+          },
+          {
+            "id": "part-uov2lni"
+          }
+        ],
+        "bracket": "9th Place",
+        "round": "SF2"
+      }
+    ],
+    "name": "Bracket 2"
   }
 ]
