@@ -546,5 +546,68 @@
       }
     ],
     "name": "Qualifying Session 3"
+  },
+  {
+    "id": "schedule-zhrklgp",
+    "type": "BRACKET",
+    "matches": [
+      {
+        "id": "match-h01kaq6",
+        "name": "Championship QF1",
+        "participants": [
+          {
+            "id": "part-hh5ch23"
+          },
+          {
+            "id": "uvy1k73"
+          }
+        ],
+        "bracket": "Championship",
+        "round": "QF1"
+      },
+      {
+        "id": "match-ndvnh3p",
+        "name": "Championship QF2",
+        "participants": [
+          {
+            "id": "0a41c0a"
+          },
+          {
+            "id": "puvpwxl"
+          }
+        ],
+        "bracket": "Championship",
+        "round": "QF3"
+      },
+      {
+        "id": "match-uf9ibm7",
+        "name": "Championship QF3",
+        "participants": [
+          {
+            "id": "part-dllub2q"
+          },
+          {
+            "id": "part-y3konnp"
+          }
+        ],
+        "bracket": "Championship",
+        "round": "QF4"
+      },
+      {
+        "id": "match-8h4q85l",
+        "name": "Championship QF4",
+        "participants": [
+          {
+            "id": "hfk4hiu"
+          },
+          {
+            "id": "part-qpm0bjg"
+          }
+        ],
+        "bracket": "Championship",
+        "round": "QF2"
+      }
+    ],
+    "name": "Bracket 1"
   }
 ]
