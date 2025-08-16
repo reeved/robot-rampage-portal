@@ -1,3 +1,5 @@
+import { Companion } from "@/lib/companion-api";
+
 interface TimerState {
 	duration: number;
 	timeLeft: number;
@@ -6,14 +8,17 @@ interface TimerState {
 	countdownPhase: "pre" | "main" | "done";
 	countdownText: string | null;
 	preCountdownTime: number;
+	hasCalledCompanion: boolean;
 }
 
 class TimerClass {
 	private state: TimerState;
 	private intervalId: NodeJS.Timeout | null = null;
 	private lastTick: number = 0;
+	private shouldCallCompanion: boolean;
 
-	constructor() {
+	constructor(shouldCallCompanion: boolean) {
+		this.shouldCallCompanion = shouldCallCompanion;
 		this.state = {
 			duration: 0,
 			timeLeft: 0,
@@ -22,10 +27,11 @@ class TimerClass {
 			countdownPhase: "done",
 			countdownText: null,
 			preCountdownTime: 0,
+			hasCalledCompanion: false,
 		};
 	}
 
-	private tick = () => {
+	private tick = async () => {
 		const now = performance.now();
 		const delta = (now - this.lastTick) / 1000; // Convert to seconds
 		this.lastTick = now;
@@ -45,6 +51,10 @@ class TimerClass {
 			}
 		} else if (this.state.isRunning && this.state.countdownPhase === "main") {
 			this.state.timeLeft -= delta;
+			if (this.state.timeLeft <= 10 && this.shouldCallCompanion && !this.state.hasCalledCompanion) {
+				await Companion.RunMatchEndSequence();
+				this.state.hasCalledCompanion = true;
+			}
 			if (this.state.timeLeft <= 0) {
 				this.state.timeLeft = 0;
 				this.state.isRunning = false;
@@ -74,6 +84,7 @@ class TimerClass {
 			countdownPhase: shouldCountdown ? "pre" : "main",
 			countdownText: shouldCountdown ? "3" : null,
 			preCountdownTime: shouldCountdown ? 3 : 0, // Track pre-countdown separately
+			hasCalledCompanion: false,
 		};
 
 		this.lastTick = performance.now();
@@ -129,6 +140,7 @@ class TimerClass {
 			countdownPhase: "done",
 			countdownText: null,
 			preCountdownTime: 0,
+			hasCalledCompanion: false,
 		};
 	}
 
@@ -151,5 +163,5 @@ class TimerClass {
 	}
 }
 
-export const MatchTimer = new TimerClass();
-export const EventTimer = new TimerClass();
+export const MatchTimer = new TimerClass(true);
+export const EventTimer = new TimerClass(false);
