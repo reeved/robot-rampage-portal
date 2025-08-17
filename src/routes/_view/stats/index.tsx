@@ -76,7 +76,7 @@ function RouteComponent() {
 			</div>
 			<div className="bg-black py-10 px-4 flex justify-center items-center mt-10">
 				<BotInfo
-					showStats={schedule.type !== "TEAMS"}
+					showStats={schedule.type !== "TEAMS" && schedule.type !== "EXHIBITION"}
 					details={[
 						{
 							participant: participants[0],
