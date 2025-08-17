@@ -740,40 +740,38 @@
         "name": "9th Place SF1",
         "participants": [
           {
-            "id": "part-aw653qy"
+            "id": "part-aw653qy",
+            "introText": "From the wild streets of Auckland and the chaotic corners of Christchurch, these two minibots don’t play by the rules—they rewrite them. One’s a bulldozer, the other’s a bruiser, and together they play a symphony of destruction. You’re not facing a robot—you’re facing a rebellion. Get ready for the mayhem, the madness, the mischief... Make some noise, stomp the ground, and scream your lungs out for the anarchic duo —it's SNOLLYGOSTER AND RAGAMUFFIN!"
           },
           {
-            "id": "rot076r"
+            "id": "rot076r",
+            "introText": "He’s not here to dance — he’s here to detonate! Straight outta Auckland, this horizontal hitter doesn’t jab, he obliterates. When the gloves come off, the blades come out — and you’re about to get chopped, dropped, and rocked! He’s the lawnmower of doom, the concussion king, the one-bot wrecking crew. Make some noise for the knockout artist himself — HAYMAKER!"
           }
         ],
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "JD"
+        },
         "bracket": "9th Place",
         "round": "SF1"
-      },
-      {
-        "id": "match-ja44th4",
-        "name": "9th Place SF2",
-        "participants": [
-          {
-            "id": "part-fdrxhj5"
-          },
-          {
-            "id": "part-uov2lni"
-          }
-        ],
-        "bracket": "9th Place",
-        "round": "SF2"
       },
       {
         "id": "match-q9foy7r",
         "name": "Championship SF1",
         "participants": [
           {
-            "id": "part-04xspbq"
+            "id": "part-04xspbq",
+            "introText": "You feel that tension? That’s not fear — that’s history about to explode! He’s back from Tauranga with a score to settle and a vertical spinner that’s got more grudges than a soap opera. He doesn’t just fight — he feuds. Every hit is personal, every flip is payback, and every opponent is just another name on his list. He’s not here to make friends. He’s here to make wreckage. So get loud, get wild, and let the arena feel the fury — it’s BAAAAAAD BLOOOOOD!!!"
           },
           {
-            "id": "part-qpm0bjg"
+            "id": "part-qpm0bjg",
+            "introText": "He’s not here to smell sweet—he’s here to shred steel. He may look elegant but that split drum spinner is anything but gentle. With the beat of his own drum he danced his way to be the reigning champ. And he's here to write another chapter in crimson. Petals poised, thorns primed, and ready to strike. The Beauty AND the BEAST! Please put your hands together for BLACK ROOOOOSE"
           }
         ],
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "JD"
+        },
         "bracket": "Championship",
         "round": "SF1"
       },
@@ -782,56 +780,98 @@
         "name": "Championship SF2",
         "participants": [
           {
-            "id": "0a41c0a"
+            "id": "0a41c0a",
+            "introText": "From the red dust of the outback to the roar of the arena — this isn’t just a robot, it’s a reckoning!” He’s the nightmare that crawled out of Australia’s scrapyards with a horizontal spinner so savage, it makes steel scream. The battlefield is simply his canvas for carnage. Make some noise, make some chaos! It's time to welcome the most feared bot in Australia! The flattening force from down under — this is OBLITERATORRRR!"
           },
           {
-            "id": "part-y3konnp"
+            "id": "part-y3konnp",
+            "introText": "Knives? Gone. Spoons? Forget it. This bot came to the table with nothing but forks- and he's serving up chaos! He isn't here just to lift bots- he's here to FLIP THE SCRIPT. With precision prongs and a hunger for havoc, he's the ultimate utensil of destruction. Sharpen your cheers and raise your voices the fastest forks in the land! IT'S ONLY FOOOORKS"
           }
         ],
+        "winner": {
+          "id": "0a41c0a",
+          "condition": "KO"
+        },
         "bracket": "Championship",
         "round": "SF2"
       },
       {
-        "id": "match-4ls944v",
-        "name": "Bot Rumble",
+        "id": "match-ja44th4",
+        "name": "9th Place SF2",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-fdrxhj5",
+            "introText": "Boot up the fear and brace for fragmentation — this bot doesn’t just bite, it devours! With vertical vengeance and a grin that could shred steel, Killabyte is here to crash your system and delete your dreams. Bits? Gone. Bytes? Pulverized. Make some noise for the digital destroyer — KILLABYTE!"
+          },
+          {
+            "id": "part-uov2lni",
+            "introText": "He spins, he shreds, he slashes — and now he’s got backup! He was already a menace, but now he’s joined by a blade-toting gremlin on wheels! One whips you with chains, the other pokes holes in your dignity. It’s a tag-team of terror, a duo of destruction, and they’re coming for your chassis! Auckland, scream like your bolts depend on it — it’s CHAIN DAMAGE and MOIST PONY!”"
+          }
         ],
-        "bracket": "",
-        "round": "SF1"
+        "winner": {
+          "id": "part-uov2lni",
+          "condition": "KO"
+        },
+        "bracket": "9th Place",
+        "round": "SF2"
       },
       {
         "id": "match-013hjsn",
         "name": "5th Place",
         "participants": [
           {
-            "id": "part-hh5ch23"
+            "id": "part-hh5ch23",
+            "introText": "They say Borris once arm-wrestled a hydraulic press… and the press tapped out. He doesn’t dodge hits — he intimidates them into missing. Born in Auckland, forged in chaos, and built like a freight train with a grudge, this bot doesn’t fight fair — it fights legendary. He counted to infinity… twice. He’s the robot Chuck Norris, and tonight, he’s here to crush your dreams. Give it up for the myth, the machine, the menace — BORRIS!"
           },
           {
-            "id": "part-dllub2q"
+            "id": "part-dllub2q",
+            "introText": "Forged in the heart of a dying star and unleashed from the depths of the storm, this bot doesn’t just swing — it shatters. With the fury of Thor Odinson and the precision of a thousand blades, Mjolnir spins like a tempest and hits like a god.  This isn't just a bot, it's a storm forged in steel! Raise your voices, raise your fists, and welcome the Norse nightmare — MJOLNIR!"
           }
         ],
+        "winner": {
+          "id": "part-hh5ch23",
+          "condition": "JD"
+        },
         "bracket": "",
         "round": "SF1"
       },
       {
-        "id": "match-29gir5u",
-        "name": "3rd Place",
+        "id": "match-4ls944v",
+        "name": "Grudge Match 1",
         "participants": [
-          {},
-          {}
+          {
+            "id": "luecccm",
+            "introText": "He’s faster than a rumor in a small town and hits harder than a caffeine crash at midnight! With a cobalt blue disc that slices through steel like butter, he doesn’t just fight — he vanishes and reappears with vengeance. So sharpen your senses, hold your breath, and listen for the purr… because it’s time to welcome the one, the only — BLUE BLURRRR!"
+          },
+          {
+            "id": "part-dx6qvml",
+            "introText": "Precision engineered in Whangarei, calibrated for chaos - this isn't just a bot, she's a force multiplier! She rewrites the laws of leverage, she's the hinge of havoc, the hammer of fate! Brace yourselves for the mechanical reckoning: It's FULCRUUM"
+          }
         ],
+        "winner": {
+          "id": "luecccm",
+          "condition": "KO"
+        },
         "bracket": "",
         "round": "SF1"
       },
       {
         "id": "match-h7v1r9e",
-        "name": "11th Place",
+        "name": "Grudge Match 2",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-odwrzot",
+            "introText": "This isn’t Hell’s Kitchen — it’s the arena of agony, and tonight’s special is pain flambé! He might be wood, but don’t let that fool you — this chef slices, dices, and wedges his way through bots like they’re undercooked risotto. Rivals show up raw, and leave well done. So sharpen your knives and your reflexes. IT’S TIME FOR — CHEF WOOOODYYYYY!"
+          },
+          {
+            "id": "part-fdrxhj5",
+            "introText": "From the neon shadows of the grid comes a bot built for digital domination. With a vertical blade coded for carnage and a mind wired for mayhem, this rogue bot doesn’t just crash systems — it corrupts them. You can’t firewall the fury, and you can’t reboot your way out. Welcome to the end of your runtime — it's- KILLABYTE!"
+          }
         ],
+        "winner": {
+          "id": "part-odwrzot",
+          "condition": "KO"
+        },
         "bracket": "",
         "round": "SF1"
       },
@@ -839,21 +879,41 @@
         "id": "match-t3a7r4l",
         "name": "9th Place Final",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-aw653qy",
+            "introText": "Hold onto your seats and brace for bedlam! From the North and South of Aotearoa, these twin terrors are here to turn the arena into a warzone! One pins you down, the other blasts you sky-high — it’s chaos, carnage, and concussion-level hits! You thought one was bad? These two are a tag-team nightmare! Bring the noise! For SNOLLYGOSTER AND RAGAMUFFIN!"
+          },
+          {
+            "id": "part-uov2lni",
+            "introText": "He’s spinning out of control — and dragging you down with him! This melty menace broke out of robo prison and turned his chains into weapons of mass destruction. He’s a blur, a brawler, a ballistic nightmare! If you’re still standing when the dust settles, you weren’t in the arena. Auckland, make some noise for the meltdown master — CHAIN DAMAGE!"
+          }
         ],
         "bracket": "9th Place",
-        "round": "Final"
+        "round": "Final",
+        "winner": {
+          "id": "part-aw653qy",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-3amx1cg",
         "name": "Championship Final",
         "participants": [
-          {},
-          {}
+          {
+            "id": "part-qpm0bjg",
+            "introText": "You know the name, you've seen the carnage - now brace yourselves! He's cloaked in petals and powered by punishment. That split drum spinner? It’s not decoration — it’s devastation. He’s the beauty, the beast, and the nightmare in full bloom. So scream it loud, let the thorns fly, and welcome the ROBOT RAMPAGE DEFENDING CHAMPION — IT'S BLAAAACK ROOOOOOSE!!!"
+          },
+          {
+            "id": "0a41c0a",
+            "introText": "Forged in fury and fuelled by fear — he’s not just a bot, he’s a warning. They whisper his name in the pits. They flinch when the lights dim. Because when this bot enters the arena, mercy leaves the building. Steel bends, circuits fry, and hope dies. No redemption. No remorse. Just ruin. Make some noise for our grand final CHALLENGER the brutal, the unrelenting, OOOOBLITERAAATOR"
+          }
         ],
         "bracket": "Championship",
-        "round": "Final"
+        "round": "Final",
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "KO"
+        }
       }
     ],
     "name": "Bracket 2"

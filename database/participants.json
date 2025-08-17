@@ -108,7 +108,7 @@
   },
   {
     "id": "part-uov2lni",
-    "name": "Chain Damage",
+    "name": "Chain Damage & Moist Pony",
     "builders": "Kerey Watters",
     "videos": "Chain_Damage_A.mov",
     "weapon": "Thwack Bot",
@@ -293,7 +293,7 @@
     "videos": "",
     "weapon": "Drum Spinner",
     "isCompeting": true,
-    "isDead": true,
+    "isDead": false,
     "photo": "bot-photos/drumroll-pls.png",
     "teamPhoto": "team-photos/drumroll-pls.png",
     "weight": 11.6,

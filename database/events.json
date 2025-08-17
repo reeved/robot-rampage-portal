@@ -1,8 +1,8 @@
 [
   {
     "id": "may",
-    "currentMatchId": "match-4096jmb",
-    "miniTimerText": "Event starts in",
+    "currentMatchId": "match-3amx1cg",
+    "miniTimerText": "Match starts in",
     "qualifyingResults": {
       "part-04xspbq": {
         "wins": 2,
@@ -482,12 +482,52 @@
     ],
     "finalRankings": [
       {
+        "id": "part-qpm0bjg",
+        "position": 1
+      },
+      {
+        "id": "0a41c0a",
+        "position": 2
+      },
+      {
+        "id": "part-y3konnp",
+        "position": 3
+      },
+      {
+        "id": "part-04xspbq",
+        "position": 4
+      },
+      {
+        "id": "part-hh5ch23",
+        "position": 5
+      },
+      {
+        "id": "part-dllub2q",
+        "position": 6
+      },
+      {
         "id": "puvpwxl",
         "position": 7
       },
       {
         "id": "uvy1k73",
         "position": 8
+      },
+      {
+        "id": "part-aw653qy",
+        "position": 9
+      },
+      {
+        "id": "part-uov2lni",
+        "position": 10
+      },
+      {
+        "id": "part-fdrxhj5",
+        "position": 11
+      },
+      {
+        "id": "rot076r",
+        "position": 12
       },
       {
         "id": "3osxali",
