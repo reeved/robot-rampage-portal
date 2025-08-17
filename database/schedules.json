@@ -387,10 +387,12 @@
         "name": "Exhibition Match",
         "participants": [
           {
-            "id": "puvpwxl"
+            "id": "puvpwxl",
+            "introText": "She’s fast, feral, and foaming at the gears. With eyes like embers and blades like fangs, she hunts in silence — then strikes in screams. No cage can hold her, no prey escapes. This isn’t a fight… it’s a feeding frenzy. Make way for the wildfire with whiskers… FURY FOX!"
           },
           {
-            "id": "part-odwrzot"
+            "id": "part-odwrzot",
+            "introText": "He’s not here to serve — he’s here to slice. With a cleaver in one hand and chaos in the other, he dices dreams and flambés fear. Tonight’s special? Fox stew. Seasoned with spite, seared with steel. Bon appétit, battlers — it’s time to taste defeat from the one and only… CHEF WOODY!"
           }
         ]
       },
@@ -399,12 +401,19 @@
         "name": "Exhibition Match",
         "participants": [
           {
-            "id": "luecccm"
+            "id": "luecccm",
+            "introText": "He’s faster than a cyclone in a wind tunnel, slicker than oil on ice — it’s the high-velocity heartbreaker, the turbocharged tempest… BLUE BLUR!"
           },
           {
-            "id": "rot076r"
+            "id": "rot076r",
+            "videoName": "Haymaker_A.mov",
+            "introText": "Straight from the cutlery drawer of doom — it’s the bot that makes Gordon Ramsay cry and salad spinners tremble. Those prongs? They're not for pasta, they're for PAIN. He's not plated, he's serrated! So grab your napkins, folks it's about to get messy! The table's set, the forks are flying and the chaos is well done! Give it up for the culinary calamity - OOONLY FOOOORKS"
           }
-        ]
+        ],
+        "winner": {
+          "id": "rot076r",
+          "condition": "KO"
+        }
       },
       {
         "id": "match-xrt98ec",
@@ -959,58 +968,66 @@
     "type": "TEAMS",
     "matches": [
       {
-        "id": "teams-match-7rxofhx",
+        "id": "teams-match-qbama6m",
         "name": "Teams match",
         "participants": [
-          {},
-          {}
-        ]
+          {
+            "id": "8pii4jf"
+          },
+          {
+            "id": "part-qpm0bjg"
+          }
+        ],
+        "winner": {
+          "id": "part-qpm0bjg",
+          "condition": "KO"
+        }
       }
     ],
     "team1Name": "Team AUS",
     "team2Name": "Team NZ",
     "team1bots": [
       {
-        "id": "0a41c0a",
-        "status": "ALIVE"
-      },
-      {
-        "id": "3osxali",
-        "status": "ALIVE"
-      },
-      {
         "id": "uvy1k73",
-        "status": "ALIVE"
+        "status": "DEAD"
       },
       {
-        "id": "kf92kfb",
-        "status": "ALIVE"
+        "id": "0a41c0a",
+        "status": "DEAD"
       },
       {
         "id": "8pii4jf",
-        "status": "ALIVE"
+        "status": "ACTIVE"
+      },
+      {
+        "id": "kf92kfb",
+        "status": "DEAD"
+      },
+      {
+        "id": "3osxali",
+        "status": "DEAD"
       }
     ],
     "team2bots": [
       {
-        "id": "part-qpm0bjg",
-        "status": "ALIVE"
+        "id": "part-y3konnp",
+        "status": "DEAD"
       },
       {
         "id": "part-dllub2q",
-        "status": "ALIVE"
+        "status": "DEAD"
       },
       {
         "id": "part-hh5ch23",
-        "status": "ALIVE"
-      },
-      {
-        "id": "part-y3konnp",
-        "status": "ALIVE"
+        "status": "SUBBED"
       },
       {
         "id": "part-aw653qy",
-        "status": "ALIVE"
+        "status": "DEAD"
+      },
+      {
+        "id": "part-qpm0bjg",
+        "status": "ACTIVE"
       }
     ],
     "name": "Teams 1"
