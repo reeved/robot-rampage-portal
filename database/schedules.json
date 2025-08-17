@@ -381,6 +381,42 @@
           "id": "96j1t3r",
           "condition": "JD"
         }
+      },
+      {
+        "id": "match-1cqblh8",
+        "name": "Exhibition Match",
+        "participants": [
+          {
+            "id": "puvpwxl"
+          },
+          {
+            "id": "part-odwrzot"
+          }
+        ]
+      },
+      {
+        "id": "match-deq55x8",
+        "name": "Exhibition Match",
+        "participants": [
+          {
+            "id": "luecccm"
+          },
+          {
+            "id": "rot076r"
+          }
+        ]
+      },
+      {
+        "id": "match-xrt98ec",
+        "name": "Match 4",
+        "participants": [
+          {
+            "id": "part-aw653qy"
+          },
+          {
+            "id": "3osxali"
+          }
+        ]
       }
     ],
     "name": "Exhibition 1"
@@ -917,5 +953,66 @@
       }
     ],
     "name": "Bracket 2"
+  },
+  {
+    "id": "schedule-50q2ftu",
+    "type": "TEAMS",
+    "matches": [
+      {
+        "id": "teams-match-7rxofhx",
+        "name": "Teams match",
+        "participants": [
+          {},
+          {}
+        ]
+      }
+    ],
+    "team1Name": "Team AUS",
+    "team2Name": "Team NZ",
+    "team1bots": [
+      {
+        "id": "0a41c0a",
+        "status": "ALIVE"
+      },
+      {
+        "id": "3osxali",
+        "status": "ALIVE"
+      },
+      {
+        "id": "uvy1k73",
+        "status": "ALIVE"
+      },
+      {
+        "id": "kf92kfb",
+        "status": "ALIVE"
+      },
+      {
+        "id": "8pii4jf",
+        "status": "ALIVE"
+      }
+    ],
+    "team2bots": [
+      {
+        "id": "part-qpm0bjg",
+        "status": "ALIVE"
+      },
+      {
+        "id": "part-dllub2q",
+        "status": "ALIVE"
+      },
+      {
+        "id": "part-hh5ch23",
+        "status": "ALIVE"
+      },
+      {
+        "id": "part-y3konnp",
+        "status": "ALIVE"
+      },
+      {
+        "id": "part-aw653qy",
+        "status": "ALIVE"
+      }
+    ],
+    "name": "Teams 1"
   }
 ]

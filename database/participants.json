@@ -5,7 +5,7 @@
     "builders": "Steve Barker",
     "videos": "Bad_Blood_A.mov",
     "weapon": "Vertical Spinner",
-    "previousRank": "9th Place",
+    "previousRank": "4th Place",
     "funFact": "Taylor Swift",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/bad-blood.png",
@@ -17,12 +17,12 @@
     "id": "part-aw653qy",
     "name": "Snollygoster and Ragamuffin",
     "builders": "Mike Barry",
-    "videos": "",
+    "videos": "Snollygoster_B.mov,Snollygoster_Hero.mov",
     "weapon": "Multi-Bot (Push + Vert)",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/snolly-ragga.png",
     "weight": 13.6,
-    "previousRank": "",
+    "previousRank": "9th Place",
     "isCompeting": true,
     "teamPhoto": "team-photos/snolly-ragga.png",
     "otherNotes": "Offense\nSnolly - UHMWHBPE (UMPY) Chassis, brushless friction drive.\n\nRaga - UHMW Primary chassis, AR450 wedge, grade 5 Ti lid, brushless drive + weapon\nINTERNALS OF RAGAMUFFIN ARE FROM BLACKROSE\n\n4.2 kW weapon with 6s battery"
@@ -31,7 +31,7 @@
     "id": "part-hh5ch23",
     "name": "Borris",
     "builders": "Greg Anderson",
-    "videos": "Borris_A.mov",
+    "videos": "Borris_A.mov,Borris_Hero.mov",
     "weapon": "Vertical Spinner",
     "type": "FEATHERWEIGHT",
     "weight": 13.6,
@@ -49,7 +49,7 @@
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/killabyte.png",
     "weight": 13.6,
-    "previousRank": "4th Place",
+    "previousRank": "11th Place",
     "isCompeting": true,
     "teamPhoto": ""
   },
@@ -70,7 +70,7 @@
     "id": "part-qpm0bjg",
     "name": "Black Rose",
     "builders": "Connor Benton",
-    "videos": "Black_Rose_A.mov",
+    "videos": "Black_Rose_A.mov,Black_Rose_Hero.mov",
     "weapon": "Drum Spinner",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/black-rose.png",
@@ -96,12 +96,12 @@
     "id": "part-dllub2q",
     "name": "Mjölnir",
     "builders": "Paul Mumby",
-    "videos": "Mjolnir_A.mov",
+    "videos": "Mjolnir_A.mov,Mjolnir_Hero.mov",
     "weapon": "Horizontal Spinner",
     "type": "FEATHERWEIGHT",
     "photo": "bot-photos/mjolnir.png",
     "weight": 13.3,
-    "previousRank": "4th Place",
+    "previousRank": "6th Place",
     "isCompeting": true,
     "teamPhoto": "team-photos/mjolnir.png",
     "otherNotes": "Titanium frame, hardox 500 weapon\n4KG weapon, 6S battery. Weapon does 90m/s tip speed, 200mph.\n\nHits VERY hard but drives a bit slow.\nRobot is invertible and has full redundancy.\n4mm AR450 shock mount on the Ti frame."
@@ -118,7 +118,7 @@
     "isDead": false,
     "isCompeting": true,
     "teamPhoto": "team-photos/chain-damage.png",
-    "previousRank": "13th Place"
+    "previousRank": "10th Place"
   },
   {
     "id": "part-odwrzot",
@@ -128,7 +128,7 @@
     "weapon": "Pusher",
     "type": "FEATHERWEIGHT",
     "weight": 8.7,
-    "previousRank": "12th Place",
+    "previousRank": "16th Place",
     "photo": "bot-photos/chef-woody.png",
     "isCompeting": true,
     "teamPhoto": "team-photos/chef-woody.png"
@@ -137,7 +137,7 @@
     "id": "part-y3konnp",
     "name": "OnlyForks",
     "builders": "Ethan Kyle",
-    "videos": "Onlyforks_A.mov",
+    "videos": "Onlyforks_A.mov,Onlyforks_Hero.mov",
     "weapon": "Lifter",
     "type": "FEATHERWEIGHT",
     "weight": 13.5,
@@ -170,7 +170,7 @@
     "isDead": false,
     "isCompeting": true,
     "teamPhoto": "team-photos/fulcrum.png",
-    "previousRank": "15th Place"
+    "previousRank": "17th Place"
   },
   {
     "id": "uhunewo",
@@ -246,7 +246,7 @@
     "isCompeting": true,
     "isDead": false,
     "teamPhoto": "team-photos/haymaker.png",
-    "previousRank": "11th Place"
+    "previousRank": "12th Place"
   },
   {
     "id": "u0fr1y9",
@@ -269,21 +269,22 @@
     "weapon": "Vertical Spinner",
     "photo": "bot-photos/blue-blur.png",
     "isCompeting": true,
-    "previousRank": "10th Place"
+    "previousRank": "14th Place"
   },
   {
     "id": "0a41c0a",
     "type": "FEATHERWEIGHT",
     "name": "Obliterator",
     "builders": "James Kirby",
-    "videos": "Obliterator_A.mov",
+    "videos": "Obliterator_A.mov,Obliterator_Hero.mov",
     "weapon": "Horizontal Spinner",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/obliterator.png",
     "teamPhoto": "team-photos/obliterator.png",
     "weight": 13.1,
-    "otherNotes": "6061 Aluminium, HDPE and Hardox (weapon)\n4.5kg horz weapon, motor can pull 350+ Amps on start up, upto 4500RPM\n\nRebuilt from 2018 build\nAllll new except weapon motor and gearbox and esc\nAngle grinder gearbox used for weapon\n\n20mm shock mounted HDPE drive\n6mm hardox with alu frame\n"
+    "otherNotes": "6061 Aluminium, HDPE and Hardox (weapon)\n4.5kg horz weapon, motor can pull 350+ Amps on start up, upto 4500RPM\n\nRebuilt from 2018 build\nAllll new except weapon motor and gearbox and esc\nAngle grinder gearbox used for weapon\n\n20mm shock mounted HDPE drive\n6mm hardox with alu frame\n",
+    "previousRank": "2nd Place"
   },
   {
     "id": "hfk4hiu",
@@ -299,61 +300,66 @@
     "weight": 11.6,
     "town": "Penrose",
     "teamExperience": "Robot Rampage",
-    "otherNotes": "Offense\nThe drum is made of scrapped forklift parts. It will fork you up!\n\nWeapon top speed 14,000 RPM (20x faster than a helicopter rotor)\n\nThe weapon is part of the cooling system like a jet pushing cool air inside to keep everything from melting\n\nDefense\nPlastic armour outside is made of the same stuff Storm Troopers wear. Inner armour is made of high-tech metal. Together they might stop a bullet.\n\nFaster than a possum\n\nAlways lands right side up (like a cat? magician's coin?)\n\nPrototype was sliced with lasers and the final bot was carved with water."
+    "otherNotes": "Offense\nThe drum is made of scrapped forklift parts. It will fork you up!\n\nWeapon top speed 14,000 RPM (20x faster than a helicopter rotor)\n\nThe weapon is part of the cooling system like a jet pushing cool air inside to keep everything from melting\n\nDefense\nPlastic armour outside is made of the same stuff Storm Troopers wear. Inner armour is made of high-tech metal. Together they might stop a bullet.\n\nFaster than a possum\n\nAlways lands right side up (like a cat? magician's coin?)\n\nPrototype was sliced with lasers and the final bot was carved with water.",
+    "previousRank": "18th Place"
   },
   {
     "id": "3osxali",
     "type": "FEATHERWEIGHT",
     "name": "Tessellate",
     "builders": "James Kirby",
-    "videos": "",
+    "videos": "Tessallate_Hero.mov",
     "weapon": "Melty Brain",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/tessallate.png",
     "teamPhoto": "team-photos/tessallate.png",
     "weight": 12.5,
-    "otherNotes": "Mild steel frame with hardox teeth\n52 volt power system with 12.5kg weapon (yes you read that correctly)\nCustom electronics to control motion\nArmour is 3mm mild steel\n8kw drive power, essentially a very powerful skateboard\n\n\"Melty Brain tech\"\nInvertible\nMostly a tech demo made cheaply from the team's spare parts!"
+    "otherNotes": "Mild steel frame with hardox teeth\n52 volt power system with 12.5kg weapon (yes you read that correctly)\nCustom electronics to control motion\nArmour is 3mm mild steel\n8kw drive power, essentially a very powerful skateboard\n\n\"Melty Brain tech\"\nInvertible\nMostly a tech demo made cheaply from the team's spare parts!",
+    "previousRank": "13th Place"
   },
   {
     "id": "8pii4jf",
     "type": "FEATHERWEIGHT",
     "name": "Naptime",
     "builders": "Sam",
-    "videos": "",
+    "videos": "Naptime_Hero.mov",
     "weapon": "Hammer Saw",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/naptime.png",
     "teamPhoto": "team-photos/naptime.png",
-    "weight": 13.6
+    "weight": 13.6,
+    "previousRank": "15th Place"
   },
   {
     "id": "uvy1k73",
     "type": "FEATHERWEIGHT",
     "name": "Perry",
     "builders": "Hayden Moore",
-    "videos": "",
+    "videos": "Perry_Hero.mov",
     "weapon": "Eggbeater",
     "isCompeting": true,
     "isDead": false,
     "photo": "bot-photos/perry.png",
     "teamPhoto": "",
     "weight": 13.6,
-    "otherNotes": "Offense\n4140 steel weapon, dual tapered roller bearings, 20mm thick grade 5 Titanium shaft.\n\n12s (50Volt) battery. 4kW inrunner motor poly v belt drive\n\nPerry is semi aquatic\n\nDefense\nAluminium Chassis, HDPE armour, 3d printed tpu shocks\n\nBrushless 800kv 4250, 19:1 planetary gearbox\nbelts to front and back wheels\n\nEars allow it to drive upside down, spinning weapon cools motor + esc\n\nHas tail because Perry is a platypus"
+    "otherNotes": "Offense\n4140 steel weapon, dual tapered roller bearings, 20mm thick grade 5 Titanium shaft.\n\n12s (50Volt) battery. 4kW inrunner motor poly v belt drive\n\nPerry is semi aquatic\n\nDefense\nAluminium Chassis, HDPE armour, 3d printed tpu shocks\n\nBrushless 800kv 4250, 19:1 planetary gearbox\nbelts to front and back wheels\n\nEars allow it to drive upside down, spinning weapon cools motor + esc\n\nHas tail because Perry is a platypus",
+    "previousRank": "8th Place"
   },
   {
     "id": "kf92kfb",
     "type": "FEATHERWEIGHT",
     "name": "Inator",
     "builders": "Hayden Moore",
-    "videos": "",
+    "videos": "Inator_Hero.mov",
     "weapon": "Turret Hammer Saw",
     "isCompeting": false,
     "isDead": false,
     "photo": "bot-photos/inator.png",
     "teamPhoto": "team-photos/inator.png",
-    "weight": 13.6
+    "weight": 13.6,
+    "previousRank": "N/A"
   },
   {
     "id": "puvpwxl",
@@ -366,6 +372,7 @@
     "isDead": false,
     "photo": "bot-photos/fury-fox.png",
     "teamPhoto": "team-photos/fury-fox.png",
-    "weight": 13.6
+    "weight": 13.6,
+    "previousRank": "7th Place"
   }
 ]
