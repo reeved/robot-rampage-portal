@@ -8,6 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { MatchSchema, type Participant, type Schedule, TeamMatchSchema } from "@/db";
+import { Vmix } from "@/lib/vmix-api";
 import { dbMiddleware } from "@/middleware";
 import { getBotVideos } from "./-queue-match-form";
 
@@ -25,6 +26,8 @@ const updateMatch = createServerFn({
 
 		schedule.matches = schedule.matches.map((m) => (m.id === data.id ? data : m));
 		await context.db.schedule.updateOne((s) => s.id === schedule.id, schedule);
+		await Vmix.UpdateListsForMatch(data.participants[0].videoName, data.participants[1].videoName);
+
 		return data;
 	});
 
