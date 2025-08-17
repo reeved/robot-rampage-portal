@@ -6,7 +6,11 @@ export const Route = createFileRoute("/admin_/timer")({
 });
 
 function RouteComponent() {
-	const { currentTime, customMessage } = useTimer("MATCH");
+	const { currentTime: matchTime, customMessage: matchCustomMessage, timeLeft: matchTimeLeft } = useTimer("MATCH");
+	const { currentTime: eventTime, customMessage: eventCustomMessage } = useTimer("EVENT");
+
+	const currentTime = matchTimeLeft ? matchTime : eventTime;
+	const customMessage = matchCustomMessage || eventCustomMessage;
 
 	return (
 		<div className="h-full w-full overflow-hidden flex justify-center items-center text-center text-primary font-extrabold text-[35vw]">
