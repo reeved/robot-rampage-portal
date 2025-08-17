@@ -39,7 +39,7 @@ export const SharedStats = ({ bot1, bot2 }: Props) => {
 			<InfoRow heading="Weapon Type" valueBot1={bot1?.weapon || "N/A"} valueBot2={bot2?.weapon || "N/A"} />
 			<InfoRow heading="Weight" valueBot1={`${bot1?.weight ?? 0} KG`} valueBot2={`${bot2?.weight ?? 0} KG`} />
 			<InfoRow
-				heading="Rank at last event"
+				heading="Rank in Tournament"
 				valueBot1={bot1?.previousRank ?? "N/A"}
 				valueBot2={bot2?.previousRank ?? "N/A"}
 			/>

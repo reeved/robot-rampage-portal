@@ -25,6 +25,7 @@ export const BotImage = ({ src, color }: { src?: string; color: "orange" | "blue
 };
 
 type Props = {
+	showStats: boolean;
 	details: Array<{
 		participant?: Participant;
 		rank?: number;
@@ -33,7 +34,7 @@ type Props = {
 	}>;
 };
 
-export const BotInfo = ({ details }: Props) => {
+export const BotInfo = ({ details, showStats }: Props) => {
 	const [bot1Info, bot2Info] = details;
 
 	// if (!participant) {
@@ -59,12 +60,12 @@ export const BotInfo = ({ details }: Props) => {
 						className={cn(
 							"text-6xl uppercase font-rubik",
 							bot1Info.participant?.name?.length && bot1Info.participant?.name?.length > 12 && "text-4xl",
-							!bot1Info.stats && "my-auto",
+							(!showStats || !bot1Info.stats) && "my-auto",
 						)}
 					>
 						{bot1Info.participant?.name ?? "TBD"}
 					</div>
-					{bot1Info.stats && (
+					{showStats && bot1Info.stats && (
 						<div className="mt-4 mb-0  flex gap-2 items-center justify-center">
 							{bot1Info.rank && (
 								<span className="bg-yellow-400 -mr-4 w-[2ch] h-[2ch] aspect-square rounded text-black font-heading uppercase text-xl flex items-center justify-center">
@@ -107,12 +108,12 @@ export const BotInfo = ({ details }: Props) => {
 						className={cn(
 							"text-6xl  uppercase font-rubik",
 							bot2Info.participant?.name?.length && bot2Info.participant?.name?.length > 12 && "text-4xl",
-							!bot2Info.stats && "my-auto",
+							(!showStats || !bot2Info.stats) && "my-auto",
 						)}
 					>
 						{bot2Info.participant?.name ?? "TBD"}
 					</div>
-					{bot2Info.stats && (
+					{showStats && bot2Info.stats && (
 						<div className="mt-4 mb-0 flex gap-2 items-center justify-center">
 							{bot2Info.rank && (
 								<span className="bg-yellow-400 -mr-4 w-[2ch] h-[2ch] aspect-square rounded text-black font-heading uppercase text-xl flex items-center justify-center">

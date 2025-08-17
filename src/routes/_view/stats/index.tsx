@@ -1,7 +1,7 @@
-import { dbMiddleware } from "@/middleware";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { dbMiddleware } from "@/middleware";
 import { BotImage, BotInfo } from "./-bot-card";
 import { SharedStats } from "./-shared-stats";
 
@@ -76,6 +76,7 @@ function RouteComponent() {
 			</div>
 			<div className="bg-black py-10 px-4 flex justify-center items-center mt-10">
 				<BotInfo
+					showStats={schedule.type !== "TEAMS"}
 					details={[
 						{
 							participant: participants[0],
