@@ -15,8 +15,8 @@ const API_ENDPOINTS = {
 const EVENT_ENDPOINTS = {
 	get: "/api/timer/event",
 	start: "/api/timer/event/start?duration=30",
-	startFrom5: "/api/timer/event/start?duration=15&countdown=true",
-	startFrom130: "/api/timer/event/start?duration=126&countdown=true",
+	startFrom5: "/api/timer/event/start?duration=15",
+	startFrom130: "/api/timer/event/start?duration=126",
 	pause: "/api/timer/event/pause",
 	reset: "/api/timer/event/restart",
 	resume: "/api/timer/event/resume",
