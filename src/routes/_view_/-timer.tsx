@@ -24,15 +24,16 @@ const EVENT_ENDPOINTS = {
 
 // Utility function to format seconds as "x:YY mins"
 export const formatTimeAsMinutes = (seconds: number) => {
-	if (seconds <= 0) return { minutes: "0", seconds: "00" };
+	if (seconds <= 0) return { minutes: "00", seconds: "00" };
 
 	const minutes = Math.floor(seconds / 60);
 	const remainingSeconds = Math.floor(seconds % 60);
 
 	// Format seconds with leading zero if needed
 	const formattedSeconds = remainingSeconds.toString().padStart(2, "0");
+	const formattedMinutes = minutes.toString().padStart(2, "0");
 
-	return { minutes: minutes.toString(), seconds: formattedSeconds };
+	return { minutes: formattedMinutes, seconds: formattedSeconds };
 };
 
 // Generic fetch function with explicit type parameter
@@ -72,7 +73,7 @@ export const useTimer = (
 	if (!data) {
 		return {
 			customMessage: null,
-			currentTime: { minutes: "0", seconds: "00" },
+			currentTime: { minutes: "00", seconds: "00" },
 			isRunning: false,
 			timeLeft: 0,
 		};
@@ -87,12 +88,12 @@ export const useTimer = (
 };
 
 export const TimeText = ({ currentTime }: { currentTime: { minutes: string; seconds: string } }) => {
-	if (currentTime.minutes === "0" && currentTime.seconds === "00") {
+	if (currentTime.minutes === "00" && currentTime.seconds === "00") {
 		return null;
 	}
 	return (
 		<div className="font-light font-rubik text-center flex">
-			<div className="w-[1ch]">{currentTime.minutes}</div>
+			<div className="w-[2ch]">{currentTime.minutes}</div>
 			<div className="w-[1ch]">:</div>
 			<div className="w-[2ch]">{currentTime.seconds}</div>
 		</div>

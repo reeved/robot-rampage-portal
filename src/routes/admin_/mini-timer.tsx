@@ -28,7 +28,7 @@ export const Route = createFileRoute("/admin_/mini-timer")({
 function RouteComponent() {
 	const { currentTime } = useTimer("EVENT");
 
-	const timeIsZero = currentTime.minutes === "0" && currentTime.seconds === "00";
+	const timeIsZero = currentTime.minutes === "00" && currentTime.seconds === "00";
 
 	const { data } = useQuery(eventQuery);
 

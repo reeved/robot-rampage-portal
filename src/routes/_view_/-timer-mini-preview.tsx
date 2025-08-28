@@ -5,7 +5,7 @@ export const TimerMiniPreview = ({ children }: PropsWithChildren) => {
 		<div
 			className="
     relative
-    w-46
+    w-50
     h-20
     bg-primary
     shadow-2xl
