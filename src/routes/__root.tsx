@@ -1,13 +1,14 @@
 /// <reference types="vite/client" />
-import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
+import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+
 // import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 // import TanstackQueryLayout from "../integrations/tanstack-query/layout";
 
-import appCss from "../styles.css?url";
+import type { QueryClient } from "@tanstack/react-query";
 
 import { Toaster } from "@/components/ui/sonner";
-import type { QueryClient } from "@tanstack/react-query";
+import appCss from "../styles.css?url";
 
 interface MyRouterContext {
 	queryClient: QueryClient;
@@ -31,6 +32,12 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			{
 				rel: "stylesheet",
 				href: appCss,
+			},
+			{
+				rel: "icon",
+				type: "image/png",
+				sizes: "32x32",
+				href: "/favicon.png",
 			},
 		],
 	}),

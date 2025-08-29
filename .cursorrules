@@ -9,3 +9,10 @@ pnpx shadcn@latest add button
 # CLI instructions
 
 Use Bun instead of npm/pnpm/yarn etc.
+
+
+# General instructions 
+- Keep track of what you are doing at all times. Store a summary of each action, decision etc you make in a file called 'agent-summary.md' in the repo root
+- Prefer easy to ready solutions
+- Stick to repo standards
+- Think about solutions and present them to me, before applying changes

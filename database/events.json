@@ -1,6 +1,7 @@
 [
   {
     "id": "may",
+    "isActive": true,
     "currentMatchId": "match-1cqblh8",
     "miniTimerText": "Match starts in",
     "qualifyingResults": {
@@ -552,26 +553,6 @@
       {
         "id": "hfk4hiu",
         "position": 18
-      }
-    ]
-  },
-  {
-    "id": "august",
-    "bracketNames": [
-      "Championship",
-      "5th Place",
-      "9th Place"
-    ],
-    "qualifyingResults": {},
-    "rankings": [],
-    "brackets": [
-      {
-        "name": "Championship",
-        "size": 8
-      },
-      {
-        "name": "Bottom 16",
-        "size": 8
       }
     ]
   }
