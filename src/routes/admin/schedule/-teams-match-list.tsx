@@ -59,7 +59,7 @@ const SortableBotCard = ({ team, botIndex, participants, form }: SortableBotCard
 
 	return (
 		<div ref={setNodeRef} style={style} className="relative">
-			<Card className="p-2 w-150 bg-zinc-800 border-zinc-700 hover:border-zinc-600 transition-colors">
+			<Card className="p-2 w-150 bg-zinc-800 border-zinc-700 hover:border-zinc-600 transition-colors rounded-md">
 				{/* Drag handle - only this area should be draggable */}
 				<div
 					{...attributes}
@@ -340,11 +340,8 @@ export const TeamsMatchList = ({
 		<div className="flex flex-row gap-4">
 			<Form {...form}>
 				<DevTool control={form.control} placement="top-right" />
-				<form
-					onSubmit={form.handleSubmit(onSubmit)}
-					// className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg"
-				>
-					<div className="p-6 gap-y-6 flex bg-zinc-900 rounded-xl shadow-lg">
+				<form onSubmit={form.handleSubmit(onSubmit)} className="p-6 gap-y-6 flex bg-zinc-900 rounded-md shadow-lg">
+					<div className="p-6 gap-y-6 flex bg-zinc-900 rounded-md shadow-lg">
 						<div className="flex-1 flex flex-col gap-10">
 							<TeamName fieldName="team1Name" form={form} />
 							<TeamList team="team1" participants={participants} form={form} />

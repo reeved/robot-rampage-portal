@@ -56,7 +56,7 @@ export const TeamsMatchForm = ({ participants, defaultValues }: Props) => {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="p-6 gap-y-6 flex flex-col items-start  bg-zinc-900 rounded-xl shadow-lg"
+				className="p-6 gap-y-6 flex flex-col items-start  bg-zinc-900 rounded-md shadow-lg"
 			>
 				<div className="flex justify-between w-full">
 					<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>

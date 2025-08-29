@@ -7,6 +7,7 @@ import { DeleteConfirmation } from "@/components/ui/delete-confirmation";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { type BracketMatch, BracketMatchSchema, type Participant, type Schedule } from "@/db";
 import { deleteMatch } from "./-qualifying-match-form";
@@ -40,7 +41,7 @@ export const BracketMatchForm = ({ bracketNames, participants, onSubmit, default
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="p-6 gap-y-6 flex flex-col items-start  bg-zinc-900 rounded-xl shadow-lg"
+				className="p-4 flex flex-col items-start  bg-zinc-900 rounded-md shadow-lg"
 			>
 				<div className="flex justify-between w-full">
 					<h2 className="text-lg font-bold text-white mb-2">EDIT MATCH</h2>
@@ -55,207 +56,215 @@ export const BracketMatchForm = ({ bracketNames, participants, onSubmit, default
 					)}
 				</div>
 
-				<FormField
-					name="name"
-					control={form.control}
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Name</FormLabel>
-							<FormControl>
-								<Input {...field} placeholder="Match name" />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-
 				<div className="flex gap-4">
 					<FormField
-						name="bracket"
+						name="name"
 						control={form.control}
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className="text-white">Bracket</FormLabel>
+								<FormLabel>Name</FormLabel>
 								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select bracket" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{bracketNames.map((name) => (
-												<SelectItem key={name} value={name} className="font-bold">
-													{name}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
+									<Input {...field} placeholder="Match name" />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
 						)}
 					/>
 
-					<FormField
-						name="round"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">Round</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select round" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{["QF1", "QF2", "QF3", "QF4", "SF1", "SF2", "Final"].map((name) => (
-												<SelectItem key={name} value={name} className="font-bold">
-													{name}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+					<div className="flex gap-4">
+						<FormField
+							name="bracket"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className="text-white">Bracket</FormLabel>
+									<FormControl>
+										<Select value={field.value} onValueChange={field.onChange}>
+											<SelectTrigger className="bg-zinc-800 text-white font-bold">
+												<SelectValue placeholder="Select bracket" />
+											</SelectTrigger>
+											<SelectContent className="bg-zinc-800 text-white">
+												{bracketNames.map((name) => (
+													<SelectItem key={name} value={name} className="font-bold">
+														{name}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+
+						<FormField
+							name="round"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className="text-white">Round</FormLabel>
+									<FormControl>
+										<Select value={field.value} onValueChange={field.onChange}>
+											<SelectTrigger className="bg-zinc-800 text-white font-bold">
+												<SelectValue placeholder="Select round" />
+											</SelectTrigger>
+											<SelectContent className="bg-zinc-800 text-white">
+												{["QF1", "QF2", "QF3", "QF4", "SF1", "SF2", "Final"].map((name) => (
+													<SelectItem key={name} value={name} className="font-bold">
+														{name}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
 				</div>
+				<Separator orientation="horizontal" className="my-4" />
 
-				<div className="flex gap-4">
-					<FormField
-						name="participants.0.id"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">
-									Bot 1 <span className="text-rrorange font-medium">(ORANGE)</span>
-								</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select bot 1" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{participants.map((p) => (
-												<SelectItem key={p.id} value={p.id} className="font-bold">
-													{p.name}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+				<div className="flex gap-10 lg:flex-row flex-col w-full">
+					<div className="flex flex-1 flex-col gap-4">
+						<div className="flex gap-4">
+							<FormField
+								name="participants.0.id"
+								control={form.control}
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-white">
+											Bot 1 <span className="text-rrorange font-medium">(ORANGE)</span>
+										</FormLabel>{" "}
+										<FormControl>
+											<Select value={field.value} onValueChange={field.onChange}>
+												<SelectTrigger className="bg-zinc-800 text-white font-bold">
+													<SelectValue placeholder="Select bot 1" />
+												</SelectTrigger>
+												<SelectContent className="bg-zinc-800 text-white">
+													{participants.map((p) => (
+														<SelectItem key={p.id} value={p.id} className="font-bold">
+															{p.name}
+														</SelectItem>
+													))}
+												</SelectContent>
+											</Select>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
 
-					<FormField
-						name="participants.0.videoName"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">Bot 1 Video</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select bot 1 video" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{bot1Videos.map((video) => (
-												<SelectItem key={video} value={video} className="font-bold">
-													{video}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+							<FormField
+								name="participants.0.videoName"
+								control={form.control}
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-white">Bot 1 Video</FormLabel>
+										<FormControl>
+											<Select value={field.value} onValueChange={field.onChange}>
+												<SelectTrigger className="bg-zinc-800 text-white font-bold">
+													<SelectValue placeholder="Select bot 1 video" />
+												</SelectTrigger>
+												<SelectContent className="bg-zinc-800 text-white">
+													{bot1Videos.map((video) => (
+														<SelectItem key={video} value={video} className="font-bold">
+															{video}
+														</SelectItem>
+													))}
+												</SelectContent>
+											</Select>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+
+						<FormField
+							name="participants.0.introText"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Bot 1 Intro Text</FormLabel>
+									<FormControl>
+										<Textarea {...field} placeholder="Intro text" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<div className="flex flex-1 flex-col gap-4">
+						<div className="flex gap-4">
+							<FormField
+								name="participants.1.id"
+								control={form.control}
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-white">
+											Bot 2 <span className="text-rrblue font-medium">(BLUE)</span>
+										</FormLabel>{" "}
+										<FormControl>
+											<Select value={field.value} onValueChange={field.onChange}>
+												<SelectTrigger className="bg-zinc-800 text-white font-bold">
+													<SelectValue placeholder="Select bot 2" />
+												</SelectTrigger>
+												<SelectContent className="bg-zinc-800 text-white">
+													{participants.map((p) => (
+														<SelectItem key={p.id} value={p.id} className="font-bold">
+															{p.name}
+														</SelectItem>
+													))}
+												</SelectContent>
+											</Select>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+
+							<FormField
+								name="participants.1.videoName"
+								control={form.control}
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel className="text-white">Bot 2 Video</FormLabel>
+										<FormControl>
+											<Select value={field.value} onValueChange={field.onChange}>
+												<SelectTrigger className="bg-zinc-800 text-white font-bold">
+													<SelectValue placeholder="Select bot 2 video" />
+												</SelectTrigger>
+												<SelectContent className="bg-zinc-800 text-white">
+													{bot2Videos.map((video) => (
+														<SelectItem key={video} value={video} className="font-bold">
+															{video}
+														</SelectItem>
+													))}
+												</SelectContent>
+											</Select>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+
+						<FormField
+							name="participants.1.introText"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Bot 2 Intro Text</FormLabel>
+									<FormControl>
+										<Textarea {...field} placeholder="Intro text" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
 				</div>
-
-				<FormField
-					name="participants.0.introText"
-					control={form.control}
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Bot 1 Intro Text</FormLabel>
-							<FormControl>
-								<Textarea {...field} placeholder="Intro text" rows={3} className="w-[60ch]" />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-
-				<div className="flex gap-4">
-					<FormField
-						name="participants.1.id"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">
-									Bot 2 <span className="text-rrblue font-medium">(BLUE)</span>
-								</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select bot 2" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{participants.map((p) => (
-												<SelectItem key={p.id} value={p.id} className="font-bold">
-													{p.name}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					<FormField
-						name="participants.1.videoName"
-						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel className="text-white">Bot 2 Video</FormLabel>
-								<FormControl>
-									<Select value={field.value} onValueChange={field.onChange}>
-										<SelectTrigger className="bg-zinc-800 text-white font-bold">
-											<SelectValue placeholder="Select bot 2 video" />
-										</SelectTrigger>
-										<SelectContent className="bg-zinc-800 text-white">
-											{bot2Videos.map((video) => (
-												<SelectItem key={video} value={video} className="font-bold">
-													{video}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-				</div>
-
-				<FormField
-					name="participants.1.introText"
-					control={form.control}
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Bot 2 Intro Text</FormLabel>
-							<FormControl>
-								<Textarea {...field} placeholder="Intro text" rows={3} className="w-[60ch]" />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
 
 				<Button type="submit" variant="default" className="w-full mt-6 py-3 text-lg font-bold">
 					SAVE

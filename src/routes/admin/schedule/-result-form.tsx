@@ -246,7 +246,7 @@ export const ResultForm = ({ scheduleId, match, participants }: Props) => {
 
 	return (
 		<Form {...form}>
-			<form className="p-6 gap-y-6 flex flex-col items-start w-full bg-zinc-900 rounded-xl shadow-lg">
+			<form className="p-6 gap-y-6 flex flex-col items-start w-full bg-zinc-900 rounded-md shadow-lg">
 				<div className="flex items-center justify-between w-full">
 					<h2 className="text-lg font-bold text-white mb-2">UPDATE RESULT</h2>
 					<Button type="button" onClick={clearResult} variant="default" className="font-bold">

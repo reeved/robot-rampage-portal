@@ -1,9 +1,9 @@
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import type { Schedule } from "@/db";
 import { generateId } from "@/lib/utils";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { BracketMatchForm } from "./-bracket-match-form";
 import { getSchedule } from "./$id";
 import { updateSchedule } from "./$id.$matchId";
-import { BracketMatchForm } from "./-bracket-match-form";
 
 export const Route = createFileRoute("/admin/schedule/$id/newbracket")({
 	component: RouteComponent,
@@ -30,7 +30,7 @@ function RouteComponent() {
 	};
 
 	return (
-		<div>
+		<div className="flex flex-col gap-y-6 2xl:col-span-7">
 			<BracketMatchForm
 				bracketNames={bracketNames}
 				participants={participants}

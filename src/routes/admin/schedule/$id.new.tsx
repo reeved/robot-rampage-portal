@@ -1,9 +1,9 @@
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import type { Schedule } from "@/db";
 import { generateId } from "@/lib/utils";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { QualifyingMatchForm } from "./-qualifying-match-form";
 import { getSchedule } from "./$id";
 import { updateSchedule } from "./$id.$matchId";
-import { QualifyingMatchForm } from "./-qualifying-match-form";
 
 export const Route = createFileRoute("/admin/schedule/$id/new")({
 	component: RouteComponent,
@@ -29,7 +29,7 @@ function RouteComponent() {
 	};
 
 	return (
-		<div>
+		<div className="flex flex-col gap-y-6 2xl:col-span-7">
 			<QualifyingMatchForm
 				participants={participants}
 				onSubmit={handleUpdate}
