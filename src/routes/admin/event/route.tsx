@@ -1,5 +1,6 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export const Route = createFileRoute("/admin/event")({
 	component: RouteComponent,
@@ -7,9 +8,12 @@ export const Route = createFileRoute("/admin/event")({
 
 function RouteComponent() {
 	return (
-		<div className="py-6 grid grid-cols-6 gap-4 h-full">
-			<div className="col-span-1 border-r-2 border-white px-4">
-				<h1 className="text-2xl font-bold mb-6">Event config</h1>
+		<div className="grid grid-cols-6 gap-4 h-full">
+			<div className="col-span-1 border-r-2 border-white pr-4">
+				<div className="flex flex-row items-center gap-2 mb-6">
+					<SidebarTrigger className="text-lg" />
+					<h1 className="text-2xl font-bold">Event config</h1>
+				</div>
 				<div className="flex flex-col gap-2">
 					<Link to="/admin/event/general">
 						<Button variant="secondary" className="w-full">

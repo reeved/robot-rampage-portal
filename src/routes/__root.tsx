@@ -59,7 +59,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body className="flex flex-col h-screen overflow-y-auto">
+			<body className="flex flex-col h-screen overflow-hidden">
 				{children}
 				<Scripts />
 			</body>

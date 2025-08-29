@@ -1,10 +1,10 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import { createFileRoute } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
 
 const getParticipantInfo = createServerFn({
 	method: "GET",
@@ -40,10 +40,11 @@ function RouteComponent() {
 	const { participant, matches, allParticipants } = data;
 
 	return (
-		<Card className="col-span-2">
+		<Card className="col-span-2 overflow-hidden">
 			<CardHeader>
 				<CardTitle className="text-2xl font-bold">{participant.name}</CardTitle>
-
+			</CardHeader>
+			<CardContent className="p-2">
 				<h3 className="text-lg font-bold mt-10 mb-4">Matches</h3>
 				{matches.length > 0 ? (
 					<div className="flex flex-col gap-2">
@@ -52,12 +53,12 @@ function RouteComponent() {
 							const bot2 = allParticipants.find((p) => p.id === match.participants[1].id);
 
 							return (
-								<Card key={match.id}>
-									<CardContent>
-										<div className="flex items-center gap-4">
+								<Card key={match.id} className="p-0">
+									<CardContent className="p-4">
+										<div className="flex flex-col items-center gap-4 overflow-hidden">
 											<Badge
 												variant="secondary"
-												className={cn("text-lg", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
+												className={cn("text-lg truncate", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
 											>
 												{bot1?.name || "TBD"}
 											</Badge>
@@ -86,7 +87,7 @@ function RouteComponent() {
 				) : (
 					<div>No matches found</div>
 				)}
-			</CardHeader>
+			</CardContent>
 		</Card>
 	);
 }

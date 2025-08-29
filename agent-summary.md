@@ -18,3 +18,19 @@
   - Changed placeholder routes from `"#"` to `"/" as const` for type safety
   - All navigation items now use TanStack Router's typed `Link` component
   - Compiler will now catch invalid route paths at build time
+
+- Date/Time: 2025-08-29
+- Task: Prevent page scroll; make rankings table content scroll within viewport.
+- Decisions:
+  - Use ScrollArea from `@/components/ui/scroll-area` for the rankings table body.
+  - Disable global body scroll via `overflow-hidden` while keeping `h-screen`.
+  - Use flex layout with `flex-1 min-h-0` to allocate space and allow internal scrolling.
+- Edits:
+  - `src/routes/__root.tsx`: Changed `<body>` classes to `flex flex-col h-screen overflow-hidden`.
+  - `src/routes/admin/rankings/route.tsx`:
+    - Imported `ScrollArea`.
+    - Made outer grid and left column full-height (`h-full`) and flex column.
+    - Updated `Card` to `flex-1 min-h-0 flex flex-col`.
+    - Updated `CardContent` to `flex-1 min-h-0 p-0` and wrapped `<Table>` in `<ScrollArea className="h-full w-full">`.
+    - Removed fixed `max-h` and overflow classes from `TableBody` so ScrollArea controls scrolling.
+- Validation: Ran lints on edited files; no issues found.

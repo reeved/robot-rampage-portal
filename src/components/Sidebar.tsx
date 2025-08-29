@@ -16,6 +16,7 @@ import {
 	SidebarMenuSubItem,
 	SidebarRail,
 } from "@/components/ui/sidebar";
+import { Separator } from "./ui/separator";
 
 type NavLeaf = {
 	title: string;
@@ -33,11 +34,11 @@ type NavGroup = {
 const data: { navMain: NavGroup[] } = {
 	navMain: [
 		{
-			title: "Admin",
+			title: "Manage Event",
 			to: "/admin",
 			items: [
 				{
-					title: "Event",
+					title: "Event Config",
 					to: "/admin/event",
 				},
 				{
@@ -99,6 +100,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar {...props}>
 			<SidebarHeader>
+				<h2 className="text-md font-heading text-primary text-center">Robot Rampage Portal</h2>
+				<Separator className="my-2" />
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SidebarMenuButton size="lg" asChild>

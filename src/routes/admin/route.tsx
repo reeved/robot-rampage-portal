@@ -12,8 +12,8 @@ function RouteComponent() {
 		<SidebarProvider>
 			<AppSidebar />
 			<SidebarInset>
-				<div className="h-full flex flex-col">
-					<Header />
+				<div className="h-full flex flex-col p-4">
+					{/* <Header /> */}
 					<Outlet />
 				</div>
 			</SidebarInset>

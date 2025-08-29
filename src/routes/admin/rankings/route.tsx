@@ -3,6 +3,8 @@ import { createFileRoute, createLink, Outlet } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { Participant } from "@/db";
 import { cn } from "@/lib/utils";
@@ -78,18 +80,18 @@ function RouteComponent() {
 	};
 
 	return (
-		<div className="grid grid-cols-6 px-20 gap-20">
-			<div className="p-6 col-span-4">
-				<div className="mb-6">
-					<h1 className="text-3xl font-bold mb-2">Robot Rampage Rankings</h1>
+		<div className="grid grid-cols-12 gap-4 h-full max-h-full overflow-hidden">
+			<div className="col-span-10 h-full flex flex-col max-h-full overflow-hidden gap-y-4">
+				<div>
+					<div className="flex flex-row items-center gap-2">
+						<SidebarTrigger />
+						<h1 className="text-2xl font-bold">Event Rankings</h1>
+					</div>
 					<p className="text-muted-foreground">Current standings based on qualifying round performance</p>
 				</div>
 
-				<Card>
-					<CardHeader>
-						<CardTitle>Rankings Table</CardTitle>
-					</CardHeader>
-					<CardContent>
+				<Card className="flex-1 min-h-0 flex flex-col p-0">
+					<CardContent className="p-0 overflow-y-auto overflow-x-auto">
 						<Table>
 							<TableHeader>
 								<TableRow>
@@ -167,39 +169,6 @@ function RouteComponent() {
 						</Table>
 					</CardContent>
 				</Card>
-
-				<div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-					<Card>
-						<CardHeader>
-							<CardTitle className="text-lg">Active Robots</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<div className="text-2xl font-bold text-green-600">
-								{rankings.filter((r) => r.participant?.isCompeting && !r.participant?.isDead).length}
-							</div>
-						</CardContent>
-					</Card>
-
-					<Card>
-						<CardHeader>
-							<CardTitle className="text-lg">Eliminated</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<div className="text-2xl font-bold text-red-600">
-								{rankings.filter((r) => r.participant?.isDead).length}
-							</div>
-						</CardContent>
-					</Card>
-
-					<Card>
-						<CardHeader>
-							<CardTitle className="text-lg">Total Participants</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<div className="text-2xl font-bold">{rankings.length}</div>
-						</CardContent>
-					</Card>
-				</div>
 			</div>
 			<Outlet />
 		</div>

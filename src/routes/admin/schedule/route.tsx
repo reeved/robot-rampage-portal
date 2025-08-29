@@ -1,9 +1,10 @@
+import { createFileRoute, Link, Outlet, useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import type { Schedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
 import { dbMiddleware } from "@/middleware";
-import { Link, Outlet, createFileRoute, useRouter } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
 
 export const getSchedules = createServerFn({
 	method: "GET",
@@ -152,8 +153,12 @@ function RouteComponent() {
 	return (
 		<div className="flex h-full flex-1">
 			<div className="w-2/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
-				<div className="flex flex-wrap flex-col items-center gap-2 justify-between w-full px-4">
-					<h4 className="text-2xl font-bold">Sessions</h4>
+				<div className="flex flex-wrap flex-col gap-2 justify-between w-full pr-4">
+					<div className="flex flex-row items-center gap-2">
+						<SidebarTrigger />
+						<h4 className="text-2xl font-bold">Sessions</h4>
+					</div>
+
 					<div className="flex flex-wrap w-full gap-2">
 						<Button variant="default" onClick={addNewQualifying}>
 							Add new Quali +
@@ -176,7 +181,7 @@ function RouteComponent() {
 						key={s.id}
 						variant="secondary"
 						className={cn(
-							"px-4 py-4 rounded-sm  self-stretch mx-4 font-bold",
+							"px-4 py-4 rounded-sm  self-stretch mr-4 font-bold",
 							s.matches.some((m) => m.id === currentMatchId) && "text-green-500",
 						)}
 					>
