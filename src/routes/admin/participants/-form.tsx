@@ -182,7 +182,7 @@ export const ParticipantForm = ({
 										type="number"
 										placeholder="Bot weight (Kg)"
 										className="w-[20ch]"
-										onChange={(e) => field.onChange(e.target.value ? Number.parseFloat(e.target.value) : undefined)}
+										onChange={(e) => field.onChange(e.target.value ? Number.parseFloat(e.target.value) : null)}
 									/>
 								</FormControl>
 								<FormMessage />
