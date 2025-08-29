@@ -1,11 +1,12 @@
+import { Link, useRouter } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
+import { PlusIcon } from "lucide-react";
+import { toast } from "sonner";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { DeleteConfirmation } from "@/components/ui/delete-confirmation";
 import type { Participant, Schedule } from "@/db";
 import { dbMiddleware } from "@/middleware";
-import { Link, useRouter } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
-import { toast } from "sonner";
-import { z } from "zod";
 import { MatchList } from "./-match-list";
 import { TeamsMatchList } from "./-teams-match-list";
 
@@ -44,10 +45,10 @@ export const ViewSchedule = ({
 	};
 
 	return (
-		<div className="flex gap-6">
+		<div className="flex gap-6 2xl:col-span-5">
 			<div className="flex flex-col gap-2 flex-1">
-				<div className="flex items-center justify-between mb-10 gap-4">
-					<h1 className="flex-1 text-2xl font-bold">{schedule.name}</h1>
+				<div className="flex items-center justify-between mb-4 gap-4">
+					<h1 className="flex-1 text-xl font-bold">{schedule.name}</h1>
 
 					{schedule.type !== "TEAMS" && (
 						<Link
@@ -55,7 +56,8 @@ export const ViewSchedule = ({
 							params={{ id: schedule.id }}
 						>
 							<Button type="button" variant="default">
-								Add new match +
+								<PlusIcon className="w-4 h-4" />
+								Add new match
 							</Button>
 						</Link>
 					)}

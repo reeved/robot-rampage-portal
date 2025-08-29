@@ -1,15 +1,10 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import type { Match, Participant, Schedule } from "@/db";
-import { cn } from "@/lib/utils";
-import { dbMiddleware } from "@/middleware";
 import {
+	closestCenter,
 	DndContext,
 	type DragEndEvent,
 	DragOverlay,
 	type DragStartEvent,
 	PointerSensor,
-	closestCenter,
 	useSensor,
 	useSensors,
 } from "@dnd-kit/core";
@@ -20,6 +15,11 @@ import { createServerFn } from "@tanstack/react-start";
 import { GripVertical } from "lucide-react";
 import { useEffect, useState } from "react";
 import { z } from "zod";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import type { Match, Participant, Schedule } from "@/db";
+import { cn } from "@/lib/utils";
+import { dbMiddleware } from "@/middleware";
 
 // Server function to update match order
 export const updateMatchOrderFn = createServerFn({
@@ -89,30 +89,30 @@ const SortableListItem = ({
 			className={cn("relative group", isDragging && "opacity-50", hasWinner && "opacity-60")}
 		>
 			<Link to="/admin/schedule/$id/$matchId" params={{ id: schedule.id, matchId: match.id }}>
-				<Card className={cn("p-2")}>
-					<CardContent className="flex gap-4 items-center">
-						<p className={cn("text-lg font-bold", match.id === currentMatchId && "text-green-500")}>{match.name}</p>
-						<div className="flex items-center gap-4">
-							<Badge
-								variant="secondary"
-								className={cn("text-lg", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
-							>
-								{bot1?.name || "TBD"}
-							</Badge>
-							<p>vs</p>
-							<Badge
-								variant="secondary"
-								className={cn("text-lg", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
-							>
-								{bot2?.name || "TBD"}
-							</Badge>
-						</div>
+				<Card className={cn("p-2 rounded-md")}>
+					<CardContent className="grid grid-cols-12 gap-4 items-center">
+						<p className={cn("col-span-3 text-lg font-bold", match.id === currentMatchId && "text-green-500")}>
+							{match.name}
+						</p>
+						<Badge
+							variant="secondary"
+							className={cn("col-span-4  w-full text-lg", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
+						>
+							<p className="truncate text-center">{bot1?.name || "TBD"}</p>
+						</Badge>
+						<p className="col-span-1 text-center">vs</p>
+						<Badge
+							variant="secondary"
+							className={cn("col-span-4 w-full text-lg", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
+						>
+							<p className="truncate text-center">{bot2?.name || "TBD"}</p>
+						</Badge>
 						{/* Drag handle */}
 						{!hasWinner && (
 							<div
 								{...attributes}
 								{...listeners}
-								className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing p-1 rounded"
+								className="absolute right-2 col-span-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing p-1 rounded"
 							>
 								<GripVertical className="h-4 w-4 text-gray-400" />
 							</div>
@@ -121,44 +121,6 @@ const SortableListItem = ({
 				</Card>
 			</Link>
 		</div>
-	);
-};
-
-const DraggingListItem = ({
-	match,
-	bot1,
-	bot2,
-	currentMatchId,
-}: {
-	match: Match;
-	bot1: Participant | undefined;
-	bot2: Participant | undefined;
-	currentMatchId: string | undefined;
-}) => {
-	return (
-		<Card className="p-2 shadow-lg">
-			<CardContent className="flex gap-4 items-center">
-				<p className={cn("text-lg font-bold", match.id === currentMatchId && "text-green-500")}>{match.name}</p>
-				<div className="flex items-center gap-4">
-					<Badge
-						variant="secondary"
-						className={cn("text-lg", bot1 && match.winner?.id === bot1.id && "text-amber-400")}
-					>
-						{bot1?.name || "TBD"}
-					</Badge>
-					<p>vs</p>
-					<Badge
-						variant="secondary"
-						className={cn("text-lg", bot2 && match.winner?.id === bot2.id && "text-amber-400")}
-					>
-						{bot2?.name || "TBD"}
-					</Badge>
-				</div>
-				<div className="ml-auto p-1">
-					<GripVertical className="h-4 w-4 text-gray-400 hover:bg-transparent" />
-				</div>
-			</CardContent>
-		</Card>
 	);
 };
 
@@ -288,7 +250,8 @@ export const MatchList = ({
 
 			<DragOverlay>
 				{activeMatch && (
-					<DraggingListItem
+					<SortableListItem
+						schedule={schedule}
 						match={activeMatch}
 						bot1={activeMatchBots[0]}
 						bot2={activeMatchBots[1]}

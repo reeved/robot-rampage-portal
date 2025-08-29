@@ -59,7 +59,7 @@ function RouteComponent() {
 	}
 
 	return (
-		<div key={matchId} className="flex flex-col gap-y-6">
+		<div key={matchId} className="flex flex-col gap-y-6 2xl:col-span-7">
 			{schedule.type === "QUALIFYING" || schedule.type === "EXHIBITION" ? (
 				<QualifyingMatchForm participants={participants} onSubmit={handleUpdate} defaultValues={match} />
 			) : schedule.type === "BRACKET" ? (

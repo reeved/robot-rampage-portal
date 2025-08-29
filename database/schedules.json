@@ -358,6 +358,16 @@
           "id": "0a41c0a",
           "condition": "JD"
         }
+      },
+      {
+        "id": "match-xgjpi4c",
+        "name": "Match 10",
+        "participants": [
+          {
+            "id": "part-04xspbq"
+          },
+          {}
+        ]
       }
     ],
     "name": "Qualifying Session 2"
@@ -626,12 +636,12 @@
             "introText": "This robot doesn't even have a heart, and somehow all that runs through his veins is rage, haemoglobin, and mud. Everybody, please put your hands together for BAAD BLOOOOD"
           }
         ],
-        "bracket": "Championship",
-        "round": "QF1",
         "winner": {
           "id": "part-04xspbq",
           "condition": "JD"
-        }
+        },
+        "bracket": "Championship",
+        "round": "QF1"
       },
       {
         "id": "match-uf9ibm7",
@@ -646,12 +656,12 @@
             "introText": "Look, this is just dining cutlery etiquette. On the right hand side of the dish you can have your knives and spoons et cetera... But the left side and in the BLUE square, that's purely reserved for ONLY FOOOOORKS"
           }
         ],
-        "bracket": "Championship",
-        "round": "QF4",
         "winner": {
           "id": "part-y3konnp",
           "condition": "KO"
-        }
+        },
+        "bracket": "Championship",
+        "round": "QF4"
       },
       {
         "id": "match-qyq2o36",
@@ -666,12 +676,12 @@
             "introText": "This bot hits HARD- a real armour breaker. You'll feel the arena shake, this bot's an earthquaker. The force of the blow is gonna send you to Jamaica! Everybody give it up foor HAYMAKER"
           }
         ],
-        "bracket": "9th Place",
-        "round": "QF2",
         "winner": {
           "id": "rot076r",
           "condition": "KO"
-        }
+        },
+        "bracket": "9th Place",
+        "round": "QF2"
       },
       {
         "id": "match-ocld65n",
@@ -686,12 +696,12 @@
             "introText": "Other bots have hearts of steel- but this bot has a heart of oak! Forget branches and grain, cause he's serving carrots, and pain. You don't think he'd go easy on you, would he? Brace yourselves, for CHEF WOOODYYYYY"
           }
         ],
-        "bracket": "9th Place",
-        "round": "QF1",
         "winner": {
           "id": "part-aw653qy",
           "condition": "JD"
-        }
+        },
+        "bracket": "9th Place",
+        "round": "QF1"
       },
       {
         "id": "match-avww33e",
@@ -706,12 +716,12 @@
             "introText": "They say this thwackbot was chained up in robo prison for committing crazy robo crimes.. But he broke free of his bonds, and now, they're his main weapon! IT'S CHAIN DAMAAAGE"
           }
         ],
-        "bracket": "9th Place",
-        "round": "QF4",
         "winner": {
           "id": "part-uov2lni",
           "condition": "KO"
-        }
+        },
+        "bracket": "9th Place",
+        "round": "QF4"
       },
       {
         "id": "match-t4a0f5g",
@@ -726,12 +736,12 @@
             "introText": "When this bot boots up, opponents start debugging their strategy, because this machine is programmed for destruction. Coming to battle with blades of vengeance and bytes of fury... it's KILLABYTE!"
           }
         ],
-        "bracket": "9th Place",
-        "round": "QF3",
         "winner": {
           "id": "part-fdrxhj5",
           "condition": "KO"
-        }
+        },
+        "bracket": "9th Place",
+        "round": "QF3"
       },
       {
         "id": "match-8h4q85l",
@@ -746,12 +756,12 @@
             "introText": "He's cunning, he's sneaky, he thinks outside the box. He's spinny, he's ANGRYY, he came from the school of hard knocks. They say hell hath no fury, but that's because Team Sly Robotics took it, and used it to fuel FUUURY FOXXXX"
           }
         ],
-        "bracket": "Championship",
-        "round": "QF2",
         "winner": {
           "id": "part-qpm0bjg",
           "condition": "KO"
-        }
+        },
+        "bracket": "Championship",
+        "round": "QF2"
       },
       {
         "id": "match-ndvnh3p",
@@ -766,12 +776,22 @@
             "introText": "HAHAHAHAaaa my nemesis I finaally caught you!!! You silly little semi aquatic mammal of action-Wait.. is that a robot?! Oh my goodness it's PERRY THE ROBOT!?"
           }
         ],
-        "bracket": "Championship",
-        "round": "QF3",
         "winner": {
           "id": "0a41c0a",
           "condition": "KO"
-        }
+        },
+        "bracket": "Championship",
+        "round": "QF3"
+      },
+      {
+        "id": "match-u2073q5",
+        "name": "Match 9",
+        "participants": [
+          {},
+          {}
+        ],
+        "bracket": "",
+        "round": "SF1"
       }
     ],
     "name": "Bracket 1"

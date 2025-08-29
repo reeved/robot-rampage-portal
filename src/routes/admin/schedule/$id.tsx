@@ -1,7 +1,7 @@
-import { dbMiddleware } from "@/middleware";
-import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { dbMiddleware } from "@/middleware";
 import { ViewSchedule } from "./-view-schedule";
 
 export const getSchedule = createServerFn({
@@ -36,7 +36,7 @@ function RouteComponent() {
 	const { schedule, participants, currentMatchId } = Route.useLoaderData();
 
 	return (
-		<div className="w-full grid grid-cols-2 gap-20">
+		<div className="w-full grid 2xl:grid-cols-12 gap-10">
 			<ViewSchedule schedule={schedule} participants={participants} currentMatchId={currentMatchId} />
 			<Outlet />
 		</div>

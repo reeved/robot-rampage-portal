@@ -201,7 +201,7 @@ function RouteComponent() {
 				</div>
 			</div>
 			<Separator orientation="horizontal" className="my-4" />
-			<div className="flex-1">
+			<div className="flex-1 overflow-y-auto">
 				<Outlet />
 			</div>
 		</div>
