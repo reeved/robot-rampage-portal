@@ -1,6 +1,14 @@
 import { createFileRoute, Link, Outlet, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import { PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import type { Schedule } from "@/db";
 import { cn, generateId } from "@/lib/utils";
@@ -151,47 +159,49 @@ function RouteComponent() {
 	};
 
 	return (
-		<div className="flex h-full flex-1">
-			<div className="w-2/10 border-r-1 border-foreground flex flex-col items-start gap-y-4">
+		<div className="flex flex-col h-full flex-1">
+			<div className="flex flex-col items-start gap-y-4">
 				<div className="flex flex-wrap flex-col gap-2 justify-between w-full pr-4">
 					<div className="flex flex-row items-center gap-2">
 						<SidebarTrigger />
-						<h4 className="text-2xl font-bold">Sessions</h4>
-					</div>
+						<h4 className="text-2xl font-bold mr-4">Sessions</h4>
 
-					<div className="flex flex-wrap w-full gap-2">
-						<Button variant="default" onClick={addNewQualifying}>
-							Add new Quali +
-						</Button>
-						<Button variant="default" onClick={addNewTeams}>
-							Add new Teams +
-						</Button>
-						<Button variant="default" onClick={addNewExhibition}>
-							Add new Exhibition +
-						</Button>
-						<Button variant="default" onClick={() => addNewBracket()}>
-							Add new Bracket +
-						</Button>
+						<DropdownMenu>
+							<DropdownMenuTrigger>
+								<Button variant="default" size="sm">
+									<PlusIcon className="w-4 h-4" />
+									Add new session
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent>
+								<DropdownMenuItem onClick={addNewQualifying}>Qualifying</DropdownMenuItem>
+								<DropdownMenuItem onClick={addNewBracket}>Bracket</DropdownMenuItem>
+								<DropdownMenuItem onClick={addNewTeams}>Teams</DropdownMenuItem>
+								<DropdownMenuItem onClick={addNewExhibition}>Exhibition</DropdownMenuItem>
+							</DropdownMenuContent>
+						</DropdownMenu>
 					</div>
 				</div>
-
-				{schedules.map((s) => (
-					<Button
-						asChild
-						key={s.id}
-						variant="secondary"
-						className={cn(
-							"px-4 py-4 rounded-sm  self-stretch mr-4 font-bold",
-							s.matches.some((m) => m.id === currentMatchId) && "text-green-500",
-						)}
-					>
-						<Link to="/admin/schedule/$id" params={{ id: s.id }}>
-							{s.name}
-						</Link>
-					</Button>
-				))}
+				<div className="flex flex-wrap w-full gap-2">
+					{schedules.map((s) => (
+						<Button
+							asChild
+							key={s.id}
+							variant="secondary"
+							className={cn(
+								"px-4 py-4 rounded-sm  self-stretch mr-4 font-bold",
+								s.matches.some((m) => m.id === currentMatchId) && "text-green-500",
+							)}
+						>
+							<Link to="/admin/schedule/$id" params={{ id: s.id }}>
+								{s.name}
+							</Link>
+						</Button>
+					))}
+				</div>
 			</div>
-			<div className="flex-1 p-4">
+			<Separator orientation="horizontal" className="my-4" />
+			<div className="flex-1">
 				<Outlet />
 			</div>
 		</div>
